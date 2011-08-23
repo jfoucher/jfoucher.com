@@ -21,12 +21,11 @@
                 {% include topnav.html %}
 			</div><!-- #access -->
 			<div id="branding" role="banner">
-				{% if page.title == "Geeky Nuggets" 
-                    tag="h1"
-                  else
-                    tag="div"
-                  endif
-                %}
+				{% if page.title == "Geeky Nuggets" %} 
+                    {% tag="h1" %}
+                  {% else %}
+                    {% tag="div" %}
+                  {% endif %}
                 <{{tag}} id="site-title">
 					<span>
 						<a href="/" title="{{site.description}}" rel="home">{{site.description}}i</a>
