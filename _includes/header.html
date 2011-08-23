@@ -29,9 +29,13 @@
 					<span>
 						<a href="/" title="{{site.title}}" rel="home">{{site.title}}</a>
 					</span>
-				</{{tag}}>
-				<div id="site-description">{{site.description}}</div>
+				{% if page.title == "Geeky Nuggets" %} 
+                </h1>
+                  {% else %}
+                </div>
+                  {% endif %}
 
+				<div id="site-description">{{site.description}}</div>
 			</div><!-- #branding -->
 
 		</div><!-- #masthead -->
