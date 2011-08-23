@@ -22,11 +22,10 @@
 			</div><!-- #access -->
 			<div id="branding" role="banner">
 				{% if page.title == "Geeky Nuggets" %} 
-                    {% tag="h1" %}
+                <h1 id="site-title">
                   {% else %}
-                    {% tag="div" %}
+                <div id="site-title">
                   {% endif %}
-                <{{tag}} id="site-title">
 					<span>
 						<a href="/" title="{{site.description}}" rel="home">{{site.description}}i</a>
 					</span>
