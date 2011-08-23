@@ -1,0 +1,4 @@
+markdown: rdiscount
+pygments: true
+description: Jonathan Foucher's blog <span class="amp">&amp;</span> web development notebook
+
