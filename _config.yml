@@ -1,4 +1,5 @@
 markdown: rdiscount
 pygments: true
 description: Jonathan Foucher's blog <span class="amp">&amp;</span> web development notebook
+title: Geeky Nugggets
 clean_desc: Jonathan Foucher's blog & web development notebook
