@@ -18,7 +18,9 @@ I set up a cname for my domain (a test sub domain first) and created a pages rep
 
 Then I install jekyll
 
-prepare the site
+## prepare the site
+That means I have to copy over all the iste's assets, css, images, fonts, etc and modify the jekyll layout to be as
+similar as possible to the wordpress theme I am using, so that I won't have to touch the CSS
 
 migrate posts to jekyl
 
