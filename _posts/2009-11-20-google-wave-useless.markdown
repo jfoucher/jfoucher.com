@@ -4,7 +4,7 @@ title: <!--:en-->Why Google Wave is useless (with invites giveaway)<!--:-->
 tags: []
 
 ---
-<!--:en-->[caption id="attachment_172" align="aligncenter" width="300" caption="Google Wave"]<a href="http://jfoucher.comcdn.jfoucher.com/uploads/2009/11/Screenshot-1.png"><img class="size-medium wp-image-172" title="Google Wave" src="http://jfoucher.comcdn.jfoucher.com/uploads/2009/11/Screenshot-1-300x158.png" alt="Google Wave" width="300" height="158" /></a>[/caption]
+<!--:en-->[caption id="attachment_172" align="aligncenter" width="300" caption="Google Wave"]<a href="http://cdn.jfoucher.com/uploads/2009/11/Screenshot-1.png"><img class="size-medium wp-image-172" title="Google Wave" src="http://cdn.jfoucher.com/uploads/2009/11/Screenshot-1-300x158.png" alt="Google Wave" width="300" height="158" /></a>[/caption]
 <h3>1. You need to have it open in your browser to appear online</h3>
 <h3>2. Nobody is ever online for that exact reason.</h3>
 <h3>3. All my contacts disappeared</h3>

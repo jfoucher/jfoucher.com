@@ -8,7 +8,7 @@ tags: []
 <h2>The idea</h2>
 And then the idea dawned on me: why not use <a href="http://flickr.com">flickr</a>'s <a href="http://creativecommons.org/">creative commons</a> licensed images? The quality is often very good, especially for "interesting" images, a lot of sizes are available, and users often use tags to classify their images, making it rather easy to get placeholder images about a particular subject.
 
-[caption id="attachment_413" align="aligncenter" width="600" caption="flickholdr.com"]<a href="http://jfoucher.comcdn.jfoucher.com/uploads/2011/03/FlickHoldr1.png"><img class="size-full wp-image-413" title="FlickHoldr" src="http://jfoucher.comcdn.jfoucher.com/uploads/2011/03/FlickHoldr1.png" alt="screenshot of flickholdr.com" width="600" height="417" /></a>[/caption]
+[caption id="attachment_413" align="aligncenter" width="600" caption="flickholdr.com"]<a href="http://cdn.jfoucher.com/uploads/2011/03/FlickHoldr1.png"><img class="size-full wp-image-413" title="FlickHoldr" src="http://cdn.jfoucher.com/uploads/2011/03/FlickHoldr1.png" alt="screenshot of flickholdr.com" width="600" height="417" /></a>[/caption]
 <h2>The execution</h2>
 So I proceeded to develop a little webapp to do just that, using <a href="http://codeigniter.com">codeigniter</a>, my framework of choice for rapid application development
 

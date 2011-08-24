@@ -32,7 +32,7 @@ module Jekyll
 				  inner join wp_terms tm on tm.term_id=tt.term_id
 				  where tr.object_id=%d and tt.taxonomy = 'post_tag'";
 
-    def self.process(dbname = 'jfoucher', user='root', pass='azerty', host = 'localhost', domain = '')
+    def self.process(dbname = 'jfoucher', user='root', pass='azerty', host = 'localhost', domain = 'jfoucher.com')
       db = Sequel.mysql(dbname, :user => user, :password => pass, :host => host)
 
       FileUtils.mkdir_p "_posts"
@@ -57,6 +57,7 @@ module Jekyll
 		if domain
 		        content = self.transformUrls(domain,content)
 		end
+		
 
         # Get the relevant fields as a hash, delete empty fields and convert
         # to YAML for the header

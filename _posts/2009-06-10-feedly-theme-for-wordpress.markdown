@@ -12,4 +12,4 @@ Anyway, here's a screenshot of what I have at the moment, so please tell me what
 
 EDIT: It's ready ! <a href="http://jfoucher.com/general/wpfeedly-theme-download/">Download it now</a>
 
-[caption id="attachment_72" align="alignleft" width="300" caption="Feedly Wordpress Theme"]<a href="http://jfoucher.comcdn.jfoucher.com/uploads/2009/06/screenshot-2009-06-10.png"><img class="size-medium wp-image-72" title="Feedly Wordpress Theme Screenshot" src="http://jfoucher.comcdn.jfoucher.com/uploads/2009/06/screenshot-2009-06-10-300x187.png" alt="Feedly Wordpress Theme" width="300" height="187" /></a>[/caption]<!--:-->
+[caption id="attachment_72" align="alignleft" width="300" caption="Feedly Wordpress Theme"]<a href="http://cdn.jfoucher.com/uploads/2009/06/screenshot-2009-06-10.png"><img class="size-medium wp-image-72" title="Feedly Wordpress Theme Screenshot" src="http://cdn.jfoucher.com/uploads/2009/06/screenshot-2009-06-10-300x187.png" alt="Feedly Wordpress Theme" width="300" height="187" /></a>[/caption]<!--:-->

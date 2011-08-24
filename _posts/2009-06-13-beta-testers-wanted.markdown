@@ -4,7 +4,7 @@ title: <!--:en-->Beta testers wanted<!--:-->
 tags: []
 
 ---
-<!--:en-->[caption id="attachment_144" align="aligncenter" width="300" caption="Beta Testing: me too, me too!"]<a href="http://jfoucher.comcdn.jfoucher.com/uploads/2009/06/crashtestzombie.jpg"><img class="size-medium wp-image-144" title="Beta Testing: me too, me too!" src="http://jfoucher.comcdn.jfoucher.com/uploads/2009/06/crashtestzombie-300x270.jpg" alt="Beta Testing: me too, me too!" width="300" height="270" /></a>[/caption]
+<!--:en-->[caption id="attachment_144" align="aligncenter" width="300" caption="Beta Testing: me too, me too!"]<a href="http://cdn.jfoucher.com/uploads/2009/06/crashtestzombie.jpg"><img class="size-medium wp-image-144" title="Beta Testing: me too, me too!" src="http://cdn.jfoucher.com/uploads/2009/06/crashtestzombie-300x270.jpg" alt="Beta Testing: me too, me too!" width="300" height="270" /></a>[/caption]
 
 The Feedly-like theme for Wordpress has reached the beta stages. I would like to do a limited round of testing before releasing this theme. Feedly changes so quickly that I'm having trouble keeping up! Only today, I noticed they added the date in a little box on the left hand side, I must admit it's quite useful to see at a glance when the posts were published. I implemented it straight away on WP-feedly, of course!
 

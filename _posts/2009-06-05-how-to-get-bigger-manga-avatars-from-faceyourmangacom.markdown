@@ -8,7 +8,7 @@ tags: []
 
 But I have to admit I'm a high res addict, and just had to find a way to get a better resolution picture.
 
-[caption id="attachment_77" align="alignright" width="150" caption="Mangatar"]<a href="http://jfoucher.comcdn.jfoucher.com/uploads/2009/06/mangatar2big.png"><img src="http://jfoucher.comcdn.jfoucher.com/uploads/2009/06/mangatar2big-150x150.png" alt="Mangatar" title="Mangatar" width="150" height="150" class="size-thumbnail wp-image-77" /></a>[/caption]The solution is easy if you're using Firefox as your browser. I made use of the zoom feature to zoom in on the flash where the avatar creation occurs, and as flash does not lose resoution as you zoom in on it, you just have to print your screen when you are at the size you want and voilà! your high(er) res mangatar!
+[caption id="attachment_77" align="alignright" width="150" caption="Mangatar"]<a href="http://cdn.jfoucher.com/uploads/2009/06/mangatar2big.png"><img src="http://cdn.jfoucher.com/uploads/2009/06/mangatar2big-150x150.png" alt="Mangatar" title="Mangatar" width="150" height="150" class="size-thumbnail wp-image-77" /></a>[/caption]The solution is easy if you're using Firefox as your browser. I made use of the zoom feature to zoom in on the flash where the avatar creation occurs, and as flash does not lose resoution as you zoom in on it, you just have to print your screen when you are at the size you want and voilà! your high(er) res mangatar!
 
 Click on the image on the right to view the full resolution version of my avatar. Once you get your own high-res avatar, it is much easier to vectorize it properly, using for example <a href="http://inkscape.org">Inkscape</a> or <a href="http://vectormagic.com">Vector Magic</a>.
 

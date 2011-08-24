@@ -62,7 +62,7 @@ function email_admin($location){<br />
 }<br />
 </code></p>
 <p>This function sets some headers for the email, such as the sender's name and email, and the subject of the message, and then sends the message. No error is shown if the message can't be sent, as this would be displayed on the page.</p>
-<p>Until approval by the wordpress.org guys, you can download it here: <a href='http://jfoucher.comcdn.jfoucher.com/uploads/2011/01/email-404.zip'>Email 404 Wordpress plugin</a></p>
+<p>Until approval by the wordpress.org guys, you can download it here: <a href='http://cdn.jfoucher.com/uploads/2011/01/email-404.zip'>Email 404 Wordpress plugin</a></p>
 </p>
 <p></p>
 <!--:-->
