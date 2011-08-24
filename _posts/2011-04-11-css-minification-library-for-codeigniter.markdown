@@ -24,7 +24,7 @@ Using the library involves loading it, setting up an array with some configurati
 The following code, which should go in your controller, will look very familiar to Codeigniter users.
 
 {% highlight css+php %}
-
+<?php
 $this->load->library('css');
 //array of files to concatenate and minify
 $config['source_file']=array('/assets/css/layout.css','/assets/css/fonts.css');
@@ -34,7 +34,7 @@ $config['dest_file']'/assets/css/css.min.css';
 $config['cache_time']=48;
 $this->css->initialize($config);
 echo $this->css->link();
-
+?>
 {% endhighlight %}
 
 Will output the following stylesheet tag:
