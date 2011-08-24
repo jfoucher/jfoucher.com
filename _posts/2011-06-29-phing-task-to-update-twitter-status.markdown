@@ -89,8 +89,12 @@ Please note though that I'm not making any claims as to how secure this is or wh
 <h3>Create the build file</h3>
 
 First, we define the custom task:
-<code lang="xml"><taskdef name="twitterupdate" classname="phing.tasks.my.TwitterUpdateTask" /></code>
 
+
+{% highlight xml %}
+<taskdef name="twitterupdate" classname="phing.tasks.my.TwitterUpdateTask" />
+
+{% endhighlight %}
 Secondly, let's create a custom target that will send a tweet with the message we want.
 
 {% highlight xml %}
