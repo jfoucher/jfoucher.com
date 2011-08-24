@@ -1,0 +1,16 @@
+--- 
+layout: post
+title: <!--:en-->Feeds<!--:-->
+tags: []
+
+---
+<!--:en-->In case you're using a syndication software that can read RSS2.0 feeds, and if you don't like the layout of this blog <img src="http://jfoucher.com/img/gear_wink.gif alt="<img src="http://jfoucher.com/img/gear_wink.gif alt=";)" />" /> I offer syndication feeds for its content as well as the comments posted on the posts. You can get feeds for the comments on individual posts from the link at the top of the comments section: <br />
+<img src="http://jfoucher.com/img/th1.gif alt="Link below coments title" />
+
+The main feeds are: 
+
+The <a href="http://jfoucher.com/feed/rss/ title="Syndicate this blog">entries rss feed</a>
+
+and the <a href="http://jfoucher.com/comments/rss/ title="Syndicate this blog's comments">comments feed</a>.
+
+New! the <a href="http://feeds.jfoucher.com/JonathanFoucher" title="Syndicate mmypublic interventions on the web">My Life feed</a> let's you know everything I do on the web.<!--:-->
