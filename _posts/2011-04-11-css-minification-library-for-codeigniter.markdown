@@ -23,8 +23,6 @@ Using the library involves loading it, setting up an array with some configurati
 
 The following code, which should go in your controller, will look very familiar to Codeigniter users.
 
-&nbsp;
-
 {% highlight php %}
 $this->load->library('css');
 //array of files to concatenate and minify
@@ -36,6 +34,7 @@ $config['cache_time']=48;
 $this->css->initialize($config);
 echo $this->css->link();
 {% endhighlight %}
+
 Will output the following stylesheet tag:
 
 {% highlight html %}
