@@ -22,8 +22,8 @@ xdebug.remote_port=9000 ;this is the default, leave it as is
 {% endhighlight %}
 
 Now we restart apache so that the new configuration is taken into account:
-<code lang="bash">sudo /etc/init.d/apache2 restart</code>
-And we that we are <strong>done</strong> on the server side of things
+{% highlight bash %}sudo /etc/init.d/apache2 restart{% endhighlight %}
+And we that we are *done* on the server side of things
 <h3>Prepare PhpStorm</h3>
 Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the "Accept debug connections" button, and activate Xdebug by using a browser extension. �Here are four extensions to do this:
 <ul>
