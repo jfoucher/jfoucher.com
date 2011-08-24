@@ -16,9 +16,9 @@ Within this file, there will be a single line, referencing the xdebug zend exten
 This is what we're going to add:
 
 {% highlight ini %}
-xdebug.remote_enable=On #this enables remote debugging
-xdebug.remote_host=192.168.1.83 #change this IP adress for the one of the computer you are typing on
-xdebug.remote_port=9000 #this is the default, leave it as is
+xdebug.remote_enable=On ;this enables remote debugging
+xdebug.remote_host=192.168.1.83 ;change this IP adress for the one of the computer you are typing on
+xdebug.remote_port=9000 ;this is the default, leave it as is
 {% endhighlight %}
 
 Now we restart apache so that the new configuration is taken into account:
