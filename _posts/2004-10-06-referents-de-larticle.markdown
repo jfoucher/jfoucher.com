@@ -5,7 +5,7 @@ tags: []
 
 date: Wed Oct 06 17:36:09 +0200 2004
 ---
-<!--:en-->C'est un plugin pour <a hreflang="en" href="http://wordpress.org">Wordpress</a> Qui montre les derniers sites d'où sont venus vos visiteurs. Vous aurez besoin du plugin <a hreflang="en" href="http://randypeterman.com/StatTraq">Stattraq</a>.
+C'est un plugin pour <a hreflang="en" href="http://wordpress.org">Wordpress</a> Qui montre les derniers sites d'où sont venus vos visiteurs. Vous aurez besoin du plugin <a hreflang="en" href="http://randypeterman.com/StatTraq">Stattraq</a>.
 
 Installation :
 <ol>
@@ -31,7 +31,7 @@ Vous pouvez voir une démonstration en bas des pages de ce blog, et n'hésitez pas
 
 Version 0.21 : utilisation de la redirection Google pour essayer de diminuer les <a href="/?p=20">spams de référents</a>.
 
-<a hreflang="en" href="/?p=37">English version</a><!--:--><!--:fr-->C'est un plugin pour <a hreflang="en" href="http://wordpress.org">Wordpress</a> Qui montre les derniers sites d'où sont venus vos visiteurs. Vous aurez besoin du plugin <a hreflang="en" href="http://randypeterman.com/StatTraq">Stattraq</a>.
+<a hreflang="en" href="/?p=37">English version</a>C'est un plugin pour <a hreflang="en" href="http://wordpress.org">Wordpress</a> Qui montre les derniers sites d'où sont venus vos visiteurs. Vous aurez besoin du plugin <a hreflang="en" href="http://randypeterman.com/StatTraq">Stattraq</a>.
 
 Installation :
 <ol>
@@ -57,4 +57,4 @@ Vous pouvez voir une démonstration en bas des pages de ce blog, et n'hésitez pas
 
 Version 0.21 : utilisation de la redirection Google pour essayer de diminuer les <a href="/?p=20">spams de référents</a>.
 
-<a hreflang="en" href="/?p=37">English version</a><!--:-->
+<a hreflang="en" href="/?p=37">English version</a>

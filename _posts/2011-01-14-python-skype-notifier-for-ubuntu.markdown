@@ -6,7 +6,7 @@ tags: []
 
 date: Fri Jan 14 13:21:52 +0100 2011
 ---
-<!--:en-->What's the best way to learn a new programming language ? Well, according to <a href="http://programmers.stackexchange.com/q/3519/3984">this question</a> the best (only ?) way to learn a new language is just to code in that language.
+What's the best way to learn a new programming language ? Well, according to <a href="http://programmers.stackexchange.com/q/3519/3984">this question</a> the best (only ?) way to learn a new language is just to code in that language.
 <h3>Why Python ?</h3>
 Because it's <a href="http://en.wikipedia.org/wiki/Python_(programming_language)#Name_and_neologisms">named after the Monty Python</a>
 
@@ -532,4 +532,4 @@ if __name__ == "__main__":
 Download the script, or fork it on the <a href="https://github.com/jfoucher/ubuntu-skype-indicator">ubuntu-skype-indicator github repository</a>
 
 UPDATE: Before you run this script, you need to install its dependencies, python-indicate and skype4py
-On ubuntu, it's as simple as running <code lang="bash">sudo apt-get install python-skype python-indicate</code><!--:-->
+On ubuntu, it's as simple as running <code lang="bash">sudo apt-get install python-skype python-indicate</code>

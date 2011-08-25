@@ -5,7 +5,7 @@ tags: []
 
 date: Fri Sep 24 09:32:50 +0200 2004
 ---
-<!--:en-->Referrers is a plugin I coded to show the most recent referring urls to a particular post. I had seen the <a href="http://noprerequisite.com/wp-refer/" hreflang="en">wp-refer plugin</a> from <a href="http://noprerequisite.com" hreflang="en">NoPrerequisite</a> but couldn't put it on my blog without hacking because it uses the meta fields to store its data, and as I display the metadata for other purposes in each post, it would get fairly cluttered. 
+Referrers is a plugin I coded to show the most recent referring urls to a particular post. I had seen the <a href="http://noprerequisite.com/wp-refer/" hreflang="en">wp-refer plugin</a> from <a href="http://noprerequisite.com" hreflang="en">NoPrerequisite</a> but couldn't put it on my blog without hacking because it uses the meta fields to store its data, and as I display the metadata for other purposes in each post, it would get fairly cluttered. 
 
 Also, I am using the very good <a href="http://randypeterman.com/StatTraq/index.php?p=14"  hreflang="en">StatTraq plugin</a>, so I thought I could make use of the fact that it already records <a href="http://dictionary.reference.com/search?q=referer"  hreflang="en">referrers</a>.
 
@@ -43,4 +43,4 @@ See it work at the bottom of this page, and leave a comment in case of problems.
 
 Version 0.21 and up use Google redirection to help prevent <a href="http://jfoucher.info/2004/10/14/referrer-spam-spam-dans-les-referents/">referrer spam</a>.
 
-<a href="http://jfoucher.info/2004/09/24/referrer-wordpress-plugin/">En Fran?ais</a><!--:-->
+<a href="http://jfoucher.info/2004/09/24/referrer-wordpress-plugin/">En Fran?ais</a>

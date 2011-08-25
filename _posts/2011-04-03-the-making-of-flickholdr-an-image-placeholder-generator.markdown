@@ -5,7 +5,7 @@ tags: []
 
 date: Sun Apr 03 21:42:49 +0200 2011
 ---
-<!--:en-->There are a few services available to web designer and HTML coders to use dummy images in their html mockups or templates. The one I used to use is <a href="http://dummyimage.com">dummyimage</a> but it is somewhat limited in that the images are completely static: a flat color and some text. I needed the same kind of service, but with actual images or photographs rather than simple placeholders. Something like dynamically generated stock images.
+There are a few services available to web designer and HTML coders to use dummy images in their html mockups or templates. The one I used to use is <a href="http://dummyimage.com">dummyimage</a> but it is somewhat limited in that the images are completely static: a flat color and some text. I needed the same kind of service, but with actual images or photographs rather than simple placeholders. Something like dynamically generated stock images.
 <h2>The idea</h2>
 And then the idea dawned on me: why not use <a href="http://flickr.com">flickr</a>'s <a href="http://creativecommons.org/">creative commons</a> licensed images? The quality is often very good, especially for "interesting" images, a lot of sizes are available, and users often use tags to classify their images, making it rather easy to get placeholder images about a particular subject.
 
@@ -30,4 +30,4 @@ The controller private method <code lang="php" inline="true">_get_image()</code>
 The controller then sends the image to the browser with the proper headers.
 <h3>End of the story!</h3>
 
-<strong>UPDATE</strong>: Flickholdr is now open sourced and the code is available on <a href="https://github.com/jfoucher/flickholdr">github</a><!--:-->
+<strong>UPDATE</strong>: Flickholdr is now open sourced and the code is available on <a href="https://github.com/jfoucher/flickholdr">github</a>

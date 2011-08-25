@@ -6,7 +6,7 @@ tags: []
 
 date: Sat Jan 22 23:42:45 +0100 2011
 ---
-<!--:en-->I couldn't find something that did just what I wanted and no more: send me an email when someone gets a 404 error on my blog. It seems pretty simple, and it really is. More than that actually. It's problably the simplest plugin I've ever written.
+I couldn't find something that did just what I wanted and no more: send me an email when someone gets a 404 error on my blog. It seems pretty simple, and it really is. More than that actually. It's problably the simplest plugin I've ever written.
 
 Check it out:
 <code lang="php">
@@ -36,7 +36,7 @@ function email_admin($location){
 
 This function sets some headers for the email, such as the sender's name and email, and the subject of the message, and then sends the message. No error is shown if the message can't be sent, as this would be displayed on the page.
 
-<strong>UPDATE</strong>: Finally available on the <a href="http://wordpress.org/extend/plugins/email-404/">wordpress plugin repository</a><!--:--><!--:fr--><p>
+<strong>UPDATE</strong>: Finally available on the <a href="http://wordpress.org/extend/plugins/email-404/">wordpress plugin repository</a><p>
 <p>I couldn't find something that did just what I wanted and no more: send me an email when someone gets a 404 error on my blog. It seems pretty simple, and it really is. More than that actually. It's problably the simplest plugin I've ever written.</p>
 <p>Check it out:<br />
 <code lang="php"><br />
@@ -66,4 +66,3 @@ function email_admin($location){<br />
 <p>Until approval by the wordpress.org guys, you can download it here: <a href='http://cdn.jfoucher.com/uploads/2011/01/email-404.zip'>Email 404 Wordpress plugin</a></p>
 </p>
 <p></p>
-<!--:-->

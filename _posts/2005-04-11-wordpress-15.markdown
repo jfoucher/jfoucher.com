@@ -5,8 +5,7 @@ tags: []
 
 date: Mon Apr 11 13:16:32 +0200 2005
 ---
-<!--:en-->
+
 J'ai finallement mis a jour mon autre site, <a href="http://salamba.info" title="Salamba">salamba.info</a>, avec Wordpress 1.5, et pas doute, il est bien, tr?s bien m?me. Un des meilleurs ajouts est selon moi la possibilit? de configurer les plugins. Ca manquait vraiment dans les anciennes versions.
 
 Une autre chose int?ressante est la possibilit? de cr?er des pages "statiques", pour du contenu hors du syst?me normal du blog, mais c'est aussi un point faible, car le systeme de th?mes est devenu plus complexe. C'est plus flexible, mais en m?me temps plus de travail... <img src="http://jfoucher.com/img/gear_tongue.gif alt="<img src="http://jfoucher.com/img/gear_tongue.gif alt=":P" />" />
-<!--:-->

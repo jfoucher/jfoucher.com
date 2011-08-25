@@ -5,7 +5,7 @@ tags: []
 
 date: Fri Oct 08 12:56:02 +0200 2004
 ---
-<!--:en-->Cette extension de Wordpress cr?? une page sp?cifique pour chaque auteur, qui montre le nombre d'articles publi?s, et les donn?es du compte wordpress de cet utilisateur, tels que biographie, addresse du site web, etc... et optionellement l'adresse email (si vous n'avez pas peur du spam...) Il est aussi possible d'afficher un formulaire qui enverra un message   l'auteur par email, mais sans que l'adresse soit visible. 
+Cette extension de Wordpress cr?? une page sp?cifique pour chaque auteur, qui montre le nombre d'articles publi?s, et les donn?es du compte wordpress de cet utilisateur, tels que biographie, addresse du site web, etc... et optionellement l'adresse email (si vous n'avez pas peur du spam...) Il est aussi possible d'afficher un formulaire qui enverra un message   l'auteur par email, mais sans que l'adresse soit visible. 
 
 Vous pouvez vous en servir comme d'une page '  propos' dans un blog personnel ou pour donner une pr?sentation de chaque auteur dans un site collaboratif.
 
@@ -59,4 +59,3 @@ Mais vous pourriez tout aussi bien utliser le r?gle suivante :
 en remplacant 'login' par votre propre identifiant, et cr??r un lien vers cette page comme ceci :
 
      <a href="http://jfoucher.com/a-propos/>A propos</a>
-<!--:-->

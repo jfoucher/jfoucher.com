@@ -5,7 +5,7 @@ tags: []
 
 date: Fri Sep 24 22:33:09 +0200 2004
 ---
-<!--:en--><strong>Tr?s rapidement</strong>
+<strong>Tr?s rapidement</strong>
 
 T?l?chargez un lecteur de news (essayez <a href="http://sage.mozdev.org/ hreflang="en"">Sage</a> pour <a href="http://www.mozilla.org/products/firefox/ hreflang="en"">FireFox</a>, ou <a href="http://www.bradsoft.com/feeddemon/ hreflang="en"">FeedDemon</a> pour Windows)  et trainez y un de ces boutons. Vous devriez maintenant pouvoir lire ce blog sans y ?tre connect?(e) et ?tre mis(e) au courant lors des mises   jour.
 
@@ -31,4 +31,4 @@ Il y en a ?norm?ment. Je vous conseille particuli?rement l'extension <a href="ht
 
 <strong>En savoir plus</strong>
 
-Je vous conseille l'<a href="http://seb.ouvaton.org/seblog/index.php/2004/09/23/10-la-syndication-de-contenus" hreflang="fr">article</a> de <a href="http://seb.ouvaton.org" hreflang="fr">S?bastien Lardi?re</a> qui approfondit les explications, ou <a href="http://www.faganfinder.com/search/rss.shtml" hreflang="en">cette page</a>, o? vous pourrez tout savoir de Atom, RSS, etc...<!--:-->
+Je vous conseille l'<a href="http://seb.ouvaton.org/seblog/index.php/2004/09/23/10-la-syndication-de-contenus" hreflang="fr">article</a> de <a href="http://seb.ouvaton.org" hreflang="fr">S?bastien Lardi?re</a> qui approfondit les explications, ou <a href="http://www.faganfinder.com/search/rss.shtml" hreflang="en">cette page</a>, o? vous pourrez tout savoir de Atom, RSS, etc...

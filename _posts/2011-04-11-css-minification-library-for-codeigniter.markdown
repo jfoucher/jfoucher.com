@@ -8,7 +8,7 @@ tags:
 - minify
 date: Mon Apr 11 14:10:51 +0200 2011
 ---
-<!--:en-->For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like <code lang="php">
+For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like <code lang="php">
 <?php echo $this->css->link(array('/assets/css/fonts.css','/assets/css/layout.css');?></code>
 
 After some searching, I found a css minification library for PHP, <a href="https://code.google.com/p/minify/">minify</a>
@@ -44,4 +44,4 @@ Will output the following stylesheet tag:
 <h3>Get It!</h3>
 You can <a href="https://github.com/jfoucher/codeigniter-css-library">get it from GitHub</a>. Don't forget to fork it if you think you can make it better!
 <h3>Finally</h3>
-I'm not sure the way I've done it, using a <code lang="php" inline="true">$config</code> array and so on, is the best way. It might be a bit overkill for such a simple library. I'd love to hear your thoughts on the subject.<!--:-->
+I'm not sure the way I've done it, using a <code lang="php" inline="true">$config</code> array and so on, is the best way. It might be a bit overkill for such a simple library. I'd love to hear your thoughts on the subject.

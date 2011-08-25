@@ -5,7 +5,7 @@ tags: []
 
 date: Thu Oct 14 17:01:58 +0200 2004
 ---
-<!--:en--><strong>Le Problème</strong>
+<strong>Le Problème</strong>
 
 C'est que si vous utilisez une structure des permaliens où l'id du billet n'est pas présente, telle que celle-ci:
 <code lang="php">
@@ -28,7 +28,7 @@ Il faut donc remplacer les lignes ci-dessus par celles-la
      $p = intval($post->ID);
 </code>
 Et ça a l'air de marcher avec tous les schémas de réécriture.
-<!--:--><!--:fr--><strong>Le Problème</strong>
+<strong>Le Problème</strong>
 
 C'est que si vous utilisez une structure des permaliens où l'id du billet n'est pas présente, telle que celle-ci:
 <code lang="php">
@@ -51,4 +51,3 @@ Il faut donc remplacer les lignes ci-dessus par celles-la
      $p = intval($post->ID);
 </code>
 Et ça a l'air de marcher avec tous les schémas de réécriture.
-<!--:-->

@@ -5,7 +5,7 @@ tags: []
 
 date: Mon Oct 11 13:07:41 +0200 2004
 ---
-<!--:en-->
+
 
 Ce plugin est une autre extension de <a href="http://randypeterman.com/StatTraq">StatTraq</a> de ma cr?ation, donc n'oubliez pas de <a href="http://randypeterman.com/StatTraq/index.php?p=14">t?l?charger StatTraq</a>. Ce plugin r?cup?re les articles les plus lus de la table de StatTraq et les affiche selon le format de votre choix.
 
@@ -30,4 +30,3 @@ Le deuxi?me param?tre (un nombre entier) d?finit le nombre d'articles que vous s
 
 0.1: Premi?re sortie<br />
 0.12: Devrait fonctionner avec toutes les structures de parmaliens, merci de me faire savoir si ce n'est pas le cas. Applique le filtre pour 'the_title'.
-<!--:-->

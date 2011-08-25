@@ -6,7 +6,7 @@ tags: []
 
 date: Wed Jan 12 15:06:02 +0100 2011
 ---
-<!--:en-->First off, you want to grab the latest kernel source from <a href="http://kernel.org/">http://kernel.org/</a> and save it to a folder on your computer. I used my browser's default : <code inline="true" lang="bash">~/Downloads</code>. Right click on the archive and select "extract here"
+First off, you want to grab the latest kernel source from <a href="http://kernel.org/">http://kernel.org/</a> and save it to a folder on your computer. I used my browser's default : <code inline="true" lang="bash">~/Downloads</code>. Right click on the archive and select "extract here"
 <h3>Configuration</h3>
 Open a terminal, "cd" to your source directory, in my case <code inline="true" lang="bash">cd ~/Downloads/linux-2.6.37</code> and run <code inline="true" lang="bash">make gconfig</code> if using Ubuntu or <code inline="true" lang="bash">make kconfig</code> if running Kubuntu. At that point, you'll need to know a fair bit about your system's hardware, to select only the options that are applicable. I like to reuse my current config as a starting point, so if you are using the default ubuntu kernel, the configuration used is stored in the <code inline="true">/boot</code> directory, with names like <code inline="true">config-2.6.35-24-generic</code> Copy the latest one to your linux source directory. When the configuration editor is loaded, choose <code inline="true">File >> Load</code> and select the file you just copied over. Now the Ubuntu default configuration is loaded. If you were to compile your kernel you would get the same kind of system you have now : functional but suboptimal.
 
@@ -33,4 +33,4 @@ You should now have a working Ubuntu install running your own custom kernel. Of 
 <h3>Done!</h3>
 Anyway, in my case this upgrade is really worth it because I get a functioning built-in microphone on my Vaio! Yay!
 
-So the moral is: don't be scared of trying a custom kernel, it really got much easier, and if you don't like it, going back is as easy as selecting another entry in grub...<!--:-->
+So the moral is: don't be scared of trying a custom kernel, it really got much easier, and if you don't like it, going back is as easy as selecting another entry in grub...

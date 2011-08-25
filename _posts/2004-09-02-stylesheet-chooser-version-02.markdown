@@ -5,7 +5,7 @@ tags: []
 
 date: Thu Sep 02 20:28:10 +0200 2004
 ---
-<!--:en-->This plugin is deprecated. 
+This plugin is deprecated. 
 
 I had tried for a while to find a way to allow users to choose their favorite theme for this website. I decided to do it as a Wordpress plugin, which I offer today for other Wordpress users.
 
@@ -30,7 +30,7 @@ Now that you know all this, you can :
 	<li>Download</li>
 	<li>write a comment,</li>
 	<li>or <a href="http://jfoucher.com/about">Contact me</a> in case you have problems</li>
-</ul><!--:--><!--:fr-->I had tried for a while to find a way to allow users to choose their favorite theme for this website. I decided to do it as a Wordpress plugin, which I offer today for other Wordpress users.
+</ul>I had tried for a while to find a way to allow users to choose their favorite theme for this website. I decided to do it as a Wordpress plugin, which I offer today for other Wordpress users.
 
 Installing it is quite simple:<a href="http://jfoucher.com/stylesheet_chooser.php.txt"> Download</a>, rename to stylesheet_chooser.php, upload it to your wp-contents/plugins directory and activate it from the admin interface.
 
@@ -52,4 +52,4 @@ Now that you know all this, you can :
 	<li>Download</li>
 	<li>write a comment,</li>
 	<li>or <a href="http://jfoucher.com/about">Contact me</a> in case you have problems</li>
-</ul><!--:-->
+</ul>

@@ -5,7 +5,7 @@ tags: []
 
 date: Mon Jul 27 21:13:36 +0200 2009
 ---
-<!--:en-->You've probably seen that cafepress let's you<a href="http://www.cafepress.com/designer/sigg/"> customize your sigg bottle</a>, and you also no doubt know that water bottles are bad for the <a href="http://ecoquotidien.fr">environment</a>, as only a small proportion are recycled, and many end up scattered around natural areas, not least of which, due to their rather <em>floating</em> nature, our beaches. Sigg bottles are a durable, light and trendy alternative, and today we are going to <em>design our own</em>, but not using <a href="http://cafepress.com">cafepress'</a> flash designer!
+You've probably seen that cafepress let's you<a href="http://www.cafepress.com/designer/sigg/"> customize your sigg bottle</a>, and you also no doubt know that water bottles are bad for the <a href="http://ecoquotidien.fr">environment</a>, as only a small proportion are recycled, and many end up scattered around natural areas, not least of which, due to their rather <em>floating</em> nature, our beaches. Sigg bottles are a durable, light and trendy alternative, and today we are going to <em>design our own</em>, but not using <a href="http://cafepress.com">cafepress'</a> flash designer!
 <blockquote>There is a better and cheaper way to get your custom sigg bottle.</blockquote>
 No, because there is a <em>better and cheaper</em> way to get your custom sigg bottle. Don't want to pay $28 for a bottle ? Don't worry, this solution will get you a three dollars discount per bottle, which added to our 5 dollars <em>cafepress coupon</em> below, will get you a brand new, custom SIGG bottle for around 23 dollars! Of course, you'll have to buy three, because the coupon is only valid for purchases above $50, but these bottles are such great, eco-friendly gifts, that three of them is not nearly enough!
 
@@ -67,4 +67,4 @@ And that's it, your three brand new, custom, home made sigg bottles for <strong>
 
 A further tip if you want a different design on each bottle : as the free version of cafepress doesn't allow you to sell more than one product of each type in each shop, open several free shops with a different Sigg bottle in each!
 
-I hope you enjoy this post. If you decide to follow this tutorial, send a pic of your bottle in the comments.<!--:-->
+I hope you enjoy this post. If you decide to follow this tutorial, send a pic of your bottle in the comments.

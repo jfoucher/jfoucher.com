@@ -5,7 +5,7 @@ tags: []
 
 date: Wed Mar 09 20:59:14 +0100 2005
 ---
-<!--:en-->So this is it. I've been working on it for the past few days, and I'm quite happy with what I've got now. Of course, I'm sure many of you will not feel that way. I myself feel somewhat like having betrayed Wordpress...
+So this is it. I've been working on it for the past few days, and I'm quite happy with what I've got now. Of course, I'm sure many of you will not feel that way. I myself feel somewhat like having betrayed Wordpress...
 
 Anyway, the move is made now and I don't think there's any going back. I feel such a freedom from being able to hack the code in any (bad) way I want, it was like a breath of fresh air for me.
 
@@ -15,4 +15,4 @@ For now though, trackbacks should be functionnal (feel free to test it) and the 
 
 The <a href="http://jfoucher.com/category/wordpress-plugins>Wordpress plugins</a> are of course still available at the old URLs, although a few of them (especially the style_chooser, since the advent of themes) are now obsolete.
 
-Anyway, hope you like the new design and all... I am waiting for your suggestions, bug reports, rants, and so on.<!--:-->
+Anyway, hope you like the new design and all... I am waiting for your suggestions, bug reports, rants, and so on.

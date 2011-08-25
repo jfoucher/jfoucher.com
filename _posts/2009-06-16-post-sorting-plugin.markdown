@@ -5,7 +5,7 @@ tags: []
 
 date: Tue Jun 16 07:13:15 +0200 2009
 ---
-<!--:en--><div class="image-with-caption aligncenter" style="width:300px"><div class="caption">Sorting</div><a href="http://www.flickr.com/photos/storm-crypt/326228715/"><img class="size-medium wp-image-146" title="Sorting" src="http://cdn.jfoucher.com/uploads/2009/06/sorting-300x225.jpg" alt="Sorting" width="300" height="225" /></a></div>
+<div class="image-with-caption aligncenter" style="width:300px"><div class="caption">Sorting</div><a href="http://www.flickr.com/photos/storm-crypt/326228715/"><img class="size-medium wp-image-146" title="Sorting" src="http://cdn.jfoucher.com/uploads/2009/06/sorting-300x225.jpg" alt="Sorting" width="300" height="225" /></a></div>
 
 UPDATE : A post sort plugin already exists, take a look at <a href="http://wordpress.org/extend/plugins/wp-smart-sort/">this one.</a>
 
@@ -15,4 +15,4 @@ I think I can hear the critics already ;) : "What, but that is sacrilegious! It'
 
 So, what about a plugin that allows you to sort in date order, reverse date order, and alphabetically? Should it have the ability to sort posts on other criteria? Does something like this already exists?
 
-I'll await some feedback before starting work on this, so don't hesitate to post a comment.<!--:-->
+I'll await some feedback before starting work on this, so don't hesitate to post a comment.

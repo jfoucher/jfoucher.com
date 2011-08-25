@@ -5,7 +5,7 @@ tags: []
 
 date: Sat Oct 09 12:47:55 +0200 2004
 ---
-<!--:en--><strong>External links:</strong><br />
+<strong>External links:</strong><br />
 The little images that appear after an external link on this site used to be created by pure CSS, using the following rules:
 
     .commentlist a[href*="http"], .storycontent a[href*="http"]
@@ -64,4 +64,3 @@ That's it ! Now you can define styles:
           font-size:0.8em;
           color:#bbb
      }
-<!--:-->

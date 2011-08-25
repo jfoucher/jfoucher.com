@@ -5,7 +5,7 @@ tags: []
 
 date: Sun Oct 03 17:30:49 +0200 2004
 ---
-<!--:en-->This plugin shows a specific page for each author, showing the number of posts published and some of the data entered in the Wordpress admin section, i.e. URL, AIM ICQ number, etc... except email! But it can provide a contact form that will send an email to the author's address. 
+This plugin shows a specific page for each author, showing the number of posts published and some of the data entered in the Wordpress admin section, i.e. URL, AIM ICQ number, etc... except email! But it can provide a contact form that will send an email to the author's address. 
 
 You can use it as an <a href="http://binarybonsai.com/about/">'About' page</a> for a personnal weblog or to give each author their own page in a collaborative blog.
 
@@ -61,4 +61,4 @@ and so the link to the page is like this:
 
 Version 0.3+ use native Wordpress functions to display the author data, making it more compatible (I hope) with future versions of Wordpress.
 
-<a href=http://jfoucher.info/2004/10/08/plugin-wordpress-page-auteur/" hreflang="fr">En Fran?ais</a><!--:-->
+<a href=http://jfoucher.info/2004/10/08/plugin-wordpress-page-auteur/" hreflang="fr">En Fran?ais</a>
