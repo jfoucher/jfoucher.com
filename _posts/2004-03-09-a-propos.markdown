@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->A propos<!--:-->
 tags: []
 
+date: Tue Mar 09 20:23:28 +0100 2004
 ---
 <!--:en-->
 <img src="http://jfoucher.com/img/jon.gif style="float:right; margin:9px" />

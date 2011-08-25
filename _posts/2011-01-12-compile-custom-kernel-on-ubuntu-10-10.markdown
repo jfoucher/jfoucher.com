@@ -4,6 +4,7 @@ title: <!--:en-->Compile custom kernel on Ubuntu 10.10<!--:-->
 excerpt: My experience compiling a custom kernel from source, using Ubuntu 10.10 Maverick Meerkat, on a Sony Vaio F111 series
 tags: []
 
+date: Wed Jan 12 15:06:02 +0100 2011
 ---
 <!--:en-->First off, you want to grab the latest kernel source from <a href="http://kernel.org/">http://kernel.org/</a> and save it to a folder on your computer. I used my browser's default : <code inline="true" lang="bash">~/Downloads</code>. Right click on the archive and select "extract here"
 <h3>Configuration</h3>

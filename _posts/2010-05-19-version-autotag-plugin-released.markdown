@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->New version of the auto-tag plugin released!<!--:-->
 tags: 
 - auto-tag plugin
+date: Wed May 19 16:45:10 +0200 2010
 ---
 <!--:en--><a href="http://wordpress.org/extend/plugins/auto-tag/">Version 0.4 is here!</a>
 

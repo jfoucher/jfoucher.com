@@ -1,8 +1,14 @@
 {% include header.html %}
 
 <div id="content">
+    <div id="{{page.url}}" class="post">
+<p class="the-date">{{page.date || date_to_long_string }}</p>
+<h2 class="entry-title"><a href="{{ page.url }}" title="Permanent link to {{popagest.title}}" rel="bookmark">{{page.title}}</a></h2>
+
+
 {{ content }}
 </div>
+    </div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

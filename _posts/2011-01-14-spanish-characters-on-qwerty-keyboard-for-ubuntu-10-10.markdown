@@ -4,6 +4,7 @@ title: <!--:en-->Spanish characters on Qwerty keyboard for Ubuntu 10.10<!--:-->
 excerpt: Set a configuration option to be able to easily type acendted character on Ubuntu 10.10
 tags: []
 
+date: Fri Jan 14 22:06:17 +0100 2011
 ---
 <!--:en-->Typing spanish characters on a standard QWERTY (or other) keyboard is near impossible. I have used the Character Palette panel applet to do so, but this method requires clicking on the letter you want, and then paste it where you want it. To much work for my tastes. Yes I'm lazy. I'm a programmer.
 

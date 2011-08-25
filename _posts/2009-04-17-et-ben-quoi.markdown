@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Et ben quoi ?<!--:-->
 tags: []
 
+date: Fri Apr 17 06:40:54 +0200 2009
 ---
 <!--:en-->Ben quoi alors? C'est pas parce que ça fait trois ans que j'ai pas écris dans ce blog que j'ai plus le droit de le faire quand même ! Je voulais juste écrire que je viens de mettre Wordpress 2.7 sur un site à propos d'<a href="http://energies-vertes.org">énergies renouvelables</a>, qu'on appelle aussi des énergies vertes, et qu'il n'y a pas de doutes, il esté infinimment supérieur au système de blog que j'utilise ici... Comme comparer une 2cv et une C5, je suppose. M'enfin bon, même s'il est plein de bugs et tout simple, c'est mon bébé.
 

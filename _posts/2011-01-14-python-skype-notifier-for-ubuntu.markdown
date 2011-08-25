@@ -4,6 +4,7 @@ title: <!--:en-->Python skype notifier for Ubuntu<!--:-->
 excerpt: <!--:en-->Learning python by building a semi-useful Skype instant message notifier<!--:--><!--:fr-->Learning python by building a semi-useful Skype instant message notifier<!--:-->
 tags: []
 
+date: Fri Jan 14 13:21:52 +0100 2011
 ---
 <!--:en-->What's the best way to learn a new programming language ? Well, according to <a href="http://programmers.stackexchange.com/q/3519/3984">this question</a> the best (only ?) way to learn a new language is just to code in that language.
 <h3>Why Python ?</h3>

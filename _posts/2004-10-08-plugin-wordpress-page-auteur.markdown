@@ -3,6 +3,7 @@ layout: post
 title: "<!--:en-->Plugin Wordpress : Page Auteur<!--:-->"
 tags: []
 
+date: Fri Oct 08 12:56:02 +0200 2004
 ---
 <!--:en-->Cette extension de Wordpress cr?? une page sp?cifique pour chaque auteur, qui montre le nombre d'articles publi?s, et les donn?es du compte wordpress de cet utilisateur, tels que biographie, addresse du site web, etc... et optionellement l'adresse email (si vous n'avez pas peur du spam...) Il est aussi possible d'afficher un formulaire qui enverra un message   l'auteur par email, mais sans que l'adresse soit visible. 
 

@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Record de la travers?e de la M?diterran?e.<!--:-->
 tags: []
 
+date: Sun Sep 26 09:21:20 +0200 2004
 ---
 <!--:en-->17 heures 56 minutes 13 secondes ! Voila le temps qu' <a href="http://www.maxi-catamaran-orange.com" hreflang="fr-en">Orange II</a> a mis pour naviguer de Marseille   Carthage (Tunisie). Ils ont donc battu de 50 minutes le pr?c?dent record ?tabli par Steve Fosset et Playstation,   une vitesse moyenne absolument extraordinaire de 25,53 noeuds sur la distance de 548 miles !
 

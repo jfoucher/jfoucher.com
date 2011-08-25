@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Idec en route vers Cadix.<!--:-->
 tags: []
 
+date: Wed Oct 06 14:37:32 +0200 2004
 ---
 <!--:en-->Francis Joyon, sur <a href="http://www.trimaran-idec.com">Idec</a>, va tenter d'?tablir un nouveau record Cadix - San salvador (Bahamas) sur un parcours que l'on appelle la 'Route de la d?couverte'
 

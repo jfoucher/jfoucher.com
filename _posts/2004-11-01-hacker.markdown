@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Hacker<!--:-->
 tags: []
 
+date: Mon Nov 01 18:47:58 +0100 2004
 ---
 <!--:en-->This plugin allows you to show some text in 'hacker language', as shown below. The install instructions are repeated below in clear text if you have trouble reading this...
 

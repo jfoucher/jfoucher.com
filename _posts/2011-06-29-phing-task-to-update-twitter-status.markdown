@@ -3,6 +3,7 @@ layout: post
 title: A Phing task to update your Twitter status
 tags: []
 
+date: Wed Jun 29 14:10:00 +0200 2011
 ---
 <h3>Phing and Twitter</h3>
 I recently starting working with <a title="PHP build and deployment tool" href="http://www.phing.info">phing</a> to automate the build and deployement process for the web apps I'm building. I use it to compile my LESS files to CSS and minimize then, to compress and concatenate the javascript files, to optimize images using <a href="http://www.smushit.com/">smushit</a>, etc...
@@ -24,7 +25,7 @@ Next up is creating the actual task PHP class. Create an empty file named Twitte
 
 The code for this file is as shown below:
 
-{% highlight php %}
+<code lang="php">
 <?php
 
 require_once ("phing/Task.php");
@@ -67,7 +68,7 @@ class TwitterUpdateTask extends Task {
         }
     }
 }
-{% endhighlight %}
+</code>
 
 <h3>Get the OAuth token and secret</h3>
 
@@ -75,13 +76,12 @@ Don't close this file, we still need to add the authentication data to it. You c
 
 Navigate to <a href="http://twittertokens.6px.eu">http://twittertokens.6px.eu</a>, put your consumer data and consumer secret in the apropriate fields and click on "Sign in with Twitter". A twitter page will open asking for your confirmation. Click "Sign in" and you are redirected to http://twittertokens.6px.eu/. You should see 4 lines of code appear, that look like this:
 
-{% highlight php %}
+<code lang="php">
 define('CONSUMER_KEY', 'V1UsnZJrgfhgKJFoqsQ');
 define('CONSUMER_SECRET', 'UUazcBfXrWW1jcpiSU564hg654t1EMki8gzptQU');
 define('OAUTH_TOKEN', '325454656-EuCudghg8tTYwKf9yjt5nhqr14i5egHJPeVRGVxQv');
 define('OAUTH_TOKEN_SECRET', 'gh6854hg6tyGEvGEiEi15XmUtOmDpaONM');
-{% endhighlight %}
-
+</code>
 Copy this code to the corresponding spot in the TwitterUpdateTask.php file, overwriting what's already there.
 
 Please note though that I'm not making any claims as to how secure this is or whatever. I don't store any of your data anywhere, but if sending your application consumer token and secret worries you, find another way to get the Oauth tokens.
@@ -89,30 +89,26 @@ Please note though that I'm not making any claims as to how secure this is or wh
 <h3>Create the build file</h3>
 
 First, we define the custom task:
+<code lang="xml"><taskdef name="twitterupdate" classname="phing.tasks.my.TwitterUpdateTask" /></code>
 
-
-{% highlight xml %}
-<taskdef name="twitterupdate" classname="phing.tasks.my.TwitterUpdateTask" />
-
-{% endhighlight %}
 Secondly, let's create a custom target that will send a tweet with the message we want.
 
-{% highlight xml %}
+<code lang="xml">
     <target name="tweet">
         <twitterupdate message="${twitter.status}" />
     </target>
-{% endhighlight %}
+</code>
 
 Now we can call this task from another one, but we need to make that the twitter.status is set. Let's we have a "staging" target. Part of it could look like this:
 
-{% highlight xml %}
+<code lang="xml">
     <!-- Set the timestamp to be used in the twitter update -->
     <tstamp>
         <format property="build.time" pattern="%Y-%m-%d %H:%I" />
     </tstamp>
     <property name="twitter.status" value="Staging build completed at ${build.time}" />
     <phingcall target="tweet" />
-{% endhighlight %}
+</code>
 
 This will post the message to twitter, replacing the <code lang="php" inline="true">${build.time}</code> token by the actual build and time.
 

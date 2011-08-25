@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Censored Comment Wordpress plugin<!--:-->
 tags: []
 
+date: Wed Oct 06 13:29:54 +0200 2004
 ---
 <!--:en-->Another wordpress plugin. This one shows a user definable text on comments that have been edited or censored. I got the idea from <a href="http://binarybonsai.com/about/">Michael Heilemann</a> <a href="http://binarybonsai.com/archives/2004/10/05/binary-bonsai-support-forum/">complaining</a> about some useless comments on his site. 
 

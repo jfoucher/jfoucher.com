@@ -3,6 +3,7 @@ layout: post
 title: "<!--:en-->R\xE9f\xE9rents de l'article<!--:--><!--:fr-->R\xE9f\xE9rents de l'article<!--:-->"
 tags: []
 
+date: Wed Oct 06 17:36:09 +0200 2004
 ---
 <!--:en-->C'est un plugin pour <a hreflang="en" href="http://wordpress.org">Wordpress</a> Qui montre les derniers sites d'où sont venus vos visiteurs. Vous aurez besoin du plugin <a hreflang="en" href="http://randypeterman.com/StatTraq">Stattraq</a>.
 

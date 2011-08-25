@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Post sorting plugin<!--:-->
 tags: []
 
+date: Tue Jun 16 07:13:15 +0200 2009
 ---
 <!--:en-->[caption id="attachment_146" align="aligncenter" width="300" caption="Sorting"]<a href="http://www.flickr.com/photos/storm-crypt/326228715/"><img class="size-medium wp-image-146" title="Sorting" src="http://cdn.jfoucher.com/uploads/2009/06/sorting-300x225.jpg" alt="Sorting" width="300" height="225" /></a>[/caption]
 

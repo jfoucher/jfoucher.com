@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Beta testers wanted<!--:-->
 tags: []
 
+date: Sat Jun 13 22:33:26 +0200 2009
 ---
 <!--:en-->[caption id="attachment_144" align="aligncenter" width="300" caption="Beta Testing: me too, me too!"]<a href="http://cdn.jfoucher.com/uploads/2009/06/crashtestzombie.jpg"><img class="size-medium wp-image-144" title="Beta Testing: me too, me too!" src="http://cdn.jfoucher.com/uploads/2009/06/crashtestzombie-300x270.jpg" alt="Beta Testing: me too, me too!" width="300" height="270" /></a>[/caption]
 

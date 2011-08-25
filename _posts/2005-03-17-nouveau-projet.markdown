@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Nouveau projet<!--:-->
 tags: []
 
+date: Thu Mar 17 18:06:08 +0100 2005
 ---
 <!--:en--><img src="http://jfoucher.com/img/plans.jpg alt="Plans" style="float:right;">Super, je viens de finir un projet qui me tenait   coeur, un petit <a href="http://www.wikipedia.org/wiki/cat boat" title="Read about cat boat on Wikipedia">cat boat</a> de 5 mètres, de croisière cotière et de raid pour deux personnes. vous trouverez plus de détails sur la page du <a href="http://www.marinetechs.com/projets/projets_en_cours/cc5_article34.html">CC5</a>
 

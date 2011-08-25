@@ -7,8 +7,8 @@
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" type="text/css"  href="/assets/css/style.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/assets/css/pygments.css" />
-<link rel="icon" href="/favicon.png" type="image/png" /> 
-<script type="text/javascript" src="/assets/js/less-1.1.3.min.js"></script>
+<link rel="icon" href="/favicon.png" type="image/png" />
+    
 <meta name="viewport"
   content="width=device-width,
   minimum-scale=1.0, maximum-scale=1.0" />
@@ -77,42 +77,24 @@ It took me... a few months to finally find the time figure out how to set up eve
 <h3>Setup Xdebug on server</h3>
 
 
-<p>Done? Right, so this created a config file in /etc/php5/conf.d called xdebug.ini, which is read by php and contains xdebug's configuration options. You'll need to open this file for editing as root, as we need to make a few changes in there. you can copy/paste the command below in the terminal, or do it your own way.</p>
-
-<div class="highlight"><pre><code class="bash">gksu gedit /etc/apache2/conf.d/xdebug.ini
-</code></pre>
-</div>
-
-
-<p>Within this file, there will be a single line, referencing the xdebug zend extension, something like this (the path can vary slightly)</p>
-
-<div class="highlight"><pre><code class="ini"><span class="na">zend_extension</span><span class="o">=</span><span class="s">/usr/lib/php5/20090626/xdebug.so</span>
-</code></pre>
-</div>
-
-
-<p>This is what we're going to add:</p>
-
-<div class="highlight"><pre><code class="ini"><span class="na">xdebug.remote_enable</span><span class="o">=</span><span class="s">On ;this enables remote debugging</span>
-<span class="na">xdebug.remote_host</span><span class="o">=</span><span class="s">192.168.1.83 ;change this IP adress for the one of the computer you are typing on</span>
-<span class="na">xdebug.remote_port</span><span class="o">=</span><span class="s">9000 ;this is the default, leave it as is</span>
-</code></pre>
-</div>
-
-
-<p>Now we restart apache so that the new configuration is taken into account:</p>
-
-<div class="highlight"><pre><code class="bash">sudo /etc/init.d/apache2 restart
-</code></pre>
-</div>
-
-
-<p>And we that we are <em>done</em> on the server side of things</p>
+<p>Done? Right, so this created a config file in /etc/php5/conf.d called xdebug.ini, which is read by php and contains xdebug's configuration options. You'll need to open this file for editing as root, as we need to make a few changes in there. you can copy/paste the command below in the terminal, or do it your own way.
+<code lang="bash">gksu gedit /etc/apache2/conf.d/xdebug.ini</code>
+Within this file, there will be a single line, referencing the xdebug zend extension, something like this (the path can vary slightly)
+<code lang="ini">zend_extension=/usr/lib/php5/20090626/xdebug.so</code>
+This is what we're going to add:
+<code lang="ini">
+xdebug.remote_enable=On #this enables remote debugging
+xdebug.remote_host=192.168.1.83 #change this IP adress for the one of the computer you are typing on
+xdebug.remote_port=9000 #this is the default, leave it as is
+</code>
+Now we restart apache so that the new configuration is taken into account:
+<code lang="bash">sudo /etc/init.d/apache2 restart</code>
+And we that we are <strong>done</strong> on the server side of things</p>
 
 <h3>Prepare PhpStorm</h3>
 
 
-<p>Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the "Accept debug connections" button, and activate Xdebug by using a browser extension. ï¿½Here are four extensions to do this:</p>
+<p>Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the "Accept debug connections" button, and activate Xdebug by using a browser extension.  Here are four extensions to do this:</p>
 
 <ul>
     <li><a href="https://addons.mozilla.org/en-US/firefox/addon/58688">Firefox</a></li>
@@ -169,53 +151,51 @@ It took me... a few months to finally find the time figure out how to set up eve
 
 <p>The code for this file is as shown below:</p>
 
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<p><code lang="php">
+&lt;?php</p>
 
-<span class="k">require_once</span> <span class="p">(</span><span class="s2">&quot;phing/Task.php&quot;</span><span class="p">);</span>
-<span class="k">require_once</span> <span class="p">(</span><span class="s2">&quot;phing/tasks/my/twitteroauth/twitteroauth.php&quot;</span><span class="p">);</span>
+<p>require_once ("phing/Task.php");
+require_once ("phing/tasks/my/twitteroauth/twitteroauth.php");</p>
+
+<p>/<em> get the lines below from http://twittertokens.6px.eu/ </em>/</p>
+
+<p>define('CONSUMER_KEY', 'Your Consumer Key Here');
+define('CONSUMER_SECRET', 'Your Consumer Secret Here');
+define('OAUTH_TOKEN', 'Your OAuth Token Here');
+define('OAUTH_TOKEN_SECRET', 'Your Oauth Token Secret Here');</p>
+
+<p>class TwitterUpdateTask extends Task {</p>
+
+<pre><code>private $message;
+
+/*
+ * The setter for the status message
+ */
+public function setMessage($str){
+    $this-&gt;message=$str;
+}
 
 
-<span class="cm">/* get the lines below from http://twittertokens.6px.eu/ */</span>
+public function main(){
+    /* Connect to twitter */
+    $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET);
+    /* Pass the status message as a parameter */
+    $parameters = array('status' =&gt; $this-&gt;message);
+    /* Post the data to the API endpoint */
+    $status = $connection-&gt;post('statuses/update', $parameters);
 
-<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;CONSUMER_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;Your Consumer Key Here&#39;</span><span class="p">);</span>
-<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;CONSUMER_SECRET&#39;</span><span class="p">,</span> <span class="s1">&#39;Your Consumer Secret Here&#39;</span><span class="p">);</span>
-<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;OAUTH_TOKEN&#39;</span><span class="p">,</span> <span class="s1">&#39;Your OAuth Token Here&#39;</span><span class="p">);</span>
-<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;OAUTH_TOKEN_SECRET&#39;</span><span class="p">,</span> <span class="s1">&#39;Your Oauth Token Secret Here&#39;</span><span class="p">);</span>
-
-<span class="k">class</span> <span class="nc">TwitterUpdateTask</span> <span class="k">extends</span> <span class="nx">Task</span> <span class="p">{</span>
-
-    <span class="k">private</span> <span class="nv">$message</span><span class="p">;</span>
-
-    <span class="cm">/*</span>
-<span class="cm">     * The setter for the status message</span>
-<span class="cm">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">setMessage</span><span class="p">(</span><span class="nv">$str</span><span class="p">){</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">message</span><span class="o">=</span><span class="nv">$str</span><span class="p">;</span>
-    <span class="p">}</span>
-
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">main</span><span class="p">(){</span>
-        <span class="cm">/* Connect to twitter */</span>
-        <span class="nv">$connection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TwitterOAuth</span><span class="p">(</span><span class="nx">CONSUMER_KEY</span><span class="p">,</span> <span class="nx">CONSUMER_SECRET</span><span class="p">,</span> <span class="nx">OAUTH_TOKEN</span><span class="p">,</span> <span class="nx">OAUTH_TOKEN_SECRET</span><span class="p">);</span>
-        <span class="cm">/* Pass the status message as a parameter */</span>
-        <span class="nv">$parameters</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;status&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">message</span><span class="p">);</span>
-        <span class="cm">/* Post the data to the API endpoint */</span>
-        <span class="nv">$status</span> <span class="o">=</span> <span class="nv">$connection</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;statuses/update&#39;</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$status</span><span class="o">-&gt;</span><span class="na">error</span><span class="p">)){</span>
-            <span class="cm">/* if there is an error, fail the build */</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="nx">BuildException</span><span class="p">(</span><span class="nv">$status</span><span class="o">-&gt;</span><span class="na">error</span><span class="p">);</span>
-        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="cm">/* if there is no error, show a success message */</span>
-            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">log</span> <span class="p">(</span><span class="s2">&quot;Status posted to twitter&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    if (isset($status-&gt;error)){
+        /* if there is an error, fail the build */
+        throw new BuildException($status-&gt;error);
+    }else{
+        /* if there is no error, show a success message */
+        $this-&gt;log ("Status posted to twitter");
+    }
+}
 </code></pre>
-</div>
 
-
-
+<p>}
+</code></p>
 
 <h3>Get the OAuth token and secret</h3>
 
@@ -224,48 +204,46 @@ It took me... a few months to finally find the time figure out how to set up eve
 
 <p>Navigate to <a href="http://twittertokens.6px.eu">http://twittertokens.6px.eu</a>, put your consumer data and consumer secret in the apropriate fields and click on "Sign in with Twitter". A twitter page will open asking for your confirmation. Click "Sign in" and you are redirected to http://twittertokens.6px.eu/. You should see 4 lines of code appear, that look like this:</p>
 
-<div class="highlight"><pre><code class="php"><span class="x">define(&#39;CONSUMER_KEY&#39;, &#39;V1UsnZJrgfhgKJFoqsQ&#39;);</span>
-<span class="x">define(&#39;CONSUMER_SECRET&#39;, &#39;UUazcBfXrWW1jcpiSU564hg654t1EMki8gzptQU&#39;);</span>
-<span class="x">define(&#39;OAUTH_TOKEN&#39;, &#39;325454656-EuCudghg8tTYwKf9yjt5nhqr14i5egHJPeVRGVxQv&#39;);</span>
-<span class="x">define(&#39;OAUTH_TOKEN_SECRET&#39;, &#39;gh6854hg6tyGEvGEiEi15XmUtOmDpaONM&#39;);</span>
-</code></pre>
-</div>
-
-
-<p>Copy this code to the corresponding spot in the TwitterUpdateTask.php file, overwriting what's already there.</p>
+<p><code lang="php">
+define('CONSUMER_KEY', 'V1UsnZJrgfhgKJFoqsQ');
+define('CONSUMER_SECRET', 'UUazcBfXrWW1jcpiSU564hg654t1EMki8gzptQU');
+define('OAUTH_TOKEN', '325454656-EuCudghg8tTYwKf9yjt5nhqr14i5egHJPeVRGVxQv');
+define('OAUTH_TOKEN_SECRET', 'gh6854hg6tyGEvGEiEi15XmUtOmDpaONM');
+</code>
+Copy this code to the corresponding spot in the TwitterUpdateTask.php file, overwriting what's already there.</p>
 
 <p>Please note though that I'm not making any claims as to how secure this is or whatever. I don't store any of your data anywhere, but if sending your application consumer token and secret worries you, find another way to get the Oauth tokens.</p>
 
 <h3>Create the build file</h3>
 
 
-<p>First, we define the custom task:</p>
-
-<div class="highlight"><pre><code class="xml"><span class="nt">&lt;taskdef</span> <span class="na">name=</span><span class="s">&quot;twitterupdate&quot;</span> <span class="na">classname=</span><span class="s">&quot;phing.tasks.my.TwitterUpdateTask&quot;</span> <span class="nt">/&gt;</span>
-</code></pre>
-</div>
-
+<p>First, we define the custom task:
+<code lang="xml"><taskdef name="twitterupdate" classname="phing.tasks.my.TwitterUpdateTask" /></code></p>
 
 <p>Secondly, let's create a custom target that will send a tweet with the message we want.</p>
 
-<div class="highlight"><pre><code class="xml">    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;tweet&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;twitterupdate</span> <span class="na">message=</span><span class="s">&quot;${twitter.status}&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/target&gt;</span>
-</code></pre>
-</div>
+<p><code lang="xml"></p>
 
+<pre><code>&lt;target name="tweet"&gt;
+    &lt;twitterupdate message="${twitter.status}" /&gt;
+&lt;/target&gt;
+</code></pre>
+
+<p></code></p>
 
 <p>Now we can call this task from another one, but we need to make that the twitter.status is set. Let's we have a "staging" target. Part of it could look like this:</p>
 
-<div class="highlight"><pre><code class="xml">    <span class="c">&lt;!-- Set the timestamp to be used in the twitter update --&gt;</span>
-    <span class="nt">&lt;tstamp&gt;</span>
-        <span class="nt">&lt;format</span> <span class="na">property=</span><span class="s">&quot;build.time&quot;</span> <span class="na">pattern=</span><span class="s">&quot;%Y-%m-%d %H:%I&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/tstamp&gt;</span>
-    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;twitter.status&quot;</span> <span class="na">value=</span><span class="s">&quot;Staging build completed at ${build.time}&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;phingcall</span> <span class="na">target=</span><span class="s">&quot;tweet&quot;</span> <span class="nt">/&gt;</span>
-</code></pre>
-</div>
+<p><code lang="xml"></p>
 
+<pre><code>&lt;!-- Set the timestamp to be used in the twitter update --&gt;
+&lt;tstamp&gt;
+    &lt;format property="build.time" pattern="%Y-%m-%d %H:%I" /&gt;
+&lt;/tstamp&gt;
+&lt;property name="twitter.status" value="Staging build completed at ${build.time}" /&gt;
+&lt;phingcall target="tweet" /&gt;
+</code></pre>
+
+<p></code></p>
 
 <p>This will post the message to twitter, replacing the <code lang="php" inline="true">${build.time}</code> token by the actual build and time.</p>
 
@@ -278,8 +256,11 @@ It took me... a few months to finally find the time figure out how to set up eve
 
 <div id="/2011/04/11/css-minification-library-for-codeigniter" class="post">
 <p class="the-date">11 April 2011</p>
-<h2 class="entry-title"><a href="/2011/04/11/css-minification-library-for-codeigniter.html" title="Permanent link to CSS minification library for codeigniter" rel="bookmark">CSS minification library for codeigniter</a></h2>
+<h2 class="entry-title"><a href="/2011/04/11/css-minification-library-for-codeigniter.html" title="Permanent link to <!--:en-->CSS minification library for codeigniter<!--:-->" rel="bookmark"><!--:en-->CSS minification library for codeigniter<!--:--></a></h2>
 <div class="entry-content">
+<!--:en-->
+
+
 <p>For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like <code lang="php">
 &lt;?php echo $this->css->link(array('/assets/css/fonts.css','/assets/css/layout.css');?></code></p>
 
@@ -298,29 +279,23 @@ I modelled the interaction on the image library, as I guess that's what most peo
 
 <p>The following code, which should go in your controller, will look very familiar to Codeigniter users.</p>
 
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;css&#39;</span><span class="p">);</span>
-<span class="c1">//array of files to concatenate and minify</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;source_file&#39;</span><span class="p">]</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;/assets/css/layout.css&#39;</span><span class="p">,</span><span class="s1">&#39;/assets/css/fonts.css&#39;</span><span class="p">);</span>
-<span class="c1">//where to output the result</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;dest_file&#39;</span><span class="p">]</span><span class="s1">&#39;/assets/css/css.min.css&#39;</span><span class="p">;</span>
-<span class="c1">//Cache time in hours</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;cache_time&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">48</span><span class="p">;</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">css</span><span class="o">-&gt;</span><span class="na">initialize</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
-<span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">css</span><span class="o">-&gt;</span><span class="na">link</span><span class="p">();</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
-</div>
+<p>&nbsp;</p>
 
+<p><code lang="php">$this->load->library('css');
+//array of files to concatenate and minify
+$config['source_file']=array('/assets/css/layout.css','/assets/css/fonts.css');
+//where to output the result
+$config['dest_file']'/assets/css/css.min.css';
+//Cache time in hours
+$config['cache_time']=48;
+$this->css->initialize($config);
+echo $this->css->link();
+</code>
+Will output the following stylesheet tag:</p>
 
-<p>Will output the following stylesheet tag:</p>
+<p><code lang="html"><link rel="stylesheet" href="/assets/css/css.min.css" type="text/css" media="screen" /></code></p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/assets/css/css.min.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span> <span class="nt">/&gt;</span>
-</code></pre>
-</div>
-
-
-
+<p>&nbsp;</p>
 
 <h3>Get It!</h3>
 
@@ -330,14 +305,7 @@ I modelled the interaction on the image library, as I guess that's what most peo
 <h3>Finally</h3>
 
 
-<p>I'm not sure the way I've done it, using a</p>
-
-<div class="highlight"><pre><code class="php"><span class="x">$config</span>
-</code></pre>
-</div>
-
-
-<p> array and so on, is the best way. It might be a bit overkill for such a simple library. I'd love to hear your thoughts on the subject.</p>
+<p>I'm not sure the way I've done it, using a <code lang="php" inline="true">$config</code> array and so on, is the best way. It might be a bit overkill for such a simple library. I'd love to hear your thoughts on the subject.<!--:--></p>
 
 </div>
 <!-- End .entry-content -->

@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Nouveau projet.<!--:-->
 tags: []
 
+date: Tue Apr 13 21:24:45 +0200 2004
 ---
 <!--:en-->J'ai eu il y a quelques jours une id?e pour un nouveau bateau. Ce serait un trimaran bas? sur un catamaran de sport.
  

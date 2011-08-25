@@ -4,6 +4,7 @@ title: Wordpress 404 notification by email
 excerpt: <!--:en-->A Wordpress plugin that sends an email to the site admin when a user gets a 404 error<!--:--><!--:fr-->A Wordpress plugin that sends an email to the site admin when a user gets a 404 error<!--:-->
 tags: []
 
+date: Sat Jan 22 23:42:45 +0100 2011
 ---
 <!--:en-->I couldn't find something that did just what I wanted and no more: send me an email when someone gets a 404 error on my blog. It seems pretty simple, and it really is. More than that actually. It's problably the simplest plugin I've ever written.
 

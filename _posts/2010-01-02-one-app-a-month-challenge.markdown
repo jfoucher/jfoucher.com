@@ -6,6 +6,7 @@ tags:
 - php
 - web app
 - web develoment
+date: Sat Jan 02 00:29:39 +0100 2010
 ---
 <!--:en-->To keep learning and progressing in my line of work, you have to be <strong>learning new things</strong> everyday. The evolution is so fast that if you don't go forward, you are effectively going backwards.
 <blockquote>I need ideas of useful apps or libraries to include in this challenge.</blockquote>

@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Conception Web par Jonathan Foucher<!--:-->
 tags: []
 
+date: Sat Apr 10 18:49:14 +0200 2004
 ---
 <!--:en-->Si vous souhaitez faire concevoir un site internet, que ce soit   usage personnel ou professionnel, vous pourriez difficilement faire un meilleur choix que de nous le confier   <strong>Jonathan Foucher</strong>.
 

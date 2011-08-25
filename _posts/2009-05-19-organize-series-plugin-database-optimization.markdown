@@ -3,6 +3,7 @@ layout: post
 title: Organize Series plugin database optimization
 tags: []
 
+date: Tue May 19 09:56:50 +0200 2009
 ---
 <!--:en-->While looking for posts in the series, this plugin makes two database queries for each post in the series : one to find out if the post is published, and another to get the part number in the series. So if you have 30 posts in the series, you will get 60 queries from this plugin alone on each post belonging to that series. I found this very wasteful, and rewrote one function so that it only uses one database query, no matter what the number of posts in the series. I think <a href="http://unfoldingneurons.com">the author</a> should be interested...
 

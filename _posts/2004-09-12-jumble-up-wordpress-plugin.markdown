@@ -3,6 +3,7 @@ layout: post
 title: Jumble Up! Wordpress Plugin
 tags: []
 
+date: Sun Sep 12 11:31:25 +0200 2004
 ---
 <!--:en-->You've pbarloby raed taht txet smerwheoe alaerdy :
 

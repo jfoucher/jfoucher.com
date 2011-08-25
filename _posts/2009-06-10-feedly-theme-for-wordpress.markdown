@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Feedly theme for Wordpress<!--:-->
 tags: []
 
+date: Wed Jun 10 09:10:09 +0200 2009
 ---
 <!--:en-->I  really like <a title="Feed Reader Firefox extension" href="http://feedly.com">feedly</a>, which I use to read my feeds in Firefox. The appearance and the functionnality are great. It's a pity it's only available for Firefox, as I tend to use Chromium more often now.
 

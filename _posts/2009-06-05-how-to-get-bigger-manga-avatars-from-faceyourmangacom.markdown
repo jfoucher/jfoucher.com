@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->How to Get Bigger Manga Avatars from faceyourmanga.com<!--:-->
 tags: []
 
+date: Fri Jun 05 21:47:14 +0200 2009
 ---
 <!--:en-->You've probably already tried <a href="http://faceyourmanga.com">this web site</a>, that allows you to create a caricature of yourself, manga style. It's pretty well done, and I don't think there's another equivalent. The only problem is that you only get a small, low quality image by email when you're done editing your avatar. This image is 178x178 pixels, which is fine to use as an avatar on most sites, and even to display on the web.
 

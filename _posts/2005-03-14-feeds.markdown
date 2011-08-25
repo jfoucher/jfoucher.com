@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Feeds<!--:-->
 tags: []
 
+date: Mon Mar 14 19:32:43 +0100 2005
 ---
 <!--:en-->In case you're using a syndication software that can read RSS2.0 feeds, and if you don't like the layout of this blog <img src="http://jfoucher.com/img/gear_wink.gif alt="<img src="http://jfoucher.com/img/gear_wink.gif alt=";)" />" /> I offer syndication feeds for its content as well as the comments posted on the posts. You can get feeds for the comments on individual posts from the link at the top of the comments section: <br />
 <img src="http://jfoucher.com/img/th1.gif alt="Link below coments title" />

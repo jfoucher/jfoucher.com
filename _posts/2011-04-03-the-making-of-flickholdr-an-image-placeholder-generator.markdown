@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->The making of flickholdr.com, an image placeholder generator<!--:-->
 tags: []
 
+date: Sun Apr 03 21:42:49 +0200 2011
 ---
 <!--:en-->There are a few services available to web designer and HTML coders to use dummy images in their html mockups or templates. The one I used to use is <a href="http://dummyimage.com">dummyimage</a> but it is somewhat limited in that the images are completely static: a flat color and some text. I needed the same kind of service, but with actual images or photographs rather than simple placeholders. Something like dynamically generated stock images.
 <h2>The idea</h2>

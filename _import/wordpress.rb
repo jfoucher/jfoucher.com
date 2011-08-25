@@ -64,6 +64,7 @@ module Jekyll
         data = {
            'layout' => 'post',
            'title' => title.to_s,
+           'date' => date.to_s,
            'excerpt' => post[:post_excerpt].to_s,
 		   'tags' => tags
          }.delete_if { |k,v| v.nil? || v == ''}.to_yaml

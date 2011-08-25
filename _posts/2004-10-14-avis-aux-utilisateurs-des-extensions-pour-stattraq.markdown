@@ -3,6 +3,7 @@ layout: post
 title: Avis aux utilisateurs des extensions pour StatTraq
 tags: []
 
+date: Thu Oct 14 17:01:58 +0200 2004
 ---
 <!--:en--><strong>Le Problème</strong>
 

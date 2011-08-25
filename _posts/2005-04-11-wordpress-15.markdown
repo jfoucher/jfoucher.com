@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Wordpress 1.5<!--:-->
 tags: []
 
+date: Mon Apr 11 13:16:32 +0200 2005
 ---
 <!--:en-->
 J'ai finallement mis a jour mon autre site, <a href="http://salamba.info" title="Salamba">salamba.info</a>, avec Wordpress 1.5, et pas doute, il est bien, tr?s bien m?me. Un des meilleurs ajouts est selon moi la possibilit? de configurer les plugins. Ca manquait vraiment dans les anciennes versions.

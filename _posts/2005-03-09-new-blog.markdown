@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->New blog<!--:-->
 tags: []
 
+date: Wed Mar 09 20:59:14 +0100 2005
 ---
 <!--:en-->So this is it. I've been working on it for the past few days, and I'm quite happy with what I've got now. Of course, I'm sure many of you will not feel that way. I myself feel somewhat like having betrayed Wordpress...
 

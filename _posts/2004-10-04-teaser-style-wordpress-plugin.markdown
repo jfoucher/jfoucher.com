@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Teaser Style Wordpress plugin<!--:-->
 tags: []
 
+date: Mon Oct 04 12:09:11 +0200 2004
 ---
 <!--:en-->Another useless wordpress plugin from my little factory here :). This one takes the teaser text, delimited between the beginning of a post and the &lt;!--more--&gt; tag, and wraps it in a &lt;div&gt; with class morediv. This then allows you style it differently using your style sheet, doing for example:
 

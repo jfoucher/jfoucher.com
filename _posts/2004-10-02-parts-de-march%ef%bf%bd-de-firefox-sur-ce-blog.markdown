@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Parts de march? de Firefox (sur ce blog)<!--:-->
 tags: []
 
+date: Sat Oct 02 13:01:50 +0200 2004
 ---
 <!--:en--><a href="http://jfoucher.info/wp-content/ua_graph.png" title=""><img src="http://jfoucher.info/wp-content/thumb-ua_graph.png" alt="" /></a>
 

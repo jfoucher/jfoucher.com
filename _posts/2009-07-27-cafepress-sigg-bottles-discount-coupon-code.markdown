@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Cafepress SIGG bottles discount and coupon code !<!--:-->
 tags: []
 
+date: Mon Jul 27 21:13:36 +0200 2009
 ---
 <!--:en-->You've probably seen that cafepress let's you<a href="http://www.cafepress.com/designer/sigg/"> customize your sigg bottle</a>, and you also no doubt know that water bottles are bad for the <a href="http://ecoquotidien.fr">environment</a>, as only a small proportion are recycled, and many end up scattered around natural areas, not least of which, due to their rather <em>floating</em> nature, our beaches. Sigg bottles are a durable, light and trendy alternative, and today we are going to <em>design our own</em>, but not using <a href="http://cafepress.com">cafepress'</a> flash designer!
 <blockquote>There is a better and cheaper way to get your custom sigg bottle.</blockquote>

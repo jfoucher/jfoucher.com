@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Mise   l'eau<!--:-->
 tags: []
 
+date: Wed Aug 11 19:55:49 +0200 2004
 ---
 <!--:en--><a href="http://jfoucher.com/wp-images/misealeau.jpg title="Mise    l'eau"><img src="http://jfoucher.com/wp-images/thumb-misealeau.jpg alt="Mise   l'eau" style="float:right" /></a><a href="http://jfoucher.com/wp-images/misealeau2.jpg title="Mise    l'eau"><img src="http://jfoucher.com/wp-images/thumb-misealeau2.jpg alt="Mise   l'eau" style="float:right;clear:right" /></a><a href="http://jfoucher.com/wp-images/misealeau3.jpg title="Mise   l'eau"><img src="http://jfoucher.com/wp-images/thumb-misealeau3.jpg alt="Mise   l'eau" style="float:right;clear:right" /></a>
 

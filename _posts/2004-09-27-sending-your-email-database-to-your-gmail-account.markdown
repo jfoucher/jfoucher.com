@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Sending your email database to your GMail account<!--:-->
 tags: []
 
+date: Mon Sep 27 20:28:45 +0200 2004
 ---
 <!--:en-->After I got my GMail account, I wanted to transfer all my local emails there. Why? I don't know, beacause it doesn't seem like the <a href="http://www.templetons.com/brad/gmail.html">best thing to do</a>. I tried Mark Lyon's <a href="http://www.marklyon.org/gmail/">Google Mail Loader</a>, but it kept locking up, so I wrote a little php script to read an mBox file and send the emails it contains one by one to a GMail account.
 

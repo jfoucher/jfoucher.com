@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Author page wordpress plugin<!--:-->
 tags: []
 
+date: Sun Oct 03 17:30:49 +0200 2004
 ---
 <!--:en-->This plugin shows a specific page for each author, showing the number of posts published and some of the data entered in the Wordpress admin section, i.e. URL, AIM ICQ number, etc... except email! But it can provide a contact form that will send an email to the author's address. 
 

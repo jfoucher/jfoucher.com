@@ -3,6 +3,7 @@ layout: post
 title: <!--:en-->Referrer Wordpress Plugin<!--:-->
 tags: []
 
+date: Fri Sep 24 09:32:50 +0200 2004
 ---
 <!--:en-->Referrers is a plugin I coded to show the most recent referring urls to a particular post. I had seen the <a href="http://noprerequisite.com/wp-refer/" hreflang="en">wp-refer plugin</a> from <a href="http://noprerequisite.com" hreflang="en">NoPrerequisite</a> but couldn't put it on my blog without hacking because it uses the meta fields to store its data, and as I display the metadata for other purposes in each post, it would get fairly cluttered. 
 
