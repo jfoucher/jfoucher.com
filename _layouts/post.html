@@ -6,29 +6,34 @@
     <div id="nav-above" class="navigation">
     {% if page.previous %}
 
-    <div class="nav-previous">
-        <a href="{{ page.previous.url }}" rel="prev" title="View {{ page.previous.title }}">
-            <span class="meta-nav">←</span> {{ page.previous.title }}</a></div>
+        <div class="nav-previous">
+            <a href="{{ page.previous.url }}" rel="prev" title="View {{ page.previous.title }}">
+                <span class="meta-nav">←</span> {{ page.previous.title }}</a>
+        </div>
 
-          {% endif %}
+    {% endif %}
     {% if page.next %}
 
-    <div class="nav-next">
-        <a href="{{ page.next.url }}" rel="prev" title="View {{ page.next.title }}">{{ page.next.title }} <span class="meta-nav">→</span></a></div>
+        <div class="nav-next">
+            <a href="{{ page.next.url }}" rel="prev" title="View {{ page.next.title }}">{{ page.next.title }} <span class="meta-nav">→</span></a>
+        </div>
 
-          {% endif %}
-</div>
+    {% endif %}
+    </div>
     <div id="{{page.url}}" class="post">
         
-<p class="the-date">{{page.date || date_to_long_string }}</p>
-<h2 class="entry-title"><a href="{{ page.url }}" title="Permanent link to {{popagest.title}}" rel="bookmark">{{page.title}}</a></h2>
+        <p class="the-date">{{page.date || date_to_long_string }}</p>
+        <h2 class="entry-title"><a href="{{ page.url }}" title="Permanent link to {{popagest.title}}" rel="bookmark">{{page.title}}</a></h2>
 
 
-{{ content }}
-</div>
-
+        {{ content }}
     </div>
-<div id="disqus_thread"></div>
+
+</div>
+<div id="disqus_thread">
+    <h3 id="reply-title">Leave a Reply</h3>
+
+</div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'geekynuggets'; // required: replace example with your forum shortname

@@ -65,25 +65,27 @@ me</a>
     <div id="nav-above" class="navigation">
     
 
-    <div class="nav-previous">
-        <a href="/2009/05/19/amazon-wishlist-plugin-for-wordpress-27.html" rel="prev" title="View Amazon Wishlist plugin for wordpress 2.7">
-            <span class="meta-nav">←</span> Amazon Wishlist plugin for wordpress 2.7</a></div>
+        <div class="nav-previous">
+            <a href="/2009/05/19/amazon-wishlist-plugin-for-wordpress-27.html" rel="prev" title="View Amazon Wishlist plugin for wordpress 2.7">
+                <span class="meta-nav">←</span> Amazon Wishlist plugin for wordpress 2.7</a>
+        </div>
 
-          
+    
     
 
-    <div class="nav-next">
-        <a href="/2009/06/04/auto-tag-wordpress-plugin.html" rel="prev" title="View Auto Tag Wordpress plugin">Auto Tag Wordpress plugin <span class="meta-nav">→</span></a></div>
+        <div class="nav-next">
+            <a href="/2009/06/04/auto-tag-wordpress-plugin.html" rel="prev" title="View Auto Tag Wordpress plugin">Auto Tag Wordpress plugin <span class="meta-nav">→</span></a>
+        </div>
 
-          
-</div>
+    
+    </div>
     <div id="/2009/05/19/organize-series-plugin-database-optimization.html" class="post">
         
-<p class="the-date">19 May 2009</p>
-<h2 class="entry-title"><a href="/2009/05/19/organize-series-plugin-database-optimization.html" title="Permanent link to " rel="bookmark">Organize Series plugin database optimization</a></h2>
+        <p class="the-date">19 May 2009</p>
+        <h2 class="entry-title"><a href="/2009/05/19/organize-series-plugin-database-optimization.html" title="Permanent link to " rel="bookmark">Organize Series plugin database optimization</a></h2>
 
 
-<p>While looking for posts in the series, this plugin makes two database queries for each post in the series : one to find out if the post is published, and another to get the part number in the series. So if you have 30 posts in the series, you will get 60 queries from this plugin alone on each post belonging to that series. I found this very wasteful, and rewrote one function so that it only uses one database query, no matter what the number of posts in the series. I think <a href="http://unfoldingneurons.com">the author</a> should be interested...</p>
+        <p>While looking for posts in the series, this plugin makes two database queries for each post in the series : one to find out if the post is published, and another to get the part number in the series. So if you have 30 posts in the series, you will get 60 queries from this plugin alone on each post belonging to that series. I found this very wasteful, and rewrote one function so that it only uses one database query, no matter what the number of posts in the series. I think <a href="http://unfoldingneurons.com">the author</a> should be interested...</p>
 
 <p>Basically, in the file series-utility.php, replace the function
 function get_series_order($posts, $postid = 0, $skip = TRUE)
@@ -201,10 +203,13 @@ usort( $series_posts, '_usort_series_by_part' );</p>
 
 <p>And there you go, a faster blog...</p>
 
-</div>
-
     </div>
-<div id="disqus_thread"></div>
+
+</div>
+<div id="disqus_thread">
+    <h3 id="reply-title">Leave a Reply</h3>
+
+</div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'geekynuggets'; // required: replace example with your forum shortname
