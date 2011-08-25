@@ -299,12 +299,12 @@ span.amp {
 .the-date:before, #comments-title:before, #reply-title:before,h2.page-404:before{
 	content:'';
 	padding-left:58px;
-	background: url('images/flourish1L.gif') left 6px no-repeat #fff;
+	background: url('../img/flourish1L.gif') left 6px no-repeat #fff;
 }
 .the-date:after, #comments-title:after, #reply-title:after,h2.page-404:after{
 	content:'';
 	padding-right:58px;
-	background: url('images/flourish1.gif') right 6px no-repeat #fff;
+	background: url('../img/flourish1.gif') right 6px no-repeat #fff;
 }
 #reply-title:before{
 	background-position:left 9px;
