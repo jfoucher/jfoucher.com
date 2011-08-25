@@ -1,47 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-<meta name="description" content="{{site.meta_desc}}" />
-<title>{{page.title}}</title>
-<link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" type="text/css"  href="/assets/css/style.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/assets/css/pygments.css" />
-<link rel="icon" href="/favicon.png" type="image/png" />
-    
-<meta name="viewport"
-  content="width=device-width,
-  minimum-scale=1.0, maximum-scale=1.0" />
-</head>
-
-<body>
-<div id="wrapper" class="hfeed">
-	<div id="header">
-		<div id="masthead">
-
-			<div id="access" role="navigation">
-				<div class="skip-link screen-reader-text"><a href="#content" title="Skip to content">Skip to content</a></div>
-                {% include topnav.html %}
-			</div><!-- #access -->
-			<div id="branding" role="banner">
-				{% if page.title == "Geeky Nuggets" %} 
-                <h1 id="site-title">
-                  {% else %}
-                <div id="site-title">
-                  {% endif %}
-					<span>
-						<a href="/" title="{{site.title}}" rel="home">{{site.title}}</a>
-					</span>
-				{% if page.title == "Geeky Nuggets" %} 
+        <div id="header" class="center">
+            <div class="article-logo floatLeft">
+                <h1>
+				    <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
+				        <span class="hoverline">kle</span><span class="middot">&middot;</span>p<span class="hoverline">as</span>
+				    </a>
                 </h1>
-                  {% else %}
-                </div>
-                  {% endif %}
-
-				<div id="site-description">{{site.description}}</div>
-			</div><!-- #branding -->
-
-		</div><!-- #masthead -->
-	</div><!-- #header -->
-
-	<div id="main">
+            </div>
+            <div class="hero floatRight colSix">
+                <p class="moin">You&#8217;re currently viewing a single article. Feel free to skip back to <a href="/" rel="home" title="Go back to the homepage" tabindex="0">&sect; Index</a> or straight to <a href="/#notebook" title="Skip straight to the latest article" tabindex="0" accesskey="L">&sect; Latest article</a>.</p>
+			</div>
+		</div> <!-- /#header.center -->
