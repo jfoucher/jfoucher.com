@@ -83,7 +83,11 @@ module Jekyll
 	# with CloudFront CNAME'd URL turbo.paulstamatiou.com/uploads/
 	def self.transformUrls(domain,content)
 		baseurl = "%s/wp-content/uploads/" % domain
-		return content.gsub(baseurl,"cdn.jfoucher.com/uploads/")
+
+		content=content.gsub(baseurl,"cdn.jfoucher.com/uploads/")
+		content=content.gsub(/\[caption id="(.*)" align="([a-z]*)" width="([0-9]*)" caption="([^"]*)"\]/,'<div class="image-with-caption \2" style="width:\3px"><div class="caption">\4</div>')
+		content=content.gsub(/\[\/caption\]/,'</div>')
+		return content
 	end
 
   end

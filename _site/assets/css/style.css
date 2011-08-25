@@ -163,7 +163,8 @@ label{
 .aligncenter {margin:15px auto;display:block;}
 .alignright{float:right}
 .alignleft{float:left}
-.wp-caption{
+.wp-caption,.image-with-caption{
+
 	border:1px solid #ddd;
 	padding:5px;
 	border-radius : 3px;
@@ -175,7 +176,7 @@ label{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEFFF4', endColorstr='#F7F7E6',GradientType=0 ); /* ie */
 }
 
-.wp-caption-text{
+.wp-caption-text, .caption{
 	text-align:center;
 	color:#999;
 }
@@ -299,12 +300,12 @@ span.amp {
 .the-date:before, #comments-title:before, #reply-title:before,h2.page-404:before{
 	content:'';
 	padding-left:58px;
-	background: url('images/flourish1L.gif') left 6px no-repeat #fff;
+	background: url('../img/flourish1L.gif') left 6px no-repeat #fff;
 }
 .the-date:after, #comments-title:after, #reply-title:after,h2.page-404:after{
 	content:'';
 	padding-right:58px;
-	background: url('images/flourish1.gif') right 6px no-repeat #fff;
+	background: url('../img/flourish1.gif') right 6px no-repeat #fff;
 }
 #reply-title:before{
 	background-position:left 9px;

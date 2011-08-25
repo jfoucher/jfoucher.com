@@ -163,7 +163,8 @@ label{
 .aligncenter {margin:15px auto;display:block;}
 .alignright{float:right}
 .alignleft{float:left}
-.wp-caption{
+.wp-caption,.image-with-caption{
+
 	border:1px solid #ddd;
 	padding:5px;
 	border-radius : 3px;
@@ -175,7 +176,7 @@ label{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEFFF4', endColorstr='#F7F7E6',GradientType=0 ); /* ie */
 }
 
-.wp-caption-text{
+.wp-caption-text, .caption{
 	text-align:center;
 	color:#999;
 }
