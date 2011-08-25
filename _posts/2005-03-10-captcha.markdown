@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Captcha<!--:-->
+title: Captcha
 tags: []
 
 date: Thu Mar 10 14:47:08 +0100 2005

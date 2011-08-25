@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->A propos<!--:-->
+title: A propos
 tags: []
 
 date: Tue Mar 09 20:23:28 +0100 2004

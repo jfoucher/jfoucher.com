@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Mise   jour de s?curit? pour Firefox 1.0PR<!--:-->
+title: Mise   jour de s?curit? pour Firefox 1.0PR
 tags: []
 
 date: Sun Oct 03 15:11:10 +0200 2004

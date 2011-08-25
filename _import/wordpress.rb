@@ -39,7 +39,7 @@ module Jekyll
 
       db[QUERY].each do |post|
         # Get required fields and construct Jekyll compatible name
-        title = post[:post_title]
+        title = post[:post_title].gsub(/<!--:([a-z]*)-->/,'')
         slug = post[:post_name]
         date = post[:post_date]
         content = post[:post_content]

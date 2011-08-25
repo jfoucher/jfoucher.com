@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Access to MySQL import class<!--:-->
+title: Access to MySQL import class
 tags: []
 
 date: Sat Jul 18 09:57:25 +0200 2009

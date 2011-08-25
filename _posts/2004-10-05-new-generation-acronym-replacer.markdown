@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->New generation acronym replacer<!--:-->
+title: New generation acronym replacer
 tags: []
 
 date: Tue Oct 05 15:10:07 +0200 2004

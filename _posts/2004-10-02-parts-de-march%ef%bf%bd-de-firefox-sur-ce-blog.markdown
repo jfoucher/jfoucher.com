@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Parts de march? de Firefox (sur ce blog)<!--:-->
+title: Parts de march? de Firefox (sur ce blog)
 tags: []
 
 date: Sat Oct 02 13:01:50 +0200 2004

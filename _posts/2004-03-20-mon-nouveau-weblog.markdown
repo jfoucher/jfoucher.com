@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Mon nouveau weblog!<!--:-->
+title: Mon nouveau weblog!
 tags: []
 
 date: Sat Mar 20 22:46:18 +0100 2004

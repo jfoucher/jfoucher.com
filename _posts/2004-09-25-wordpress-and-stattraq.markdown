@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Wordpress and StatTraq<!--:-->
+title: Wordpress and StatTraq
 tags: []
 
 date: Sat Sep 25 08:55:30 +0200 2004

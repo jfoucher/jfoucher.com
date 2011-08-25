@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Firefox et GMail<!--:-->
+title: Firefox et GMail
 tags: []
 
 date: Fri Sep 24 18:27:30 +0200 2004

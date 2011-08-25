@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->How to Get Bigger Manga Avatars from faceyourmanga.com<!--:-->
+title: How to Get Bigger Manga Avatars from faceyourmanga.com
 tags: []
 
 date: Fri Jun 05 21:47:14 +0200 2009

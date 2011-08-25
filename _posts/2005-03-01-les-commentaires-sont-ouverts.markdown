@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Les commentaires sont ouverts<!--:-->
+title: Les commentaires sont ouverts
 tags: []
 
 date: Tue Mar 01 17:40:44 +0100 2005

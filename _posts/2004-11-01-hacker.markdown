@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Hacker<!--:-->
+title: Hacker
 tags: []
 
 date: Mon Nov 01 18:47:58 +0100 2004

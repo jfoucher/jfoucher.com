@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->New version of the auto-tag plugin released!<!--:-->
+title: New version of the auto-tag plugin released!
 tags: 
 - auto-tag plugin
 date: Wed May 19 16:45:10 +0200 2010

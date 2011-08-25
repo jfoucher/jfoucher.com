@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Teaser Style Wordpress plugin<!--:-->
+title: Teaser Style Wordpress plugin
 tags: []
 
 date: Mon Oct 04 12:09:11 +0200 2004

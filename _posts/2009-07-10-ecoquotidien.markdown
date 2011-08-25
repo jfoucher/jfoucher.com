@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Ecoquotidien.fr<!--:-->
+title: Ecoquotidien.fr
 tags: []
 
 date: Fri Jul 10 10:18:11 +0200 2009

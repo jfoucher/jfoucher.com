@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->External Links Wordpress Plugin<!--:-->
+title: External Links Wordpress Plugin
 tags: []
 
 date: Sat Oct 09 12:47:55 +0200 2004

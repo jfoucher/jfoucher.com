@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Idec en route vers Cadix.<!--:-->
+title: Idec en route vers Cadix.
 tags: []
 
 date: Wed Oct 06 14:37:32 +0200 2004

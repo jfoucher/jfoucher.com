@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Et ben quoi ?<!--:-->
+title: Et ben quoi ?
 tags: []
 
 date: Fri Apr 17 06:40:54 +0200 2009

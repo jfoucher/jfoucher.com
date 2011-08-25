@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->WP-Feedly theme available for download<!--:-->
+title: WP-Feedly theme available for download
 tags: []
 
 date: Sat Jun 27 11:19:32 +0200 2009

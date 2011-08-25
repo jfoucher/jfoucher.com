@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Post sorting plugin<!--:-->
+title: Post sorting plugin
 tags: []
 
 date: Tue Jun 16 07:13:15 +0200 2009

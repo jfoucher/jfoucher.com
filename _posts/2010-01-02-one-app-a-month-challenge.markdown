@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->One app a month challenge<!--:-->
+title: One app a month challenge
 tags: 
 - challenge
 - php

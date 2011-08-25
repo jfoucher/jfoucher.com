@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: "<!--:en-->Referrer Spam<!--:--><!--:fr-->Spam dans les r\xE9f\xE9rents<!--:-->"
+title: "Referrer SpamSpam dans les r\xE9f\xE9rents"
 tags: []
 
 date: Thu Oct 14 11:34:55 +0200 2004

@@ -66,14 +66,14 @@ me</a>
     
 
     <div class="nav-previous">
-        <a href="/2009/05/19/amazon-wishlist-plugin-for-wordpress-27.html" rel="prev" title="View <!--:en-->Amazon Wishlist plugin for wordpress 2.7<!--:-->">
-            <span class="meta-nav">←</span> <!--:en-->Amazon Wishlist plugin for wordpress 2.7<!--:--></a></div>
+        <a href="/2009/05/19/amazon-wishlist-plugin-for-wordpress-27.html" rel="prev" title="View Amazon Wishlist plugin for wordpress 2.7">
+            <span class="meta-nav">←</span> Amazon Wishlist plugin for wordpress 2.7</a></div>
 
           
     
 
     <div class="nav-next">
-        <a href="/2009/06/04/auto-tag-wordpress-plugin.html" rel="prev" title="View <!--:en-->Auto Tag Wordpress plugin<!--:-->"><!--:en-->Auto Tag Wordpress plugin<!--:--> <span class="meta-nav">→</span></a></div>
+        <a href="/2009/06/04/auto-tag-wordpress-plugin.html" rel="prev" title="View Auto Tag Wordpress plugin">Auto Tag Wordpress plugin <span class="meta-nav">→</span></a></div>
 
           
 </div>
@@ -81,9 +81,6 @@ me</a>
         
 <p class="the-date">19 May 2009</p>
 <h2 class="entry-title"><a href="/2009/05/19/organize-series-plugin-database-optimization.html" title="Permanent link to " rel="bookmark">Organize Series plugin database optimization</a></h2>
-
-
-<!--:en-->
 
 
 <p>While looking for posts in the series, this plugin makes two database queries for each post in the series : one to find out if the post is published, and another to get the part number in the series. So if you have 30 posts in the series, you will get 60 queries from this plugin alone on each post belonging to that series. I found this very wasteful, and rewrote one function so that it only uses one database query, no matter what the number of posts in the series. I think <a href="http://unfoldingneurons.com">the author</a> should be interested...</p>
@@ -148,7 +145,7 @@ $series_posts[$num]['part'] = $result-&gt;meta_value;
 }
 ?>
 </code>
-And there you go, a faster blog...<!--:--><!--:fr-->While looking for posts in the series, this plugin makes two database queries for each post in the series : one to find out if the post is published, and another to get the part number in the series. So if you have 30 posts in the series, you will get 60 queries from this plugin alone on each post belonging to that series. I found this very wasteful, and rewrote one function so that it only uses one database query, no matter what the number of posts in the series. I think <a href="http://unfoldingneurons.com">the author</a> should be interested...</p>
+And there you go, a faster blog...While looking for posts in the series, this plugin makes two database queries for each post in the series : one to find out if the post is published, and another to get the part number in the series. So if you have 30 posts in the series, you will get 60 queries from this plugin alone on each post belonging to that series. I found this very wasteful, and rewrote one function so that it only uses one database query, no matter what the number of posts in the series. I think <a href="http://unfoldingneurons.com">the author</a> should be interested...</p>
 
 <p>Basically, in the file series-utility.php, replace the function
 function get_series_order($posts, $postid = 0, $skip = TRUE)
@@ -202,7 +199,7 @@ usort( $series_posts, '_usort_series_by_part' );</p>
 }
 ?&gt;</p>
 
-<p>And there you go, a faster blog...<!--:--></p>
+<p>And there you go, a faster blog...</p>
 
 </div>
 

@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: "<!--:en-->R\xE9f\xE9rents de l'article<!--:--><!--:fr-->R\xE9f\xE9rents de l'article<!--:-->"
+title: "R\xE9f\xE9rents de l'articleR\xE9f\xE9rents de l'article"
 tags: []
 
 date: Wed Oct 06 17:36:09 +0200 2004

@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->BlueIce Plugin<!--:-->
+title: BlueIce Plugin
 tags: []
 
 date: Mon Dec 14 17:59:32 +0100 2009

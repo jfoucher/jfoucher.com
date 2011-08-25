@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Feedly theme for Wordpress<!--:-->
+title: Feedly theme for Wordpress
 tags: []
 
 date: Wed Jun 10 09:10:09 +0200 2009

@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Feeds<!--:-->
+title: Feeds
 tags: []
 
 date: Mon Mar 14 19:32:43 +0100 2005

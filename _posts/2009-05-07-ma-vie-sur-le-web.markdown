@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->My life on the web<!--:--><!--:fr-->Ma vie sur le web<!--:-->
+title: My life on the webMa vie sur le web
 tags: []
 
 date: Thu May 07 08:02:19 +0200 2009

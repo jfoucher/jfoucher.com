@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://paulstamatiou.com/feed/" rel="self"/>
  	<link type="text" href="http://paulstamatiou.com" rel="alternate"/>
-	<updated>2011-08-25T03:50:02+02:00</updated>
+	<updated>2011-08-25T10:05:29+02:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -205,14 +205,11 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->CSS minification library for codeigniter<!--:--></title>
+		<title>CSS minification library for codeigniter</title>
 		<link href="http://jfoucher.com/2011/04/11/css-minification-library-for-codeigniter.html"/>
 		<updated>2011-04-11T14:10:51+02:00</updated>
 		<id>http://jfoucher.com/2011/04/11/css-minification-library-for-codeigniter</id>
-		<content type="html">&lt;!--:en--&gt;
-
-
-&lt;p&gt;For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like &lt;code lang=&quot;php&quot;&gt;
+		<content type="html">&lt;p&gt;For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like &lt;code lang=&quot;php&quot;&gt;
 &amp;lt;?php echo $this-&gt;css-&gt;link(array('/assets/css/fonts.css','/assets/css/layout.css');?&gt;&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;After some searching, I found a css minification library for PHP, &lt;a href=&quot;https://code.google.com/p/minify/&quot;&gt;minify&lt;/a&gt;&lt;/p&gt;
@@ -259,20 +256,17 @@ Will output the following stylesheet tag:&lt;/p&gt;
 &lt;h3&gt;Finally&lt;/h3&gt;
 
 
-&lt;p&gt;I'm not sure the way I've done it, using a &lt;code lang=&quot;php&quot; inline=&quot;true&quot;&gt;$config&lt;/code&gt; array and so on, is the best way. It might be a bit overkill for such a simple library. I'd love to hear your thoughts on the subject.&lt;!--:--&gt;&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2011/04/11/css-minification-library-for-codeigniter.html&quot;&gt;<!--:en-->CSS minification library for codeigniter<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+&lt;p&gt;I'm not sure the way I've done it, using a &lt;code lang=&quot;php&quot; inline=&quot;true&quot;&gt;$config&lt;/code&gt; array and so on, is the best way. It might be a bit overkill for such a simple library. I'd love to hear your thoughts on the subject.&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2011/04/11/css-minification-library-for-codeigniter.html&quot;&gt;CSS minification library for codeigniter&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->The making of flickholdr.com, an image placeholder generator<!--:--></title>
+		<title>The making of flickholdr.com, an image placeholder generator</title>
 		<link href="http://jfoucher.com/2011/04/03/the-making-of-flickholdr-an-image-placeholder-generator.html"/>
 		<updated>2011-04-03T21:42:49+02:00</updated>
 		<id>http://jfoucher.com/2011/04/03/the-making-of-flickholdr-an-image-placeholder-generator</id>
-		<content type="html">&lt;!--:en--&gt;
-
-
-&lt;p&gt;There are a few services available to web designer and HTML coders to use dummy images in their html mockups or templates. The one I used to use is &lt;a href=&quot;http://dummyimage.com&quot;&gt;dummyimage&lt;/a&gt; but it is somewhat limited in that the images are completely static: a flat color and some text. I needed the same kind of service, but with actual images or photographs rather than simple placeholders. Something like dynamically generated stock images.&lt;/p&gt;
+		<content type="html">&lt;p&gt;There are a few services available to web designer and HTML coders to use dummy images in their html mockups or templates. The one I used to use is &lt;a href=&quot;http://dummyimage.com&quot;&gt;dummyimage&lt;/a&gt; but it is somewhat limited in that the images are completely static: a flat color and some text. I needed the same kind of service, but with actual images or photographs rather than simple placeholders. Something like dynamically generated stock images.&lt;/p&gt;
 
 &lt;h2&gt;The idea&lt;/h2&gt;
 
@@ -312,20 +306,17 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;h3&gt;End of the story!&lt;/h3&gt;
 
 
-&lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;: Flickholdr is now open sourced and the code is available on &lt;a href=&quot;https://github.com/jfoucher/flickholdr&quot;&gt;github&lt;/a&gt;&lt;!--:--&gt;&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2011/04/03/the-making-of-flickholdr-an-image-placeholder-generator.html&quot;&gt;<!--:en-->The making of flickholdr.com, an image placeholder generator<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+&lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;: Flickholdr is now open sourced and the code is available on &lt;a href=&quot;https://github.com/jfoucher/flickholdr&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2011/04/03/the-making-of-flickholdr-an-image-placeholder-generator.html&quot;&gt;The making of flickholdr.com, an image placeholder generator&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->Installing and running APC cache with CodeIgniter<!--:--></title>
+		<title>Installing and running APC cache with CodeIgniter</title>
 		<link href="http://jfoucher.com/2011/02/13/installing-running-apc-cache-codeigniter.html"/>
 		<updated>2011-02-13T23:33:33+01:00</updated>
 		<id>http://jfoucher.com/2011/02/13/installing-running-apc-cache-codeigniter</id>
-		<content type="html">&lt;!--:en--&gt;
-
-
-&lt;p&gt;&lt;span style=&quot;color: #000000; line-height: 27px;&quot;&gt;APC cache&lt;/span&gt; Codeigniter 2 now includes an excellent cache driver, which makes it dead easy to use any one of the great available cache librairies such as &lt;a href=&quot;http://php.net/apc&quot;&gt;APC&lt;/a&gt; o &lt;a href=&quot;http://www.memcached.org/&quot;&gt;memcached&lt;/a&gt;. In this post I will focus on APC, it's installation on an &lt;a href=&quot;/?p=193&quot;&gt;Ubuntu 10.04 server&lt;/a&gt;, and a few benchmarks to compare the various cache systems.  For my testing, I will use an Ubuntu Server installation, on a VirtualBox virtual machine with 256 Mb of RAM and a single processor. This enables me to test things until everything breaks, than just scrap that VM and start with a clean one. However, a description of this setup is a story for another day...&lt;/p&gt;
+		<content type="html">&lt;p&gt;&lt;span style=&quot;color: #000000; line-height: 27px;&quot;&gt;APC cache&lt;/span&gt; Codeigniter 2 now includes an excellent cache driver, which makes it dead easy to use any one of the great available cache librairies such as &lt;a href=&quot;http://php.net/apc&quot;&gt;APC&lt;/a&gt; o &lt;a href=&quot;http://www.memcached.org/&quot;&gt;memcached&lt;/a&gt;. In this post I will focus on APC, it's installation on an &lt;a href=&quot;/?p=193&quot;&gt;Ubuntu 10.04 server&lt;/a&gt;, and a few benchmarks to compare the various cache systems.  For my testing, I will use an Ubuntu Server installation, on a VirtualBox virtual machine with 256 Mb of RAM and a single processor. This enables me to test things until everything breaks, than just scrap that VM and start with a clean one. However, a description of this setup is a story for another day...&lt;/p&gt;
 
 &lt;h3&gt;Installation&lt;/h3&gt;
 
@@ -358,22 +349,13 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p style=&quot;text-align: left;&quot;&gt;&lt;/p&gt;
 
 
-&lt;!--:--&gt;
-
-
-&lt;!--:fr--&gt;
-
-
 &lt;p&gt;
 &lt;/p&gt;
 
 
 &lt;p&gt;&lt;/p&gt;
 
-
-&lt;!--:--&gt;
-
-&lt;a href=&quot;http://jfoucher.com/2011/02/13/installing-running-apc-cache-codeigniter.html&quot;&gt;<!--:en-->Installing and running APC cache with CodeIgniter<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+&lt;a href=&quot;http://jfoucher.com/2011/02/13/installing-running-apc-cache-codeigniter.html&quot;&gt;Installing and running APC cache with CodeIgniter&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
@@ -382,10 +364,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<link href="http://jfoucher.com/2011/01/22/wordpress-email-404-notification.html"/>
 		<updated>2011-01-22T23:42:45+01:00</updated>
 		<id>http://jfoucher.com/2011/01/22/wordpress-email-404-notification</id>
-		<content type="html">&lt;!--:en--&gt;
-
-
-&lt;p&gt;I couldn't find something that did just what I wanted and no more: send me an email when someone gets a 404 error on my blog. It seems pretty simple, and it really is. More than that actually. It's problably the simplest plugin I've ever written.&lt;/p&gt;
+		<content type="html">&lt;p&gt;I couldn't find something that did just what I wanted and no more: send me an email when someone gets a 404 error on my blog. It seems pretty simple, and it really is. More than that actually. It's problably the simplest plugin I've ever written.&lt;/p&gt;
 
 &lt;p&gt;Check it out:
 &lt;code lang=&quot;php&quot;&gt;
@@ -421,7 +400,7 @@ $body='A 404 error occured at the following url: '.$_SERVER['SERVER_NAME'].$loca
 
 &lt;p&gt;This function sets some headers for the email, such as the sender's name and email, and the subject of the message, and then sends the message. No error is shown if the message can't be sent, as this would be displayed on the page.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;: Finally available on the &lt;a href=&quot;http://wordpress.org/extend/plugins/email-404/&quot;&gt;wordpress plugin repository&lt;/a&gt;&lt;!--:--&gt;&lt;!--:fr--&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;: Finally available on the &lt;a href=&quot;http://wordpress.org/extend/plugins/email-404/&quot;&gt;wordpress plugin repository&lt;/a&gt;&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;I couldn't find something that did just what I wanted and no more: send me an email when someone gets a 404 error on my blog. It seems pretty simple, and it really is. More than that actually. It's problably the simplest plugin I've ever written.&lt;/p&gt;
 
@@ -461,41 +440,32 @@ function email_admin($location){&lt;br /&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
-
-&lt;!--:--&gt;
-
 &lt;a href=&quot;http://jfoucher.com/2011/01/22/wordpress-email-404-notification.html&quot;&gt;Wordpress 404 notification by email&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->Spanish characters on Qwerty keyboard for Ubuntu 10.10<!--:--></title>
+		<title>Spanish characters on Qwerty keyboard for Ubuntu 10.10</title>
 		<link href="http://jfoucher.com/2011/01/14/spanish-characters-on-qwerty-keyboard-for-ubuntu-10-10.html"/>
 		<updated>2011-01-14T22:06:17+01:00</updated>
 		<id>http://jfoucher.com/2011/01/14/spanish-characters-on-qwerty-keyboard-for-ubuntu-10-10</id>
-		<content type="html">&lt;!--:en--&gt;
-
-
-&lt;p&gt;Typing spanish characters on a standard QWERTY (or other) keyboard is near impossible. I have used the Character Palette panel applet to do so, but this method requires clicking on the letter you want, and then paste it where you want it. To much work for my tastes. Yes I'm lazy. I'm a programmer.&lt;/p&gt;
+		<content type="html">&lt;p&gt;Typing spanish characters on a standard QWERTY (or other) keyboard is near impossible. I have used the Character Palette panel applet to do so, but this method requires clicking on the letter you want, and then paste it where you want it. To much work for my tastes. Yes I'm lazy. I'm a programmer.&lt;/p&gt;
 
 &lt;p&gt;So, an easier is using the compose key. This allows me to type that key and a single apostrophe followed by the letter e for example, and get a é. I mapped the compose key to the left Win key, so the sequience is &lt;code inline=&quot;true&quot;&gt;LWin - ' &gt; e&lt;/code&gt; which writes é&lt;/p&gt;
 
 &lt;p&gt;To choose the compose key, open &lt;code inline=&quot;true&quot;&gt;Preferences &gt; Keyboard&lt;/code&gt;,  &lt;code inline=&quot;true&quot;&gt;Layouts&lt;/code&gt; tab and click on &lt;code inline=&quot;true&quot;&gt;Options&lt;/code&gt;. Open the &lt;code inline=&quot;true&quot;&gt;Compose key position&lt;/code&gt; submenu, and choose whichever one you like best. I think the Win key is a good choice as it's not used for anything much... Except remind us of our freedom...
 &lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1.png&quot;&gt;&lt;img src=&quot;http://cdn.jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1-300x218.png&quot; alt=&quot;Keyboard Layout Options&quot; title=&quot;Keyboard Layout Options&quot; width=&quot;300&quot; height=&quot;218&quot; class=&quot;aligncenter size-medium wp-image-264&quot; /&gt;&lt;/a&gt;
-And yay! Writing Spanish is cool again!&lt;!--:--&gt;&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2011/01/14/spanish-characters-on-qwerty-keyboard-for-ubuntu-10-10.html&quot;&gt;<!--:en-->Spanish characters on Qwerty keyboard for Ubuntu 10.10<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+And yay! Writing Spanish is cool again!&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2011/01/14/spanish-characters-on-qwerty-keyboard-for-ubuntu-10-10.html&quot;&gt;Spanish characters on Qwerty keyboard for Ubuntu 10.10&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->Python skype notifier for Ubuntu<!--:--></title>
+		<title>Python skype notifier for Ubuntu</title>
 		<link href="http://jfoucher.com/2011/01/14/python-skype-notifier-for-ubuntu.html"/>
 		<updated>2011-01-14T13:21:52+01:00</updated>
 		<id>http://jfoucher.com/2011/01/14/python-skype-notifier-for-ubuntu</id>
-		<content type="html">&lt;!--:en--&gt;
-
-
-&lt;p&gt;What's the best way to learn a new programming language ? Well, according to &lt;a href=&quot;http://programmers.stackexchange.com/q/3519/3984&quot;&gt;this question&lt;/a&gt; the best (only ?) way to learn a new language is just to code in that language.&lt;/p&gt;
+		<content type="html">&lt;p&gt;What's the best way to learn a new programming language ? Well, according to &lt;a href=&quot;http://programmers.stackexchange.com/q/3519/3984&quot;&gt;this question&lt;/a&gt; the best (only ?) way to learn a new language is just to code in that language.&lt;/p&gt;
 
 &lt;h3&gt;Why Python ?&lt;/h3&gt;
 
@@ -817,7 +787,7 @@ gtk.main()
 
 &lt;h1&gt;Authors:&lt;/h1&gt;
 
-&lt;h1&gt;Jonathan Foucher &lt;a href=&quot;&amp;#109;&amp;#x61;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#106;&amp;#102;&amp;#x6f;&amp;#117;&amp;#x63;&amp;#x68;&amp;#101;&amp;#x72;&amp;#64;&amp;#x36;&amp;#112;&amp;#x78;&amp;#x2e;&amp;#101;&amp;#x75;&quot;&gt;&amp;#106;&amp;#x66;&amp;#x6f;&amp;#x75;&amp;#x63;&amp;#104;&amp;#101;&amp;#114;&amp;#x40;&amp;#x36;&amp;#x70;&amp;#x78;&amp;#x2e;&amp;#x65;&amp;#x75;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1&gt;Jonathan Foucher &lt;a href=&quot;&amp;#109;&amp;#x61;&amp;#105;&amp;#x6c;&amp;#x74;&amp;#x6f;&amp;#58;&amp;#106;&amp;#x66;&amp;#x6f;&amp;#x75;&amp;#99;&amp;#x68;&amp;#101;&amp;#x72;&amp;#x40;&amp;#x36;&amp;#x70;&amp;#120;&amp;#46;&amp;#x65;&amp;#x75;&quot;&gt;&amp;#106;&amp;#102;&amp;#x6f;&amp;#117;&amp;#x63;&amp;#104;&amp;#x65;&amp;#114;&amp;#64;&amp;#x36;&amp;#x70;&amp;#120;&amp;#x2e;&amp;#x65;&amp;#x75;&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;#&lt;/p&gt;
 
@@ -1091,20 +1061,17 @@ gtk.main()
 &lt;p&gt;Download the script, or fork it on the &lt;a href=&quot;https://github.com/jfoucher/ubuntu-skype-indicator&quot;&gt;ubuntu-skype-indicator github repository&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;UPDATE: Before you run this script, you need to install its dependencies, python-indicate and skype4py
-On ubuntu, it's as simple as running &lt;code lang=&quot;bash&quot;&gt;sudo apt-get install python-skype python-indicate&lt;/code&gt;&lt;!--:--&gt;&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2011/01/14/python-skype-notifier-for-ubuntu.html&quot;&gt;<!--:en-->Python skype notifier for Ubuntu<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+On ubuntu, it's as simple as running &lt;code lang=&quot;bash&quot;&gt;sudo apt-get install python-skype python-indicate&lt;/code&gt;&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2011/01/14/python-skype-notifier-for-ubuntu.html&quot;&gt;Python skype notifier for Ubuntu&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->Compile custom kernel on Ubuntu 10.10<!--:--></title>
+		<title>Compile custom kernel on Ubuntu 10.10</title>
 		<link href="http://jfoucher.com/2011/01/12/compile-custom-kernel-on-ubuntu-10-10.html"/>
 		<updated>2011-01-12T15:06:02+01:00</updated>
 		<id>http://jfoucher.com/2011/01/12/compile-custom-kernel-on-ubuntu-10-10</id>
-		<content type="html">&lt;!--:en--&gt;
-
-
-&lt;p&gt;First off, you want to grab the latest kernel source from &lt;a href=&quot;http://kernel.org/&quot;&gt;http://kernel.org/&lt;/a&gt; and save it to a folder on your computer. I used my browser's default : &lt;code inline=&quot;true&quot; lang=&quot;bash&quot;&gt;~/Downloads&lt;/code&gt;. Right click on the archive and select &quot;extract here&quot;&lt;/p&gt;
+		<content type="html">&lt;p&gt;First off, you want to grab the latest kernel source from &lt;a href=&quot;http://kernel.org/&quot;&gt;http://kernel.org/&lt;/a&gt; and save it to a folder on your computer. I used my browser's default : &lt;code inline=&quot;true&quot; lang=&quot;bash&quot;&gt;~/Downloads&lt;/code&gt;. Right click on the archive and select &quot;extract here&quot;&lt;/p&gt;
 
 &lt;h3&gt;Configuration&lt;/h3&gt;
 
@@ -1148,27 +1115,24 @@ fakeroot make-kpkg --initrd --append-to-version=-some-string-here kernel-image k
 
 &lt;p&gt;Anyway, in my case this upgrade is really worth it because I get a functioning built-in microphone on my Vaio! Yay!&lt;/p&gt;
 
-&lt;p&gt;So the moral is: don't be scared of trying a custom kernel, it really got much easier, and if you don't like it, going back is as easy as selecting another entry in grub...&lt;!--:--&gt;&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2011/01/12/compile-custom-kernel-on-ubuntu-10-10.html&quot;&gt;<!--:en-->Compile custom kernel on Ubuntu 10.10<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+&lt;p&gt;So the moral is: don't be scared of trying a custom kernel, it really got much easier, and if you don't like it, going back is as easy as selecting another entry in grub...&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2011/01/12/compile-custom-kernel-on-ubuntu-10-10.html&quot;&gt;Compile custom kernel on Ubuntu 10.10&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->New version of the auto-tag plugin released!<!--:--></title>
+		<title>New version of the auto-tag plugin released!</title>
 		<link href="http://jfoucher.com/2010/05/19/version-autotag-plugin-released.html"/>
 		<updated>2010-05-19T16:45:10+02:00</updated>
 		<id>http://jfoucher.com/2010/05/19/version-autotag-plugin-released</id>
-		<content type="html">&lt;!--:en--&gt;
-
-
-&lt;p&gt;&lt;a href=&quot;http://wordpress.org/extend/plugins/auto-tag/&quot;&gt;Version 0.4 is here!&lt;/a&gt;&lt;/p&gt;
+		<content type="html">&lt;p&gt;&lt;a href=&quot;http://wordpress.org/extend/plugins/auto-tag/&quot;&gt;Version 0.4 is here!&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I know it's been a long time coming, but I just couldn't let you all down on that.&lt;/p&gt;
 
 &lt;p&gt;Heavily refactored, lots of bug fixes, some nice improvements, I think you're going to like it.&lt;/p&gt;
 
-&lt;p&gt;Let me know how it goes !&lt;!--:--&gt;&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2010/05/19/version-autotag-plugin-released.html&quot;&gt;<!--:en-->New version of the auto-tag plugin released!<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+&lt;p&gt;Let me know how it goes !&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2010/05/19/version-autotag-plugin-released.html&quot;&gt;New version of the auto-tag plugin released!&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
@@ -1177,23 +1141,17 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<link href="http://jfoucher.com/2010/01/02/coding-challenge-app-month.html"/>
 		<updated>2010-01-02T12:34:11+01:00</updated>
 		<id>http://jfoucher.com/2010/01/02/coding-challenge-app-month</id>
-		<content type="html">&lt;!--:en--&gt;
-
-
-&lt;p&gt;This is the challenge I set myself for 2010 : Develop one webapp per month during the whole year.&lt;!--:--&gt;&lt;!--:fr--&gt;This is the challenge I set myself for 2010 : Develop one webapp per month during the whole year. Read more about it &lt;a href=&quot;http://jfoucher.fr/blog/one-app-a-month-challenge/&quot;&gt;on my portfolio&lt;/a&gt;&lt;!--:--&gt;&lt;/p&gt;
+		<content type="html">&lt;p&gt;This is the challenge I set myself for 2010 : Develop one webapp per month during the whole year.This is the challenge I set myself for 2010 : Develop one webapp per month during the whole year. Read more about it &lt;a href=&quot;http://jfoucher.fr/blog/one-app-a-month-challenge/&quot;&gt;on my portfolio&lt;/a&gt;&lt;/p&gt;
 &lt;a href=&quot;http://jfoucher.com/2010/01/02/coding-challenge-app-month.html&quot;&gt;Coding challenge: One app a month&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->One app a month challenge<!--:--></title>
+		<title>One app a month challenge</title>
 		<link href="http://jfoucher.com/2010/01/02/one-app-a-month-challenge.html"/>
 		<updated>2010-01-02T00:29:39+01:00</updated>
 		<id>http://jfoucher.com/2010/01/02/one-app-a-month-challenge</id>
-		<content type="html">&lt;!--:en--&gt;
-
-
-&lt;p&gt;To keep learning and progressing in my line of work, you have to be &lt;strong&gt;learning new things&lt;/strong&gt; everyday. The evolution is so fast that if you don't go forward, you are effectively going backwards.&lt;/p&gt;
+		<content type="html">&lt;p&gt;To keep learning and progressing in my line of work, you have to be &lt;strong&gt;learning new things&lt;/strong&gt; everyday. The evolution is so fast that if you don't go forward, you are effectively going backwards.&lt;/p&gt;
 
 &lt;blockquote&gt;I need ideas of useful apps or libraries to include in this challenge.&lt;/blockquote&gt;
 
@@ -1206,35 +1164,29 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;p&gt;So, if you have any ideas about what I should develop, something you need, whatever, please comment below, thanks!&lt;/p&gt;
 
-&lt;p&gt;EDIT: The result of the January Challenge is now live : &lt;a href=&quot;http://6px.eu/smallurl&quot;&gt;The URL shortener&lt;/a&gt;&lt;!--:--&gt;&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2010/01/02/one-app-a-month-challenge.html&quot;&gt;<!--:en-->One app a month challenge<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+&lt;p&gt;EDIT: The result of the January Challenge is now live : &lt;a href=&quot;http://6px.eu/smallurl&quot;&gt;The URL shortener&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2010/01/02/one-app-a-month-challenge.html&quot;&gt;One app a month challenge&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->BlueIce Plugin<!--:--></title>
+		<title>BlueIce Plugin</title>
 		<link href="http://jfoucher.com/2009/12/14/blueice-plugin.html"/>
 		<updated>2009-12-14T17:59:32+01:00</updated>
 		<id>http://jfoucher.com/2009/12/14/blueice-plugin</id>
-		<content type="html">&lt;!--:en--&gt;
+		<content type="html">&lt;p&gt;I just created a very simple plugin for &lt;a title=&quot;The Anti-CMS&quot; href=&quot;http://blueiceapp.com&quot;&gt;BlueIce&lt;/a&gt;, the anti-CMS. It simply inserts a list containg links to all pages in the web site. The author published it on his &lt;a href=&quot;http://blueiceapp.com/docs/plugins&quot;&gt;3rd party plugins&lt;/a&gt; page, and I highly recommend his anti-CMS for small, semi static sites.&lt;/p&gt;
 
-
-&lt;p&gt;I just created a very simple plugin for &lt;a title=&quot;The Anti-CMS&quot; href=&quot;http://blueiceapp.com&quot;&gt;BlueIce&lt;/a&gt;, the anti-CMS. It simply inserts a list containg links to all pages in the web site. The author published it on his &lt;a href=&quot;http://blueiceapp.com/docs/plugins&quot;&gt;3rd party plugins&lt;/a&gt; page, and I highly recommend his anti-CMS for small, semi static sites.&lt;/p&gt;
-
-&lt;p&gt;It includes a clever cache system, so your web site will be almost as fast as if it was pure static html. All pages are rendered using &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt;, making for simple content editing, using a &lt;a href=&quot;http://geany.org/&quot;&gt;text editor&lt;/a&gt; and an FTP client.&lt;!--:--&gt;&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2009/12/14/blueice-plugin.html&quot;&gt;<!--:en-->BlueIce Plugin<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+&lt;p&gt;It includes a clever cache system, so your web site will be almost as fast as if it was pure static html. All pages are rendered using &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt;, making for simple content editing, using a &lt;a href=&quot;http://geany.org/&quot;&gt;text editor&lt;/a&gt; and an FTP client.&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2009/12/14/blueice-plugin.html&quot;&gt;BlueIce Plugin&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->Why Google Wave is useless (with invites giveaway)<!--:--></title>
+		<title>Why Google Wave is useless (with invites giveaway)</title>
 		<link href="http://jfoucher.com/2009/11/20/google-wave-useless.html"/>
 		<updated>2009-11-20T10:00:29+01:00</updated>
 		<id>http://jfoucher.com/2009/11/20/google-wave-useless</id>
-		<content type="html">&lt;!--:en--&gt;
-
-
-&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Google Wave&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/11/Screenshot-1.png&quot;&gt;&lt;img class=&quot;size-medium wp-image-172&quot; title=&quot;Google Wave&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/11/Screenshot-1-300x158.png&quot; alt=&quot;Google Wave&quot; width=&quot;300&quot; height=&quot;158&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+		<content type="html">&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Google Wave&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/11/Screenshot-1.png&quot;&gt;&lt;img class=&quot;size-medium wp-image-172&quot; title=&quot;Google Wave&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/11/Screenshot-1-300x158.png&quot; alt=&quot;Google Wave&quot; width=&quot;300&quot; height=&quot;158&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;1. You need to have it open in your browser to appear online&lt;/h3&gt;
@@ -1268,38 +1220,29 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;Very easy : leave a comment on this post with your real email address, and on Monday at 12 GMT I'll pick ten winners. (yes I have that many unused invites...)&lt;/p&gt;
 
 &lt;p&gt;Have a good weekend&lt;/p&gt;
-
-&lt;!--:--&gt;
-
-&lt;a href=&quot;http://jfoucher.com/2009/11/20/google-wave-useless.html&quot;&gt;<!--:en-->Why Google Wave is useless (with invites giveaway)<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+&lt;a href=&quot;http://jfoucher.com/2009/11/20/google-wave-useless.html&quot;&gt;Why Google Wave is useless (with invites giveaway)&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->EducaThyssen<!--:--></title>
+		<title>EducaThyssen</title>
 		<link href="http://jfoucher.com/2009/10/06/190.html"/>
 		<updated>2009-10-06T09:36:34+02:00</updated>
 		<id>http://jfoucher.com/2009/10/06/190</id>
-		<content type="html">&lt;!--:en--&gt;
+		<content type="html">&lt;div class=&quot;image-with-caption alignnone&quot; style=&quot;width:370px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Una web del Museo Thyssen-Bornemisza&lt;/div&gt;&lt;a href=&quot;http://www.educathyssen.org&quot;&gt;&lt;img src=&quot;http://jfoucher.fr/wp-content/uploads/2009/10/Pantallazo-2-370x232.jpg&quot; alt=&quot;Una web del Museo Thyssen-Bornemisza&quot; title=&quot;Educathyssen.org&quot; width=&quot;370&quot; height=&quot;232&quot; class=&quot;size-medium wp-image-189&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
-&lt;div class=&quot;image-with-caption alignnone&quot; style=&quot;width:370px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Una web del Museo Thyssen-Bornemisza&lt;/div&gt;&lt;a href=&quot;http://www.educathyssen.org&quot;&gt;&lt;img src=&quot;http://jfoucher.fr/wp-content/uploads/2009/10/Pantallazo-2-370x232.jpg&quot; alt=&quot;Una web del Museo Thyssen-Bornemisza&quot; title=&quot;Educathyssen.org&quot; width=&quot;370&quot; height=&quot;232&quot; class=&quot;size-medium wp-image-189&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Algunas mejoras en la web de &lt;a href=&quot;http://www.educathyssen.org&quot;&gt;Educathyssen.org&lt;/a&gt;, como por ejemplo le gestion de las encuestas, de los favoritos personales para cada usuario, el funccionamiento de los blogs, mejoras de seguridad en los formularios, etc...&lt;!--:--&gt;&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2009/10/06/190.html&quot;&gt;<!--:en-->EducaThyssen<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+&lt;p&gt;Algunas mejoras en la web de &lt;a href=&quot;http://www.educathyssen.org&quot;&gt;Educathyssen.org&lt;/a&gt;, como por ejemplo le gestion de las encuestas, de los favoritos personales para cada usuario, el funccionamiento de los blogs, mejoras de seguridad en los formularios, etc...&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2009/10/06/190.html&quot;&gt;EducaThyssen&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->Cafepress SIGG bottles discount and coupon code !<!--:--></title>
+		<title>Cafepress SIGG bottles discount and coupon code !</title>
 		<link href="http://jfoucher.com/2009/07/27/cafepress-sigg-bottles-discount-coupon-code.html"/>
 		<updated>2009-07-27T21:13:36+02:00</updated>
 		<id>http://jfoucher.com/2009/07/27/cafepress-sigg-bottles-discount-coupon-code</id>
-		<content type="html">&lt;!--:en--&gt;
-
-
-&lt;p&gt;You've probably seen that cafepress let's you&lt;a href=&quot;http://www.cafepress.com/designer/sigg/&quot;&gt; customize your sigg bottle&lt;/a&gt;, and you also no doubt know that water bottles are bad for the &lt;a href=&quot;http://ecoquotidien.fr&quot;&gt;environment&lt;/a&gt;, as only a small proportion are recycled, and many end up scattered around natural areas, not least of which, due to their rather &lt;em&gt;floating&lt;/em&gt; nature, our beaches. Sigg bottles are a durable, light and trendy alternative, and today we are going to &lt;em&gt;design our own&lt;/em&gt;, but not using &lt;a href=&quot;http://cafepress.com&quot;&gt;cafepress'&lt;/a&gt; flash designer!&lt;/p&gt;
+		<content type="html">&lt;p&gt;You've probably seen that cafepress let's you&lt;a href=&quot;http://www.cafepress.com/designer/sigg/&quot;&gt; customize your sigg bottle&lt;/a&gt;, and you also no doubt know that water bottles are bad for the &lt;a href=&quot;http://ecoquotidien.fr&quot;&gt;environment&lt;/a&gt;, as only a small proportion are recycled, and many end up scattered around natural areas, not least of which, due to their rather &lt;em&gt;floating&lt;/em&gt; nature, our beaches. Sigg bottles are a durable, light and trendy alternative, and today we are going to &lt;em&gt;design our own&lt;/em&gt;, but not using &lt;a href=&quot;http://cafepress.com&quot;&gt;cafepress'&lt;/a&gt; flash designer!&lt;/p&gt;
 
 &lt;blockquote&gt;There is a better and cheaper way to get your custom sigg bottle.&lt;/blockquote&gt;
 
@@ -1375,40 +1318,34 @@ Cafepress coupon code: a further $5 discount&lt;/blockquote&gt;
 
 &lt;p&gt;A further tip if you want a different design on each bottle : as the free version of cafepress doesn't allow you to sell more than one product of each type in each shop, open several free shops with a different Sigg bottle in each!&lt;/p&gt;
 
-&lt;p&gt;I hope you enjoy this post. If you decide to follow this tutorial, send a pic of your bottle in the comments.&lt;!--:--&gt;&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2009/07/27/cafepress-sigg-bottles-discount-coupon-code.html&quot;&gt;<!--:en-->Cafepress SIGG bottles discount and coupon code !<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+&lt;p&gt;I hope you enjoy this post. If you decide to follow this tutorial, send a pic of your bottle in the comments.&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2009/07/27/cafepress-sigg-bottles-discount-coupon-code.html&quot;&gt;Cafepress SIGG bottles discount and coupon code !&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->Access to MySQL import class<!--:--></title>
+		<title>Access to MySQL import class</title>
 		<link href="http://jfoucher.com/2009/07/18/access-to-mysql-import-class.html"/>
 		<updated>2009-07-18T09:57:25+02:00</updated>
 		<id>http://jfoucher.com/2009/07/18/access-to-mysql-import-class</id>
-		<content type="html">&lt;!--:en--&gt;
-
-
-&lt;p&gt;In my latest project &lt;a href=&quot;http://tecknosfera.com&quot;&gt;at work&lt;/a&gt; I need to import data from an acess database into mySQL to be able to create an online shop from that data. Instead of importing just the database of that particular client, I created a generic PHP class that can import any Access database to MySQL.&lt;/p&gt;
+		<content type="html">&lt;p&gt;In my latest project &lt;a href=&quot;http://tecknosfera.com&quot;&gt;at work&lt;/a&gt; I need to import data from an acess database into mySQL to be able to create an online shop from that data. Instead of importing just the database of that particular client, I created a generic PHP class that can import any Access database to MySQL.&lt;/p&gt;
 
 &lt;blockquote&gt;
 Big databases must be imported by chunks.&lt;/blockquote&gt;
 
 
 &lt;p&gt;Since Access databases can get so big, the import class has to do its job by chunks, to avoid memory limits. It also needs to reload itself when it detects it is close to the time limit, all of which it now does without any problems.
-We can now import (hopefully) any Access database.&lt;!--:--&gt;&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2009/07/18/access-to-mysql-import-class.html&quot;&gt;<!--:en-->Access to MySQL import class<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+We can now import (hopefully) any Access database.&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2009/07/18/access-to-mysql-import-class.html&quot;&gt;Access to MySQL import class&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->Ecoquotidien.fr<!--:--></title>
+		<title>Ecoquotidien.fr</title>
 		<link href="http://jfoucher.com/2009/07/10/ecoquotidien.html"/>
 		<updated>2009-07-10T10:18:11+02:00</updated>
 		<id>http://jfoucher.com/2009/07/10/ecoquotidien</id>
-		<content type="html">&lt;!--:en--&gt;
-
-
-&lt;div class=&quot;image-with-caption alignleft&quot; style=&quot;width:370px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Ecoquotidien&lt;/div&gt;&lt;a href=&quot;http://ecoquotidien.fr&quot;&gt;&lt;img src=&quot;http://jfoucher.fr/wp-content/uploads/2009/07/ecoquotidien-370x231.jpg&quot; alt=&quot;Ecoquotidien&quot; title=&quot;Ecoquotidien&quot; width=&quot;370&quot; height=&quot;231&quot; class=&quot;size-medium wp-image-157&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+		<content type="html">&lt;div class=&quot;image-with-caption alignleft&quot; style=&quot;width:370px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Ecoquotidien&lt;/div&gt;&lt;a href=&quot;http://ecoquotidien.fr&quot;&gt;&lt;img src=&quot;http://jfoucher.fr/wp-content/uploads/2009/07/ecoquotidien-370x231.jpg&quot; alt=&quot;Ecoquotidien&quot; title=&quot;Ecoquotidien&quot; width=&quot;370&quot; height=&quot;231&quot; class=&quot;size-medium wp-image-157&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 &lt;p&gt;[lang_es]La ecologia al cotidiano. Que hacer para cuidar de nuestro planeta en nuestros hogares y jardines.&lt;/p&gt;
@@ -1417,40 +1354,34 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 [/lang_es][lang_en]Daily ecology. What we can do to take care of our planet from our homes and gardens.&lt;/p&gt;
 
 &lt;p&gt;Based in &lt;a href=&quot;http://wordpress.org&quot;&gt;Wordpress&lt;/a&gt;, this blog makes extensive use of &lt;a href=&quot;http://jquery.com&quot;&gt;jQuery&lt;/a&gt; to give life to the page, with animations, dynamic content, etc... The clouds, for example move around on the screen as if an imaginary electronic wind was blowing!
-[/lang_en]&lt;!--:--&gt;&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2009/07/10/ecoquotidien.html&quot;&gt;<!--:en-->Ecoquotidien.fr<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+[/lang_en]&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2009/07/10/ecoquotidien.html&quot;&gt;Ecoquotidien.fr&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->WP-Feedly theme available for download<!--:--></title>
+		<title>WP-Feedly theme available for download</title>
 		<link href="http://jfoucher.com/2009/06/27/wpfeedly-theme-download.html"/>
 		<updated>2009-06-27T11:19:32+02:00</updated>
 		<id>http://jfoucher.com/2009/06/27/wpfeedly-theme-download</id>
-		<content type="html">&lt;!--:en--&gt;
+		<content type="html">&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;WP-Feedly Screenshot&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot1.png&quot;&gt;&lt;img class=&quot;size-full wp-image-138&quot; title=&quot;WP-Feedly Screenshot&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot1.png&quot; alt=&quot;WP-Feedly Screenshot&quot; width=&quot;300&quot; height=&quot;255&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
-&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;WP-Feedly Screenshot&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot1.png&quot;&gt;&lt;img class=&quot;size-full wp-image-138&quot; title=&quot;WP-Feedly Screenshot&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot1.png&quot; alt=&quot;WP-Feedly Screenshot&quot; width=&quot;300&quot; height=&quot;255&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
-
-
-&lt;p&gt;After some beta testing and subsequent bug squashing, WP-Feedly is ready for prime-time, and &lt;a href=&quot;/wp-feedly.zip&quot;&gt;available for download&lt;/a&gt;.&lt;!--:--&gt;&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2009/06/27/wpfeedly-theme-download.html&quot;&gt;<!--:en-->WP-Feedly theme available for download<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+&lt;p&gt;After some beta testing and subsequent bug squashing, WP-Feedly is ready for prime-time, and &lt;a href=&quot;/wp-feedly.zip&quot;&gt;available for download&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2009/06/27/wpfeedly-theme-download.html&quot;&gt;WP-Feedly theme available for download&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title><!--:en-->New portfolio theme: CleanFolio<!--:--></title>
+		<title>New portfolio theme: CleanFolio</title>
 		<link href="http://jfoucher.com/2009/06/27/portfolio-theme.html"/>
 		<updated>2009-06-27T00:17:07+02:00</updated>
 		<id>http://jfoucher.com/2009/06/27/portfolio-theme</id>
-		<content type="html">&lt;!--:en--&gt;
+		<content type="html">&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;CleanFolio&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot.png&quot;&gt;&lt;img class=&quot;size-medium wp-image-130&quot; title=&quot;CleanFolio&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot-300x187.png&quot; alt=&quot;CleanFolio&quot; width=&quot;300&quot; height=&quot;187&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
-&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;CleanFolio&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot.png&quot;&gt;&lt;img class=&quot;size-medium wp-image-130&quot; title=&quot;CleanFolio&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot-300x187.png&quot; alt=&quot;CleanFolio&quot; width=&quot;300&quot; height=&quot;187&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
-
-
-&lt;p&gt;I've been working on my profesionnal portfolio these days, and I'm thinking about releasing the theme. It's a very clean and white design, with a jQuery carousel to present my past work. You can see a demo on &lt;a href=&quot;http://jfoucher.fr&quot;&gt;Jonathan Foucher's portfolio&lt;/a&gt;. So, should I release it? Do you like it?&lt;!--:--&gt;&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2009/06/27/portfolio-theme.html&quot;&gt;<!--:en-->New portfolio theme: CleanFolio<!--:-->&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+&lt;p&gt;I've been working on my profesionnal portfolio these days, and I'm thinking about releasing the theme. It's a very clean and white design, with a jQuery carousel to present my past work. You can see a demo on &lt;a href=&quot;http://jfoucher.fr&quot;&gt;Jonathan Foucher's portfolio&lt;/a&gt;. So, should I release it? Do you like it?&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2009/06/27/portfolio-theme.html&quot;&gt;New portfolio theme: CleanFolio&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	

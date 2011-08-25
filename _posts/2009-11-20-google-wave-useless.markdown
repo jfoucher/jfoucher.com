@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Why Google Wave is useless (with invites giveaway)<!--:-->
+title: Why Google Wave is useless (with invites giveaway)
 tags: []
 
 date: Fri Nov 20 10:00:29 +0100 2009

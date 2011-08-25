@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: "<!--:en-->New portfolio theme: CleanFolio<!--:-->"
+title: "New portfolio theme: CleanFolio"
 tags: []
 
 date: Sat Jun 27 00:17:07 +0200 2009

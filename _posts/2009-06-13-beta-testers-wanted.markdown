@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Beta testers wanted<!--:-->
+title: Beta testers wanted
 tags: []
 
 date: Sat Jun 13 22:33:26 +0200 2009

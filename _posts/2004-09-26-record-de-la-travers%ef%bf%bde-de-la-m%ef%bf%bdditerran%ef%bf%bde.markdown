@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Record de la travers?e de la M?diterran?e.<!--:-->
+title: Record de la travers?e de la M?diterran?e.
 tags: []
 
 date: Sun Sep 26 09:21:20 +0200 2004

@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Auto Tag Wordpress plugin<!--:-->
+title: Auto Tag Wordpress plugin
 tags: []
 
 date: Thu Jun 04 22:45:48 +0200 2009

@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Author page wordpress plugin<!--:-->
+title: Author page wordpress plugin
 tags: []
 
 date: Sun Oct 03 17:30:49 +0200 2004

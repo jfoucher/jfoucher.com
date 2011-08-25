@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->ABC... Whatever<!--:-->
+title: ABC... Whatever
 tags: []
 
 date: Fri Mar 04 16:26:31 +0100 2005

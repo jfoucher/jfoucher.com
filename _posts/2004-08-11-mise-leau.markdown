@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Mise   l'eau<!--:-->
+title: Mise   l'eau
 tags: []
 
 date: Wed Aug 11 19:55:49 +0200 2004

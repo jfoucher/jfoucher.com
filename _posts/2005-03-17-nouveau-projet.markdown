@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Nouveau projet<!--:-->
+title: Nouveau projet
 tags: []
 
 date: Thu Mar 17 18:06:08 +0100 2005

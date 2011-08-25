@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: "<!--:en-->Plugin Wordpress : Page Auteur<!--:-->"
+title: "Plugin Wordpress : Page Auteur"
 tags: []
 
 date: Fri Oct 08 12:56:02 +0200 2004

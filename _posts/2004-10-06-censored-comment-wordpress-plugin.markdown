@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Censored Comment Wordpress plugin<!--:-->
+title: Censored Comment Wordpress plugin
 tags: []
 
 date: Wed Oct 06 13:29:54 +0200 2004

@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Installing and running APC cache with CodeIgniter<!--:-->
+title: Installing and running APC cache with CodeIgniter
 tags: []
 
 date: Sun Feb 13 23:33:33 +0100 2011

@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Articles populaires<!--:-->
+title: Articles populaires
 tags: []
 
 date: Mon Oct 11 13:07:41 +0200 2004

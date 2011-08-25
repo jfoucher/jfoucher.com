@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->The making of flickholdr.com, an image placeholder generator<!--:-->
+title: The making of flickholdr.com, an image placeholder generator
 tags: []
 
 date: Sun Apr 03 21:42:49 +0200 2011

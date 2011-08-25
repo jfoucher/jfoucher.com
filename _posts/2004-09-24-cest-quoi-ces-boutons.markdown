@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->C'est quoi ces boutons ?<!--:-->
+title: C'est quoi ces boutons ?
 tags: []
 
 date: Fri Sep 24 22:33:09 +0200 2004

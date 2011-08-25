@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Changes coming soon<!--:-->
+title: Changes coming soon
 tags: []
 
 date: Tue Mar 08 00:40:34 +0100 2005

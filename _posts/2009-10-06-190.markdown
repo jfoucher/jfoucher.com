@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->EducaThyssen<!--:-->
+title: EducaThyssen
 tags: []
 
 date: Tue Oct 06 09:36:34 +0200 2009

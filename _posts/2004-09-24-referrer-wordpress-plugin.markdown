@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Referrer Wordpress Plugin<!--:-->
+title: Referrer Wordpress Plugin
 tags: []
 
 date: Fri Sep 24 09:32:50 +0200 2004

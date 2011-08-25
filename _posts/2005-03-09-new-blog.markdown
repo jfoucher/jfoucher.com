@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->New blog<!--:-->
+title: New blog
 tags: []
 
 date: Wed Mar 09 20:59:14 +0100 2005

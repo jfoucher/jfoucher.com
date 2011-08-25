@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Conception Web par Jonathan Foucher<!--:-->
+title: Conception Web par Jonathan Foucher
 tags: []
 
 date: Sat Apr 10 18:49:14 +0200 2004

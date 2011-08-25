@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Amazon Wishlist plugin for wordpress 2.7<!--:-->
+title: Amazon Wishlist plugin for wordpress 2.7
 tags: []
 
 date: Tue May 19 07:19:55 +0200 2009

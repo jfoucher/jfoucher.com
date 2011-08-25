@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: <!--:en-->Compile custom kernel on Ubuntu 10.10<!--:-->
+title: Compile custom kernel on Ubuntu 10.10
 excerpt: My experience compiling a custom kernel from source, using Ubuntu 10.10 Maverick Meerkat, on a Sony Vaio F111 series
 tags: []
 
