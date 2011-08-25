@@ -341,7 +341,7 @@ span.amp {
 .nav-next{float:right;
 }
 .nav-previous{float:left;}
-#comments, #disqus_thread{
+#comments{
 	clear:both;
 	margin-top:20px;
 }
@@ -546,7 +546,7 @@ li.comment.bypostauthor{
 
 @media screen and (min-width:1600px) {
 
-	#comments, #disqus_thread{
+	#comments{
 		position: absolute;
 		top: 50px;
 		right: 50px;
