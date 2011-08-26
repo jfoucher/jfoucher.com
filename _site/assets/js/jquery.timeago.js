@@ -45,7 +45,7 @@
         months: "%d months",
         year: "about a year",
         years: "%d years",
-        numbers: []
+        numbers: ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','twenty']
       }
     },
     inWords: function(distanceMillis) {
@@ -99,6 +99,14 @@
       var isTime = $(elem).get(0).tagName.toLowerCase() === "time"; // $(elem).is("time");
       var iso8601 = isTime ? $(elem).attr("datetime") : $(elem).attr("title");
       return $t.parse(iso8601);
+    },
+    convertToWord: function(number){
+        conv={1:'one',2:'two',3:'three',4:'four',5:'five',6:'six',7:'seven',8:'eight',9:'nine',10:'ten'};
+        if(conv[number]){
+            return conv[number];
+        }
+        else return number;
+
     }
   });
 

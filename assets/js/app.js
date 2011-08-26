@@ -16,7 +16,7 @@ $(document).ready(function(){
       return text.replace(exp,"<a href='$1'>$1</a>");
     }
 
-    jQuery.ajax('http://twitter.com/statuses/user_timeline/jfoucher.json?count=4', {
+    jQuery.ajax('http://twitter.com/statuses/user_timeline/jfoucher.json?count=6', {
         dataType:'jsonp',
         success:function(data){
             $.each(data,function(i,el){
