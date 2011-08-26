@@ -688,7 +688,7 @@ div#portfolio { border-top: 0.8em solid #333; padding-top: 1px; }
         font-family: "Museo Sans 500 Regular", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
 		}
 	pre { margin: 2em 0; overflow: auto; }
-	pre code { font-size: 1.6em; }
+	/*pre code { font-size: 1.6em; }*/
 	code {
 		font-family: Monaco, "Andale Mono", "Courier New", Courier, monospace;
 		white-space: pre;

@@ -16,17 +16,17 @@ Installation :
 L'utilisation est simple :
 
 Ajouter le code suivant dans votre fichier index.php
-<code lang="php">
+{% highlight php %}
 post_referrers(8, "<li>", "</li>", "Pas encore...", "self");
-</code>
+{% endhighlight %}
 où 8 est le nombre pe pages référentes   afficher, '&lt;li&gt;' est le texte   afficher avant chaque lien, '&lt;/li&gt;' est le texte   afficher après chaque lien, 'Pas encore...' est le texte   afficher s'il n'y a pas encore de page référente. La dernière option sert   exclure certains sites : En mettant 'self' (défault), les référents internes ne seront pas affichés. Sinon, vous pouvez ecrire une liste de sites à ignorer, comme ceci :
-<code lang="php">
+{% highlight php %}
 post_referrers('', '', '', '', 'google.com yahoo.com exemple.com');
-</code>
+{% endhighlight %}
 Pour ne pas afficher les référents sur une page où il y a plusieurs articles, utilisez une condition comme ceci:
-<code lang="php">
+{% highlight php %}
 if ($single) post_referrers();
-</code>
+{% endhighlight %}
 Vous pouvez voir une démonstration en bas des pages de ce blog, et n'hésitez pas   laisser un commentaire si vous avez des problèmes.
 
 Version 0.21 : utilisation de la redirection Google pour essayer de diminuer les <a href="/?p=20">spams de référents</a>.
@@ -42,17 +42,17 @@ Installation :
 L'utilisation est simple :
 
 Ajouter le code suivant dans votre fichier index.php
-<code lang="php">
+{% highlight php %}
 post_referrers(8, "<li>", "</li>", "Pas encore...", "self");
-</code>
+{% endhighlight %}
 où 8 est le nombre pe pages référentes   afficher, '&lt;li&gt;' est le texte   afficher avant chaque lien, '&lt;/li&gt;' est le texte   afficher après chaque lien, 'Pas encore...' est le texte   afficher s'il n'y a pas encore de page référente. La dernière option sert   exclure certains sites : En mettant 'self' (défault), les référents internes ne seront pas affichés. Sinon, vous pouvez ecrire une liste de sites à ignorer, comme ceci :
-<code lang="php">
+{% highlight php %}
 post_referrers('', '', '', '', 'google.com yahoo.com exemple.com');
-</code>
+{% endhighlight %}
 Pour ne pas afficher les référents sur une page où il y a plusieurs articles, utilisez une condition comme ceci:
-<code lang="php">
+{% highlight php %}
 if ($single) post_referrers();
-</code>
+{% endhighlight %}
 Vous pouvez voir une démonstration en bas des pages de ce blog, et n'hésitez pas   laisser un commentaire si vous avez des problèmes.
 
 Version 0.21 : utilisation de la redirection Google pour essayer de diminuer les <a href="/?p=20">spams de référents</a>.

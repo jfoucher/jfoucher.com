@@ -27,6 +27,7 @@
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
 	<link rel="stylesheet" href="/assets/css/reset.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/assets/css/syntax.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/assets/css/print.css" type="text/css" media="print" />
 	
     <!-- <link rel="stylesheet" href="/css/syntax.css" type="text/css" media="screen" /> -->
@@ -104,8 +105,12 @@
                     <span class="month"><abbr>Apr</abbr></span>
                     <span class="year">2011</span>
                 </span>
-                <p>For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like <code lang="php">
-&lt;?php echo $this->css->link(array('/assets/css/fonts.css','/assets/css/layout.css');?></code></p>
+                <p>For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">css</span><span class="o">-&gt;</span><span class="na">link</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;/assets/css/fonts.css&#39;</span><span class="p">,</span><span class="s1">&#39;/assets/css/layout.css&#39;</span><span class="p">);</span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre>
+</div>
+
 
 <p>After some searching, I found a css minification library for PHP, <a href="https://code.google.com/p/minify/">minify</a></p>
 
@@ -127,19 +132,25 @@ I modelled the interaction on the image library, as I guess that's what most peo
 
 <p>&nbsp;</p>
 
-<p><code lang="php">$this->load->library('css');
-//array of files to concatenate and minify
-$config['source_file']=array('/assets/css/layout.css','/assets/css/fonts.css');
-//where to output the result
-$config['dest_file']'/assets/css/css.min.css';
-//Cache time in hours
-$config['cache_time']=48;
-$this->css->initialize($config);
-echo $this->css->link();
-</code>
-Will output the following stylesheet tag:</p>
+<div class="highlight"><pre><code class="php"><span class="x">$this-&gt;load-&gt;library(&#39;css&#39;);</span>
+<span class="x">//array of files to concatenate and minify</span>
+<span class="x">$config[&#39;source_file&#39;]=array(&#39;/assets/css/layout.css&#39;,&#39;/assets/css/fonts.css&#39;);</span>
+<span class="x">//where to output the result</span>
+<span class="x">$config[&#39;dest_file&#39;]&#39;/assets/css/css.min.css&#39;;</span>
+<span class="x">//Cache time in hours</span>
+<span class="x">$config[&#39;cache_time&#39;]=48;</span>
+<span class="x">$this-&gt;css-&gt;initialize($config);</span>
+<span class="x">echo $this-&gt;css-&gt;link();</span>
+</code></pre>
+</div>
 
-<p><code lang="html"><link rel="stylesheet" href="/assets/css/css.min.css" type="text/css" media="screen" /></code></p>
+
+<p>Will output the following stylesheet tag:</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/assets/css/css.min.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+
 
 <p>&nbsp;</p>
 
@@ -151,7 +162,14 @@ Will output the following stylesheet tag:</p>
 <h3>Finally</h3>
 
 
-<p>I'm not sure the way I've done it, using a <code lang="php" inline="true">$config</code> array and so on, is the best way. It might be a bit overkill for such a simple library. I'd love to hear your thoughts on the subject.</p>
+<p>I'm not sure the way I've done it, using a</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">$config</span>
+</code></pre>
+</div>
+
+
+<p> array and so on, is the best way. It might be a bit overkill for such a simple library. I'd love to hear your thoughts on the subject.</p>
 
                 <div class="meta">
                     <!-- <span class="pdf">Download a <a href="/2011/04/11/css-minification-library-for-codeigniter.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->

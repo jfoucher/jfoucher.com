@@ -19,13 +19,13 @@ If the requested image already exists in the cache (i.e. it has already been req
 <h2>Getting images from flickr</h2>
 Most of the code deals with pulling images from flickr, and then doing various to them before display. The code that pulls the image from flickr is located in a model called Flickr_model with three methods:
 <ol>
-	<li>A public method called <code lang="php" inline="true">search()</code>  that gets images using the <a href="http://www.flickr.com/services/api/">flickr API</a></li>
-	<li>A private method called <code lang="php" inline="true">_get_sizes()</code> that finds the sizes available for that particular image</li>
-	<li>Another private method <code lang="php" inline="true">_get_author()</code> that gets the information for the image and returns the name of the author, to be displayed in the watermark</li>
+	<li>A public method called {% highlight php %}search(){% endhighlight %}  that gets images using the <a href="http://www.flickr.com/services/api/">flickr API</a></li>
+	<li>A private method called {% highlight php %}_get_sizes(){% endhighlight %} that finds the sizes available for that particular image</li>
+	<li>Another private method {% highlight php %}_get_author(){% endhighlight %} that gets the information for the image and returns the name of the author, to be displayed in the watermark</li>
 </ol>
-The <code lang="php" inline="true">search()</code> method returns as soon as it finds an image of at least the required size.
+The {% highlight php %}search(){% endhighlight %} method returns as soon as it finds an image of at least the required size.
 
-The controller private method <code lang="php" inline="true">_get_image()</code> then takes charge of resizing, cropping and watermarking the image, using codeigniter's <a title="Codeigniter image manipulation class manual" href="http://codeigniter.com/user_guide/libraries/image_lib.html">image manipulation library</a> to keep things quick and simple. I just tweaked the watermarking method of that class to allow for semi-transparent watermarks.
+The controller private method {% highlight php %}_get_image(){% endhighlight %} then takes charge of resizing, cropping and watermarking the image, using codeigniter's <a title="Codeigniter image manipulation class manual" href="http://codeigniter.com/user_guide/libraries/image_lib.html">image manipulation library</a> to keep things quick and simple. I just tweaked the watermarking method of that class to allow for semi-transparent watermarks.
 
 The controller then sends the image to the browser with the proper headers.
 <h3>End of the story!</h3>

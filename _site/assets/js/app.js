@@ -25,7 +25,7 @@ $(document).ready(function(){
                 var d=ISODateString(date);
                 $('#tweets').append('<li>'+replaceURLWithHTMLLinks(el.text)+'<span class="timeago" title="'+d+'">'+date.toLocaleDateString()+'</span></li>');
             });
-            //$(".timeago").timeago();
+            $(".timeago").timeago();
         }
     });
 

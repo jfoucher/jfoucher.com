@@ -8,20 +8,20 @@ date: Thu Aug 18 01:09:13 +0200 2011
 Being able to debug your php application right from your IDE is something that you can't fully realise the power of, unless you've tried it. The advantages are immediately obvious: as soon as the connection from Xdebug is successful, you are blinded by variable inspection, code stepping, breakpoints, etc... Debugging heaven!
 It took me... a few months to finally find the time figure out how to set up everything properly, so I hope this post can help someone, somewhere. But don't worry: it retrospect, it's not that difficult at all.
 <h3>First things first : install xdebug</h3>
-On Ubuntu and Debian, it couldn't be easier: just open a terminal and type <code lang="bash">sudo apt-get install php-xdebug</code> This will also install Apache and PHP if you don't have them already.
+On Ubuntu and Debian, it couldn't be easier: just open a terminal and type {% highlight bash %}sudo apt-get install php-xdebug{% endhighlight %} This will also install Apache and PHP if you don't have them already.
 <h3>Setup Xdebug on server</h3>
 Done? Right, so this created a config file in /etc/php5/conf.d called xdebug.ini, which is read by php and contains xdebug's configuration options. You'll need to open this file for editing as root, as we need to make a few changes in there. you can copy/paste the command below in the terminal, or do it your own way.
-<code lang="bash">gksu gedit /etc/apache2/conf.d/xdebug.ini</code>
+{% highlight bash %}gksu gedit /etc/apache2/conf.d/xdebug.ini{% endhighlight %}
 Within this file, there will be a single line, referencing the xdebug zend extension, something like this (the path can vary slightly)
-<code lang="ini">zend_extension=/usr/lib/php5/20090626/xdebug.so</code>
+{% highlight ini %}zend_extension=/usr/lib/php5/20090626/xdebug.so{% endhighlight %}
 This is what we're going to add:
-<code lang="ini">
+{% highlight ini %}
 xdebug.remote_enable=On #this enables remote debugging
 xdebug.remote_host=192.168.1.83 #change this IP adress for the one of the computer you are typing on
 xdebug.remote_port=9000 #this is the default, leave it as is
-</code>
+{% endhighlight %}
 Now we restart apache so that the new configuration is taken into account:
-<code lang="bash">sudo /etc/init.d/apache2 restart</code>
+{% highlight bash %}sudo /etc/init.d/apache2 restart{% endhighlight %}
 And we that we are <strong>done</strong> on the server side of things
 <h3>Prepare PhpStorm</h3>
 Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the "Accept debug connections" button, and activate Xdebug by using a browser extension.  Here are four extensions to do this:

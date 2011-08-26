@@ -27,6 +27,7 @@
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
 	<link rel="stylesheet" href="/assets/css/reset.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/assets/css/syntax.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/assets/css/print.css" type="text/css" media="print" />
 	
     <!-- <link rel="stylesheet" href="/css/syntax.css" type="text/css" media="screen" /> -->
@@ -61,7 +62,7 @@
 					</a>
 				</h1>
 				<p class="moin"><a href="/about.html#notebook" title="About Jonathan Foucher
-                &amp; contact details" tabindex="0" accesskey="A">Jonathan Foucher</a>&lsquo;s blog <span
+                &amp; contact details" tabindex="0" accesskey="A">Jonathan Foucher</a>&rsquo;s blog <span
                 class="amp">&amp;</span> web development
                 notebook.</p>
 				<p>Besides developing engaging web application providing a high return on investment, I like to research
@@ -170,24 +171,49 @@ It took me... a few months to finally find the time figure out how to set up eve
 <h3>First things first : install xdebug</h3>
 
 
-<p>On Ubuntu and Debian, it couldn't be easier: just open a terminal and type <code lang="bash">sudo apt-get install php-xdebug</code> This will also install Apache and PHP if you don't have them already.</p>
+<p>On Ubuntu and Debian, it couldn't be easier: just open a terminal and type</p>
+
+<div class="highlight"><pre><code class="bash">sudo apt-get install php-xdebug
+</code></pre>
+</div>
+
+
+<p> This will also install Apache and PHP if you don't have them already.</p>
 
 <h3>Setup Xdebug on server</h3>
 
 
-<p>Done? Right, so this created a config file in /etc/php5/conf.d called xdebug.ini, which is read by php and contains xdebug's configuration options. You'll need to open this file for editing as root, as we need to make a few changes in there. you can copy/paste the command below in the terminal, or do it your own way.
-<code lang="bash">gksu gedit /etc/apache2/conf.d/xdebug.ini</code>
-Within this file, there will be a single line, referencing the xdebug zend extension, something like this (the path can vary slightly)
-<code lang="ini">zend_extension=/usr/lib/php5/20090626/xdebug.so</code>
-This is what we're going to add:
-<code lang="ini">
-xdebug.remote_enable=On #this enables remote debugging
-xdebug.remote_host=192.168.1.83 #change this IP adress for the one of the computer you are typing on
-xdebug.remote_port=9000 #this is the default, leave it as is
-</code>
-Now we restart apache so that the new configuration is taken into account:
-<code lang="bash">sudo /etc/init.d/apache2 restart</code>
-And we that we are <strong>done</strong> on the server side of things</p>
+<p>Done? Right, so this created a config file in /etc/php5/conf.d called xdebug.ini, which is read by php and contains xdebug's configuration options. You'll need to open this file for editing as root, as we need to make a few changes in there. you can copy/paste the command below in the terminal, or do it your own way.</p>
+
+<div class="highlight"><pre><code class="bash">gksu gedit /etc/apache2/conf.d/xdebug.ini
+</code></pre>
+</div>
+
+
+<p>Within this file, there will be a single line, referencing the xdebug zend extension, something like this (the path can vary slightly)</p>
+
+<div class="highlight"><pre><code class="ini"><span class="na">zend_extension</span><span class="o">=</span><span class="s">/usr/lib/php5/20090626/xdebug.so</span>
+</code></pre>
+</div>
+
+
+<p>This is what we're going to add:</p>
+
+<div class="highlight"><pre><code class="ini"><span class="na">xdebug.remote_enable</span><span class="o">=</span><span class="s">On #this enables remote debugging</span>
+<span class="na">xdebug.remote_host</span><span class="o">=</span><span class="s">192.168.1.83 #change this IP adress for the one of the computer you are typing on</span>
+<span class="na">xdebug.remote_port</span><span class="o">=</span><span class="s">9000 #this is the default, leave it as is</span>
+</code></pre>
+</div>
+
+
+<p>Now we restart apache so that the new configuration is taken into account:</p>
+
+<div class="highlight"><pre><code class="bash">sudo /etc/init.d/apache2 restart
+</code></pre>
+</div>
+
+
+<p>And we that we are <strong>done</strong> on the server side of things</p>
 
 <h3>Prepare PhpStorm</h3>
 

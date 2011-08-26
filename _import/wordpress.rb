@@ -87,6 +87,10 @@ module Jekyll
 		content=content.gsub(baseurl,"cdn.jfoucher.com/uploads/")
 		content=content.gsub(/\[caption id="(.*)" align="([a-z]*)" width="([0-9]*)" caption="([^"]*)"\]/,'<div class="image-with-caption \2" style="width:\3px"><div class="caption">\4</div>')
 		content=content.gsub(/\[\/caption\]/,'</div>')
+		content=content.gsub(/<\/code>/,'{% endhighlight %}')
+		content=content.gsub(/<code lang="([a-z]*)"[^>]*>/,'{% highlight \1 %}')
+		content=content.gsub(/<code inline="([a-z]*)" lang="([a-z]*)"[^>]*>/,'{% highlight \2 %}')
+		content=content.gsub(/<code\s?(inline="([a-z]+)")?>/,'{% highlight php %}')
 		content=content.gsub(/<!--:([a-z]*)-->/,'')
 		
 

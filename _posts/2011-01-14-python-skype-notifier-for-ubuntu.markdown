@@ -22,7 +22,7 @@ Haven't found out yet. I started developping a backup application in pygtk and g
 
 Skype seemed like the obvious target, given that's it's the only communication application I use that lacks a messaging menu indicator. It does have a systray icon though, so my app is probably superfluous...
 <h3>Anyway, to the coding!</h3>
-<code lang="python">
+{% highlight python %}
 #!/usr/bin/env python
 
 import indicate
@@ -33,22 +33,22 @@ import hashlib
 import Skype4Py
 import urllib
 import os
-</code>
+{% endhighlight %}
 
 The first line tell the host system to use python to interpret that file
 
 The next lines import the required python modules.
 
 Next, we have to define the main class and declare some variables:
-<code lang="python">
+{% highlight python %}
 class skypeIndicator:
     notifShown={}
     oldcount={}
     count={}
     indicator={}
-</code>
+{% endhighlight %}
 This is the clas initialization function
-<code lang="python">
+{% highlight python %}
     def __init__(self):
         self.skype= Skype4Py.Skype()
         self.loadSkype()
@@ -59,11 +59,11 @@ This is the clas initialization function
         self.server.connect("server-display", self.server_display)
         self.server.show()
         self.create_indicators()
-</code>
+{% endhighlight %}
 The first line creates the skype API instance, after which we call the loadSkype() function, which checks if skype is loaded and if not, starts it. We'll look at that function later on.
 Next, we create the notification server instance, choose an icon, connect the function server_display to the server-display event (when the icon is clicked on) and finally run the create_indicators function that looks for skype messages and displays them accordingly.
 
-<code lang="python">
+{% highlight python %}
 	def loadSkype(self):
 		try:
 			if not self.skype.Client.IsRunning:
@@ -77,7 +77,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
 		except Skype4Py.errors.ISkypeAPIError:
 			print "Please open skype first"
 			self.noSkype()
-</code>
+{% endhighlight %}
 
 This basically tries to start skype if it is not already started and calls noSkype() if it couldn't start it. noSype() shows a notification message to let the user know that they have to start Skype.
 <a href="http://cdn.jfoucher.com/uploads/2011/01/skype-not-started.png"><img src="http://cdn.jfoucher.com/uploads/2011/01/skype-not-started.png" alt="Error shown if Skype is not running" title="skype-not-started" width="428" height="213" class="aligncenter size-full wp-image-256" /></a>
@@ -85,7 +85,7 @@ This basically tries to start skype if it is not already started and calls noSky
 
 This next function is where the meat of the process takes place. Please read the inline comments to understand how it works, and ask for clarification by <a href="#respond">posting a comment</a>.
 
-<code lang="python">
+{% highlight python %}
 	def create_indicators(self):
 
 		"""Loads skype messages, displays them as notification bubbles and also shows them in the messaging menu"""
@@ -179,7 +179,7 @@ This next function is where the meat of the process takes place. Please read the
 		self.oldcount=self.count
 		# Loop runs as long as true is returned
 		return True
-</code>
+{% endhighlight %}
 
 When a new messages arrives, this is what the messaging menu looks like
 <a href="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator-menu.png"><img src="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator-menu.png" alt="Messaging menu open qith unread messages" title="skype-indicator-menu" width="376" height="256" class="aligncenter size-full wp-image-258" /></a>
@@ -187,7 +187,7 @@ When a new messages arrives, this is what the messaging menu looks like
 
 The function that gets unread skype messages is as follows For each message, we add it to a list containg the messages from a particular user in the self.unread dictionary.
 
-<code lang="python">
+{% highlight python %}
 	def get_messages(self):
 		print "checking messages"
 		self.unread={}
@@ -202,11 +202,11 @@ The function that gets unread skype messages is as follows For each message, we 
 			self.unread[display_name].append(msg)
 			self.count[display_name]+=1
 		return self.unread
-</code>
+{% endhighlight %}
 
 The next two functions are in charge of getting the skype user username as well as the friendliest name available.
 
-<code lang="python">
+{% highlight python %}
 	def name_from_handle(self,handle):
 		user=self.skype.User(handle)
 		if user.FullName:
@@ -218,11 +218,11 @@ The next two functions are in charge of getting the skype user username as well 
 
 	def user_from_handle(self,handle):
 		return self.skype.User(handle)
-</code>
+{% endhighlight %}
 
 Below is the generic function in charge of showing popup notifications. 
 
-<code lang="python">
+{% highlight python %}
 	def showNotification(self, title, message,file=None):
 		'''takes a title and a message to display the email notification. Returns the
         created notification object'''
@@ -233,13 +233,13 @@ Below is the generic function in charge of showing popup notifications.
 		n.show()
 
 		return n
-</code>
+{% endhighlight %}
 
 This is what it looks like with three new messages
 <a href="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator.png"><img src="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator.png" alt="The Ubuntu skype indicator with three new messages" title="skype-indicator" width="428" height="232" class="aligncenter size-full wp-image-253" /></a>
 
 The next one shows the popup notification that skype is not loaded :
-<code lang="python">
+{% highlight python %}
 	def noSkype(self):
 		'''Shows a notification if skype is not started'''
 		title='Start Skype'
@@ -249,11 +249,11 @@ The next one shows the popup notification that skype is not loaded :
 		n.show()
 
 		return n
-</code>
+{% endhighlight %}
 
 And finally, the indicator events callbacks (what happens when we click on the skype indicator, or on a particular message
 
-<code lang="python">
+{% highlight python %}
 	def display_msg(self, indicator, timestamp):
 		#hide this indicator
 		indicator.hide()
@@ -261,21 +261,21 @@ And finally, the indicator events callbacks (what happens when we click on the s
 		indicator.set_property("draw-attention", "false")
 		# open the skype chat window for this user
 		self.skype.Client.OpenMessageDialog(indicator.get_property("handle"))
-</code>
+{% endhighlight %}
 
 At the end of the file, we start everything :
 
-<code lang="python">
+{% highlight python %}
 if __name__ == "__main__":
 	skypeind=skypeIndicator()
 	# Loop
 	gobject.timeout_add_seconds(5, skypeind.create_indicators)
 	gtk.main()
-</code>
+{% endhighlight %}
 
 And finally, here is the complete source code :
 
-<code lang="python">
+{% highlight python %}
 #!/usr/bin/env python
 #
 #Copyright 2010 Jonathan Foucher
@@ -527,9 +527,9 @@ if __name__ == "__main__":
 	# Loop
 	gobject.timeout_add_seconds(5, skypeind.create_indicators)
 	gtk.main()
-</code>
+{% endhighlight %}
 
 Download the script, or fork it on the <a href="https://github.com/jfoucher/ubuntu-skype-indicator">ubuntu-skype-indicator github repository</a>
 
 UPDATE: Before you run this script, you need to install its dependencies, python-indicate and skype4py
-On ubuntu, it's as simple as running <code lang="bash">sudo apt-get install python-skype python-indicate</code>
+On ubuntu, it's as simple as running {% highlight bash %}sudo apt-get install python-skype python-indicate{% endhighlight %}

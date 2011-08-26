@@ -27,6 +27,7 @@
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
 	<link rel="stylesheet" href="/assets/css/reset.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/assets/css/syntax.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/assets/css/print.css" type="text/css" media="print" />
 	
     <!-- <link rel="stylesheet" href="/css/syntax.css" type="text/css" media="screen" /> -->
@@ -129,15 +130,44 @@
 <p>Most of the code deals with pulling images from flickr, and then doing various to them before display. The code that pulls the image from flickr is located in a model called Flickr_model with three methods:</p>
 
 <ol>
-    <li>A public method called <code lang="php" inline="true">search()</code>  that gets images using the <a href="http://www.flickr.com/services/api/">flickr API</a></li>
-    <li>A private method called <code lang="php" inline="true">_get_sizes()</code> that finds the sizes available for that particular image</li>
-    <li>Another private method <code lang="php" inline="true">_get_author()</code> that gets the information for the image and returns the name of the author, to be displayed in the watermark</li>
+    <li>A public method called 
+<div class="highlight"><pre><code class="php"><span class="x">search()</span>
+</code></pre>
+</div>
+
+  that gets images using the <a href="http://www.flickr.com/services/api/">flickr API</a></li>
+    <li>A private method called 
+<div class="highlight"><pre><code class="php"><span class="x">_get_sizes()</span>
+</code></pre>
+</div>
+
+ that finds the sizes available for that particular image</li>
+    <li>Another private method 
+<div class="highlight"><pre><code class="php"><span class="x">_get_author()</span>
+</code></pre>
+</div>
+
+ that gets the information for the image and returns the name of the author, to be displayed in the watermark</li>
 </ol>
 
 
-<p>The <code lang="php" inline="true">search()</code> method returns as soon as it finds an image of at least the required size.</p>
+<p>The</p>
 
-<p>The controller private method <code lang="php" inline="true">_get_image()</code> then takes charge of resizing, cropping and watermarking the image, using codeigniter's <a title="Codeigniter image manipulation class manual" href="http://codeigniter.com/user_guide/libraries/image_lib.html">image manipulation library</a> to keep things quick and simple. I just tweaked the watermarking method of that class to allow for semi-transparent watermarks.</p>
+<div class="highlight"><pre><code class="php"><span class="x">search()</span>
+</code></pre>
+</div>
+
+
+<p> method returns as soon as it finds an image of at least the required size.</p>
+
+<p>The controller private method</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">_get_image()</span>
+</code></pre>
+</div>
+
+
+<p> then takes charge of resizing, cropping and watermarking the image, using codeigniter's <a title="Codeigniter image manipulation class manual" href="http://codeigniter.com/user_guide/libraries/image_lib.html">image manipulation library</a> to keep things quick and simple. I just tweaked the watermarking method of that class to allow for semi-transparent watermarks.</p>
 
 <p>The controller then sends the image to the browser with the proper headers.</p>
 
