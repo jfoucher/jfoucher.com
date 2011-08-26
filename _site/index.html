@@ -20,14 +20,12 @@
 	<meta name="author" content="Jonathan Foucher" />
 	<meta name="designer" content="Jonathan Fouch" />
 	<meta name="developer" content="Jonathan Foucher" />
-	<meta name="description" content="The personal web site and blog of Jonathan Foucher, a web developer from France specializing in PHP web applications" />
+	<meta name="description" content="" />
 	<meta name="keywords" content="php, wordpress, codeigniter, France, Spain" />
 	<meta name="robots" content="noydir, noopd" /> <!-- Opt out of ODP -->
 
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
-	<link rel="stylesheet" href="/assets/css/reset.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" />
-    <link rel="stylesheet" href="/assets/css/syntax.css" type="text/css" media="screen" />
+	<link rel="stylesheet/less" href="/assets/css/screen.less" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/assets/css/print.css" type="text/css" media="print" />
 
 	<link rel="alternate" href="http://feeds.feedburner.com/GeekyNuggets" title="Geeky Nuggets" type="application/atom+xml" />
@@ -53,22 +51,24 @@
 </head>
 
 <body>
-	<div id="container">
+	<div id="container" class="clearfix">
 		                <div id="header" class="center">
-            <div class="logo floatLeft colFour">
-				<img width="224" height="342" alt="Logo" src="/images/logo.png">
+            <div class="logo">
+				<!--<img width="224" height="342" alt="Logo" src="/images/logo.png">-->
+                <h1>
+                    <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
+                        <span class="hoverline">Geeky Nuggets</span>
+                    </a>
+                </h1>
 			</div>
+
 			<div class="hero floatRight colSeven">
-				<h1>
-					<a href="/" title="Return to homepage" tabindex="0" accesskey="H">
-						<span class="hoverline">Geeky Nuggets</span>
-					</a>
-				</h1>
+
 				<p class="moin"><a href="/about.html#notebook" title="About Jonathan Foucher
                 &amp; contact details" tabindex="0" accesskey="A">Jonathan Foucher</a>&rsquo;s blog <span
                 class="amp">&amp;</span> web development
                 notebook.</p>
-				<p>Besides developing engaging web application providing a high return on investment, I like to research
+				<p>Besides developing engaging web application that provide a high return on investment, I like to research
                 and learn new things. This blog relates my experiences as a software developer.</p>
 			</div>
 			<div class="skip">
@@ -100,8 +100,8 @@
         </div> <!-- /#nav.clear -->
 
 		        <div id="cover" class="clear">
-			<div class="index colSix floatLeft">
-				<h2>Recently from the <em>Blog</em>&hellip;</h2>
+			<div class="index">
+				<h2>Latest from the <em>Blog</em>&hellip;</h2>
 				<ul>
 				    
 					<li>
@@ -138,7 +138,7 @@
 				<p class="more"><a class="internal floatRight" href="/archives.html#cover" title="View the blog
                 archives">&hellip;read through the archives</a></p>
 			</div> <!-- /.index.colSix.floatLeft -->
-			<div class="subhero-preview colFour floatRight">
+			<div class="subhero-preview">
 				<h2>Latest from <em>Twitter</em>&hellip;</h2>
 				<ul id="tweets">
                 </ul>
@@ -156,18 +156,19 @@
 				
 				
             </div> <!-- /.page-nav-top -->
-            <div class="entry-content colEight">
-                <h2 class="clear">
-                    <a href="/2011/08/18/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu.html#notebook" title="Remote debugging with Xdebug and PhpStorm on Ubuntu">
-                        Remote debugging with Xdebug and PhpStorm on Ubuntu
-                        </a>
-                    </h2>
-                <span class="date" title="2011-08-18T01:09:13+02:00">
-                    <span class="published">Published&thinsp;&bull;</span>
-                    <span class="day">18</span>
-                    <span class="month"><abbr>Aug</abbr></span>
-                    <span class="year">2011</span>
-                </span>
+
+            <h2 class="clear">
+                <a href="/2011/08/18/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu.html#notebook" title="Remote debugging with Xdebug and PhpStorm on Ubuntu">
+                    Remote debugging with Xdebug and PhpStorm on Ubuntu
+                    </a>
+                </h2>
+            <span class="date" title="2011-08-18T01:09:13+02:00">
+                <span class="published">Published&thinsp;&bull;</span>
+                <span class="day">18</span>
+                <span class="month"><abbr>Aug</abbr></span>
+                <span class="year">2011</span>
+            </span>
+            <div id="entry-content">
                 <p>Being able to debug your php application right from your IDE is something that you can't fully realise the power of, unless you've tried it. The advantages are immediately obvious: as soon as the connection from Xdebug is successful, you are blinded by variable inspection, code stepping, breakpoints, etc... Debugging heaven!
 It took me... a few months to finally find the time figure out how to set up everything properly, so I hope this post can help someone, somewhere. But don't worry: it retrospect, it's not that difficult at all.</p>
 
@@ -221,7 +222,7 @@ It took me... a few months to finally find the time figure out how to set up eve
 <h3>Prepare PhpStorm</h3>
 
 
-<p>Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the "Accept debug connections" button, and activate Xdebug by using a browser extension.  Here are four extensions to do this:</p>
+<p>Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the "Accept debug connections" button, and activate Xdebug by using a browser extension. ï¿½Here are four extensions to do this:</p>
 
 <ul>
     <li><a href="https://addons.mozilla.org/en-US/firefox/addon/58688">Firefox</a></li>
@@ -258,46 +259,34 @@ It took me... a few months to finally find the time figure out how to set up eve
             </div> <!-- /.page-nav-bottom -->
         </div> <!-- /#notebook.center.clear -->
         
-                <div id="portfolio" class="center clear">
-			<div class="portheader">
-                <h2>Portfolio preview</h2>
-			</div>
-			<div id="slider">
-				<ul>
-					<li>
-						<img src="/files/portfolio/Adobe-Caslon-Pro_specimen_thumb.jpg" width="864" height="340" alt="Adobe Caslon Pro specimen design" />
-					</li>
-					<li>
-						<img src="/files/portfolio/Aurora-grid-header.png" width="864" height="340" alt="Aurora job/ticketing system header grid" />
-					</li>
-					<li>
-						<img src="/files/portfolio/Fontis-homepage-header.png" width="864" height="340" alt="Fontis.com.au homepage header" />
-					</li>
-					<li>
-						<img src="/files/portfolio/got_it-preview.jpg" width="864" height="340" alt="Got_It digital asset management system preview" />
-					</li>
-					<li>
-						<img src="/files/portfolio/waltz-icons.png" width="864" height="340" alt="Got_It digital asset management system preview" />
-					</li>
-					<li>
-						<img src="/files/portfolio/apple-ipod-nano-icons.png" width="864" height="340" alt="Got_It digital asset management system preview" />
-					</li>
-				</ul>
-			</div> <!-- /#slider -->
-		</div> <!-- /#portfolio.center.clear -->
-                <div id="footer" class="center clear">
+
+                <div id="footer" class="clear">
 			<ul class="nav nav-footer caps">
 				<li><a href="/about.html" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
-				<li><a href="/archives.html#cover" title="View the notebook entries" tabindex="0">Notebook</a></li>
-				<li><a href="/#portfolio" title="Skip back up to the portfolio" tabindex="0">Portfolio</a></li>
-				<li><a href="http://feeds.feedburner.com/klepas" title="Feed link" tabindex="0">Feed</a></li>
+				<li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Blog</a></li>
+				<li><a href="http://jfoucher.fr" title="Go to the portfolio of Jonathan Foucher" tabindex="0">Portfolio</a></li>
+				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Feed link" tabindex="0">Feed</a></li>
 			</ul>
 			<span class="backtop floatRight"><a class="internal" href="#header" title="Return to the top of this page">Back to top &uarr;</a></span>
 			<div class="page-meta clear">
 				<div class="info">
-					<span class="index">&#9758;</span><p class="vcard"><a href="/files/Simon-Pascal-Klein.vcf" title="Download Simon Pascal Klein&rsquo;s addressbook vCard">Add me to your address book via vCard</a>.</p>
-					<p class="copyright clear">Proudly bending beziers since <abbr class="date" title="2004">MMIV</abbr>&ndash;; copyright &copy; Simon Pascal Klein thereon.</p>
-					<p class="licensing"><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/au/" title="Content, unless specificed, licensed under a Creative Commons license">Some rights reserved</a>.</p>
+					<span class="index">&#9758;</span>
+                    <p class="vcard">
+                        <a href="/files/Simon-Pascal-Klein.vcf" title="Download Simon Pascal Klein&rsquo;s addressbook vCard">
+                            Add me to your address book via vCard
+                        </a>.
+                    </p>
+					<p class="copyright clear">
+                        This blog has been online in one form or another since
+                        <span class="date" title="March 2004">2004</span>&thinsp;&ndash;&thinsp;The first post was published
+                    </p>
+                    copyright &copy; Jonathan Foucher.
+					<p class="licensing">
+                        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                           title="You can use this for non-comercial purposes, provided you cite me as the author, and do not modify the content">
+                            Some rights reserved
+                        </a>.
+                    </p>
 					<p>For an overview of the site, see the <a href="/sitemap/" title="View the site map">site map</a> or <a href="/archives.html#cover" title="View the notebook archives">notebook archives</a>.</p>
 					<h2>A playful tumble with <em>type</em>&hellip; &rarr;</h2>
 					<p>&hellip;yes, <em>type</em>, not a graphic; try selecting it or resizing the page font size. Inspired by <a href="http://jontangerine.com/" title="jontangerine.com: Jon Tan&rsquo;s website">Jon Tan</a>&rsquo;s masterhead type folly, this is achieved just with some simple nested <code><span class="element">span</span></code> elements that are positioned absolutely against their relative parents, and the entire thing is sized in ems and scales nicely.</p>

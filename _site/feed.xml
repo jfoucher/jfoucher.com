@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://paulstamatiou.com/feed/" rel="self"/>
  	<link type="text" href="http://paulstamatiou.com" rel="alternate"/>
-	<updated>2011-08-26T11:27:42+02:00</updated>
+	<updated>2011-08-26T23:46:49+02:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -70,7 +70,7 @@ It took me... a few months to finally find the time figure out how to set up eve
 &lt;h3&gt;Prepare PhpStorm&lt;/h3&gt;
 
 
-&lt;p&gt;Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the &quot;Accept debug connections&quot; button, and activate Xdebug by using a browser extension.  Here are four extensions to do this:&lt;/p&gt;
+&lt;p&gt;Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the &quot;Accept debug connections&quot; button, and activate Xdebug by using a browser extension. ï¿½Here are four extensions to do this:&lt;/p&gt;
 
 &lt;ul&gt;
     &lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/58688&quot;&gt;Firefox&lt;/a&gt;&lt;/li&gt;
@@ -317,17 +317,17 @@ I modelled the interaction on the image library, as I guess that's what most peo
 
 &lt;p&gt;The following code, which should go in your controller, will look very familiar to Codeigniter users.&lt;/p&gt;
 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;$this-&amp;gt;load-&amp;gt;library(&amp;#39;css&amp;#39;);&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;//array of files to concatenate and minify&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;$config[&amp;#39;source_file&amp;#39;]=array(&amp;#39;/assets/css/layout.css&amp;#39;,&amp;#39;/assets/css/fonts.css&amp;#39;);&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;//where to output the result&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;$config[&amp;#39;dest_file&amp;#39;]&amp;#39;/assets/css/css.min.css&amp;#39;;&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;//Cache time in hours&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;$config[&amp;#39;cache_time&amp;#39;]=48;&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;$this-&amp;gt;css-&amp;gt;initialize($config);&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;echo $this-&amp;gt;css-&amp;gt;link();&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;css&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//array of files to concatenate and minify&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;source_file&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/assets/css/layout.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/assets/css/fonts.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//where to output the result&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;dest_file&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/assets/css/css.min.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//Cache time in hours&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cache_time&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;48&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;css&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;css&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -339,7 +339,7 @@ I modelled the interaction on the image library, as I guess that's what most peo
 &lt;/div&gt;
 
 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
 
 &lt;h3&gt;Get It!&lt;/h3&gt;
 

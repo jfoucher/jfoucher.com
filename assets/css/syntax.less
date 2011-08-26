@@ -1,8 +1,26 @@
 .highlight  {
-    background: #ffffff;
+    background: #fffff6;
     font-family: Monaco, "Andale Mono", "Courier New", Courier, monospace !important;
-    font-size: 1.6em;
+    font-size: 1.5em;
+    
+    clear:both;
+    .radius(8px);
+    padding:1em;
+    margin:0 0 0 -1em;
+
+        pre{
+            overflow:hidden;
+            margin:0;
+        }
     }
+.highlight:hover{
+    position:relative;
+    width:960px;
+    z-index:10;
+    .box-shadow( 0, 0, 2em, 0.3);
+
+
+}
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
 .highlight .k { color: #993300; } /* Keyword */

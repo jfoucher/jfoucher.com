@@ -1,6 +1,17 @@
-@import '../fonts/museosans/stylesheet.css';
-@import '../fonts/bodoni/stylesheet.css';
+@import 'reset';
+@import 'grid';
+@import '/assets/fonts/museosans/stylesheet.css';
+@import '/assets/fonts/bodoni/stylesheet.css';
 
+/* Semantic.gs variables */
+@column-width: 60;
+@gutter-width: 20;
+@columns: 12;
+
+
+/*
+Color palette
+*/
 @bg:#fffff6;
 @darkBg:#192f35;
 @black:#000;
@@ -15,42 +26,35 @@
 @covertextShadow:#fff;
 @navHover:#ff8000;
 @headings:#ff8000;
-/*	Color palette
 
-	white, snow		-	#fff		-	main container bg;
-	black, pitch	- 	#000		- 	night sky;
-	gray, dark		-	#333		-	main body copy;
-	gray, medium	-	#666		-	secondary copy;
-	gray, light		-	#999		-	secondary copy;
-	red, dark		-	#bb0000		-	headings;
-	brown, light	-	#fbeec2		-	link hovers.
-	blue, desat.	-	#336699		-	links
-
+/*
+helpers
 */
+.box-shadow (@x: 0, @y: 0, @blur: 1px, @alpha) {
+  @val: @x @y @blur rgba(0, 0, 0, @alpha);
 
 
+  -webkit-box-shadow: @val;
+  -moz-box-shadow:    @val;
+  -o-box-shadow:      @val;
+  -khtml-box-shadow:  @val;
+  box-shadow:         @val;
+}
+.radius(@r){
+    -webkit-border-radius: @r;
+    -moz-border-radius: @r;
+    -o-border-radius: @r;
+    -khtml-border-radius: @r;
+    border-radius: @r;
 
-/*	Reset stylehseet
+}
+@import 'syntax';
 
-	The reset stylesheet can be found in the /css/ folder.
-	---------------------------------------------------------*/
+html { overflow-y: scroll; }
 
-
-/*	Generic elements and page layout
-
-	My page is 960px wide and elastic. I am divided by 11 
-	columns each spanning 64px (four times 16, the size of my 
-	body copy) with eleven 16px gutters and enlargened gutters 
-	on the far left and right to hug the container.
-	
-	My main column is 544 wide which accommodates for an 
-	average around 70 characters per line for the body copy.
-	---------------------------------------------------------*/
-
-html { overflow-y: scroll; } /* Fixes Firefox scrollbar jump */
     
 body {
-	background: @bg url(/assets/img/bg.png) repeat;
+	background: @bg url(/assets/img/bg2.png) repeat;
 	text-align: center; /* For IE centering. */
 	font-family: Georgia, "DejaVu Serif", Times, "Times New Roman", serif;
 	font-size: 62.5%; /* Resets UA 16px common default such that 1em = 10px. Kudos to Richard Rutter. */
@@ -59,16 +63,15 @@ body {
 	}
 	
 div#container {
-	margin: 0 auto 0 auto;
-	padding: 4.8em 0 4.8em 0;
-	background-color: white;
+
+    width: ( @column-width + @gutter-width ) * @columns *1px;
+    /*overflow:hidden;*/
+    margin: 0 auto 0 auto;
+	background-color: @bg;
 	border-top: @secCopy 0.8em solid;
 	text-align: left;
-	width: 96em; /* 960 minus the gutters (48 on each side). */
-	/* Box shadowing that provides a nice page shadow; experimental shiny stuff. */
-	box-shadow: 0 0 4em #ccc;
-	-webkit-box-shadow: 0 0 4em #ccc;
-	-moz-box-shadow: 0 0 4em #ccc;
+
+	.box-shadow( 0, 0, 4em, 0.3);
 	}
 	h3, h4, h5, h6 { font-family:"MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif; }
 	h2 { font-size: 3.2em; color: @secCopy; margin-bottom: 0.5em; /* 16 */ }
@@ -86,7 +89,7 @@ div#container {
 			}
 	a.internal {
         color: @secCopy;
-        font-family: MuseoSans500, "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+        font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
         }
 		a.internal:hover, a.internal:active, a.internal:focus { color: @blackHeading; }
 	abbr, acronym, .caps {
@@ -98,6 +101,7 @@ div#container {
 	input[type=submit], label, select, .pointer { cursor: pointer; }
 
 
+
 /*	Grouped and handy elements
 
 	Just to save some space, I'm going to group some styling.
@@ -105,7 +109,8 @@ div#container {
 
 	/* This is our 464 sidebar */
 	/*div.hero,*/ div.sidebar {
-		width: 46.4em; /* 464 */
+	    .column(6,12);
+		/*width: 46.4em;*/ /* 464 */
 		display: block;
 		}
 		
@@ -115,7 +120,8 @@ div#container {
 		}
 	div#nav, div#cover { padding-left: 4.8em; padding-right: 4.8em; }
 	div.center	{
-		margin: 0 4.8em 0 4.8em;
+	    .column(12);
+		/*margin: 0 4.8em 0 4.8em;
 		width: 86.4em; /* 960 minus the gutters (48 on each side). */
 		}
 
@@ -131,27 +137,40 @@ div#container {
 	.clear { clear: both; }
 	.block { display: block; }
 	.inline { display: inline; }
-	.colOne { width: 6.4em; }
-	.colTwo { width: 14.4em; }
-	.colThree { width: 22.4em; }
-	.colFour { width: 30.4em; }
-	.colFive { width: 38.4em; }
-	.colSix { width: 46.4em; }
-	.colSeven { width: 54.4em; }
-	.colEight { width: 62.4em; }
-	.colNine { width: 70.4em; }
+    .clearfix:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+
+    .clearfix {
+        display: inline-block;
+    }
+
+    html[xmlns] .clearfix {
+        display: block;
+    }
+
+    * html .clearfix {
+        height: 1%;
+    }
+
 
 
 /*	Header elements
 	---------------------------------------------------------*/
 
-	div.logo { width: 30.4em; padding-bottom: 4.8em; }
+	div.logo { .column(4,12); padding-bottom: 4.8em; }
 		div.logo img {
 			width: 22.4em;
 			height: 34.2em;
 			padding: 0 4em 0 4em;
 			}
     div.article-logo {
+        .column(4,12);
         padding: 2.4em 0 4.8em 0;
         }
 	h1 {
@@ -172,9 +191,9 @@ div#container {
 			h1 a:hover, h1 a:active, h1 a:focus {
 				color: @mainCopy;
 				border: none;
-				background-color: white;
+				background-color: @bg;
 				}
-	div.hero { /*width: 54.4em;*/ /* Seven columns */ padding-top: 3.6em;padding-bottom:3.6em }
+	div.hero {  .column(7,12); /* Seven columns */ padding-top: 3.6em;padding-bottom:3.6em }
 		div.hero p.moin {
 			font-size: 2em;
 			margin-bottom: 1em;
@@ -204,12 +223,15 @@ div#container {
 	div.skip span {
 		font-size: 1.6em;
 		float: right;
-		padding-top: 3em; /* 48 */
+		padding:1em 0 3em 0; /* 48 */
 		color: @secCopy;
 		letter-spacing: 0.031em; /* 0.5 */
 		word-spacing: 0.062em; /* 1 */
 		}
-	div#nav { background-color: @darkBg; color: white; border-bottom: 1px solid @terCopy; }
+	div#nav {
+
+	    background-color: @darkBg; color: @bg; border-bottom: 1px solid @terCopy;
+    }
 		ul.nav-footer li { padding-bottom: 0.363em; /* 8 */ }
 		ul.nav li {
 			float: left;
@@ -220,14 +242,14 @@ div#container {
 			ul.nav li a { display: block; color: @terCopy; }
 			ul.nav-header li a {
 				display: block;
-				color: @terCopy;
+				color: @terCopy+#111;
 				text-shadow: 1px 1px 1px #222;
 				}
 			ul.nav-footer li a {
 				}
 				ul.nav li a:hover { border: none; }
 				ul.nav-footer li a:hover {
-					background-color: white;
+					background-color: @bg;
 					color: @mainCopy;
 					}
 				ul.nav-header li a:hover {
@@ -249,10 +271,17 @@ div#container {
 	div#cover {
 		padding-top: 3.2em;
 		padding-bottom: 4.8em;
-		background-color: @coverBg;
+		
+		background: url('/assets/img/coverbg.png') top left repeat @coverBg;
 		border-bottom: 1px solid #c4ba92;
 		border-top: 1px solid #c4ba92;
 		}
+        div.index{
+            .column(6,12);
+        }
+        .archives div.index{
+            .column(10,12);
+        }
 		div#cover.archives {
 		  font-size: 1.375em; /* 22px for 1.6em in archives page. */
 		  margin-bottom: 3.49em; /* 48 */
@@ -266,6 +295,9 @@ div#container {
 			padding-bottom: 1.142em; /* 16 */
 			margin: 0;
 			}
+        div.subhero-preview{
+            .column(4,12);
+        }
         div.subhero-preview h3 {
         	font-family: Georgia, "DejaVu Serif", Times, "Times New Roman", serif;
             font-size: 1.6em;
@@ -282,11 +314,11 @@ div#container {
             margin-bottom: 0.5em;
             }
             div.subhero-preview p.more { font-size: 1.6em; }
-		div.index h2 { border-bottom: 1px dotted white; }
+		div.index h2 { border-bottom: 1px dotted @bg; }
 		div.index ul { position: relative; }
-		div.index li { font-size: 1.6em; border-bottom: 1px dotted white; }
+		div.index li { font-size: 1.6em; border-bottom: 1px dotted @bg; }
 			div.index li a { padding: 1em 0; display: block; color: #555; }
-				div.index li a:hover { border: none; color: #222; background-color: @linkHover; }
+				div.index li a:hover { border: none; color: #222; background: @linkHover; }
 		span.day { color: @headings; }
 		div.index span.day {
 			width: 2em;
@@ -324,22 +356,31 @@ div#container {
 /*	Notebook
 	---------------------------------------------------------*/
 
-	div#notebook { padding-top: 3.2em; }
-		div#notebook div.page-nav-top { padding-bottom: 4.8em; }
+	div#notebook {
+	    .column(11,12);
+        .offset(0.5);
+	    /*overflow:auto;*/
+	    padding-top: 3.2em;
+	    }
+		div#notebook div.page-nav-top {
+            
+		    padding-bottom: 4.8em;
+	    }
 		div#notebook span.page-nav-item { font-size: 1.4em;	}
 		div#notebook div.page-nav-bottom {
+		    clear:both;
 			padding-top: 2.4em;
 			margin: 2.4em 0 4.8em 0;
 			}
 		div#notebook h2 {
-			margin-left: -3.75em; /* 120 */
+			/*margin-left: -3.75em;*/ /* 120 */
 			border-bottom: 1px solid #ccc;
 			padding: 1em 0;
-			width: 27em;
+			/*width: 27em;*/
 			}
 		div#notebook h2, div.page-meta, div#notebook div.page-nav-bottom {
 			border-top: 1px solid #ccc; }
-			div#notebook h2 a:hover { background-color: white; border: none; }
+			div#notebook h2 a:hover { background-color: @bg; border: none; }
 			div#notebook h2 span.tagline {
 				font-size: 0.562em; /* 18 */
 				font-style: italic;
@@ -352,14 +393,25 @@ div#container {
 				width: 11.1em;
 				display: block;
 				font-size: 1.6em;
-				margin: -1.9em 0 2em -0.5em;
-				background-color: white;
+				margin: -1.9em 0 2em;
+	            .offset(2);
+				background-color: @bg;
+	            position:relative;
 				/*	Different metrics due to the width being
 					calculated differently in FF due to lack 
 					of small-caps.
 				*/
-				padding: 0 0.2em 0 0.5em;
+				/*padding: 0 0.2em 0 0.5em;*/
 				}
+	            div#notebook span.date:before{
+	                content:'';
+	                background:@bg;
+	                width:0.6em;
+	                position:absolute;
+	                left:-0.6em;
+	                top:0;
+	                bottom:0;
+	            }
 				div#notebook span.date span.month { color: @blackHeading; }
 				div#notebook span.date span.year { color: @terCopy; }
 				div#notebook span.date span.published {
@@ -379,15 +431,23 @@ div#container {
 						color: @mainCopy;
 						display: block;
 						}
-		div.entry-content, div.page-content { margin: 0 auto; }
-		div.entry-content span.date + p {
+		/*div.entry-content, div.page-content {
+
+		    margin: 0 auto;
+		}*/
+        #entry-content{
+            /*.colum(8,12);*/
+            .column(7);
+	        .offset(2);
+        }
+		#entry-content + p {
 			font-size: 1.8em; /* 18 */
 			float: right;
 			margin-bottom: 0.444em; /* 8 */
 			text-indent: 0;
 			display: block;
 			}
-			div.entry-content span.date + p:first-letter {
+			#entry-content  p:first-child:first-letter {
 				/*margin-left: -1.071em; /* We have 120 of space */
 				/*margin-right: 100%;
 				margin-bottom: -0.894em;*/
@@ -398,25 +458,26 @@ div#container {
 				/*text-align: right;*/
 				float: left;
 				}
-			div.entry-content span.date + p:first-line {
+			#entry-content  p:first-child:first-line {
 				font-variant: small-caps;
+	            font-size:1.1em;
 				letter-spacing: 0.06em; /* 2 */
 				}
-            div.entry-content p.note, div.page-content p.note { text-indent: 0.5em; } /* To adjust for the hedera. */
-                div.entry-content p.note:before, div.page-content p.note:before {
+            #entry-content p.note, div.page-content p.note { text-indent: 0.5em; } /* To adjust for the hedera. */
+                #entry-content p.note:before, div.page-content p.note:before {
                     content: "\2767 \0020";
                     color: @headings;
                     font-size: 1.25em; /* 22 */
                     }
-			div.entry-content p, div.page-content p { margin-bottom: 0.25em; }
-			div.entry-content p + p, div.page-content p + p { text-indent: 1.8em; }
-			div.entry-content ul, div.entry-content ol, div.page-content ul, div.page-content ol {
+			#entry-content p, div.page-content p { margin-bottom: 0.25em; }
+			#entry-content p + p, div.page-content p + p { text-indent: 1.8em; }
+			#entry-content ul, div.entry-content ol, div.page-content ul, div.page-content ol {
                 margin-bottom: 0.5em;
                 font-size: 1.6em;
                 padding: 0;
                 }
-            div.entry-content img { margin-bottom: 0.5em; }
-            div.entry-content p.caption, div.page-content p.caption {
+            #entry-content img { margin-bottom: 0.5em; }
+            #entry-content p.caption, div.page-content p.caption {
                 font-size: 1.4em;
                 font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
                 color: #555;
@@ -424,29 +485,29 @@ div#container {
                 display: block;
                 text-align: left;
                 }
-            div.entry-content p.content-skip, div.page-content p.content-skip { text-indent: 0; margin-bottom: 2em; }
-            div.entry-content p code, div.page-content p code { font-size: 0.875em; }
-			div.entry-content ul, div.page-content ul { list-style: circle; }
-			div.entry-content ol, div.page-content ol { list-style: lower-roman; }
-			div.entry-content ol.references, div.entry-ul.references, div.page-content ol.references,
+            #entry-content p.content-skip, div.page-content p.content-skip { text-indent: 0; margin-bottom: 2em; }
+            #entry-content p code, div.page-content p code { font-size: 0.875em; }
+			#entry-content ul, div.page-content ul { list-style: circle; }
+			#entry-content ol, div.page-content ol { list-style: lower-roman; }
+			#entry-content ol.references, div.entry-ul.references, div.page-content ol.references,
 			div.page-ul.references { list-style: none; font-size: 1.4em; }
-			div.entry-content ol.references li, div.entry-content ul.references li,
+			#entry-content ol.references li, div.entry-content ul.references li,
 			div.page-content ol.references li, div.page-content ul.references li {
                 margin-bottom: 0.75em; }
-			div.entry-content li, div.page-content li { margin-bottom: 0.25em; }
-			div.entry-content dl dt, div.entry-content dl dd { margin-bottom: 1.6em; }
-			div.entry-content dl.conversation span.speaker {
+			#entry-content li, div.page-content li { margin-bottom: 0.25em; }
+			#entry-content dl dt, div.entry-content dl dd { margin-bottom: 1.6em; }
+			#entry-content dl.conversation span.speaker {
                 font-size: 1.6em;
                 font-variant: small-caps;
                 color: #444;
                 display: block;
                 }
-			div.entry-content blockquote, div.page-content blockquote { margin: 1em 2.8em; color: #444; }
-			div.entry-content blockquote p, div.page-content blockquote p { text-indent: 0; }
-			div.entry-content a, div.page-content a  { color: @links; }
-				div.entry-content a:hover, a:active, a:focus, div.page-content a:hover,
+			#entry-content blockquote, div.page-content blockquote { margin: 1em 2.8em; color: #444; }
+			#entry-content blockquote p, div.page-content blockquote p { text-indent: 0; }
+			#entry-content a, div.page-content a  { color: @links; }
+				#entry-content a:hover, a:active, a:focus, div.page-content a:hover,
 				div.page-content a:active, div.page-content a:focus { color: @blackHeading; }
-				div.entry-content a:visited, div.page-content a:visited { color: @secCopy; }
+				#entry-content a:visited, div.page-content a:visited { color: @secCopy; }
 					div.entry-content a:visited:hover, div.page-content a:visited:hover { color: @blackHeading; }
         div.sitesearch404 { padding: 2em 0 4em 3em; }
         .error { background-color: #fffae4; }
@@ -457,7 +518,13 @@ div#container {
 	/*	Footer
 	---------------------------------------------------------*/
 
-	div#footer { border-top: 0.8em solid @mainCopy; padding-top: 0.8em; height: 32em; }
+	div#footer {
+	    border-top: 0.8em solid @mainCopy;
+	    padding-top: 0.8em;
+	    height: 32em;
+        .column(11,12);
+        .offset(0.5);
+    }
 		span.backtop { font-size: 1.4em; margin-top: 0.571em; /* 8 */ }
 		div.page-meta { padding-top: 4.8em; }
 

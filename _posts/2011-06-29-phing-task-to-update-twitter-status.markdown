@@ -2,7 +2,7 @@
 layout: post
 title: A Phing task to update your Twitter status
 tags: []
-meta_desc: Phing, a build tool for PHP, written in PHP, allows one to do practically anything when building your project. Today we write a custom task to update your twitter status upon a succcessfull build
+excerpt: Phing, a build tool for PHP, written in PHP, allows one to do practically anything when building your project. Today we write a custom task to update your twitter status upon a succcessfull build
 date: Wed Jun 29 14:10:00 +0200 2011
 ---
 <h3>Phing and Twitter</h3>

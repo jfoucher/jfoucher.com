@@ -20,14 +20,12 @@
 	<meta name="author" content="Jonathan Foucher" />
 	<meta name="designer" content="Jonathan Fouch" />
 	<meta name="developer" content="Jonathan Foucher" />
-	<meta name="description" content="" />
+	<meta name="description" content="This library allows you to serve cached minimized css to your users without any action on your part" />
 	<meta name="keywords" content="" />
 	<meta name="robots" content="noydir, noopd" /> <!-- Opt out of ODP -->
 
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
-	<link rel="stylesheet" href="/assets/css/reset.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" />
-    <link rel="stylesheet" href="/assets/css/syntax.css" type="text/css" media="screen" />
+	<link rel="stylesheet/less" href="/assets/css/screen.less" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/assets/css/print.css" type="text/css" media="print" />
 
 	<link rel="alternate" href="http://feeds.feedburner.com/GeekyNuggets" title="Geeky Nuggets" type="application/atom+xml" />
@@ -53,16 +51,16 @@
 </head>
 
 <body>
-	<div id="container">
+	<div id="container" class="clearfix">
 		                <div id="header" class="center">
-            <div class="article-logo floatLeft colFour">
+            <div class="article-logo">
                 <h1>
 				    <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
 				        <span class="hoverline">Geeky Nuggets</span>
 				    </a>
                 </h1>
             </div>
-            <div class="hero floatRight colSix">
+            <div class="hero">
                 <p class="moin">
                     
                     You&#8217;re currently viewing a single article. Feel free to skip back to
@@ -70,7 +68,7 @@
                     <a href="/#notebook" title="Skip straight to the latest article" tabindex="0" accesskey="L">&sect; Latest article</a>.
                 </p>
                 <p>
-                    
+                    This library allows you to serve cached minimized css to your users without any action on your part
                 </p>
 			</div>
 		</div> <!-- /#header.center -->
@@ -105,14 +103,15 @@
 				    <span class="page-nav-item floatRight"><a class="internal" rel="next"  href="/2011/06/29/phing-task-to-update-twitter-status.html#notebook" title="View A Phing task to update your Twitter status">View next article &rarr;</a></span>
                 
             </div> <!-- /.page-nav-top -->
-            <div class="entry-content colEight">
-                <h2 class="clear">CSS minification library for codeigniter</h2>
-                <span class="date" title="2011-04-11T14:10:51+02:00">
-                    <span class="published">Published&thinsp;&bull;</span>
-                    <span class="day">11</span>
-                    <span class="month"><abbr>Apr</abbr></span>
-                    <span class="year">2011</span>
-                </span>
+
+            <h2 class="clear">CSS minification library for codeigniter</h2>
+            <span class="date" title="2011-04-11T14:10:51+02:00">
+                <span class="published">Published&thinsp;&bull;</span>
+                <span class="day">11</span>
+                <span class="month"><abbr>Apr</abbr></span>
+                <span class="year">2011</span>
+            </span>
+            <div id="entry-content">
                 <p>For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like</p>
 
 <div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">css</span><span class="o">-&gt;</span><span class="na">link</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;/assets/css/fonts.css&#39;</span><span class="p">,</span><span class="s1">&#39;/assets/css/layout.css&#39;</span><span class="p">);</span><span class="cp">?&gt;</span><span class="x"></span>
@@ -138,17 +137,17 @@ I modelled the interaction on the image library, as I guess that's what most peo
 
 <p>The following code, which should go in your controller, will look very familiar to Codeigniter users.</p>
 
-<p>&nbsp;</p>
-
-<div class="highlight"><pre><code class="php"><span class="x">$this-&gt;load-&gt;library(&#39;css&#39;);</span>
-<span class="x">//array of files to concatenate and minify</span>
-<span class="x">$config[&#39;source_file&#39;]=array(&#39;/assets/css/layout.css&#39;,&#39;/assets/css/fonts.css&#39;);</span>
-<span class="x">//where to output the result</span>
-<span class="x">$config[&#39;dest_file&#39;]&#39;/assets/css/css.min.css&#39;;</span>
-<span class="x">//Cache time in hours</span>
-<span class="x">$config[&#39;cache_time&#39;]=48;</span>
-<span class="x">$this-&gt;css-&gt;initialize($config);</span>
-<span class="x">echo $this-&gt;css-&gt;link();</span>
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;css&#39;</span><span class="p">);</span>
+<span class="c1">//array of files to concatenate and minify</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;source_file&#39;</span><span class="p">]</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;/assets/css/layout.css&#39;</span><span class="p">,</span><span class="s1">&#39;/assets/css/fonts.css&#39;</span><span class="p">);</span>
+<span class="c1">//where to output the result</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;dest_file&#39;</span><span class="p">]</span><span class="s1">&#39;/assets/css/css.min.css&#39;</span><span class="p">;</span>
+<span class="c1">//Cache time in hours</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;cache_time&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">48</span><span class="p">;</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">css</span><span class="o">-&gt;</span><span class="na">initialize</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">css</span><span class="o">-&gt;</span><span class="na">link</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
 </code></pre>
 </div>
 
@@ -160,7 +159,7 @@ I modelled the interaction on the image library, as I guess that's what most peo
 </div>
 
 
-<p>&nbsp;</p>
+
 
 <h3>Get It!</h3>
 
@@ -184,6 +183,16 @@ I modelled the interaction on the image library, as I guess that's what most peo
                     <span class="permalink">For referencing: <a href="/2011/04/11/css-minification-library-for-codeigniter.html" title="[Permalink] CSS minification library for codeigniter">permalink to this article</a>.</span>
                 </div> <!-- /.meta -->
             </div> <!-- /.entry-content.colEight -->
+            <!-- START: Livefyre Embed -->
+            <script type='text/javascript' src='http://www.livefyre.com/wjs/v1.0/javascripts/livefyre_init.js'></script>
+            <script type='text/javascript'>
+                var fyre = LF({
+                    site_id: 288778,
+                    version: '1.0'
+                });
+            </script>
+            <!-- END: Livefyre Embed -->
+
             <div class="page-nav-bottom">
                 
 				    <span class="page-nav-item floatLeft"><a class="internal" rel="prev"  href="/2011/04/03/the-making-of-flickholdr-an-image-placeholder-generator.html#notebook" title="View The making of flickholdr.com, an image placeholder generator">&larr; View previous article</a></span>
@@ -193,19 +202,33 @@ I modelled the interaction on the image library, as I guess that's what most peo
                 
             </div> <!-- /.page-nav-bottom -->
         </div> <!-- /#notebook.center.clear -->
-                <div id="footer" class="center clear">
+                <div id="footer" class="clear">
 			<ul class="nav nav-footer caps">
 				<li><a href="/about.html" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
-				<li><a href="/archives.html#cover" title="View the notebook entries" tabindex="0">Notebook</a></li>
-				<li><a href="/#portfolio" title="Skip back up to the portfolio" tabindex="0">Portfolio</a></li>
-				<li><a href="http://feeds.feedburner.com/klepas" title="Feed link" tabindex="0">Feed</a></li>
+				<li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Blog</a></li>
+				<li><a href="http://jfoucher.fr" title="Go to the portfolio of Jonathan Foucher" tabindex="0">Portfolio</a></li>
+				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Feed link" tabindex="0">Feed</a></li>
 			</ul>
 			<span class="backtop floatRight"><a class="internal" href="#header" title="Return to the top of this page">Back to top &uarr;</a></span>
 			<div class="page-meta clear">
 				<div class="info">
-					<span class="index">&#9758;</span><p class="vcard"><a href="/files/Simon-Pascal-Klein.vcf" title="Download Simon Pascal Klein&rsquo;s addressbook vCard">Add me to your address book via vCard</a>.</p>
-					<p class="copyright clear">Proudly bending beziers since <abbr class="date" title="2004">MMIV</abbr>&ndash;; copyright &copy; Simon Pascal Klein thereon.</p>
-					<p class="licensing"><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/au/" title="Content, unless specificed, licensed under a Creative Commons license">Some rights reserved</a>.</p>
+					<span class="index">&#9758;</span>
+                    <p class="vcard">
+                        <a href="/files/Simon-Pascal-Klein.vcf" title="Download Simon Pascal Klein&rsquo;s addressbook vCard">
+                            Add me to your address book via vCard
+                        </a>.
+                    </p>
+					<p class="copyright clear">
+                        This blog has been online in one form or another since
+                        <span class="date" title="March 2004">2004</span>&thinsp;&ndash;&thinsp;The first post was published
+                    </p>
+                    copyright &copy; Jonathan Foucher.
+					<p class="licensing">
+                        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                           title="You can use this for non-comercial purposes, provided you cite me as the author, and do not modify the content">
+                            Some rights reserved
+                        </a>.
+                    </p>
 					<p>For an overview of the site, see the <a href="/sitemap/" title="View the site map">site map</a> or <a href="/archives.html#cover" title="View the notebook archives">notebook archives</a>.</p>
 					<h2>A playful tumble with <em>type</em>&hellip; &rarr;</h2>
 					<p>&hellip;yes, <em>type</em>, not a graphic; try selecting it or resizing the page font size. Inspired by <a href="http://jontangerine.com/" title="jontangerine.com: Jon Tan&rsquo;s website">Jon Tan</a>&rsquo;s masterhead type folly, this is achieved just with some simple nested <code><span class="element">span</span></code> elements that are positioned absolutely against their relative parents, and the entire thing is sized in ems and scales nicely.</p>

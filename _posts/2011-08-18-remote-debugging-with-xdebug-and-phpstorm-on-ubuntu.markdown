@@ -2,7 +2,7 @@
 layout: post
 title: Remote debugging with Xdebug and PhpStorm on Ubuntu
 tags: []
-
+excerpt: Phpstorm allows incoming connection from Xdebug to enable variable inspection, breakpoints and so on in your favorite IDE
 date: Thu Aug 18 01:09:13 +0200 2011
 ---
 Being able to debug your php application right from your IDE is something that you can't fully realise the power of, unless you've tried it. The advantages are immediately obvious: as soon as the connection from Xdebug is successful, you are blinded by variable inspection, code stepping, breakpoints, etc... Debugging heaven!
@@ -24,7 +24,7 @@ Now we restart apache so that the new configuration is taken into account:
 {% highlight bash %}sudo /etc/init.d/apache2 restart{% endhighlight %}
 And we that we are <strong>done</strong> on the server side of things
 <h3>Prepare PhpStorm</h3>
-Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the "Accept debug connections" button, and activate Xdebug by using a browser extension.  Here are four extensions to do this:
+Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the "Accept debug connections" button, and activate Xdebug by using a browser extension. ï¿½Here are four extensions to do this:
 <ul>
 	<li><a href="https://addons.mozilla.org/en-US/firefox/addon/58688">Firefox</a></li>
 	<li><a href="https://chrome.google.com/extensions/detail/eadndfjplgieldjbigjakmdgkmoaaaoc">Chrome</a></li>

@@ -25,9 +25,7 @@
 	<meta name="robots" content="noydir, noopd" /> <!-- Opt out of ODP -->
 
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
-	<link rel="stylesheet" href="/assets/css/reset.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" />
-    <link rel="stylesheet" href="/assets/css/syntax.css" type="text/css" media="screen" />
+	<link rel="stylesheet/less" href="/assets/css/screen.less" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/assets/css/print.css" type="text/css" media="print" />
 
 	<link rel="alternate" href="http://feeds.feedburner.com/GeekyNuggets" title="Geeky Nuggets" type="application/atom+xml" />
@@ -53,22 +51,24 @@
 </head>
 
 <body>
-	<div id="container">
+	<div id="container" class="clearfix">
 		                <div id="header" class="center">
-            <div class="logo floatLeft colFour">
-				<img width="224" height="342" alt="Logo" src="/images/logo.png">
+            <div class="logo">
+				<!--<img width="224" height="342" alt="Logo" src="/images/logo.png">-->
+                <h1>
+                    <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
+                        <span class="hoverline">Geeky Nuggets</span>
+                    </a>
+                </h1>
 			</div>
+
 			<div class="hero floatRight colSeven">
-				<h1>
-					<a href="/" title="Return to homepage" tabindex="0" accesskey="H">
-						<span class="hoverline">Geeky Nuggets</span>
-					</a>
-				</h1>
+
 				<p class="moin"><a href="/about.html#notebook" title="About Jonathan Foucher
                 &amp; contact details" tabindex="0" accesskey="A">Jonathan Foucher</a>&rsquo;s blog <span
                 class="amp">&amp;</span> web development
                 notebook.</p>
-				<p>Besides developing engaging web application providing a high return on investment, I like to research
+				<p>Besides developing engaging web application that provide a high return on investment, I like to research
                 and learn new things. This blog relates my experiences as a software developer.</p>
 			</div>
 			<div class="skip">
@@ -105,22 +105,53 @@
 
 <p>I mostly do php, but I love learning new. At the moment, I am simultaneously writing an iOs app, an Android app, a Java enterprise web application, moving my blog from <a href="http://jfoucher.com/wordpress/" title="My Wordpress plugins and themes">Wordpress</a> to <a href="https://github.com/mojombo/jekyll/wiki/">Jekyll</a>, and a few PHP webapps here and there.</p>
 
+<script type="text/javascript">var host = (("https:" == document.location.protocol) ? "https://secure." : "http://");document.write(unescape("%3Cscript src='" + host + "wufoo.com/scripts/embed/form.js' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+
+
+<script type="text/javascript">
+var z7x3k7 = new WufooForm();
+z7x3k7.initialize({
+'userName':'jfoucher',
+'formHash':'z7x3k7',
+'autoResize':true,
+'height':'514',
+'header':'show'});
+z7x3k7.display();
+</script>
+
+
             </div> <!-- /.page-content.colEight -->
         </div> <!-- /#notebook.center.clear -->
 
-                <div id="footer" class="center clear">
+                <div id="footer" class="clear">
 			<ul class="nav nav-footer caps">
 				<li><a href="/about.html" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
-				<li><a href="/archives.html#cover" title="View the notebook entries" tabindex="0">Notebook</a></li>
-				<li><a href="/#portfolio" title="Skip back up to the portfolio" tabindex="0">Portfolio</a></li>
-				<li><a href="http://feeds.feedburner.com/klepas" title="Feed link" tabindex="0">Feed</a></li>
+				<li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Blog</a></li>
+				<li><a href="http://jfoucher.fr" title="Go to the portfolio of Jonathan Foucher" tabindex="0">Portfolio</a></li>
+				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Feed link" tabindex="0">Feed</a></li>
 			</ul>
 			<span class="backtop floatRight"><a class="internal" href="#header" title="Return to the top of this page">Back to top &uarr;</a></span>
 			<div class="page-meta clear">
 				<div class="info">
-					<span class="index">&#9758;</span><p class="vcard"><a href="/files/Simon-Pascal-Klein.vcf" title="Download Simon Pascal Klein&rsquo;s addressbook vCard">Add me to your address book via vCard</a>.</p>
-					<p class="copyright clear">Proudly bending beziers since <abbr class="date" title="2004">MMIV</abbr>&ndash;; copyright &copy; Simon Pascal Klein thereon.</p>
-					<p class="licensing"><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/au/" title="Content, unless specificed, licensed under a Creative Commons license">Some rights reserved</a>.</p>
+					<span class="index">&#9758;</span>
+                    <p class="vcard">
+                        <a href="/files/Simon-Pascal-Klein.vcf" title="Download Simon Pascal Klein&rsquo;s addressbook vCard">
+                            Add me to your address book via vCard
+                        </a>.
+                    </p>
+					<p class="copyright clear">
+                        This blog has been online in one form or another since
+                        <span class="date" title="March 2004">2004</span>&thinsp;&ndash;&thinsp;The first post was published
+                    </p>
+                    copyright &copy; Jonathan Foucher.
+					<p class="licensing">
+                        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                           title="You can use this for non-comercial purposes, provided you cite me as the author, and do not modify the content">
+                            Some rights reserved
+                        </a>.
+                    </p>
 					<p>For an overview of the site, see the <a href="/sitemap/" title="View the site map">site map</a> or <a href="/archives.html#cover" title="View the notebook archives">notebook archives</a>.</p>
 					<h2>A playful tumble with <em>type</em>&hellip; &rarr;</h2>
 					<p>&hellip;yes, <em>type</em>, not a graphic; try selecting it or resizing the page font size. Inspired by <a href="http://jontangerine.com/" title="jontangerine.com: Jon Tan&rsquo;s website">Jon Tan</a>&rsquo;s masterhead type folly, this is achieved just with some simple nested <code><span class="element">span</span></code> elements that are positioned absolutely against their relative parents, and the entire thing is sized in ems and scales nicely.</p>
