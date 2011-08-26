@@ -1,0 +1,620 @@
+@import 'reset';
+@import 'grid';
+@import '/assets/fonts/museosans/stylesheet.css';
+@import '/assets/fonts/bodoni/stylesheet.css';
+
+/* Semantic.gs variables */
+@column-width: 60;
+@gutter-width: 20;
+@columns: 12;
+
+
+/*
+Color palette
+*/
+@bg:#fffff6;
+@darkBg:#192f35;
+@black:#000;
+@blackHeading:#111;
+@mainCopy:#192f35;
+@secCopy:#304e5a;
+@terCopy:#535d65;
+@headings:#63a7b9;
+@linkHover:#fbeec2;
+@links: #336699;
+@coverBg:#fffff6;
+@covertextShadow:#fff;
+@navHover:#ff8000;
+@headings:#ff8000;
+
+/*
+helpers
+*/
+.box-shadow (@x: 0, @y: 0, @blur: 1px, @alpha) {
+  @val: @x @y @blur rgba(0, 0, 0, @alpha);
+
+
+  -webkit-box-shadow: @val;
+  -moz-box-shadow:    @val;
+  -o-box-shadow:      @val;
+  -khtml-box-shadow:  @val;
+  box-shadow:         @val;
+}
+.radius(@r){
+    -webkit-border-radius: @r;
+    -moz-border-radius: @r;
+    -o-border-radius: @r;
+    -khtml-border-radius: @r;
+    border-radius: @r;
+
+}
+@import 'syntax';
+
+html { overflow-y: scroll; }
+
+    
+body {
+	background: @bg url(/assets/img/bg2.png) repeat;
+	text-align: center; /* For IE centering. */
+	font-family: Georgia, "DejaVu Serif", Times, "Times New Roman", serif;
+	font-size: 62.5%; /* Resets UA 16px common default such that 1em = 10px. Kudos to Richard Rutter. */
+	line-height: 1.5; /* We can use unitless numbers here; they act as multiples of the font-size. */
+	color: @mainCopy;
+	}
+	
+div#container {
+
+    width: ( @column-width + @gutter-width ) * @columns *1px;
+    /*overflow:hidden;*/
+    margin: 0 auto 0 auto;
+	background-color: @bg;
+	border-top: @secCopy 0.8em solid;
+	text-align: left;
+
+	.box-shadow( 0, 0, 4em, 0.3);
+	}
+	h3, h4, h5, h6 { font-family:"MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif; }
+	h2 { font-size: 3.2em; color: @secCopy; margin-bottom: 0.5em; /* 16 */ }
+	h3, div#footer h2 { font-size: 2.4em; color: @headings; margin: 0.666em 0; /* 16 */ }
+	h4 { font-size: 1.8em; color: @blackHeading; margin: 0.888em 0; /* 16 */ }
+	h5 { font-size: 1.4em; font-weight: bold; color: @blackHeading; margin: 1.142em 0; /* 16 */ }
+	h6 { font-size: 1.2em; text-transform: uppercase; letter-spacing: 1px; color: @headings; margin: 1.142em 0; /* 16 */ }
+	p { font-size: 1.6em; padding: 0; text-align: justify; }
+	a, a:hover, a:active, a:focus { text-decoration: none; }
+	a { color: @links; }
+		a:hover, a:active, a:focus {
+			color: @blackHeading;
+			border-bottom: 1px solid @terCopy;
+			background-color: @linkHover;
+			}
+	a.internal {
+        color: @secCopy;
+        font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+        }
+		a.internal:hover, a.internal:active, a.internal:focus { color: @blackHeading; }
+	abbr, acronym, .caps {
+		font-style: normal;
+        letter-spacing: 0.062em; /* 1; Calculated for the copy at 16 */
+        text-transform: lowercase;
+		font-variant: small-caps;
+		}
+	input[type=submit], label, select, .pointer { cursor: pointer; }
+
+
+
+/*	Grouped and handy elements
+
+	Just to save some space, I'm going to group some styling.
+	---------------------------------------------------------*/	
+
+	/* This is our 464 sidebar */
+	/*div.hero,*/ div.sidebar {
+	    .column(6,12);
+		/*width: 46.4em;*/ /* 464 */
+		display: block;
+		}
+		
+	/* Content dividers */
+	 div#nav, div#notebook, div#footer {
+		padding: 2.4em 0; /* div#footer is redefined below */ 
+		}
+	div#nav, div#cover { padding-left: 4.8em; padding-right: 4.8em; }
+	div.center	{
+	    .column(12);
+		/*margin: 0 4.8em 0 4.8em;
+		width: 86.4em; /* 960 minus the gutters (48 on each side). */
+		}
+
+	/* Miscellaneous */
+	.floatLeft {
+		float: left;
+		display: block;
+		}
+	.floatRight {
+		float: right;
+		display: block
+		}
+	.clear { clear: both; }
+	.block { display: block; }
+	.inline { display: inline; }
+    .clearfix:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+
+    .clearfix {
+        display: inline-block;
+    }
+
+    html[xmlns] .clearfix {
+        display: block;
+    }
+
+    * html .clearfix {
+        height: 1%;
+    }
+
+
+
+/*	Header elements
+	---------------------------------------------------------*/
+
+	div.logo { .column(4,12); padding-bottom: 4.8em; }
+		div.logo img {
+			width: 22.4em;
+			height: 34.2em;
+			padding: 0 4em 0 4em;
+			}
+    div.article-logo {
+        .column(4,12);
+        padding: 2.4em 0 4.8em 0;
+        }
+	h1 {
+		position: relative;
+		text-align: left;
+		line-height: 1.2em;
+		font-size: 6.4em;
+		font-weight: normal;
+		font-style: normal;
+		text-transform: lowercase;
+		margin-bottom: 0.375em; /* 24 */
+		letter-spacing: 0.031em; /* 2 */
+		}
+	h1, h1 a span.italic { font-style: italic; }
+		h1 a span.middot { color: @secCopy; }
+		h1 a:hover span.hoverline { border-bottom: 1px solid @terCopy; }
+		h1 a { color: @headings; }
+			h1 a:hover, h1 a:active, h1 a:focus {
+				color: @mainCopy;
+				border: none;
+				background-color: @bg;
+				}
+	div.hero {  .column(7,12); /* Seven columns */ padding-top: 3.6em;padding-bottom:3.6em }
+		div.hero p.moin {
+			font-size: 2em;
+			margin-bottom: 1em;
+			letter-spacing: 0.025em; /* 0.5 */
+			word-spacing: 0.05em; /* 1 */
+			color: @blackHeading;
+			text-align: left;
+			}
+			div.hero p.moin span.amp {
+				font-size: 1.05em; /* 22 */
+				line-height: 0.909; /* Back to 20 */
+				}
+		div.hero p { font-size: 1.6em; color: @mainCopy; }
+
+
+/*	Navigation elements
+
+	My navigation is split into three parts: hero, main nav. 
+	and footer nav. The hero section quick links are some 
+	skip-to anchors that should be added to make life easier. 
+	The main nav. sits below the hero area and the then final 
+	nav. is in the footer.
+	
+	Styling listed in order of appearance.
+	---------------------------------------------------------*/
+
+	div.skip span {
+		font-size: 1.6em;
+		float: right;
+		padding:1em 0 3em 0; /* 48 */
+		color: @secCopy;
+		letter-spacing: 0.031em; /* 0.5 */
+		word-spacing: 0.062em; /* 1 */
+		}
+	div#nav {
+
+	    background-color: @darkBg; color: @bg; border-bottom: 1px solid @terCopy;
+    }
+		ul.nav-footer li { padding-bottom: 0.363em; /* 8 */ }
+		ul.nav li {
+			float: left;
+			font-size: 2.2em;
+			padding-right: 1.909em; /* 44 */
+			letter-spacing: 0.045em; /* 1 */
+			}
+			ul.nav li a { display: block; color: @terCopy; }
+			ul.nav-header li a {
+				display: block;
+				color: @terCopy+#111;
+				text-shadow: 1px 1px 1px #222;
+				}
+			ul.nav-footer li a {
+				}
+				ul.nav li a:hover { border: none; }
+				ul.nav-footer li a:hover {
+					background-color: @bg;
+					color: @mainCopy;
+					}
+				ul.nav-header li a:hover {
+					color: @navHover;
+					background-color: @darkBg;
+					}
+			ul.nav li span.amp { font-size: 0.954em; /* 21 */ }
+	input {
+		font-size: 1.6em;
+		padding: 0.25em; /* 4 */
+		font-family: Georgia, "Bitstream Vera Serif", Times, "Times New Roman", serif;
+		}
+		input#search { margin-right: 0.5em; /* 8 */ }
+
+
+/*	Cover elements
+	---------------------------------------------------------*/
+
+	div#cover {
+		padding-top: 3.2em;
+		padding-bottom: 4.8em;
+		
+		background: url('/assets/img/coverbg.png') top left repeat @coverBg;
+		border-bottom: 1px solid #c4ba92;
+		border-top: 1px solid #c4ba92;
+		}
+        div.index{
+            .column(6,12);
+        }
+        .archives div.index{
+            .column(10,12);
+        }
+		div#cover.archives {
+		  font-size: 1.375em; /* 22px for 1.6em in archives page. */
+		  margin-bottom: 3.49em; /* 48 */
+		  }
+        div.index h2, div.subhero-preview h2, div.subhero-preview h3, div.index span.day, p.more,
+        div.index span.month, div.index span.year, div.index span.title, div.subhero-preview p {
+            text-shadow: 1px 1px 1px @covertextShadow;
+            }
+		div.index h2, div.subhero-preview h2 {
+			font-size: 1.4em;
+			padding-bottom: 1.142em; /* 16 */
+			margin: 0;
+			}
+        div.subhero-preview{
+            .column(4,12);
+        }
+        div.subhero-preview h3 {
+        	font-family: Georgia, "DejaVu Serif", Times, "Times New Roman", serif;
+            font-size: 1.6em;
+            color: #777;
+            margin-top: 1em;
+            }
+            div.subhero-preview h3 span.episode-no { color: @headings; }
+            div.subhero-preview h3 span.episode-title { color: @mainCopy; }
+        div.subhero-preview p {
+            font-size: 1.4em;
+            font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+            text-align: left;
+            color: #444;
+            margin-bottom: 0.5em;
+            }
+            div.subhero-preview p.more { font-size: 1.6em; }
+		div.index h2 { border-bottom: 1px dotted @bg; }
+		div.index ul { position: relative; }
+		div.index li { font-size: 1.6em; border-bottom: 1px dotted @bg; }
+			div.index li a { padding: 1em 0; display: block; color: #555; }
+				div.index li a:hover { border: none; color: #222; background: @linkHover; }
+		span.day { color: @headings; }
+		div.index span.day {
+			width: 2em;
+			text-align: right;
+			position: absolute;
+			left: 0;
+			}
+		span.month { color: @secCopy; }
+		div.index span.month {
+			text-align: left;
+			position: absolute;
+			left: 3em;
+			}
+        div.index span.year {
+            text-align: left;
+            position: absolute;
+            left: 5.5em;
+            }
+		div.index span.title {
+			position: relative;
+			left: 7.5em;
+			width: 19em; /* 304; 4 columns */
+			display: block;
+			color: @mainCopy;
+			}
+			div#cover.archives div.index span.title { left: 10.5em; width: 23em; }
+        div#cover a.internal {
+            margin-top: 1em;
+            font-size: 0.875em;
+            border-bottom: 1px solid transparent;
+            }
+            div#cover a.internal:hover { border-bottom: 1px solid @terCopy; background-color: transparent; }
+
+
+/*	Notebook
+	---------------------------------------------------------*/
+
+	div#notebook {
+	    .column(11,12);
+        .offset(0.5);
+	    /*overflow:auto;*/
+	    padding-top: 3.2em;
+	    }
+		div#notebook div.page-nav-top {
+            
+		    padding-bottom: 4.8em;
+	    }
+		div#notebook span.page-nav-item { font-size: 1.4em;	}
+		div#notebook div.page-nav-bottom {
+		    clear:both;
+			padding-top: 2.4em;
+			margin: 2.4em 0 4.8em 0;
+			}
+		div#notebook h2 {
+			/*margin-left: -3.75em;*/ /* 120 */
+			border-bottom: 1px solid #ccc;
+			padding: 1em 0;
+			/*width: 27em;*/
+			}
+		div#notebook h2, div.page-meta, div#notebook div.page-nav-bottom {
+			border-top: 1px solid #ccc; }
+			div#notebook h2 a:hover { background-color: @bg; border: none; }
+			div#notebook h2 span.tagline {
+				font-size: 0.562em; /* 18 */
+				font-style: italic;
+				color: @secCopy;
+				display: block;
+				margin-left: 5.62em;
+				padding: 0.5em 0;
+				}
+			div#notebook span.date {
+				width: 11.1em;
+				display: block;
+				font-size: 1.6em;
+				margin: -1.9em 0 2em;
+	            .offset(2);
+				background-color: @bg;
+	            position:relative;
+				/*	Different metrics due to the width being
+					calculated differently in FF due to lack 
+					of small-caps.
+				*/
+				/*padding: 0 0.2em 0 0.5em;*/
+				}
+	            div#notebook span.date:before{
+	                content:'';
+	                background:@bg;
+	                width:0.6em;
+	                position:absolute;
+	                left:-0.6em;
+	                top:0;
+	                bottom:0;
+	            }
+				div#notebook span.date span.month { color: @blackHeading; }
+				div#notebook span.date span.year { color: @terCopy; }
+				div#notebook span.date span.published {
+					font-size: 0.875em;
+					color: @secCopy;
+					}
+				div#notebook div.meta {
+					margin: 2em 0;
+					padding-top: 0.5em;
+					width: 38.4em;
+	                clear:both;
+					border-top: 0.2em solid #ccc;
+				    font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+					}
+					div#notebook div.meta span {
+						font-size: 1.4em;
+						color: @mainCopy;
+						display: block;
+						}
+		/*div.entry-content, div.page-content {
+
+		    margin: 0 auto;
+		}*/
+        #entry-content{
+            /*.colum(8,12);*/
+            .column(7);
+	        .offset(2);
+        }
+		#entry-content + p {
+			font-size: 1.8em; /* 18 */
+			float: right;
+			margin-bottom: 0.444em; /* 8 */
+			text-indent: 0;
+			display: block;
+			}
+			#entry-content  p:first-child:first-letter {
+				/*margin-left: -1.071em; /* We have 120 of space */
+				/*margin-right: 100%;
+				margin-bottom: -0.894em;*/
+				font-size: 6.222em; /* 112 */
+				padding-right: 0.071em; /* 8 */
+				line-height: 0.9; /* Aligns to cap-height of para. */
+				color: @headings;
+				/*text-align: right;*/
+				float: left;
+				}
+			#entry-content  p:first-child:first-line {
+				font-variant: small-caps;
+	            font-size:1.1em;
+				letter-spacing: 0.06em; /* 2 */
+				}
+            #entry-content p.note, div.page-content p.note { text-indent: 0.5em; } /* To adjust for the hedera. */
+                #entry-content p.note:before, div.page-content p.note:before {
+                    content: "\2767 \0020";
+                    color: @headings;
+                    font-size: 1.25em; /* 22 */
+                    }
+			#entry-content p, div.page-content p { margin-bottom: 0.25em; }
+			#entry-content p + p, div.page-content p + p { text-indent: 1.8em; }
+			#entry-content ul, div.entry-content ol, div.page-content ul, div.page-content ol {
+                margin-bottom: 0.5em;
+                font-size: 1.6em;
+                padding: 0;
+                }
+            #entry-content img { margin-bottom: 0.5em; }
+            #entry-content p.caption, div.page-content p.caption {
+                font-size: 1.4em;
+                font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+                color: #555;
+                margin-bottom: 0.571em; /* 0.8 in 16px */
+                display: block;
+                text-align: left;
+                }
+            #entry-content p.content-skip, div.page-content p.content-skip { text-indent: 0; margin-bottom: 2em; }
+            #entry-content p code, div.page-content p code { font-size: 0.875em; }
+			#entry-content ul, div.page-content ul { list-style: circle; }
+			#entry-content ol, div.page-content ol { list-style: lower-roman; }
+			#entry-content ol.references, div.entry-ul.references, div.page-content ol.references,
+			div.page-ul.references { list-style: none; font-size: 1.4em; }
+			#entry-content ol.references li, div.entry-content ul.references li,
+			div.page-content ol.references li, div.page-content ul.references li {
+                margin-bottom: 0.75em; }
+			#entry-content li, div.page-content li { margin-bottom: 0.25em; }
+			#entry-content dl dt, div.entry-content dl dd { margin-bottom: 1.6em; }
+			#entry-content dl.conversation span.speaker {
+                font-size: 1.6em;
+                font-variant: small-caps;
+                color: #444;
+                display: block;
+                }
+			#entry-content blockquote, div.page-content blockquote { margin: 1em 2.8em; color: #444; }
+			#entry-content blockquote p, div.page-content blockquote p { text-indent: 0; }
+			#entry-content a, div.page-content a  { color: @links; }
+				#entry-content a:hover, a:active, a:focus, div.page-content a:hover,
+				div.page-content a:active, div.page-content a:focus { color: @blackHeading; }
+				#entry-content a:visited, div.page-content a:visited { color: @secCopy; }
+					div.entry-content a:visited:hover, div.page-content a:visited:hover { color: @blackHeading; }
+        div.sitesearch404 { padding: 2em 0 4em 3em; }
+        .error { background-color: #fffae4; }
+        .availability { color: @headings; }
+
+
+
+	/*	Footer
+	---------------------------------------------------------*/
+
+	div#footer {
+	    border-top: 0.8em solid @mainCopy;
+	    padding-top: 0.8em;
+	    height: 32em;
+        .column(11,12);
+        .offset(0.5);
+    }
+		span.backtop { font-size: 1.4em; margin-top: 0.571em; /* 8 */ }
+		div.page-meta { padding-top: 4.8em; }
+
+		div.info { float: left; width: 48.8em; padding-right: 4.8em; }
+		div.info p, div.legal p { text-align: left; }
+		p.vcard {
+			float: left;
+			width: 30.5em; /* 488 */
+			}
+		span.index {
+			padding-top: 2px;
+			text-indent: -1.333em; /* 32 */
+			font-size: 2.6em;
+			line-height: 0.7;
+			display: block;
+			float: left;
+			}
+		div#footer p { font-size: 1.4em; color: @mainCopy; }
+		div#footer p.copyright {
+			margin-top: 2.4em;
+			}
+		div#footer h2 { margin: 1em 0 0.5em 0; }
+
+
+/*	Custom styling
+	---------------------------------------------------------*/
+	
+	span.amp {
+		font-family: BodoniRegular, "Palatino Linotype", Palatino, Baskerville, Times, "Times New Roman", Georgia, serif;
+		font-style: italic;
+		line-height: 1;
+		}
+    h4 span.amp { font-weight: bold; }
+	p span.amp {
+		font-size: 1.125em; /* Designed for 16 body copy; 18 */
+		line-height: 0.888; /* Bumps it back down to 16 */
+		}
+	span.u { text-decoration: underline; }
+	/* Prevents sup/sub leading distortion */
+	p sup { vertical-align: text-top; }
+	p sub { vertical-align: text-bottom; }
+	.calloutRight, .calloutLeft {
+		font-size: 2.4em;
+		color: @mainCopy;
+		text-align: left;
+		padding: 0 1em 0.25em 1em;
+		width: 12.666em; /* 304 */
+		}
+    .calloutRight { float: right; margin-right: -5.333em; /* 128 */ }
+    .calloutLeft { float: left; margin-left: -5.333em; /* 128 */ }
+    blockquote[cite]:after {
+        display: block;
+		text-align: right;
+        content: "\2014\ " attr(cite);
+        font-style: normal;
+        font-size: 1.2em;
+        font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+		}
+	pre { margin: 2em 0; overflow: auto; }
+	/*pre code { font-size: 1.6em; }*/
+	code {
+		font-family: Monaco, "Andale Mono", "Courier New", Courier, monospace;
+		white-space: pre;
+		}
+		div.entry-content p code, div.page-content p code { font-size: 0.875em; } /* Calculated for when in 16px paras. */
+		/* CSS and markup code styling */ 
+		code.markup, code.css { color: @secCopy; }
+		code.markup span.content { color: #ff0080; } /* hot pink */
+		code span.element { color: #4881d6; } /* light blue */
+		code span.property { color: #993300; } /* light red */
+		code span.attribute { color: #669933; } /* light green */
+		code span.highlighted { background-color: #c8dff9; } /* for highlighting code lines */
+    ol#about-top-ten {
+        font-size: 1.8em;
+        }
+    span#df-logo { width: 6.4em; margin-top: 0.5em; }
+
+/*	Twitter
+	---------------------------------------------------------*/
+
+#tweets li{
+    font-size:1.35em;
+    padding: 8px 12px;
+    border-top: 1px dotted @bg;
+    color:@mainCopy;
+    text-shadow: 0 1px 1px @bg;
+}
+#tweets li .timeago{
+    font-size:0.9em;
+    color: #555;
+    display:block;
+    float:right;
+}
