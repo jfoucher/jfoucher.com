@@ -1,3 +1,6 @@
+@import '../fonts/museosans/stylesheet.css';
+
+@import '../fonts/bodoni/stylesheet.css';
 /*	Color palette
 
 	white, snow		-	#fff		-	main container bg;
@@ -28,17 +31,6 @@ html {
   overflow-y: scroll;
 }
 /* Fixes Firefox scrollbar jump */
-@font-face {
-  font-family: 'Museo Sans 500 Regular';
-  src: url(/fonts/MuseoSans-500.eot);
-  src: local('MuseoSans-500'), local('Museo Sans 500'), url(/fonts/MuseoSans-500.otf) format('opentype');
-}
-@font-face {
-  font-family: 'Museo Sans 500 Regular Italic';
-  src: url(fonts/MuseoSans-500-Italic.eot);
-  src: local("MuseoSans-500Italic"), local('Museo Sans 500 Italic'), url(fonts/MuseoSans-500-Italic.otf) format('opentype');
-  font-style: italic;
-}
 body {
   background: #fffff6 url(/assets/img/bg.png) repeat;
   text-align: center;
@@ -72,7 +64,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Museo Sans 500 Regular", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+  font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
 }
 h2 {
   font-size: 3.2em;
@@ -82,7 +74,7 @@ h2 {
 }
 h3, div#footer h2 {
   font-size: 2.4em;
-  color: #63a7b9;
+  color: #ff8000;
   margin: 0.666em 0;
   /* 16 */
 }
@@ -103,7 +95,7 @@ h6 {
   font-size: 1.2em;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #63a7b9;
+  color: #ff8000;
   margin: 1.142em 0;
   /* 16 */
 }
@@ -128,7 +120,7 @@ a:hover, a:active, a:focus {
 }
 a.internal {
   color: #304e5a;
-  font-family: "Museo Sans 500 Regular", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+  font-family: MuseoSans 500, "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
 }
 a.internal:hover, a.internal:active, a.internal:focus {
   color: #111111;
@@ -234,7 +226,7 @@ div.article-logo {
 h1 {
   position: relative;
   text-align: left;
-  line-height: 1;
+  line-height: 1.2em;
   font-size: 6.4em;
   font-weight: normal;
   font-style: normal;
@@ -256,7 +248,7 @@ h1 a:hover span.hoverline {
   border-bottom: 1px solid #535d65;
 }
 h1 a {
-  color: #63a7b9;
+  color: #ff8000;
 }
 h1 a:hover, h1 a:active, h1 a:focus {
   color: #192f35;
@@ -413,14 +405,14 @@ div.subhero-preview h3 {
   margin-top: 1em;
 }
 div.subhero-preview h3 span.episode-no {
-  color: #63a7b9;
+  color: #ff8000;
 }
 div.subhero-preview h3 span.episode-title {
   color: #192f35;
 }
 div.subhero-preview p {
   font-size: 1.4em;
-  font-family: "Museo Sans 500 Regular", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+  font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
   text-align: left;
   color: #444;
   margin-bottom: 0.5em;
@@ -449,7 +441,7 @@ div.index li a:hover {
   background-color: #fbeec2;
 }
 span.day {
-  color: #63a7b9;
+  color: #ff8000;
 }
 div.index span.day {
   width: 2em;
@@ -559,8 +551,9 @@ div#notebook div.meta {
   margin: 2em 0;
   padding-top: 0.5em;
   width: 38.4em;
+  clear: both;
   border-top: 0.2em solid #ccc;
-  font-family: "Museo Sans 500 Regular", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+  font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
 }
 div#notebook div.meta span {
   font-size: 1.4em;
@@ -596,7 +589,7 @@ div.entry-content span.date + p:first-letter {
   line-height: 0.9;
   /* Aligns to cap-height of para. */
 
-  color: #63a7b9;
+  color: #ff8000;
   /*text-align: right;*/
 
   float: left;
@@ -613,7 +606,7 @@ div.entry-content p.note, div.page-content p.note {
 /* To adjust for the hedera. */
 div.entry-content p.note:before, div.page-content p.note:before {
   content: "\2767 \0020";
-  color: #63a7b9;
+  color: #ff8000;
   font-size: 1.25em;
   /* 22 */
 
@@ -637,7 +630,7 @@ div.entry-content img {
 }
 div.entry-content p.caption, div.page-content p.caption {
   font-size: 1.4em;
-  font-family: "Museo Sans 500 Regular", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+  font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
   color: #555;
   margin-bottom: 0.571em;
   /* 0.8 in 16px */
@@ -714,7 +707,7 @@ div.sitesearch404 {
   background-color: #fffae4;
 }
 .availability {
-  color: #63a7b9;
+  color: #ff8000;
 }
 /*	Footer
 	---------------------------------------------------------*/
@@ -768,7 +761,7 @@ div#footer h2 {
 /*	Custom styling
 	---------------------------------------------------------*/
 span.amp {
-  font-family: "Palatino Linotype", Palatino, Baskerville, Times, "Times New Roman", Georgia, serif;
+  font-family: BodoniRegular, "Palatino Linotype", Palatino, Baskerville, Times, "Times New Roman", Georgia, serif;
   font-style: italic;
   line-height: 1;
 }
@@ -818,7 +811,7 @@ blockquote[cite]:after {
   content: "\2014\ " attr(cite);
   font-style: normal;
   font-size: 1.2em;
-  font-family: "Museo Sans 500 Regular", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+  font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
 }
 pre {
   margin: 2em 0;

@@ -1,3 +1,6 @@
+@import '../fonts/museosans/stylesheet.css';
+@import '../fonts/bodoni/stylesheet.css';
+
 @bg:#fffff6;
 @darkBg:#192f35;
 @black:#000;
@@ -10,7 +13,8 @@
 @links: #336699;
 @coverBg:#fffff6;
 @covertextShadow:#fff;
-
+@navHover:#ff8000;
+@headings:#ff8000;
 /*	Color palette
 
 	white, snow		-	#fff		-	main container bg;
@@ -44,20 +48,6 @@
 	---------------------------------------------------------*/
 
 html { overflow-y: scroll; } /* Fixes Firefox scrollbar jump */
-
-@font-face {
-    font-family: 'Museo Sans 500 Regular';
-    src: url(/fonts/MuseoSans-500.eot);
-    src: local('MuseoSans-500'), local('Museo Sans 500'),
-         url(/fonts/MuseoSans-500.otf) format('opentype');
-    }
-@font-face {
-    font-family: 'Museo Sans 500 Regular Italic';
-    src: url(fonts/MuseoSans-500-Italic.eot);
-    src: local("MuseoSans-500Italic"), local('Museo Sans 500 Italic'),
-         url(fonts/MuseoSans-500-Italic.otf) format('opentype');
-    font-style: italic;
-    }
     
 body {
 	background: @bg url(/assets/img/bg.png) repeat;
@@ -80,7 +70,7 @@ div#container {
 	-webkit-box-shadow: 0 0 4em #ccc;
 	-moz-box-shadow: 0 0 4em #ccc;
 	}
-	h3, h4, h5, h6 { font-family: "Museo Sans 500 Regular", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif; }
+	h3, h4, h5, h6 { font-family:"MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif; }
 	h2 { font-size: 3.2em; color: @secCopy; margin-bottom: 0.5em; /* 16 */ }
 	h3, div#footer h2 { font-size: 2.4em; color: @headings; margin: 0.666em 0; /* 16 */ }
 	h4 { font-size: 1.8em; color: @blackHeading; margin: 0.888em 0; /* 16 */ }
@@ -96,7 +86,7 @@ div#container {
 			}
 	a.internal {
         color: @secCopy;
-        font-family: "Museo Sans 500 Regular", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+        font-family: MuseoSans500, "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
         }
 		a.internal:hover, a.internal:active, a.internal:focus { color: @blackHeading; }
 	abbr, acronym, .caps {
@@ -167,7 +157,7 @@ div#container {
 	h1 {
 		position: relative;
 		text-align: left;
-		line-height: 1;
+		line-height: 1.2em;
 		font-size: 6.4em;
 		font-weight: normal;
 		font-style: normal;
@@ -241,7 +231,7 @@ div#container {
 					color: @mainCopy;
 					}
 				ul.nav-header li a:hover {
-					color: #ff8000;
+					color: @navHover;
 					background-color: @darkBg;
 					}
 			ul.nav li span.amp { font-size: 0.954em; /* 21 */ }
@@ -286,7 +276,7 @@ div#container {
             div.subhero-preview h3 span.episode-title { color: @mainCopy; }
         div.subhero-preview p {
             font-size: 1.4em;
-            font-family: "Museo Sans 500 Regular", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+            font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
             text-align: left;
             color: #444;
             margin-bottom: 0.5em;
@@ -380,8 +370,9 @@ div#container {
 					margin: 2em 0;
 					padding-top: 0.5em;
 					width: 38.4em;
+	                clear:both;
 					border-top: 0.2em solid #ccc;
-				    font-family: "Museo Sans 500 Regular", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+				    font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
 					}
 					div#notebook div.meta span {
 						font-size: 1.4em;
@@ -427,7 +418,7 @@ div#container {
             div.entry-content img { margin-bottom: 0.5em; }
             div.entry-content p.caption, div.page-content p.caption {
                 font-size: 1.4em;
-                font-family: "Museo Sans 500 Regular", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+                font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
                 color: #555;
                 margin-bottom: 0.571em; /* 0.8 in 16px */
                 display: block;
@@ -495,7 +486,7 @@ div#container {
 	---------------------------------------------------------*/
 	
 	span.amp {
-		font-family: "Palatino Linotype", Palatino, Baskerville, Times, "Times New Roman", Georgia, serif;
+		font-family: BodoniRegular, "Palatino Linotype", Palatino, Baskerville, Times, "Times New Roman", Georgia, serif;
 		font-style: italic;
 		line-height: 1;
 		}
@@ -523,7 +514,7 @@ div#container {
         content: "\2014\ " attr(cite);
         font-style: normal;
         font-size: 1.2em;
-        font-family: "Museo Sans 500 Regular", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+        font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
 		}
 	pre { margin: 2em 0; overflow: auto; }
 	/*pre code { font-size: 1.6em; }*/
