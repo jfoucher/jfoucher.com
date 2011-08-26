@@ -16,7 +16,7 @@ $(document).ready(function(){
       return text.replace(exp,"<a href='$1'>$1</a>");
     }
 
-    jQuery.ajax('http://twitter.com/statuses/user_timeline/jfoucher.json?count=6', {
+    $.ajax('http://twitter.com/statuses/user_timeline/jfoucher.json?count=6', {
         dataType:'jsonp',
         success:function(data){
             $.each(data,function(i,el){
@@ -28,5 +28,29 @@ $(document).ready(function(){
             $(".timeago").timeago();
         }
     });
+
+    $('a[href*=#]').click(function() {
+
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+            && location.hostname == this.hostname) {
+
+            var $target = $(this.hash);
+
+            $target = $target.length && $target || $('[name=' + this.hash.slice(1) +']');
+
+            if ($target.length) {
+
+                var targetOffset = $target.offset().top;
+
+                $('html,body').animate({scrollTop: targetOffset}, 1000);
+
+                return false;
+
+            }
+
+        }
+
+    });
+
 
 });
