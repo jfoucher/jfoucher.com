@@ -1,71 +1,110 @@
-        <div id="header" class="center">
-            <div class="article-logo floatLeft">
-                <h1>
-				    <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
-				        <span class="hoverline">kle</span><span class="middot">&middot;</span>p<span class="hoverline">as</span>
-				    </a>
-                </h1>
-            </div>
-            <div class="hero floatRight colSix">
-                <p class="moin">You&#8217;re currently viewing a single article. Feel free to skip back to <a href="/" rel="home" title="Go back to the homepage" tabindex="0">&sect; Index</a> or straight to <a href="/#notebook" title="Skip straight to the latest article" tabindex="0" accesskey="L">&sect; Latest article</a>.</p>
+<!DOCTYPE html> 
+
+<html lang="en">
+
+<!-- 
+	Access keys:
+		H = homepage
+		S = search input field
+		L = latest article on the homepage
+		F = portfolio
+		A = about page
+		
+		N = next portfolio preview item
+		P = previous prtoflio preview item
+-->
+<head>
+    <title>About Jonathan Foucher</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="content-language" content="en" />
+	<meta name="author" content="Jonathan Foucher" />
+	<meta name="designer" content="Jonathan Fouch" />
+	<meta name="developer" content="Jonathan Foucher" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="robots" content="noydir, noopd" /> <!-- Opt out of ODP -->
+	
+	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
+	<link rel="stylesheet" href="/assets/css/reset.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/assets/css/print.css" type="text/css" media="print" />
+	
+    <!-- <link rel="stylesheet" href="/css/syntax.css" type="text/css" media="screen" /> -->
+	<link rel="alternate" href="http://feeds.feedburner.com/GeekyNuggets" title="Geeky Nuggets" type="application/atom+xml" />
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="/assets/js/jquery.timeago.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-8465441-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+        '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+</head>
+
+<body>
+	<div id="container">
+		                <div id="header" class="center">
+			<div class="hero floatRight">
+				<h1>
+					<a href="/" title="Return to homepage" tabindex="0" accesskey="H">
+						<span class="hoverline">Geeky Nuggets</span>
+					</a>
+				</h1>
+				<p class="moin"><a href="/about.html#notebook" title="About Jonathan Foucher
+                &amp; contact details" tabindex="0" accesskey="A">Jonathan Foucher</a>&lsquo;s blog <span
+                class="amp">&amp;</span> web development
+                notebook.</p>
+				<p>Besides developing engaging web application providing a high return on investment, I like to research
+                and learn new things. This blog relates my experiences as a software developer.</p>
+			</div>
+			<div class="skip">
+				<span>Straight to: <a href="/#notebook" title="Skip straight to the latest article" tabindex="0"
+                accesskey="L">&sect; Latest article</a></span>
 			</div>
 		</div> <!-- /#header.center -->
 
-<div id="content">
-<p>This is the about page of Jonathan Foucher, my blog and notebook about web development.</p>
+		        <div id="nav" class="clear">
+            <ul class="nav nav-header caps">
+				<li><a href="/about.html#notebook" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
+				<li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Archives</a></li>
+				<li><a href="http://jfoucher.fr" title="Go to the portfolio" tabindex="0">Portfolio</a></li>
+				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Feed link" tabindex="0">Feed</a></li>
+            </ul>
+			<div class="sitesearch floatRight">
+                <div class="sitesearch">
+                    <!-- Google Custom Search Element -->
+                    <form action="http://www.google.com/cse" class="center_column" />
+                    <fieldset>
+                       <input type="hidden" name="cx" value="004905032692135561336:flcwnz7i1ww" />
+                       <input type="hidden" name="ie" value="UTF-8" />
+                       <input id="search" class="text-input" type="text" name="q" size="15" tabindex="0" accesskey="S" />
+                       <input id="searchsubmit" type="submit" name="sa" value="Search" tabindex="0" />
+                    </fieldset>
+                </div>
+            </div>
+			<div class="clear"></div>
+        </div> <!-- /#nav.clear -->
+
+		<div id="notebook" class="center clear">
+            <div class="page-content colEight">
+                <p>This is the about page of Jonathan Foucher, my blog and notebook about web development.</p>
 
 <p>I mostly do php, but I love learning new. At the moment, I am simultaneously writing an iOs app, an Android app, a Java enterprise web application, moving my blog from <a href="http://jfoucher.com/wordpress/" title="My Wordpress plugins and themes">Wordpress</a> to <a href="https://github.com/mojombo/jekyll/wiki/">Jekyll</a>, and a few PHP webapps here and there.</p>
 
-</div>
-<div id="primary" class="widget-area" role="complementary">
-<ul class="xoxo">
-    <li id="archives-3" class="widget-container widget_archive">
-        <h3 class="widget-title">Archives</h3>
-        <ul>
-            <li><a href='http://jfoucher.com/2011/08' title='August 2011'>August 2011</a></li>
-            <li><a href='http://jfoucher.com/2011/06' title='June 2011'>June 2011</a></li>
-            <li><a href='http://jfoucher.com/2011/04' title='April 2011'>April 2011</a></li>
-            <li><a href='http://jfoucher.com/2011/02' title='February 2011'>February 2011</a></li>
-            <li><a href='http://jfoucher.com/2011/01' title='January 2011'>January 2011</a></li>
-            <li><a href='http://jfoucher.com/2010/05' title='May 2010'>May 2010</a></li>
-            <li><a href='http://jfoucher.com/2010/01' title='January 2010'>January 2010</a></li>
-            <li><a href='http://jfoucher.com/2009/12' title='December 2009'>December 2009</a></li>
-            <li><a href='http://jfoucher.com/2009/11' title='November 2009'>November 2009</a></li>
-            <li><a href='http://jfoucher.com/2009/10' title='October 2009'>October 2009</a></li>
-            <li><a href='http://jfoucher.com/2009/07' title='July 2009'>July 2009</a></li>
-            <li><a href='http://jfoucher.com/2009/06' title='June 2009'>June 2009</a></li>
-            <li><a href='http://jfoucher.com/2009/05' title='May 2009'>May 2009</a></li>
-            <li><a href='http://jfoucher.com/2009/04' title='April 2009'>April 2009</a></li>
-            <li><a href='http://jfoucher.com/2006/03' title='March 2006'>March 2006</a></li>
-            <li><a href='http://jfoucher.com/2005/04' title='April 2005'>April 2005</a></li>
-            <li><a href='http://jfoucher.com/2005/03' title='March 2005'>March 2005</a></li>
-            <li><a href='http://jfoucher.com/2004/11' title='November 2004'>November 2004</a></li>
-            <li><a href='http://jfoucher.com/2004/10' title='October 2004'>October 2004</a></li>
-            <li><a href='http://jfoucher.com/2004/09' title='September 2004'>September 2004</a></li>
-            <li><a href='http://jfoucher.com/2004/08' title='August 2004'>August 2004</a></li>
-            <li><a href='http://jfoucher.com/2004/04' title='April 2004'>April 2004</a></li>
-            <li><a href='http://jfoucher.com/2004/03' title='March 2004'>March 2004</a></li>
-        </ul>
-    </li>
-    <li id="text-6" class="widget-container widget_text">
-        <div class="textwidget">
-            <a href="http://stackoverflow.com/users/210824/jfoucher">
-<img src="http://stackexchange.com/users/flair/f354d74ced334d5984ea2db33cf8024a.png" width="208" height="58" alt="profile for jfoucher on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for jfoucher on Stack Exchange, a network of free, community-driven Q&amp;A sites"> 
-</a> 
-<div style="margin-right:15px;float:left;"><a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical">Tweet</a></div><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> 
-<g:plusone size="tall" count="true"></g:plusone> 
-<iframe src="http://www.facebook.com/plugins/like.php?app_id=228358510507833&amp;href&amp;send=false&amp;layout=box_count&amp;width=50&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font=segoe+ui&amp;height=60" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:60px;margin-left:25px" allowTransparency="true"></iframe></div> 
-		</li><li id="recent-comments-3" class="widget-container widget_recent_comments"><h3 class="widget-title">Recent Comments</h3><ul id="recentcomments"><li class="recentcomments"><a class="comment-post-title-link" href="http://jfoucher.com/2011/04/css-minification-library-for-codeigniter.html#comment-14518"><!--:en-->CSS minification library for codeigniter<!--:--></a> (2)</li><li class="recentcomments"><a class="comment-post-title-link" href="http://jfoucher.com/2011/01/python-skype-notifier-for-ubuntu.html#comment-12631"><!--:en-->Python skype notifier for Ubuntu<!--:--></a> (15)</li><li class="recentcomments"><a class="comment-post-title-link" href="http://jfoucher.com/2009/06/wpfeedly-theme-download.html#comment-12060"><!--:en-->WP-Feedly theme available for download<!--:--></a> (6)</li><li class="recentcomments"><a class="comment-post-title-link" href="http://jfoucher.com/2011/01/wordpress-email-404-notification.html#comment-10882">WordPress 404 notification by email</a> (2)</li><li class="recentcomments"><a class="comment-post-title-link" href="http://jfoucher.com/2009/06/auto-tag-wordpress-plugin.html#comment-9966"><!--:en-->Auto Tag WordPress plugin<!--:--></a> (44)</li></ul></li><li id="text-8" class="widget-container widget_text"><h3 class="widget-title">Subscribe</h3>			<div class="textwidget"><ul> 
-<li> 
-<a href="http://feeds.feedburner.com/GeekyNuggets" rel="alternate" type="application/rss+xml">Subscribe in a reader</a>&nbsp;<a href="http://feeds.feedburner.com/GeekyNuggets" rel="alternate" type="application/rss+xml"><img src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" alt="" style="vertical-align:middle;border:0"/></a></li> 
-<li> 
-<a href="http://feedburner.google.com/fb/a/mailverify?uri=GeekyNuggets&amp;loc=en_US">Subscribe by Email</a>&nbsp;<a href="http://feedburner.google.com/fb/a/mailverify?uri=GeekyNuggets&amp;loc=en_US"><img src="/wp-content/themes/jfoucher/images/icon_email_small.gif" style="vertical-align:middle;border:0" alt="" /></a></li></ul></div> 
+            </div> <!-- /.page-content.colEight -->
+        </div> <!-- /#notebook.center.clear -->
 
-</li>
-</ul>
-
-</div><!-- #primary .widget-area -->
-        <div id="footer" class="center clear">
+                <div id="footer" class="center clear">
 			<ul class="nav nav-footer caps">
 				<li><a href="/about.html" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
 				<li><a href="/archives.html#cover" title="View the notebook entries" tabindex="0">Notebook</a></li>
@@ -107,3 +146,6 @@
 				</div>
 			</div> <!-- /.page-meta.clear -->
 		</div> <!-- /#footer.center.clear -->
+	</div>
+</body>
+</html>

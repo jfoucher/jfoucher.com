@@ -1,3 +1,7 @@
+<!DOCTYPE html> 
+
+<html lang="en">
+
 <!-- 
 	Access keys:
 		H = homepage
@@ -9,49 +13,41 @@
 		N = next portfolio preview item
 		P = previous prtoflio preview item
 -->
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/terms/" xml:lang="en" lang="en">
-
 <head>
     <title>Post sorting plugin</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="content-language" content="en" />
-	<meta name="author" content="Simon Pascal Klein" />
-	<meta name="designer" content="Simon Pascal Klein" />
-	<meta name="developer" content="Simon Pascal Klein" />
-	<meta name="description" content="Personal website and portfolio of Simon Pascal Klein, graphic and web designer, typography nutter and User Interface and Experience aficionado residing down-under in Canberra, Australia." />
-	<meta name="keywords" content="accessibility, Australia, Canberrra, concept, design, German, graphic, interface, typography, UI, usability, UX, web" />
+	<meta name="author" content="Jonathan Foucher" />
+	<meta name="designer" content="Jonathan Fouch" />
+	<meta name="developer" content="Jonathan Foucher" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
 	<meta name="robots" content="noydir, noopd" /> <!-- Opt out of ODP -->
 	
-	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/au/" />
-	<link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="/css/print.css" type="text/css" media="print" />
+	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
+	<link rel="stylesheet" href="/assets/css/reset.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/assets/css/print.css" type="text/css" media="print" />
 	
     <!-- <link rel="stylesheet" href="/css/syntax.css" type="text/css" media="screen" /> -->
+	<link rel="alternate" href="http://feeds.feedburner.com/GeekyNuggets" title="Geeky Nuggets" type="application/atom+xml" />
 	
-	<link rel="alternate" href="http://feeds.feedburner.com/klepas" title="Simon Pascal Klein" type="application/atom+xml" />
-	<!-- Original atom.xml made redundant by feedburner goodness. -->
-	<!-- <link rel="alternate" href="/atom.xml" title="Simon Pascal Klein" type="application/atom+xml" /> -->
-	
-	<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
-	
-	<script type="text/javascript" src="/js/jquery-1.3.2.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.color.min.js"></script>
-	<script type="text/javascript" src="/js/easySlider.min.js"></script>
-	<script type="text/javascript">$(document).ready(function(){$("#slider").easySlider();});</script>
-	
-	<script type="text/javascript">
-        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="/assets/js/jquery.timeago.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
     <script type="text/javascript">
-        try {
-            var pageTracker = _gat._getTracker("UA-4333113-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-8465441-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+        '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
     </script>
 </head>
 
@@ -72,16 +68,16 @@
 		        <div id="nav" class="clear">
             <ul class="nav nav-header caps">
 				<li><a href="/about.html#notebook" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
-				<li><a href="/archives.html#cover" title="View the notebook archives" tabindex="0">Archives</a></li>
-				<li><a href="/#portfolio" title="Skip to the portfolio" tabindex="0">Portfolio</a></li>
-				<li><a href="http://feeds.feedburner.com/klepas" title="Feed link" tabindex="0">Feed</a></li>
+				<li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Archives</a></li>
+				<li><a href="http://jfoucher.fr" title="Go to the portfolio" tabindex="0">Portfolio</a></li>
+				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Feed link" tabindex="0">Feed</a></li>
             </ul>
 			<div class="sitesearch floatRight">
                 <div class="sitesearch">
                     <!-- Google Custom Search Element -->
                     <form action="http://www.google.com/cse" class="center_column" />
                     <fieldset>
-                       <input type="hidden" name="cx" value="012236898957532950839:9eegq1vhwts" />
+                       <input type="hidden" name="cx" value="004905032692135561336:flcwnz7i1ww" />
                        <input type="hidden" name="ie" value="UTF-8" />
                        <input id="search" class="text-input" type="text" name="q" size="15" tabindex="0" accesskey="S" />
                        <input id="searchsubmit" type="submit" name="sa" value="Search" tabindex="0" />
@@ -90,6 +86,7 @@
             </div>
 			<div class="clear"></div>
         </div> <!-- /#nav.clear -->
+
 		<div id="notebook" class="center clear">
 			<div class="page-nav-top">
                 
