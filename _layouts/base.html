@@ -23,7 +23,8 @@
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
 	<link rel="stylesheet/less" href="/assets/css/screen.less" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/assets/css/print.css" type="text/css" media="print" />
-    {% if page.error == '404' %}
+    {{ page.error }}
+    {% if page.error && page.error == 'error404' %}
     <script type="text/javascript">
         var currentUrl= document.URL;
         var search=new RegExp(/(\d{4})\/(\d{2})\/(\d{1,4})-(.+)\.html$/)
