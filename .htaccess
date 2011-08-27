@@ -12,8 +12,8 @@ RewriteEngine On
 # Continue to support deprecated permalink structure.
 # 
 #   /2009/09/09/foo.html -> /2009/09/09/foo/
-#RewriteCond %{REQUEST_URI} \/\d{4}\/\d{2}\/\d{2}\/.+\.html$
-#RewriteRule (.+).html$ http://tatey.com/$1/ [R=301,L]
+RewriteCond %{REQUEST_URI} \/\d{4}\/\d{2}\d{1,4}-.+\.html$
+RewriteRule (\d{4})\/(\d{2})(\d{1,4})-(.+)\.html$ /$1/$2/$4.html [R=301,L]
 
 # Append trailing slash to directories.
 # Borrowed from http://gist.github.com/97822
@@ -32,3 +32,5 @@ AddOutputFilterByType DEFLATE text/html application/xml text/css text/javascript
 
 # Mime types
 #AddType application/x-woff woff
+
+
