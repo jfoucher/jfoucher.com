@@ -1,0 +1,24 @@
+---
+title: Open source projects&thinsp;&mdash;&thinsp;by Jonathan Foucher&thinsp;&mdash;&thinsp;Web developer
+layout: base
+---
+        {% include header-home.html %}
+		{% include nav.html %}
+		<div id="cover" class="clear archives">
+			<div class="index">
+				<h2><em>Open Source Projects</em>&hellip;</h2>
+				<ul>
+				    {% for project in page.projects %}
+					<li>
+						<a href="{{ project.url }}" title="{{ project.title }}">
+
+							<span class="title">{{ project.title }}</span>
+                            <span class="watchers">{{ project.watchers }}</span>
+                            <span class="forks">{{ project.forks }}</span>
+						</a>
+					</li>
+                    {% endfor %}
+				</ul>
+			</div> <!-- /.index -->
+			<div class="clear"></div>
+		</div> <!-- /#cover.clear -->

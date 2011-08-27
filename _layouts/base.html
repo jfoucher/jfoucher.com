@@ -29,9 +29,11 @@
         var currentUrl= document.URL;
         console.log(currentUrl);
         var search=new RegExp(/(\d{4})\/(\d{2})\/(\d{1,4})-(.+)\.html$/)
-        var newUrl=currentUrl.replace(search,"$1/$2/$4.html");
-        console.log(newUrl);
-        window.location.href=newUrl;
+        if (currentUrl.match(search)){
+            var newUrl=currentUrl.replace(search,"$1/$2/$4.html");
+            console.log(newUrl);
+            window.location.href=newUrl;
+        }
     </script>
 
     {% endif %}

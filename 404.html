@@ -4,43 +4,41 @@ title: Page not found &mdash; Geeky Nuggets
 error: error404
 ---
         <div id="header" class="center">
-            <div class="article-logo floatLeft">
+            <div class="article-logo">
                 <h1>
 				    <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
-				        <span class="hoverline">kle</span><span class="middot">&middot;</span>p<span class="hoverline">as</span>
+				        <span class="hoverline">{{site.title}}</span>
 				    </a>
                 </h1>
             </div>
-            <div class="hero floatRight colSix">
-                <p class="moin">Oh noes! Skip to <a href="/" rel="home" title="Go back to the homepage" tabindex="0">&sect; Index</a> or straight to <a href="/#notebook" title="Skip straight to the latest article" tabindex="0" accesskey="L">&sect; Latest article</a>.</p>
+            <div class="hero">
+                <p class="moin">Oh noes! This page has moved, or has never existed...
+                    </p>
+                <p>Skip to 
+                    <a href="/" rel="home" title="Go back to the homepage" tabindex="0">&sect; Index</a>
+                    or straight to <a href="/#notebook" title="Skip straight to the latest article" tabindex="0" accesskey="L">&sect;
+                        Latest article</a>.</p>
 			</div>
 		</div> <!-- /#header.center -->
 		{% include nav.html %}
-		<div id="notebook" class="center clear">
-            <div class="page-content colEight">
-        		<h2 class="error">Page not found&thinsp;&mdash;&thinsp;404</h2>
-        		<script>
-                    $('document').ready(function() {
-                        $("h2").animate({ backgroundColor: "white" }, 4000);
-                    });
-                </script>
-                <p class="moin">Sorry, the page you queried for isn&rsquo;t at this location; it could have been misplaced.</p>
-                <p class="note">If it&rsquo;s likely to be my mistake or notably you were linked here from somewhere on-site (within klepas.org) please <a ref="email" href="mailto:klepas@klepas.org" title="Email Simon Pascal Klein">give me heads up about it</a> so I can correct the error.</p>
-                <p>In the mean time please use the navigation or try searching for what you&rsquo;re after:</p>
+		<div id="notebook" class="center">
+            <div class="page-content">
+        		<h2 class="error">Page not found&thinsp;&mdash;&thinsp;404&thinsp;&mdash;&thinsp;Yes that's an Error</h2>
+                <p>Sorry, the page you queried for isn&rsquo;t at this location; it could have been misplaced.</p>
+                <p class="note">If you came here from a page on this site, it's almost certainly my fault. I you came
+                    from somewhere else, it's also probably my fault.</p>
+                <p>The only thing you can do now is search for what you&rsquo;re looking for. Also it would be great if
+                    you could <a href="/about.html#notebook" title="Contact me">tell me where you came from to arrive here</a>. I promise I'll fix it straight away!</p>
                 <div class="sitesearch sitesearch404">
                     <!-- Google Custom Search Element -->
                     <form action="http://www.google.com/cse" class="center_column" />
                     <fieldset>
-                        <input type="hidden" name="cx" value="012236898957532950839:9eegq1vhwts" />
+                        <input type="hidden" name="cx" value="004905032692135561336:flcwnz7i1ww" />
                         <input type="hidden" name="ie" value="UTF-8" />
                         <input id="search" class="text-input" type="text" name="q" size="35" tabindex="0" accesskey="S" />
                         <input id="searchsubmit" type="submit" name="sa" value="Search this site" tabindex="0" />
                     </fieldset>
                 </div> <!-- /.sitesearch -->
-                <ul>
-                    <li><a href="/" rel="home" title="Go back to the homepage">&sect; Index</a></li>
-                    <li><a href="/" title="View the notebook archives">&sect; Archives</a></li>
-                    <li><a href="/sitemap" title="View the Sitemap">Sitemap</a></li>
-                </ul>
+
             </div> <!-- /.page-content.colEight -->
         </div> <!-- /#notebook.center.clear -->
