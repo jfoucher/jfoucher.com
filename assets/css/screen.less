@@ -316,8 +316,8 @@ div#container {
             div.subhero-preview p.more { font-size: 1.6em; }
 		div.index h2 { border-bottom: 1px dotted @bg; }
 		div.index ul { position: relative; }
-		div.index li { font-size: 1.6em; border-bottom: 1px dotted @bg; }
-			div.index li a { padding: 1em 0; display: block; color: #555; }
+		div.index li { font-size: 1.6em; border-bottom: 1px dotted @bg;clear:both; }
+			div.index li a { padding: 1em 0; display: block; color: #555; overflow:hidden }
 				div.index li a:hover { border: none; color: #222; background: @linkHover; }
 		span.day { color: @headings; }
 		div.index span.day {
@@ -339,8 +339,8 @@ div#container {
             }
 		div.index span.title {
 			position: relative;
-			left: 7.5em;
-			width: 19em; /* 304; 4 columns */
+			.column(5,7);
+            .offset(3);
 			display: block;
 			color: @mainCopy;
 			}
@@ -421,7 +421,7 @@ div#container {
 				div#notebook div.meta {
 					margin: 2em 0;
 					padding-top: 0.5em;
-					width: 38.4em;
+					.column(4,12);
 	                clear:both;
 					border-top: 0.2em solid #ccc;
 				    font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
@@ -659,6 +659,10 @@ div#container {
         paddding-left:0;
         padding-right:0;
     }
+    div.index span.title {
+        .column(9,12);
+        .offset(3);
+    }
     #searchForm{
 
         display:none;
@@ -667,11 +671,7 @@ div#container {
         padding:2.4em;
     }
 
-    div#cover{
-        
-        padding-left:0 !important;
-        padding-right:0 !important;
-    }
+
 
     #entry-content{
             /*.colum(8,12);*/
@@ -714,4 +714,20 @@ div#container {
         max-width:95%;
     }
 
+}
+
+@media (max-width:480px){
+    div#cover{
+
+        padding-left:0 !important;
+        padding-right:0 !important;
+    }
+
+    div#notebook div.meta {
+
+        .column(12,12);
+	}
+    .image-with-caption{
+        max-width:95%;
+    }
 }
