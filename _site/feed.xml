@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://paulstamatiou.com/feed/" rel="self"/>
  	<link type="text" href="http://paulstamatiou.com" rel="alternate"/>
-	<updated>2011-08-27T02:44:38+02:00</updated>
+	<updated>2011-08-27T03:45:15+02:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -445,7 +445,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<link href="http://jfoucher.com/2011/02/installing-running-apc-cache-codeigniter.html"/>
 		<updated>2011-02-13T23:33:33+01:00</updated>
 		<id>http://jfoucher.com/2011/02/installing-running-apc-cache-codeigniter</id>
-		<content type="html">&lt;p&gt;&lt;span style=&quot;color: #000000; line-height: 27px;&quot;&gt;APC cache&lt;/span&gt; Codeigniter 2 now includes an excellent cache driver, which makes it dead easy to use any one of the great available cache librairies such as &lt;a href=&quot;http://php.net/apc&quot;&gt;APC&lt;/a&gt; o &lt;a href=&quot;http://www.memcached.org/&quot;&gt;memcached&lt;/a&gt;. In this post I will focus on APC, it's installation on an &lt;a href=&quot;/?p=193&quot;&gt;Ubuntu 10.04 server&lt;/a&gt;, and a few benchmarks to compare the various cache systems.  For my testing, I will use an Ubuntu Server installation, on a VirtualBox virtual machine with 256 Mb of RAM and a single processor. This enables me to test things until everything breaks, than just scrap that VM and start with a clean one. However, a description of this setup is a story for another day...&lt;/p&gt;
+		<content type="html">&lt;p&gt;Codeigniter 2 now includes an excellent cache driver, which makes it dead easy to use any one of the great available cache librairies such as &lt;a href=&quot;http://php.net/apc&quot;&gt;APC&lt;/a&gt; o &lt;a href=&quot;http://www.memcached.org/&quot;&gt;memcached&lt;/a&gt;. In this post I will focus on APC, it's installation on an &lt;a href=&quot;/?p=193&quot;&gt;Ubuntu 10.04 server&lt;/a&gt;, and a few benchmarks to compare the various cache systems.  For my testing, I will use an Ubuntu Server installation, on a VirtualBox virtual machine with 256 Mb of RAM and a single processor. This enables me to test things until everything breaks, than just scrap that VM and start with a clean one. However, a description of this setup is a story for another day...&lt;/p&gt;
 
 &lt;h3&gt;Installation&lt;/h3&gt;
 

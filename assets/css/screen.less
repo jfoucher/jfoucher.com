@@ -167,7 +167,7 @@ div#container {
 		div.logo img {
 			width: 22.4em;
 			height: 34.2em;
-			padding: 0 4em 0 4em;
+			padding: 2.4em 4em 0 4em;
 			}
     div.article-logo {
         .column(4,12);
@@ -440,14 +440,26 @@ div#container {
             .column(7);
 	        .offset(2);
         }
-		#entry-content + p {
+		#entry-content + p , div.page-content + p{
 			font-size: 1.8em; /* 18 */
 			float: right;
 			margin-bottom: 0.444em; /* 8 */
 			text-indent: 0;
 			display: block;
 			}
-			#entry-content  p:first-child:first-letter {
+            div.page-content p, #contactForm{
+                .column(7);
+	            .offset(2);
+            }
+            #contactForm{
+                margin-top:2.4em;
+               
+            }
+            #contactForm iframe{
+
+                margin-left:-5px;
+            }
+			#entry-content p:first-child:first-letter, div.page-content h2 + p:first-letter {
 				/*margin-left: -1.071em; /* We have 120 of space */
 				/*margin-right: 100%;
 				margin-bottom: -0.894em;*/
@@ -458,7 +470,7 @@ div#container {
 				/*text-align: right;*/
 				float: left;
 				}
-			#entry-content  p:first-child:first-line {
+			#entry-content p:first-child:first-line, div.page-content p:first-child:first-line{
 				font-variant: small-caps;
 	            font-size:1.1em;
 				letter-spacing: 0.06em; /* 2 */
@@ -524,11 +536,13 @@ div#container {
 	    height: 32em;
         .column(11,12);
         .offset(0.5);
-    }
+
 		span.backtop { font-size: 1.4em; margin-top: 0.571em; /* 8 */ }
 		div.page-meta { padding-top: 4.8em; }
 
-		div.info { float: left; width: 48.8em; padding-right: 4.8em; }
+		div.info {
+		    .column(11,11);
+		}
 		div.info p, div.legal p { text-align: left; }
 		p.vcard {
 			float: left;
@@ -542,12 +556,13 @@ div#container {
 			display: block;
 			float: left;
 			}
-		div#footer p { font-size: 1.4em; color: @mainCopy; }
-		div#footer p.copyright {
-			margin-top: 2.4em;
-			}
-		div#footer h2 { margin: 1em 0 0.5em 0; }
+		p { font-size: 1.3em; color: @mainCopy; }
+		p.copyright {
+			margin-top: 1.2em;
 
+	    }
+		h2 { margin: 1em 0 0.5em 0; }
+    }
 
 /*	Custom styling
 	---------------------------------------------------------*/
