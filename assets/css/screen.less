@@ -280,7 +280,7 @@ div#container {
             .column(7,12);
         }
         .archives div.index{
-            .column(11,12);
+            .column(12,12);
         }
 		div#cover.archives {
 		  font-size: 1.375em; /* 22px for 1.6em in archives page. */
@@ -344,7 +344,10 @@ div#container {
 			display: block;
 			color: @mainCopy;
 			}
-			div#cover.archives div.index span.title { left: 10.5em; width: 23em; }
+			div#cover.archives div.index span.title {
+			    .column(9,12);
+                .offset(3);
+		    }
         div#cover a.internal {
             margin-top: 1em;
             font-size: 0.875em;
@@ -712,6 +715,22 @@ div#container {
      }
     img{
         max-width:95%;
+    }
+    span.date{
+        position:relative;
+    }
+    span.date span.day, span.date span.month, span.date span.year{
+        text-align:left;
+        left:1em;
+    }
+    span.date span.month{
+        text-align:right;
+        width:3em;
+    }
+    span.date span.year{
+        top: 0.7em;
+    left: 0.7em;
+    font-size: 1.5em;
     }
 
 }
