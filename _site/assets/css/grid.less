@@ -34,5 +34,5 @@ body {
 	margin: 0 @total-width*((@gutter-width*.5)/@_gridsystem-width);
 }
 .offset(@x) {
-	margin-left:@total-width * (((@gutter-width+@column-width)*@x) / @_gridsystem-width)+@gutter-width/2;
+	margin-left:@total-width * (((@gutter-width+@column-width)*@x+(@gutter-width*0.5)) / @_gridsystem-width);
 }

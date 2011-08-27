@@ -7,7 +7,7 @@
 @column-width: 60;
 @gutter-width: 20;
 @columns: 12;
-
+@total-width: 100%;
 
 /*
 Color palette
@@ -163,11 +163,11 @@ div#container {
 /*	Header elements
 	---------------------------------------------------------*/
 
-	div.logo { .column(4,12); padding-bottom: 4.8em; }
+	div.logo { .column(4,12); padding-bottom: 4.8em;padding-top:2.4em; }
 		div.logo img {
 			width: 22.4em;
 			height: 34.2em;
-			padding: 2.4em 4em 0 4em;
+			padding: 0 4em 0 4em;
 			}
     div.article-logo {
         .column(4,12);
@@ -277,10 +277,10 @@ div#container {
 		border-top: 1px solid #c4ba92;
 		}
         div.index{
-            .column(6,12);
+            .column(7,12);
         }
         .archives div.index{
-            .column(10,12);
+            .column(11,12);
         }
 		div#cover.archives {
 		  font-size: 1.375em; /* 22px for 1.6em in archives page. */
@@ -296,7 +296,7 @@ div#container {
 			margin: 0;
 			}
         div.subhero-preview{
-            .column(4,12);
+            .column(5,12);
         }
         div.subhero-preview h3 {
         	font-family: Georgia, "DejaVu Serif", Times, "Times New Roman", serif;
@@ -626,6 +626,7 @@ div#container {
     border-top: 1px dotted @bg;
     color:@mainCopy;
     text-shadow: 0 1px 1px @bg;
+    clear:both;
 }
 #tweets li .timeago{
     font-size:0.9em;
@@ -639,4 +640,63 @@ div#container {
 #disqus_thread{
 
     clear:both;
+}
+
+@media (max-width: 960px) {
+    div#container {
+        width:100%;
+    }
+
+}
+@media (max-width: 768px) {
+
+	div.logo, div.article-logo {
+	    padding-bottom:1.2em;
+        .column(12,12);
+    }
+    div.hero,div.index,div.subhero-preview{
+        .column(12,12);
+    }
+    #searchForm{
+
+        display:none;
+    }
+    div#nav{
+        padding:2.4em;
+    }
+    #entry-content{
+            /*.colum(8,12);*/
+            .column(9);
+	        .offset(1);
+        }
+        div#notebook span.date {
+
+	            .offset(1);
+	         }
+    
+}
+@media (max-width: 640px) {
+
+
+    div#nav,#footer .nav{
+        padding:1.2em;
+        li{
+            padding-right:1.1em;
+        }
+    }
+    #footer .nav{
+        padding-left:0;
+        padding-right:0;
+    }
+
+    #entry-content{
+        
+        .column(12);
+        .offset(0);
+    }
+            div#notebook span.date {
+
+	            .offset(0);
+	         }
+
 }
