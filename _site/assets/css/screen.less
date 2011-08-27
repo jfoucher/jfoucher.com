@@ -656,14 +656,23 @@ div#container {
     }
     div.hero,div.index,div.subhero-preview{
         .column(12,12);
+        paddding-left:0;
+        padding-right:0;
     }
     #searchForm{
 
         display:none;
     }
-    div#nav{
+    div#nav,div#cover{
         padding:2.4em;
     }
+
+    div#cover{
+        
+        padding-left:0 !important;
+        padding-right:0 !important;
+    }
+
     #entry-content{
             /*.colum(8,12);*/
             .column(9);
@@ -673,6 +682,9 @@ div#container {
 
 	            .offset(1);
 	         }
+	       img{
+        max-width:95%;
+    }
     
 }
 @media (max-width: 640px) {
@@ -694,9 +706,12 @@ div#container {
         .column(12);
         .offset(0);
     }
-            div#notebook span.date {
+    div#notebook span.date {
 
-	            .offset(0);
-	         }
+        .offset(0);
+     }
+    img{
+        max-width:95%;
+    }
 
 }
