@@ -4,21 +4,28 @@ layout: base
 ---
         {% include header-home.html %}
 		{% include nav.html %}
-		<div id="cover" class="clear archives">
-			<div class="index">
-				<h2><em>Open Source Projects</em>&hellip;</h2>
-				<ul>
-				    {% for project in page.projects %}
-					<li>
-						<a href="{{ project.url }}" title="{{ project.title }}">
+        <div id="notebook" class="center clear">
+            <h2><em>Open Source Projects</em>&hellip;</h2>
+            <div class="page-content projects">
 
-							<span class="title">{{ project.title }}</span>
-                            <span class="watchers">{{ project.watchers }}</span>
-                            <span class="forks">{{ project.forks }}</span>
-						</a>
-					</li>
+                <ul class="projects-list">
+                    {% for project in page.projects %}
+                    <li class="project">
+                        <h3>
+                            <a href="/{{ project.url }}" title="{{ project.title }}">{{ project.title }}</a>
+                        </h3>
+                        <p class="description">{{ project.gitdata['repository']['description'] }}</p>
+                        <div class="project-meta">
+                            <div class="watchers"><span class="num">{{ project.gitdata['repository']['watchers'] }}</span> watchers</div>
+                            <div class="forks"><span class="num">{{ project.gitdata['repository']['forks'] }}</span> forks</div>
+                        </div>
+                        <div class="project-code">
+                            <a class="source" href="{{ project.gitdata['repository']['url'] }}">Source code</a>
+                            <a class="download" href="https://github.com/jfoucher/{{ project.gitdata['repository']['name'] }}/zipball/master">Download</a>
+                        </div>
+                    </li>
                     {% endfor %}
-				</ul>
-			</div> <!-- /.index -->
-			<div class="clear"></div>
-		</div> <!-- /#cover.clear -->
+                </ul>
+            </div> <!-- /.page-content -->
+        </div> <!-- /#notebook -->
+

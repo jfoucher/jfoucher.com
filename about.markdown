@@ -1,9 +1,10 @@
 ---
 layout: page
-title: About Geeky Nuggets and Jonathan Foucher
+meta_title: About Geeky Nuggets and Jonathan Foucher
+title: About <span class="amp">&amp;</span> Contact
 ---
 
-<h2 class="clear">About <span class="amp">&amp;</span> Contact</h2>
+
 
 Founder of [Six Pixels](http://6px.eu), a web design and development shop operating out of spain
 

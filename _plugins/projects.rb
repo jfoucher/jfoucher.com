@@ -1,6 +1,27 @@
 require 'fileutils'
 require 'find'
+require 'curb'
+require 'json'
 module Jekyll
+
+
+  class Project < Page
+    def initialize(site, base, dir,name)
+      @site = site
+      @base = base
+      @dir = dir
+      @name = name
+
+      self.process(@name)
+      self.read_yaml(dir, name)
+      c = Curl::Easy.perform("http://github.com/api/v2/json/repos/show/jfoucher/" + self.data['gitname'])
+      #print c.body_str
+      self.data['gitdata'] = JSON.parse(c.body_str)
+      #print self.data['gitdata']
+
+
+    end
+  end
 
   class ProjectsIndex < Page
     def initialize(site, base, dir)
@@ -20,14 +41,13 @@ module Jekyll
       projects=Array.new;
       site.pages.each{ |page|
         path     = page.subfolder + '/' + page.name
-        print path
         mod_date = File.mtime(site.source + path)
 
-        # Ignore SASS, SCSS, and CSS files
         if page.subfolder=~/projects/
             unless page.name=~/index/
-              print page.name
-              projects << page
+              project = Project.new(site, site.source, dir,page.name)
+
+              projects << project
             end
         end
       }

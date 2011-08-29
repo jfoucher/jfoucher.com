@@ -10,7 +10,10 @@
 		A = about page
 -->
 <head>
-    <title>The making of flickholdr.com, an image placeholder generator</title>
+    <title>
+        The making of flickholdr.com, an image placeholder generator
+        
+    </title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="content-language" content="en" />
 	<meta name="author" content="Jonathan Foucher" />
@@ -73,19 +76,21 @@
             <ul class="nav nav-header caps">
 				<li><a href="/about.html#notebook" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
 				<li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Archives</a></li>
-				<li><a href="http://github.com/jfoucher" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Github</a></li>
+				<li><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
 				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Feed link" tabindex="0">Feed</a></li>
             </ul>
 			<div class="sitesearch floatRight">
                 <div class="sitesearch">
                     <!-- Google Custom Search Element -->
-                    <form action="http://www.google.com/cse" class="center_column" id="searchForm" />
-                    <fieldset>
-                       <input type="hidden" name="cx" value="004905032692135561336:flcwnz7i1ww" />
-                       <input type="hidden" name="ie" value="UTF-8" />
-                       <input id="search" class="text-input" type="text" name="q" size="15" tabindex="0" accesskey="S" />
-                       <input id="searchsubmit" type="submit" name="sa" value="Search" tabindex="0" />
-                    </fieldset>
+                    <form action="http://www.google.com/cse" class="center_column" id="searchForm" >
+                        <fieldset>
+                           <input type="hidden" name="cx" value="004905032692135561336:flcwnz7i1ww" />
+                           <input type="hidden" name="ie" value="UTF-8" />
+                           <label for="search" class="hidden">Search</label>
+                           <input id="search" class="text-input" type="text" name="q" size="15" tabindex="0" accesskey="S" />
+                           <input id="searchsubmit" type="submit" name="sa" value="Search" tabindex="0" />
+                        </fieldset>
+                    </form>
                 </div>
             </div>
 			<div class="clear"></div>
@@ -111,16 +116,14 @@
             <div id="entry-content">
                 <p>There are a few services available to web designer and HTML coders to use dummy images in their html mockups or templates. The one I used to use is <a href="http://dummyimage.com">dummyimage</a> but it is somewhat limited in that the images are completely static: a flat color and some text. I needed the same kind of service, but with actual images or photographs rather than simple placeholders. Something like dynamically generated stock images.</p>
 
-<h2>The idea</h2>
-
+<h3>The idea</h3>
 
 <p>And then the idea dawned on me: why not use <a href="http://flickr.com">flickr</a>'s <a href="http://creativecommons.org/">creative commons</a> licensed images? The quality is often very good, especially for "interesting" images, a lot of sizes are available, and users often use tags to classify their images, making it rather easy to get placeholder images about a particular subject.</p>
 
 <div class="image-with-caption aligncenter" style="width:600px"><div class="caption">flickholdr.com</div><a href="http://cdn.jfoucher.com/uploads/2011/03/FlickHoldr1.png"><img class="size-full wp-image-413" title="FlickHoldr" src="http://cdn.jfoucher.com/uploads/2011/03/FlickHoldr1.png" alt="screenshot of flickholdr.com" width="600" height="417" /></a></div>
 
 
-<h2>The execution</h2>
-
+<h3>The execution</h3>
 
 <p>So I proceeded to develop a little webapp to do just that, using <a href="http://codeigniter.com">codeigniter</a>, my framework of choice for rapid application development</p>
 
@@ -128,8 +131,7 @@
 
 <p>If the requested image already exists in the cache (i.e. it has already been requested) we simply echo that out, with proper headers, otherwise, we have to generate the image.</p>
 
-<h2>Getting images from flickr</h2>
-
+<h3>Getting images from flickr</h3>
 
 <p>Most of the code deals with pulling images from flickr, and then doing various to them before display. The code that pulls the image from flickr is located in a model called Flickr_model with three methods:</p>
 
@@ -177,7 +179,6 @@
 
 <h3>End of the story!</h3>
 
-
 <p><strong>UPDATE</strong>: Flickholdr is now open sourced and the code is available on <a href="https://github.com/jfoucher/flickholdr">github</a></p>
 
                 <div class="meta">
@@ -213,7 +214,7 @@
 			<ul class="nav nav-footer caps">
 				<li><a href="/about.html" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
 				<li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Blog</a></li>
-				<li><a href="http://github.com/jfoucher" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Github</a></li>
+				<li><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
 				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Feed link" tabindex="0">Feed</a></li>
 			</ul>
 			<span class="backtop floatRight"><a class="internal" href="#header" title="Return to the top of this page">Back to top &uarr;</a></span>

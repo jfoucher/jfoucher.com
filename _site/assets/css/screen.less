@@ -33,6 +33,14 @@ helpers
 .box-shadow (@x: 0, @y: 0, @blur: 1px, @alpha) {
   @val: @x @y @blur rgba(0, 0, 0, @alpha);
 
+  -webkit-box-shadow: @val;
+  -moz-box-shadow:    @val;
+  -o-box-shadow:      @val;
+  -khtml-box-shadow:  @val;
+  box-shadow:         @val;
+}
+.white-shadow (@x: 0, @y: 0, @blur: 1px, @alpha) {
+  @val: @x @y @blur rgba(255, 255, 255, @alpha);
 
   -webkit-box-shadow: @val;
   -moz-box-shadow:    @val;
@@ -126,6 +134,9 @@ div#container {
 		}
 
 	/* Miscellaneous */
+    .hidden{
+        display:none;
+    }
 	.floatLeft {
 		float: left;
 		display: block;
@@ -163,7 +174,12 @@ div#container {
 /*	Header elements
 	---------------------------------------------------------*/
 
-	div.logo { .column(4,12); padding-bottom: 4.8em;padding-top:2.4em; }
+	div.logo {
+	    .column(4,12);
+	    padding-bottom: 4.8em;
+	    padding-top:2.4em;
+	 .offset(0.5);
+    }
 		div.logo img {
 			width: 22.4em;
 			height: 34.2em;
@@ -171,6 +187,7 @@ div#container {
 			}
     div.article-logo {
         .column(4,12);
+        .offset(0.5);
         padding: 2.4em 0 4.8em 0;
         }
 	h1 {
@@ -438,22 +455,22 @@ div#container {
 
 		    margin: 0 auto;
 		}*/
-        #entry-content{
+        #entry-content, div.page-content {
             /*.colum(8,12);*/
             .column(7);
 	        .offset(2);
         }
-		#entry-content + p , div.page-content + p{
+		#entry-content  p:first-child , div.page-content p:first-child{
 			font-size: 1.8em; /* 18 */
 			float: right;
 			margin-bottom: 0.444em; /* 8 */
 			text-indent: 0;
 			display: block;
 			}
-            div.page-content p, #contactForm{
+            /*div.page-content p, #contactForm{
                 .column(7);
 	            .offset(2);
-            }
+            }*/
             #contactForm{
                 margin-top:2.4em;
                
@@ -462,7 +479,7 @@ div#container {
 
                 margin-left:-5px;
             }
-			#entry-content p:first-child:first-letter, div.page-content h2 + p:first-letter {
+			#entry-content p:first-child:first-letter, div.page-content p:first-child:first-letter {
 				/*margin-left: -1.071em; /* We have 120 of space */
 				/*margin-right: 100%;
 				margin-bottom: -0.894em;*/
@@ -473,7 +490,7 @@ div#container {
 				/*text-align: right;*/
 				float: left;
 				}
-			#entry-content p:first-child:first-line, div.page-content h2 + p:first-line{
+			#entry-content p:first-child:first-line, div.page-content p:first-child:first-line{
 				font-variant: small-caps;
 	            font-size:1.1em;
 				letter-spacing: 0.06em; /* 2 */
@@ -484,7 +501,7 @@ div#container {
                     color: @headings;
                     font-size: 1.25em; /* 22 */
                     }
-			#entry-content p, div.page-content p { margin-bottom: 0.25em; }
+			#entry-content p, div.page-content p { margin-bottom: 0.5em; }
 			#entry-content p + p, div.page-content p + p { text-indent: 1.8em; }
 			#entry-content ul, div.entry-content ol, div.page-content ul, div.page-content ol {
                 margin-bottom: 0.5em;
@@ -527,6 +544,71 @@ div#container {
         div.sitesearch404 { padding: 2em 0 4em 3em; }
         .error { background-color: #fffae4; }
         .availability { color: @headings; }
+
+    /*  Projects
+    ---------------------------------------------------------*/
+
+    .page-content.projects{
+        .column(12,12);
+        /*.offset(1);*/
+    }
+    .projects-list .project{
+        .column(5,10);
+        margin-bottom:1.5em;
+        h3{
+            margin:0.3em 0;
+        }
+        h3 a{
+            font-variant: small-caps;
+            font-size:0.7em;
+            color:@headings;
+
+        }
+        h3 a:hover{
+            background:transparent;
+            border:none;
+            color:@blackHeading;
+        }
+
+        p{
+           .column(5,5);
+           margin-left:0;
+           margin-bottom: 1.5em;
+           font-size:1.2em;
+        }
+
+        .project-meta{
+            margin-top:12px;
+            .column(2,5);
+            margin-left:0;
+
+            .white-shadow( 1px, 1px, 1px, 0.6);
+            div{
+                display:block;
+                text-transform:uppercase;
+                color:@terCopy;
+                span.num{
+                    width:2em;
+                    display:inline-block;
+                    color:@headings;
+                }
+            }
+        }
+        .project-code{
+            margin-top:12px;
+            .column(3,5);
+            text-align:right;
+            font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
+            a{
+                display:block;
+
+            }
+            a:hover{
+                background: transparent;
+                border:none;
+            }
+        }
+    }
 
 
 

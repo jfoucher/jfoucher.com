@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://paulstamatiou.com/feed/" rel="self"/>
  	<link type="text" href="http://paulstamatiou.com" rel="alternate"/>
-	<updated>2011-08-28T00:59:38+02:00</updated>
+	<updated>2011-08-30T01:12:37+02:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -368,16 +368,14 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<id>http://jfoucher.com/2011/04/the-making-of-flickholdr-an-image-placeholder-generator</id>
 		<content type="html">&lt;p&gt;There are a few services available to web designer and HTML coders to use dummy images in their html mockups or templates. The one I used to use is &lt;a href=&quot;http://dummyimage.com&quot;&gt;dummyimage&lt;/a&gt; but it is somewhat limited in that the images are completely static: a flat color and some text. I needed the same kind of service, but with actual images or photographs rather than simple placeholders. Something like dynamically generated stock images.&lt;/p&gt;
 
-&lt;h2&gt;The idea&lt;/h2&gt;
-
+&lt;h3&gt;The idea&lt;/h3&gt;
 
 &lt;p&gt;And then the idea dawned on me: why not use &lt;a href=&quot;http://flickr.com&quot;&gt;flickr&lt;/a&gt;'s &lt;a href=&quot;http://creativecommons.org/&quot;&gt;creative commons&lt;/a&gt; licensed images? The quality is often very good, especially for &quot;interesting&quot; images, a lot of sizes are available, and users often use tags to classify their images, making it rather easy to get placeholder images about a particular subject.&lt;/p&gt;
 
 &lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:600px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;flickholdr.com&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/03/FlickHoldr1.png&quot;&gt;&lt;img class=&quot;size-full wp-image-413&quot; title=&quot;FlickHoldr&quot; src=&quot;http://cdn.jfoucher.com/uploads/2011/03/FlickHoldr1.png&quot; alt=&quot;screenshot of flickholdr.com&quot; width=&quot;600&quot; height=&quot;417&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;The execution&lt;/h2&gt;
-
+&lt;h3&gt;The execution&lt;/h3&gt;
 
 &lt;p&gt;So I proceeded to develop a little webapp to do just that, using &lt;a href=&quot;http://codeigniter.com&quot;&gt;codeigniter&lt;/a&gt;, my framework of choice for rapid application development&lt;/p&gt;
 
@@ -385,8 +383,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;p&gt;If the requested image already exists in the cache (i.e. it has already been requested) we simply echo that out, with proper headers, otherwise, we have to generate the image.&lt;/p&gt;
 
-&lt;h2&gt;Getting images from flickr&lt;/h2&gt;
-
+&lt;h3&gt;Getting images from flickr&lt;/h3&gt;
 
 &lt;p&gt;Most of the code deals with pulling images from flickr, and then doing various to them before display. The code that pulls the image from flickr is located in a model called Flickr_model with three methods:&lt;/p&gt;
 
@@ -433,7 +430,6 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;The controller then sends the image to the browser with the proper headers.&lt;/p&gt;
 
 &lt;h3&gt;End of the story!&lt;/h3&gt;
-
 
 &lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;: Flickholdr is now open sourced and the code is available on &lt;a href=&quot;https://github.com/jfoucher/flickholdr&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
 &lt;a href=&quot;http://jfoucher.com/2011/04/the-making-of-flickholdr-an-image-placeholder-generator.html&quot;&gt;The making of flickholdr.com, an image placeholder generator&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
