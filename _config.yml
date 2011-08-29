@@ -1,8 +1,0 @@
-markdown: rdiscount
-pygments: true
-permalink: /:year/:month/:title.html
-description: Jonathan Foucher's blog <span class="amp">&amp;</span> web development notebook
-title: Geeky Nuggets
-clean_desc: Jonathan Foucher's blog & web development notebook
-meta_desc: A blog about web development, codeigniter and wordpress, by web developer Jonathan Foucher
-exclude: Rakefile
