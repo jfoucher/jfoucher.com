@@ -1,17 +1,30 @@
 ---
+title: Open source projects&thinsp;&mdash;&thinsp;by Jonathan Foucher&thinsp;&mdash;&thinsp;Web developer
 layout: base
 ---
-        {% include header.html %}
+        {% include header-home.html %}
 		{% include nav.html %}
-		<div id="notebook" class="center clear">
-            <div class="page-content">
-                <h2><a href="https://github.com/jfoucher/">Open source projects</a></h2>
-            {% for project in page.projects %}
+        <div id="notebook" class="center clear">
+            <h2><em>Open Source Projects</em>&hellip;</h2>
+            <div class="page-content projects">
 
-
-
-            {% endfor %}
-
-            </div> <!-- /.page-content.colEight -->
-
-        </div> <!-- /#notebook.center.clear -->
+                <ul class="projects-list">
+                    {% for project in page.projects %}
+                    <li class="project">
+                        <h3>
+                            <a href="/{{ project.url }}" title="{{ project.title }}">{{ project.title }}</a>
+                        </h3>
+                        <p class="description">{{ project.gitdata['repository']['description'] }}</p>
+                        <div class="project-meta">
+                            <div class="watchers"><span class="num">{{ project.gitdata['repository']['watchers'] }}</span> watchers</div>
+                            <div class="forks"><span class="num">{{ project.gitdata['repository']['forks'] }}</span> forks</div>
+                        </div>
+                        <div class="project-code">
+                            <a class="source" href="{{ project.gitdata['repository']['url'] }}">Source code</a>
+                            <a class="download" href="https://github.com/jfoucher/{{ project.gitdata['repository']['name'] }}/zipball/master">Download</a>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div> <!-- /.page-content -->
+        </div> <!-- /#notebook -->
