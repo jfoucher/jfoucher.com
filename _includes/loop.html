@@ -1,0 +1,13 @@
+
+{% for post in site.posts limit:5 %}
+<div id="{{post.id}}" class="post">
+<p class="the-date">{{post.date || date_to_long_string }}</p>
+<h2 class="entry-title"><a href="{{ post.url }}" title="Permanent link to {{post.title}}" rel="bookmark">{{post.title}}</a></h2>
+<div class="entry-content">
+{{post.content}}
+</div>
+<!-- End .entry-content -->
+</div>
+<!-- End .post -->
+{% endfor %}
+

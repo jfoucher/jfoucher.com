@@ -1,0 +1,8 @@
+--- 
+layout: post
+title: "Coding challenge: One app a month"
+tags: []
+
+date: Sat Jan 02 12:34:11 +0100 2010
+---
+This is the challenge I set myself for 2010 : Develop one webapp per month during the whole year.This is the challenge I set myself for 2010 : Develop one webapp per month during the whole year. Read more about it <a href="http://jfoucher.fr/blog/one-app-a-month-challenge/">on my portfolio</a>

@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'BodoniRegular';
+    src: url('bodoni-openamp.eot');
+    src: url('bodoni-openamp.eot?iefix') format('eot'),
+         url('bodoni-openamp.woff') format('woff'),
+         url('bodoni-openamp.ttf') format('truetype'),
+         url('bodoni-openamp.svg#webfonthPx7eFJu') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
