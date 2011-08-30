@@ -258,16 +258,19 @@ div#container {
 			}
 			ul.nav li a { display: block; color: @terCopy; }
 			ul.nav-header li a {
+			    -webkit-transition: color 0.3s linear;
 				display: block;
 				color: @terCopy+#111;
 				text-shadow: 1px 1px 1px #222;
 				}
 			ul.nav-footer li a {
+			    -webkit-transition: color 0.3s linear;
 				}
 				ul.nav li a:hover { border: none; }
 				ul.nav-footer li a:hover {
 					background-color: @bg;
 					color: @mainCopy;
+	                -webkit-transition: color 0.3s linear;
 					}
 				ul.nav-header li a:hover {
 				    -webkit-transition: color 0.3s linear;
