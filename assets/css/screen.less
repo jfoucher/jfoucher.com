@@ -96,12 +96,14 @@ div#container {
 	h6 { font-size: 1.2em; text-transform: uppercase; letter-spacing: 1px; color: @headings; margin: 1.142em 0; /* 16 */ }
 	p { font-size: 1.6em; padding: 0; text-align: justify; }
 	a, a:hover, a:active, a:focus { text-decoration: none; }
-	a { color: @links; }
-		a:hover, a:active, a:focus {
-			color: @blackHeading;
-			border-bottom: 1px solid @terCopy;
-			background-color: @linkHover;
-			}
+	a { color: @links;
+        .transition(all, 0.3s, ease)
+	}
+    a:hover, a:active, a:focus {
+        color: @blackHeading;
+        border-bottom: 1px solid @terCopy;
+        /*background-color: @linkHover;*/
+    }
 	a.internal {
         color: @secCopy;
         font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
@@ -265,7 +267,7 @@ div#container {
 			}
 			ul.nav li a { display: block; color: @terCopy; }
 			ul.nav-header li a {
-			    .transition(color, 0.3s, ease);
+
 				display: block;
 				color: @terCopy+#111;
 				text-shadow: 1px 1px 1px #222;
