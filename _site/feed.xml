@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
 	<title type="text" xml:lang="en"></title>
-	<link type="application/atom+xml" href="http://paulstamatiou.com/feed/" rel="self"/>
- 	<link type="text" href="http://paulstamatiou.com" rel="alternate"/>
-	<updated>2011-08-30T02:15:33+02:00</updated>
+	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
+ 	<link type="text" href="http://jfoucher.com" rel="alternate"/>
+	<updated>2011-08-31T08:58:02+02:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
 	</author>
-	<rights>Copyright (c) 2005-2011, Paul Stamatiou; all rights reserved.</rights>
+	<rights>Copyright (c) 2004-2011,Jonathan Foucher; Some rights reserved.</rights>
 
 	
 	<entry>

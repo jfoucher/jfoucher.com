@@ -12,6 +12,7 @@ end
 desc 'Copy htaccess'
 task :copy => :build do
   sh 'cp .htaccess _site/.htaccess'
+  sh 'cp CNAME _site/CNAME'
 end
 
 

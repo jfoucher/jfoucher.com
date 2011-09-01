@@ -56,6 +56,13 @@ helpers
     border-radius: @r;
 
 }
+.transition(@item, @time, @easing){
+    -webkit-transition: @item @time @easing;
+    -moz-transition: @item @time @easing;
+    -o-transition: @item @time @easing;
+    -khtml-transition: @item @time @easing;
+    transition: @item @time @easing;
+}
 @import 'syntax';
 
 html { overflow-y: scroll; }
@@ -89,12 +96,15 @@ div#container {
 	h6 { font-size: 1.2em; text-transform: uppercase; letter-spacing: 1px; color: @headings; margin: 1.142em 0; /* 16 */ }
 	p { font-size: 1.6em; padding: 0; text-align: justify; }
 	a, a:hover, a:active, a:focus { text-decoration: none; }
-	a { color: @links; }
-		a:hover, a:active, a:focus {
-			color: @blackHeading;
-			border-bottom: 1px solid @terCopy;
-			background-color: @linkHover;
-			}
+	a { color: @links;
+        .transition(all, 0.3s, ease);
+        border-bottom: 1px solid transparent;
+	}
+    a:hover, a:active, a:focus {
+        color: @blackHeading;
+        border-bottom: 1px solid @terCopy;
+        /*background-color: @linkHover;*/
+    }
 	a.internal {
         color: @secCopy;
         font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
@@ -258,18 +268,22 @@ div#container {
 			}
 			ul.nav li a { display: block; color: @terCopy; }
 			ul.nav-header li a {
+
 				display: block;
 				color: @terCopy+#111;
 				text-shadow: 1px 1px 1px #222;
 				}
 			ul.nav-footer li a {
+
 				}
 				ul.nav li a:hover { border: none; }
 				ul.nav-footer li a:hover {
 					background-color: @bg;
 					color: @mainCopy;
+
 					}
 				ul.nav-header li a:hover {
+
 					color: @navHover;
 					background-color: @darkBg;
 					}
@@ -441,7 +455,7 @@ div#container {
 				div#notebook div.meta {
 					margin: 2em 0;
 					padding-top: 0.5em;
-					.column(4,12);
+					.column(4,7);
 	                clear:both;
 					border-top: 0.2em solid #ccc;
 				    font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;

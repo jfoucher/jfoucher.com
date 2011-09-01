@@ -14,6 +14,12 @@ Some of my clients include global companies like Bosch and Coca Cola, and spanis
 
 I love working with PHP and Javascript to develop an engaging user experience. I also really enjoy learning new skills. For example, at the moment, I am simultaneously writing an iOs app, an Android app, a Java enterprise web application, moving my blog from [Wordpress](http://jfoucher.com/wordpress/ "My Wordpress plugins and themes") to [Jekyll](https://github.com/mojombo/jekyll/wiki/), developping desktop apps with [appcelerator Titanium](http://appcelerator.com) and working on a few PHP webapps.
 
+###About this blog
+
+This blog is hosted on [github](http://guthub.com). It's a static website, generated with [Jekyll](http://jekyllrb.com/). You can read my writeup about my [move from Wordpress to Jekyll]
+
+
+
 <div id="contactForm">
 <script type="text/javascript">var host = (("https:" == document.location.protocol) ? "https://secure." : "http://");document.write(unescape("%3Cscript src='" + host + "wufoo.com/scripts/embed/form.js' type='text/javascript'%3E%3C/script%3E"));</script>
 
