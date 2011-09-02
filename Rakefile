@@ -25,6 +25,12 @@ task :deploy => :copy do
   #sh 'git push'
 end
 
+desc 'Local deploy'
+task :local => :copy do
+  sh 'rm -rf /var/www/jfoucher.github/*'
+  sh 'cp -r _site/* /var/www/jfoucher.github/'
+end
+
 def jekyll(opts = '')
   sh 'rm -rf _site'
   sh 'jekyll ' + opts

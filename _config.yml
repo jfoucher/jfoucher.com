@@ -5,4 +5,6 @@ description: Jonathan Foucher's blog <span class="amp">&amp;</span> web developm
 title: Geeky Nuggets
 clean_desc: Jonathan Foucher's blog & web development notebook
 meta_desc: A blog about web development, codeigniter and wordpress, by web developer Jonathan Foucher
+meta_keywords: Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration
 exclude: Rakefile
+author: Jonathan Foucher

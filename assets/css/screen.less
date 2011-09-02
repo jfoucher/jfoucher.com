@@ -1,6 +1,5 @@
-@import 'reset';
-@import 'grid';
 @import '/assets/fonts/museosans/stylesheet.css';
+@import '/assets/fonts/stmarie/stylesheet.css';
 @import '/assets/fonts/bodoni/stylesheet.css';
 
 /* Semantic.gs variables */
@@ -8,6 +7,24 @@
 @gutter-width: 20;
 @columns: 12;
 @total-width: 100%;
+
+/*
+Helpers
+*/
+.text-shadow(@left, @top, @blur, @color){
+    -webkit-text-shadow:@left @top @blur @color;
+    -moz-text-shadow:@left @top @blur @color;
+    -o-text-shadow:@left @top @blur @color;
+    -khtml-text-shadow:@left @top @blur @color;
+    text-shadow:@left @top @blur @color;
+}
+.transition(@type,@time,@easing){
+    -webkit-transition:@type @time @easing;
+    -moz-transition:@type @time @easing;
+    -o-transition:@type @time @easing;
+    -khtml-transition:@type @time @easing;
+    transition:@type @time @easing;
+}
 
 /*
 Color palette
@@ -20,829 +37,172 @@ Color palette
 @secCopy:#304e5a;
 @terCopy:#535d65;
 @headings:#63a7b9;
-@linkHover:#fbeec2;
+
 @links: #336699;
+@linksHover: @links - #111;
 @coverBg:#fffff6;
 @covertextShadow:#fff;
 @navHover:#ff8000;
 @headings:#ff8000;
 
-/*
-helpers
-*/
-.box-shadow (@x: 0, @y: 0, @blur: 1px, @alpha) {
-  @val: @x @y @blur rgba(0, 0, 0, @alpha);
-
-  -webkit-box-shadow: @val;
-  -moz-box-shadow:    @val;
-  -o-box-shadow:      @val;
-  -khtml-box-shadow:  @val;
-  box-shadow:         @val;
-}
-.white-shadow (@x: 0, @y: 0, @blur: 1px, @alpha) {
-  @val: @x @y @blur rgba(255, 255, 255, @alpha);
-
-  -webkit-box-shadow: @val;
-  -moz-box-shadow:    @val;
-  -o-box-shadow:      @val;
-  -khtml-box-shadow:  @val;
-  box-shadow:         @val;
-}
-.radius(@r){
-    -webkit-border-radius: @r;
-    -moz-border-radius: @r;
-    -o-border-radius: @r;
-    -khtml-border-radius: @r;
-    border-radius: @r;
-
-}
-.transition(@item, @time, @easing){
-    -webkit-transition: @item @time @easing;
-    -moz-transition: @item @time @easing;
-    -o-transition: @item @time @easing;
-    -khtml-transition: @item @time @easing;
-    transition: @item @time @easing;
-}
-@import 'syntax';
-
-html { overflow-y: scroll; }
-
-    
-body {
-	background: @bg url(/assets/img/bg2.png) repeat;
-	text-align: center; /* For IE centering. */
-	font-family: Georgia, "DejaVu Serif", Times, "Times New Roman", serif;
-	font-size: 62.5%; /* Resets UA 16px common default such that 1em = 10px. Kudos to Richard Rutter. */
-	line-height: 1.5; /* We can use unitless numbers here; they act as multiples of the font-size. */
-	color: @mainCopy;
-	}
-	
-div#container {
-
-    width: ( @column-width + @gutter-width ) * @columns *1px;
-    /*overflow:hidden;*/
-    margin: 0 auto 0 auto;
-	background-color: @bg;
-	border-top: @secCopy 0.8em solid;
-	text-align: left;
-
-	.box-shadow( 0, 0, 4em, 0.3);
-	}
-	h3, h4, h5, h6 { font-family:"MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif; }
-	h2 { font-size: 3.2em; color: @secCopy; margin-bottom: 0.5em; /* 16 */ }
-	h3, div#footer h2 { font-size: 2.4em; color: @headings; margin: 0.666em 0; /* 16 */ }
-	h4 { font-size: 1.8em; color: @blackHeading; margin: 0.888em 0; /* 16 */ }
-	h5 { font-size: 1.4em; font-weight: bold; color: @blackHeading; margin: 1.142em 0; /* 16 */ }
-	h6 { font-size: 1.2em; text-transform: uppercase; letter-spacing: 1px; color: @headings; margin: 1.142em 0; /* 16 */ }
-	p { font-size: 1.6em; padding: 0; text-align: justify; }
-	a, a:hover, a:active, a:focus { text-decoration: none; }
-	a { color: @links;
-        .transition(all, 0.3s, ease);
-        border-bottom: 1px solid transparent;
-	}
-    a:hover, a:active, a:focus {
-        color: @blackHeading;
-        border-bottom: 1px solid @terCopy;
-        /*background-color: @linkHover;*/
-    }
-	a.internal {
-        color: @secCopy;
-        font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
-        }
-		a.internal:hover, a.internal:active, a.internal:focus { color: @blackHeading; }
-	abbr, acronym, .caps {
-		font-style: normal;
-        letter-spacing: 0.062em; /* 1; Calculated for the copy at 16 */
-        text-transform: lowercase;
-		font-variant: small-caps;
-		}
-	input[type=submit], label, select, .pointer { cursor: pointer; }
-
-
-
-/*	Grouped and handy elements
-
-	Just to save some space, I'm going to group some styling.
-	---------------------------------------------------------*/	
-
-	/* This is our 464 sidebar */
-	/*div.hero,*/ div.sidebar {
-	    .column(6,12);
-		/*width: 46.4em;*/ /* 464 */
-		display: block;
-		}
-		
-	/* Content dividers */
-	 div#nav, div#notebook, div#footer {
-		padding: 2.4em 0; /* div#footer is redefined below */ 
-		}
-	div#nav, div#cover { padding-left: 4.8em; padding-right: 4.8em; }
-	div.center	{
-	    .column(12);
-		/*margin: 0 4.8em 0 4.8em;
-		width: 86.4em; /* 960 minus the gutters (48 on each side). */
-		}
-
-	/* Miscellaneous */
-    .hidden{
-        display:none;
-    }
-	.floatLeft {
-		float: left;
-		display: block;
-		}
-	.floatRight {
-		float: right;
-		display: block
-		}
-	.clear { clear: both; }
-	.block { display: block; }
-	.inline { display: inline; }
-    .clearfix:after {
-        content: ".";
-        display: block;
-        clear: both;
-        visibility: hidden;
-        line-height: 0;
-        height: 0;
-    }
-
-    .clearfix {
-        display: inline-block;
-    }
-
-    html[xmlns] .clearfix {
-        display: block;
-    }
-
-    * html .clearfix {
-        height: 1%;
-    }
-
-
-
-/*	Header elements
-	---------------------------------------------------------*/
-
-	div.logo {
-	    .column(4,12);
-	    padding-bottom: 4.8em;
-	    padding-top:2.4em;
-	 .offset(0.5);
-    }
-		div.logo img {
-			width: 22.4em;
-			height: 34.2em;
-			padding: 0 4em 0 4em;
-			}
-    div.article-logo {
-        .column(4,12);
-        .offset(0.5);
-        padding: 2.4em 0 4.8em 0;
-        }
-	h1 {
-		position: relative;
-		text-align: left;
-		line-height: 1.2em;
-		font-size: 6.4em;
-		font-weight: normal;
-		font-style: normal;
-		text-transform: lowercase;
-		margin-bottom: 0.375em; /* 24 */
-		letter-spacing: 0.031em; /* 2 */
-		}
-	h1, h1 a span.italic { font-style: italic; }
-		h1 a span.middot { color: @secCopy; }
-		h1 a:hover span.hoverline { border-bottom: 1px solid @terCopy; }
-		h1 a { color: @headings; }
-			h1 a:hover, h1 a:active, h1 a:focus {
-				color: @mainCopy;
-				border: none;
-				background-color: @bg;
-				}
-	div.hero {  .column(7,12); /* Seven columns */ padding-top: 3.6em;padding-bottom:3.6em }
-		div.hero p.moin {
-			font-size: 2em;
-			margin-bottom: 1em;
-			letter-spacing: 0.025em; /* 0.5 */
-			word-spacing: 0.05em; /* 1 */
-			color: @blackHeading;
-			text-align: left;
-			}
-			div.hero p.moin span.amp {
-				font-size: 1.05em; /* 22 */
-				line-height: 0.909; /* Back to 20 */
-				}
-		div.hero p { font-size: 1.6em; color: @mainCopy; }
-
-
-/*	Navigation elements
-
-	My navigation is split into three parts: hero, main nav. 
-	and footer nav. The hero section quick links are some 
-	skip-to anchors that should be added to make life easier. 
-	The main nav. sits below the hero area and the then final 
-	nav. is in the footer.
-	
-	Styling listed in order of appearance.
-	---------------------------------------------------------*/
-
-	div.skip span {
-		font-size: 1.6em;
-		float: right;
-		padding:1em 0 3em 0; /* 48 */
-		color: @secCopy;
-		letter-spacing: 0.031em; /* 0.5 */
-		word-spacing: 0.062em; /* 1 */
-		}
-	div#nav {
-
-	    background-color: @darkBg; color: @bg; border-bottom: 1px solid @terCopy;
-    }
-		ul.nav-footer li { padding-bottom: 0.363em; /* 8 */ }
-		ul.nav li {
-			float: left;
-			font-size: 2.2em;
-			padding-right: 1.909em; /* 44 */
-			letter-spacing: 0.045em; /* 1 */
-			}
-			ul.nav li a { display: block; color: @terCopy; }
-			ul.nav-header li a {
-
-				display: block;
-				color: @terCopy+#111;
-				text-shadow: 1px 1px 1px #222;
-				}
-			ul.nav-footer li a {
-
-				}
-				ul.nav li a:hover { border: none; }
-				ul.nav-footer li a:hover {
-					background-color: @bg;
-					color: @mainCopy;
-
-					}
-				ul.nav-header li a:hover {
-
-					color: @navHover;
-					background-color: @darkBg;
-					}
-			ul.nav li span.amp { font-size: 0.954em; /* 21 */ }
-	input {
-		font-size: 1.6em;
-		padding: 0.25em; /* 4 */
-		font-family: Georgia, "Bitstream Vera Serif", Times, "Times New Roman", serif;
-		}
-		input#search { margin-right: 0.5em; /* 8 */ }
-
-
-/*	Cover elements
-	---------------------------------------------------------*/
-
-	div#cover {
-		padding-top: 3.2em;
-		padding-bottom: 4.8em;
-		
-		background: url('/assets/img/coverbg.png') top left repeat @coverBg;
-		border-bottom: 1px solid #c4ba92;
-		border-top: 1px solid #c4ba92;
-		}
-        div.index{
-            .column(7,12);
-        }
-        .archives div.index{
-            .column(12,12);
-        }
-		div#cover.archives {
-		  font-size: 1.375em; /* 22px for 1.6em in archives page. */
-		  margin-bottom: 3.49em; /* 48 */
-		  }
-        div.index h2, div.subhero-preview h2, div.subhero-preview h3, div.index span.day, p.more,
-        div.index span.month, div.index span.year, div.index span.title, div.subhero-preview p {
-            text-shadow: 1px 1px 1px @covertextShadow;
-            }
-		div.index h2, div.subhero-preview h2 {
-			font-size: 1.4em;
-			padding-bottom: 1.142em; /* 16 */
-			margin: 0;
-			}
-        div.subhero-preview{
-            .column(5,12);
-        }
-        div.subhero-preview h3 {
-        	font-family: Georgia, "DejaVu Serif", Times, "Times New Roman", serif;
-            font-size: 1.6em;
-            color: #777;
-            margin-top: 1em;
-            }
-            div.subhero-preview h3 span.episode-no { color: @headings; }
-            div.subhero-preview h3 span.episode-title { color: @mainCopy; }
-        div.subhero-preview p {
-            font-size: 1.4em;
-            font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
-            text-align: left;
-            color: #444;
-            margin-bottom: 0.5em;
-            }
-            div.subhero-preview p.more { font-size: 1.6em; }
-		div.index h2 { border-bottom: 1px dotted @bg; }
-		div.index ul { position: relative; }
-		div.index li { font-size: 1.6em; border-bottom: 1px dotted @bg;clear:both; }
-			div.index li a { padding: 1em 0; display: block; color: #555; overflow:hidden }
-				div.index li a:hover { border: none; color: #222; background: @linkHover; }
-		span.day { color: @headings; }
-		div.index span.day {
-			width: 2em;
-			text-align: right;
-			position: absolute;
-			left: 0;
-			}
-		span.month { color: @secCopy; }
-		div.index span.month {
-			text-align: left;
-			position: absolute;
-			left: 3em;
-			}
-        div.index span.year {
-            text-align: left;
-            position: absolute;
-            left: 5.5em;
-            }
-		div.index span.title {
-			position: relative;
-			.column(5,7);
-            .offset(3);
-			display: block;
-			color: @mainCopy;
-			}
-			div#cover.archives div.index span.title {
-			    .column(9,12);
-                .offset(3);
-		    }
-        div#cover a.internal {
-            margin-top: 1em;
-            font-size: 0.875em;
-            border-bottom: 1px solid transparent;
-            }
-            div#cover a.internal:hover { border-bottom: 1px solid @terCopy; background-color: transparent; }
-
-
-/*	Notebook
-	---------------------------------------------------------*/
-
-	div#notebook {
-	    .column(11,12);
-        .offset(0.5);
-	    /*overflow:auto;*/
-	    padding-top: 3.2em;
-	    }
-		div#notebook div.page-nav-top {
-            
-		    padding-bottom: 4.8em;
-	    }
-		div#notebook span.page-nav-item { font-size: 1.4em;	}
-		div#notebook div.page-nav-bottom {
-		    clear:both;
-			padding-top: 2.4em;
-			margin: 2.4em 0 4.8em 0;
-			}
-		div#notebook h2 {
-			/*margin-left: -3.75em;*/ /* 120 */
-			border-bottom: 1px solid #ccc;
-			padding: 1em 0;
-			/*width: 27em;*/
-			}
-		div#notebook h2, div.page-meta, div#notebook div.page-nav-bottom {
-			border-top: 1px solid #ccc; }
-			div#notebook h2 a:hover { background-color: @bg; border: none; }
-			div#notebook h2 span.tagline {
-				font-size: 0.562em; /* 18 */
-				font-style: italic;
-				color: @secCopy;
-				display: block;
-				margin-left: 5.62em;
-				padding: 0.5em 0;
-				}
-			div#notebook span.date {
-				width: 11.1em;
-				display: block;
-				font-size: 1.6em;
-				margin: -1.9em 0 2em;
-	            .offset(2);
-				background-color: @bg;
-	            position:relative;
-				/*	Different metrics due to the width being
-					calculated differently in FF due to lack 
-					of small-caps.
-				*/
-				/*padding: 0 0.2em 0 0.5em;*/
-				}
-	            div#notebook span.date:before{
-	                content:'';
-	                background:@bg;
-	                width:0.6em;
-	                position:absolute;
-	                left:-0.6em;
-	                top:0;
-	                bottom:0;
-	            }
-				div#notebook span.date span.month { color: @blackHeading; }
-				div#notebook span.date span.year { color: @terCopy; }
-				div#notebook span.date span.published {
-					font-size: 0.875em;
-					color: @secCopy;
-					}
-				div#notebook div.meta {
-					margin: 2em 0;
-					padding-top: 0.5em;
-					.column(4,7);
-	                clear:both;
-					border-top: 0.2em solid #ccc;
-				    font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
-					}
-					div#notebook div.meta span {
-						font-size: 1.4em;
-						color: @mainCopy;
-						display: block;
-						}
-		/*div.entry-content, div.page-content {
-
-		    margin: 0 auto;
-		}*/
-        #entry-content, div.page-content {
-            /*.colum(8,12);*/
-            .column(7);
-	        .offset(2);
-        }
-		#entry-content  p:first-child , div.page-content p:first-child{
-			font-size: 1.8em; /* 18 */
-			float: right;
-			margin-bottom: 0.444em; /* 8 */
-			text-indent: 0;
-			display: block;
-			}
-            /*div.page-content p, #contactForm{
-                .column(7);
-	            .offset(2);
-            }*/
-            #contactForm{
-                margin-top:2.4em;
-               
-            }
-            #contactForm iframe{
-
-                margin-left:-5px;
-            }
-			#entry-content p:first-child:first-letter, div.page-content p:first-child:first-letter {
-				/*margin-left: -1.071em; /* We have 120 of space */
-				/*margin-right: 100%;
-				margin-bottom: -0.894em;*/
-				font-size: 6.222em; /* 112 */
-				padding-right: 0.071em; /* 8 */
-				line-height: 0.9; /* Aligns to cap-height of para. */
-				color: @headings;
-				/*text-align: right;*/
-				float: left;
-				}
-			#entry-content p:first-child:first-line, div.page-content p:first-child:first-line{
-				font-variant: small-caps;
-	            font-size:1.1em;
-				letter-spacing: 0.06em; /* 2 */
-				}
-            #entry-content p.note, div.page-content p.note { text-indent: 0.5em; } /* To adjust for the hedera. */
-                #entry-content p.note:before, div.page-content p.note:before {
-                    content: "\2767 \0020";
-                    color: @headings;
-                    font-size: 1.25em; /* 22 */
-                    }
-			#entry-content p, div.page-content p { margin-bottom: 0.5em; }
-			#entry-content p + p, div.page-content p + p { text-indent: 1.8em; }
-			#entry-content ul, div.entry-content ol, div.page-content ul, div.page-content ol {
-                margin-bottom: 0.5em;
-                font-size: 1.6em;
-                padding: 0;
-                }
-            #entry-content img { margin-bottom: 0.5em; }
-            #entry-content p.caption, div.page-content p.caption {
-                font-size: 1.4em;
-                font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
-                color: #555;
-                margin-bottom: 0.571em; /* 0.8 in 16px */
-                display: block;
-                text-align: left;
-                }
-            #entry-content p.content-skip, div.page-content p.content-skip { text-indent: 0; margin-bottom: 2em; }
-            #entry-content p code, div.page-content p code { font-size: 0.875em; }
-			#entry-content ul, div.page-content ul { list-style: circle; }
-			#entry-content ol, div.page-content ol { list-style: lower-roman; }
-			#entry-content ol.references, div.entry-ul.references, div.page-content ol.references,
-			div.page-ul.references { list-style: none; font-size: 1.4em; }
-			#entry-content ol.references li, div.entry-content ul.references li,
-			div.page-content ol.references li, div.page-content ul.references li {
-                margin-bottom: 0.75em; }
-			#entry-content li, div.page-content li { margin-bottom: 0.25em; }
-			#entry-content dl dt, div.entry-content dl dd { margin-bottom: 1.6em; }
-			#entry-content dl.conversation span.speaker {
-                font-size: 1.6em;
-                font-variant: small-caps;
-                color: #444;
-                display: block;
-                }
-			#entry-content blockquote, div.page-content blockquote { margin: 1em 2.8em; color: #444; }
-			#entry-content blockquote p, div.page-content blockquote p { text-indent: 0; }
-			#entry-content a, div.page-content a  { color: @links; }
-				#entry-content a:hover, a:active, a:focus, div.page-content a:hover,
-				div.page-content a:active, div.page-content a:focus { color: @blackHeading; }
-				#entry-content a:visited, div.page-content a:visited { color: @secCopy; }
-					div.entry-content a:visited:hover, div.page-content a:visited:hover { color: @blackHeading; }
-        div.sitesearch404 { padding: 2em 0 4em 3em; }
-        .error { background-color: #fffae4; }
-        .availability { color: @headings; }
-
-    /*  Projects
-    ---------------------------------------------------------*/
-
-    .page-content.projects{
-        .column(12,12);
-        /*.offset(1);*/
-    }
-    .projects-list .project{
-        .column(5,10);
-        margin-bottom:1.5em;
-        h3{
-            margin:0.3em 0;
-        }
-        h3 a{
-            font-variant: small-caps;
-            font-size:0.7em;
-            color:@headings;
-
-        }
-        h3 a:hover{
-            background:transparent;
-            border:none;
-            color:@blackHeading;
-        }
-
-        p{
-           .column(5,5);
-           margin-left:0;
-           margin-bottom: 1.5em;
-           font-size:1.2em;
-        }
-
-        .project-meta{
-            margin-top:12px;
-            .column(2,5);
-            margin-left:0;
-
-            .white-shadow( 1px, 1px, 1px, 0.6);
-            div{
-                display:block;
-                text-transform:uppercase;
-                color:@terCopy;
-                span.num{
-                    width:2em;
-                    display:inline-block;
-                    color:@headings;
-                }
-            }
-        }
-        .project-code{
-            margin-top:12px;
-            .column(3,5);
-            text-align:right;
-            font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
-            a{
-                display:block;
-
-            }
-            a:hover{
-                background: transparent;
-                border:none;
-            }
-        }
-    }
-
-
-
-	/*	Footer
-	---------------------------------------------------------*/
-
-	div#footer {
-	    border-top: 0.8em solid @mainCopy;
-	    padding-top: 0.8em;
-	    height: 32em;
-        .column(11,12);
-        .offset(0.5);
-
-		span.backtop { font-size: 1.4em; margin-top: 0.571em; /* 8 */ }
-		div.page-meta { padding-top: 4.8em; }
-
-		div.info {
-		    .column(11,11);
-		}
-		div.info p, div.legal p { text-align: left; }
-		p.vcard {
-			float: left;
-			width: 30.5em; /* 488 */
-			}
-		span.index {
-			padding-top: 2px;
-			text-indent: -1.333em; /* 32 */
-			font-size: 2.6em;
-			line-height: 0.7;
-			display: block;
-			float: left;
-			}
-		p { font-size: 1.3em; color: @mainCopy; }
-		p.copyright {
-			margin-top: 1.2em;
-
-	    }
-		h2 { margin: 1em 0 0.5em 0; }
-    }
-
-/*	Custom styling
-	---------------------------------------------------------*/
-	
-	span.amp {
-		font-family: BodoniRegular, "Palatino Linotype", Palatino, Baskerville, Times, "Times New Roman", Georgia, serif;
-		font-style: italic;
-		line-height: 1;
-		}
-    h4 span.amp { font-weight: bold; }
-	p span.amp {
-		font-size: 1.125em; /* Designed for 16 body copy; 18 */
-		line-height: 0.888; /* Bumps it back down to 16 */
-		}
-	span.u { text-decoration: underline; }
-	/* Prevents sup/sub leading distortion */
-	p sup { vertical-align: text-top; }
-	p sub { vertical-align: text-bottom; }
-	.calloutRight, .calloutLeft {
-		font-size: 2.4em;
-		color: @mainCopy;
-		text-align: left;
-		padding: 0 1em 0.25em 1em;
-		width: 12.666em; /* 304 */
-		}
-    .calloutRight { float: right; margin-right: -5.333em; /* 128 */ }
-    .calloutLeft { float: left; margin-left: -5.333em; /* 128 */ }
-    blockquote[cite]:after {
-        display: block;
-		text-align: right;
-        content: "\2014\ " attr(cite);
-        font-style: normal;
-        font-size: 1.2em;
-        font-family: "MuseoSans500", "Lucida Grande", Verdana, "DejaVu Sans", sans-serif;
-		}
-	pre { margin: 2em 0; overflow: auto; }
-	/*pre code { font-size: 1.6em; }*/
-	code {
-		font-family: Monaco, "Andale Mono", "Courier New", Courier, monospace;
-		white-space: pre;
-		}
-		div.entry-content p code, div.page-content p code { font-size: 0.875em; } /* Calculated for when in 16px paras. */
-		/* CSS and markup code styling */ 
-		code.markup, code.css { color: @secCopy; }
-		code.markup span.content { color: #ff0080; } /* hot pink */
-		code span.element { color: #4881d6; } /* light blue */
-		code span.property { color: #993300; } /* light red */
-		code span.attribute { color: #669933; } /* light green */
-		code span.highlighted { background-color: #c8dff9; } /* for highlighting code lines */
-    ol#about-top-ten {
-        font-size: 1.8em;
-        }
-    span#df-logo { width: 6.4em; margin-top: 0.5em; }
-
-/*	Twitter
-	---------------------------------------------------------*/
-
-#tweets li{
-    font-size:1.35em;
-    padding: 8px 12px;
-    border-top: 1px dotted @bg;
+body{
     color:@mainCopy;
-    text-shadow: 0 1px 1px @bg;
-    clear:both;
+    font-family: "MuseoSans500",arial, helvetica, sans-serif;
 }
-#tweets li .timeago{
+a{
+    text-decoration:none;
+    color:@links;
+}
+a:hover{
+    border-bottom:1px solid @linksHover;
+    color:@linksHover;
+}
+.amp{
+    font-family:'BodoniRegular', Georgia, serif;
+}
+h1,h2,h3,h4,h5,h6{
+    color:@headings;
+}
+h1{
+    font-size:2.4em;
+}
+h2{
+    font-size:2em;
+}
+h3{
+    font-size:1.6em;
+}
+h4{
+    font-size:1.2em;
+}
+h5{
+    font-size:0.95em;
+}
+h6{
     font-size:0.9em;
-    color: #555;
-    display:block;
-    float:right;
 }
 
-/* Comments by disqos
+
+#container{
+    position:relative;
+    
+    margin:0 auto;
+}
+#header{
+
+    padding:1.5em 0;
+    position:relative;
+
+
+
+    div.logo{
+        
+    }
+    div.logo h1{
+        font-weight:normal;
+    }
+    div.logo a{
+        color:@headings;
+        font-family: 'ITC Avant Garde Gothic Std','URW Gothic L','Century Gothic', 'Avant Garde', 'Trebuchet MS', sans-serif;
+        line-height:0.8em;
+        margin-bottom:0.2em;
+        padding-bottom:1px;
+    }
+    div.logo a:hover{
+        color:@headings;
+        border-bottom:1px solid @headings;
+        padding-bottom:0;
+    }
+    .siteDesc{
+            
+        font-size:1.24em;
+        
+        font-variant: small-caps;
+        margin-top:1em;
+        
+        color:@headings;
+
+
+
+    }
+    div.hero{
+        color:@secCopy;
+
+        margin-top:1.5em;
+        
+
+        
+    }
+}
+#nav{
+    background: @darkBg;
+    color:@terCopy;
+    position:relative;
+    li{
+        float:left;
+        margin:1.2em 2.5em 1em 0;
+    }
+    a{
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        color:@terCopy;
+        font-size:1.2em;
+        .text-shadow(0,1px,2px, rgba(0,0,0,0.8));
+        .transition(all, 0.3s, ease);
+        text-transform: uppercase;
+        display:block;
+
+        
+    }
+    a:hover{
+        border:none;
+        color: @navHover;
+    }
+    .sitesearch{
+        margin:1em 1.2em 1em 2.5em;
+        float:right;
+        label{
+            display:none;
+        }
+    }
+
+}
+#nav:before{
+   content: "";
+   position: absolute;
+   background: @darkBg;  
+   top: 0;
+   bottom: 0;
+   width: 9999px;
+}
+#nav:before {
+   right: 100%;
+}
+
+
+/* Comments by disqus
 -------------------------------------*/
 #disqus_thread{
 
     clear:both;
 }
 
+/* Media Queries
+-------------------------------------*/
+
 @media (max-width: 960px) {
-    div#container {
-        width:100%;
-    }
+
 
 }
 @media (max-width: 768px) {
 
-	div.logo, div.article-logo {
-	    padding-bottom:1.2em;
-        .column(12,12);
-    }
-    div.hero,div.index,div.subhero-preview{
-        .column(12,12);
-        paddding-left:0;
-        padding-right:0;
-    }
-    div.index span.title {
-        .column(9,12);
-        .offset(3);
-    }
-    #searchForm{
 
-        display:none;
-    }
-    div#nav,div#cover{
-        padding:2.4em;
-    }
-
-
-
-    #entry-content{
-            /*.colum(8,12);*/
-            .column(9);
-	        .offset(1);
-        }
-        div#notebook span.date {
-
-	            .offset(1);
-	         }
-	       img{
-        max-width:95%;
-    }
     
 }
 @media (max-width: 640px) {
 
 
-    div#nav,#footer .nav{
-        padding:1.2em;
-        li{
-            padding-right:1.1em;
-        }
-    }
-    #footer .nav{
-        padding-left:0;
-        padding-right:0;
-    }
-
-    #entry-content{
-        
-        .column(12);
-        .offset(0);
-    }
-    div#notebook span.date {
-
-        .offset(0);
-     }
-    img{
-        max-width:95%;
-    }
-    span.date{
-        position:relative;
-    }
-    span.date span.day, span.date span.month, span.date span.year{
-        text-align:left;
-        left:0.8em;
-    }
-    span.date span.month{
-        text-align:right;
-        width:3em;
-    }
-    span.date span.year{
-        top: 0.7em;
-        left: 0.7 * 0.8em;
-        font-size: 1.5em;
-    }
-
 }
 
 @media (max-width:480px){
-    div#cover{
 
-        padding-left:0 !important;
-        padding-right:0 !important;
-    }
-
-    div#notebook div.meta {
-
-        .column(12,12);
-	}
-    .image-with-caption{
-        max-width:95%;
-    }
 }

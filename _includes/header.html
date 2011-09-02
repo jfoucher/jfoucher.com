@@ -1,20 +1,19 @@
-        <div id="header" class="center">
-            <div class="article-logo">
-                <h1>
-				    <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
-				        <span class="hoverline">{{site.title}}</span>
-				    </a>
-                </h1>
+        <header id="header" class="center">
+            <div class="logo">
+                <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
+                    <span class="hoverline">{{site.title}}</span>
+                </a>
+            </div>
+            {% include nav.html %}
+            <div class="siteDesc"><a href="/about.html#notebook" title="About Jonathan Foucher
+                &amp; contact details" tabindex="0" accesskey="A">Jonathan Foucher</a>&rsquo;s blog <span
+                class="amp">&amp;</span> web development
+                notebook.
             </div>
             <div class="hero">
-                <p class="moin">
-                    
-                    You&#8217;re currently viewing a single article. Feel free to skip back to
-                    <a href="/" rel="home" title="Go back to the homepage" tabindex="0">&sect; Index</a> or straight to
-                    <a href="/#notebook" title="Skip straight to the latest article" tabindex="0" accesskey="L">&sect; Latest article</a>.
-                </p>
+
                 <p>
                     {{page.excerpt}}
                 </p>
 			</div>
-		</div> <!-- /#header.center -->
+		</header> <!-- /#header.center -->
