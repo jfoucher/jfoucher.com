@@ -1,30 +1,16 @@
+@import 'reset';
+@import 'grid';
+@import 'syntax';
 @import '/assets/fonts/museosans/stylesheet.css';
-@import '/assets/fonts/stmarie/stylesheet.css';
+
 @import '/assets/fonts/bodoni/stylesheet.css';
 
-/* Semantic.gs variables */
-@column-width: 60;
-@gutter-width: 20;
-@columns: 12;
-@total-width: 100%;
+@column-width: 50;
+@gutter-width: 30;
+@columns: 16;
 
-/*
-Helpers
-*/
-.text-shadow(@left, @top, @blur, @color){
-    -webkit-text-shadow:@left @top @blur @color;
-    -moz-text-shadow:@left @top @blur @color;
-    -o-text-shadow:@left @top @blur @color;
-    -khtml-text-shadow:@left @top @blur @color;
-    text-shadow:@left @top @blur @color;
-}
-.transition(@type,@time,@easing){
-    -webkit-transition:@type @time @easing;
-    -moz-transition:@type @time @easing;
-    -o-transition:@type @time @easing;
-    -khtml-transition:@type @time @easing;
-    transition:@type @time @easing;
-}
+@total-width:100%;
+
 
 /*
 Color palette
@@ -33,28 +19,36 @@ Color palette
 @darkBg:#192f35;
 @black:#000;
 @blackHeading:#111;
-@mainCopy:#192f35;
-@secCopy:#304e5a;
-@terCopy:#535d65;
-@headings:#63a7b9;
-
-@links: #336699;
-@linksHover: @links - #111;
+@mainCopy:#333;
+@secCopy:#555;
+@terCopy:#999;
+@headings:#222;
+@links: #36c;
+@linksHover: @links - #333;
 @coverBg:#fffff6;
 @covertextShadow:#fff;
 @navHover:#ff8000;
-@headings:#ff8000;
+@headings:#111;
+
+/*
+Fonts
+*/
+@headingFont:'ITC Avant Garde Gothic Std','URW Gothic L','Century Gothic', 'Avant Garde', Verdana, sans-serif;
+@textFont: "MuseoSans500", Helvetica, Arial, sans-serif;
 
 body{
+    margin:0;
     color:@mainCopy;
-    font-family: "MuseoSans500",arial, helvetica, sans-serif;
+    background:@bg;
+    font-family: @textFont;
+    line-height:1.5em;
 }
 a{
     text-decoration:none;
     color:@links;
 }
 a:hover{
-    border-bottom:1px solid @linksHover;
+    text-decoration:underline;
     color:@linksHover;
 }
 .amp{
@@ -63,93 +57,90 @@ a:hover{
 h1,h2,h3,h4,h5,h6{
     color:@headings;
 }
-h1{
-    font-size:2.4em;
-}
-h2{
-    font-size:2em;
-}
-h3{
-    font-size:1.6em;
-}
-h4{
-    font-size:1.2em;
-}
-h5{
-    font-size:0.95em;
-}
-h6{
-    font-size:0.9em;
+em{
+    font-style:italic;
+    font-family: Georgia, "Times New Roman", times, serif;
 }
 
 
 #container{
+    background:@bg;
     position:relative;
-    
+    width: @_gridsystem-width;
     margin:0 auto;
+    padding: 0 50px;
 }
 #header{
 
-    padding:1.5em 0;
+
+    padding:2.5em 0;
+    margin-top:2em;
     position:relative;
-
-
-
     div.logo{
-        
+        text-align:center;
+        .column(6);
     }
-    div.logo h1{
-        font-weight:normal;
+    div.logo{
+        h1{
+            font-weight:normal;
+
+        }
+        a{
+            font-family: @headingFont;
+            font-size:3.6em;
+            line-height:0.85em;
+            display:inline-block;
+            color:@headings;
+            padding-bottom:1px;
+
+        }
+        a:hover{
+            color:@navHover;
+            text-decoration:none;
+            padding-bottom:0;
+        }
+
     }
-    div.logo a{
-        color:@headings;
-        font-family: 'ITC Avant Garde Gothic Std','URW Gothic L','Century Gothic', 'Avant Garde', 'Trebuchet MS', sans-serif;
-        line-height:0.8em;
-        margin-bottom:0.2em;
-        padding-bottom:1px;
-    }
-    div.logo a:hover{
-        color:@headings;
-        border-bottom:1px solid @headings;
-        padding-bottom:0;
-    }
+
     .siteDesc{
-            
-        font-size:1.24em;
-        
+        .column(10);
+        font-size:0.95em;
         font-variant: small-caps;
-        margin-top:1em;
-        
-        color:@headings;
-
-
+        vertical-align:bottom;
+        color:@terCopy;
+        line-height:4.6em;
 
     }
-    div.hero{
-        color:@secCopy;
 
-        margin-top:1.5em;
-        
-
-        
-    }
 }
+
 #nav{
-    background: @darkBg;
+    .column(16);
+    position:absolute;
+    top: -2em;
+    right:0px;
     color:@terCopy;
-    position:relative;
+
+    ul{
+        overflow:hidden;
+        display:block;
+        list-style-type:none;
+        text-align:right;
+
+    }
     li{
-        float:left;
-        margin:1.2em 2.5em 1em 0;
+        display:inline;
+        
     }
     a{
-        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-family: Helvetica, arial, sans-serif;
         color:@terCopy;
-        font-size:1.2em;
-        .text-shadow(0,1px,2px, rgba(0,0,0,0.8));
+        font-size:0.9em;
+        display:inline-block;
+        padding:1em 2.5em;
         .transition(all, 0.3s, ease);
         text-transform: uppercase;
-        display:block;
+        
 
         
     }
@@ -157,6 +148,7 @@ h6{
         border:none;
         color: @navHover;
     }
+    /*
     .sitesearch{
         margin:1em 1.2em 1em 2.5em;
         float:right;
@@ -164,18 +156,193 @@ h6{
             display:none;
         }
     }
+    */
 
 }
-#nav:before{
-   content: "";
-   position: absolute;
-   background: @darkBg;  
-   top: 0;
-   bottom: 0;
-   width: 9999px;
+
+div.hero{
+
+    .column(4,16);
+    line-height:1.8em;
+    font-size:1.2em;
+    padding-top:1.5em;
+    position:relative;
+    z-index:10;
+    div.skip{
+        float:right;
+        color:@terCopy;
+        font-size:0.7em;
+        margin-top:1.5em;
+    }
+
 }
-#nav:before {
-   right: 100%;
+#aside{
+    position:relative;
+    padding-top:2em;
+    .column(12,16);
+    .blog-latest,.twitter-latest{
+        .column(6,12);
+        li{
+            display:block;
+            clear:both;
+            font-size:0.9em;
+            margin:0;
+            overflow:hidden;
+            position:relative;
+            color:@secCopy;
+            border-top:1px solid #c7c7c7;
+
+        }
+        li:last-child{
+            border-bottom:1px solid #c7c7c7;
+        }
+    }
+    .twitter-latest{
+        li{
+            padding:1em;
+        }
+    }
+    .blog-latest{
+        li{
+
+            a{
+                display:block;
+                position:relative;
+                overflow:hidden;
+                padding:1em 0;
+                .text-shadow(0, 1px, 1px, rgba(0,0,0,0.1));
+
+                color:@secCopy;
+                span.date{
+                    .column(2,6);
+                }
+                .day, .month{
+                    color:@navHover;
+                    font-size: 1.5em;
+                    line-height:1em;
+                    font-family: Georgia, serif;
+                    .column(1,2);
+                }
+                .month{
+                    color:@secCopy;
+                }
+                span.title{
+                    line-height:1.5em;
+                    .column(4,6);
+                }
+            }
+            a:hover{
+                text-decoration:none;
+                background:#e7e7e7;
+                .text-shadow(0, 1px, 0, rgba(255,255,255,0.6));
+            }
+            a:after{
+
+            }
+
+        }
+    }
+    h4{
+        font-size:1.2em;
+        font-weight:bold;
+        margin-bottom:1em;
+    }
+    .more{
+        float: right;
+        font-size:1.2*0.7em;
+        margin-top:1.5em;
+        a{
+            color:@links + #633;
+
+        }
+    }
+    #tweets{
+
+        .timeago{
+            display:block;
+            padding:0.3em;
+            line-height:1em;
+            float:right;
+            color:@terCopy;
+            font-size:0.8em;
+        }
+    }
+
+}
+
+
+#notebook{
+    .column(16);
+    padding-top:2em;
+    .page-nav-bottom{
+        clear:both;
+    }
+    .page-nav-top a, .page-nav-bottom a{
+        color:@terCopy;
+        font-size:0.85em;
+    }
+
+    h2.post-title{
+
+        font-size:2em;
+        line-height:1.6em;
+        border-top:1px solid @headings+#ccc;
+        font-family: @headingFont;
+        margin:1em 0;
+        .text-shadow(0, 1px, 1px, rgba(0,0,0,0.1));
+        a{
+            
+
+            color:@navHover;
+        }
+        a:hover{
+            color:@headings;
+
+            text-decoration:none;
+            
+        }
+    }
+    .meta{
+        .column(3,16);
+        margin-left:0;
+    }
+    #entry-content{
+
+        .column(8,16);
+        .offset(1);
+        h3 {
+            color:@navHover;
+            font-family:@headingFont;
+            font-size:1.5em;
+            clear:both;
+            margin:1em 0;
+        }
+        p{
+            margin-bottom:1.2em;
+        }
+        p:first-child:first-letter{
+            font-size:6em;
+            color:@navHover;
+            float:left;
+            display:block;
+            margin-left:0;
+            font-family: Georgia, "Times New Roman", times, serif;
+        }
+        p:first-child:first-line{
+            font-variant:small-caps;
+            
+        }
+
+    }
+}
+
+/*
+Utility clases
+*/
+
+.clear{
+    display:block;
+    clear:both;
 }
 
 

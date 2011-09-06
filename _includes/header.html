@@ -1,19 +1,21 @@
         <header id="header" class="center">
             <div class="logo">
                 <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
-                    <span class="hoverline">{{site.title}}</span>
+                    {{site.title}}
                 </a>
             </div>
-            {% include nav.html %}
             <div class="siteDesc"><a href="/about.html#notebook" title="About Jonathan Foucher
                 &amp; contact details" tabindex="0" accesskey="A">Jonathan Foucher</a>&rsquo;s blog <span
                 class="amp">&amp;</span> web development
                 notebook.
             </div>
-            <div class="hero">
+            {% include nav.html %}
 
-                <p>
-                    {{page.excerpt}}
-                </p>
-			</div>
+            
 		</header> <!-- /#header.center -->
+        <div class="hero">
+
+            <p>
+                {{page.excerpt}}
+            </p>
+        </div>

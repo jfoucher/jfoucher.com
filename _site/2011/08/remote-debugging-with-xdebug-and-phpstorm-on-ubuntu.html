@@ -21,9 +21,18 @@
 	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
+    <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet/less" href="/assets/css/screen.less" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+    <script src="/assets/js/jquery.timeago.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
     <!--<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />-->
     <script src="/assets/js/less-1.1.4.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
     
 	<link rel="alternate" href="http://feeds.feedburner.com/GeekyNuggets" title="Geeky Nuggets" type="application/atom+xml" />
 
@@ -36,8 +45,13 @@
 		                <header id="header" class="center">
             <div class="logo">
                 <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
-                    <span class="hoverline">Geeky Nuggets</span>
+                    Geeky Nuggets
                 </a>
+            </div>
+            <div class="siteDesc"><a href="/about.html#notebook" title="About Jonathan Foucher
+                &amp; contact details" tabindex="0" accesskey="A">Jonathan Foucher</a>&rsquo;s blog <span
+                class="amp">&amp;</span> web development
+                notebook.
             </div>
                     <nav id="nav" class="clear">
             <ul class="nav nav-header caps">
@@ -49,7 +63,7 @@
 			<div class="sitesearch">
 
                 <!-- Google Custom Search Element -->
-                <form action="http://www.google.com/cse" class="center_column" id="searchForm" >
+                <!--<form action="http://www.google.com/cse" class="center_column" id="searchForm" >
                     <fieldset>
                        <input type="hidden" name="cx" value="004905032692135561336:flcwnz7i1ww" />
                        <input type="hidden" name="ie" value="UTF-8" />
@@ -57,24 +71,21 @@
                        <input id="search" class="text-input" type="text" name="q" size="15" tabindex="0" accesskey="S" />
                        <input id="searchsubmit" type="submit" name="sa" value="Search" tabindex="0" />
                     </fieldset>
-                </form>
+                </form>-->
 
             </div>
 
         </nav> <!-- /#nav.clear -->
 
-            <div class="siteDesc"><a href="/about.html#notebook" title="About Jonathan Foucher
-                &amp; contact details" tabindex="0" accesskey="A">Jonathan Foucher</a>&rsquo;s blog <span
-                class="amp">&amp;</span> web development
-                notebook.
-            </div>
-            <div class="hero">
 
-                <p>
-                    Phpstorm allows incoming connection from Xdebug to enable variable inspection, breakpoints and so on in your favorite IDE
-                </p>
-			</div>
+            
 		</header> <!-- /#header.center -->
+        <div class="hero">
+
+            <p>
+                Phpstorm allows incoming connection from Xdebug to enable variable inspection, breakpoints and so on in your favorite IDE
+            </p>
+        </div>
 
 		<div id="notebook" class="center clear">
 			<div class="page-nav-top">
@@ -84,14 +95,23 @@
 				
             </div> <!-- /.page-nav-top -->
 
-            <h2 class="clear">Remote debugging with Xdebug and PhpStorm on Ubuntu</h2>
-            <span class="date" title="2011-08-18T01:09:13+02:00">
-                <span class="published">Published&thinsp;&bull;</span>
-                <span class="day">18</span>
-                <span class="month"><abbr>Aug</abbr></span>
-                <span class="year">2011</span>
-            </span>
+             <h2 class="post-title">
+                <a href="/2011/08/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu.html#notebook" title="Permanent link to Remote debugging with Xdebug and PhpStorm on Ubuntu">
+                    Remote debugging with Xdebug and PhpStorm on Ubuntu
+                </a>
+            </h2>
+            <div class="meta">
+                <!-- <span class="pdf">Download a <a href="/2011/08/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
+                <span class="permalink">For referencing: <a href="/2011/08/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu.html" title="[Permalink] Remote debugging with Xdebug and PhpStorm on Ubuntu">permalink to this article</a>.</span>
+                    <span class="date" title="2011-08-18T01:09:13+02:00">
+                    <span class="published">Published&thinsp;&bull;</span>
+                    <span class="day">18</span>
+                    <span class="month"><abbr>Aug</abbr></span>
+                    <span class="year">2011</span>
+                </span>
+            </div> <!-- /.meta -->
             <div id="entry-content">
+
                 <p>Being able to debug your php application right from your IDE is something that you can't fully realise the power of, unless you've tried it. The advantages are immediately obvious: as soon as the connection from Xdebug is successful, you are blinded by variable inspection, code stepping, breakpoints, etc... Debugging heaven!
 It took me... a few months to finally find the time figure out how to set up everything properly, so I hope this post can help someone, somewhere. But don't worry: it retrospect, it's not that difficult at all.</p>
 
@@ -169,10 +189,7 @@ It took me... a few months to finally find the time figure out how to set up eve
 
 <p>Just click debug and happy bug squishing!</p>
 
-                <div class="meta">
-                    <!-- <span class="pdf">Download a <a href="/2011/08/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
-                    <span class="permalink">For referencing: <a href="/2011/08/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu.html" title="[Permalink] Remote debugging with Xdebug and PhpStorm on Ubuntu">permalink to this article</a>.</span>
-                </div> <!-- /.meta -->
+
             </div> <!-- /.entry-content.colEight -->
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -191,7 +208,7 @@ It took me... a few months to finally find the time figure out how to set up eve
 
             <div class="page-nav-bottom">
                 
-				    <span class="page-nav-item floatLeft"><a class="internal" rel="prev"  href="/2011/06/phing-task-to-update-twitter-status.html#notebook" title="View A Phing task to update your Twitter status">&larr; View previous article</a></span>
+				    <span class="page-nav-item floatLeft"><a class="internal" rel="prev"  href="/2011/06/phing-task-to-update-twitter-status.html#notebook" title="Read A Phing task to update your Twitter status">&larr; View previous article</a></span>
 				
 				
             </div> <!-- /.page-nav-bottom -->
@@ -221,10 +238,7 @@ It took me... a few months to finally find the time figure out how to set up eve
 
         </div> <!-- /.page-meta.clear -->
     </footer> <!-- /#footer.center.clear -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 
-    <script src="/assets/js/jquery.timeago.js" type="text/javascript"></script>
-	<script type="text/javascript" src="/assets/js/app.js"></script>
     <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-8465441-2']);
@@ -238,8 +252,6 @@ It took me... a few months to finally find the time figure out how to set up eve
     })();
 
     </script>
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+
 </body>
 </html>

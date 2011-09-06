@@ -10,6 +10,40 @@
 @total-width: @_gridsystem-width;
 
 
+/*
+Helpers
+*/
+.text-shadow(@left, @top, @blur, @color){
+    -webkit-text-shadow:@left @top @blur @color;
+    -moz-text-shadow:@left @top @blur @color;
+    -o-text-shadow:@left @top @blur @color;
+    -khtml-text-shadow:@left @top @blur @color;
+    text-shadow:@left @top @blur @color;
+}
+.transition(@type,@time,@easing){
+    -webkit-transition:@type @time @easing;
+    -moz-transition:@type @time @easing;
+    -o-transition:@type @time @easing;
+    -khtml-transition:@type @time @easing;
+    transition:@type @time @easing;
+}
+.bowshadow(@left, @top, @blur, @color){
+    -webkit-box-shadow: @left @top @blur @color;
+    -moz-box-shadow: @left @top @blur @color;
+    -o-box-shadow: @left @top @blur @color;
+    -khtml-box-shadow: @left @top @blur @color;
+    box-shadow: @left @top @blur @color;
+
+}
+.radius(@radius){
+    -webkit-border-radius:@radius;
+    -moz-border-radius:@radius;
+    -o-border-radius:@radius;
+    -khtml-border-radius:@radius;
+    border-radius:@radius;
+}
+
+
 //////////
 // GRID //
 //////////
