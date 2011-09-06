@@ -1,8 +1,6 @@
 <!DOCTYPE html> 
-
 <html lang="en">
-
-<!-- 
+<!--
 	Access keys:
 		H = homepage
 		S = search input field
@@ -17,85 +15,77 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="content-language" content="en" />
 	<meta name="author" content="Jonathan Foucher" />
-	<meta name="designer" content="Jonathan Fouch" />
+	<meta name="designer" content="Jonathan Foucher" />
 	<meta name="developer" content="Jonathan Foucher" />
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="robots" content="noydir, noopd" /> <!-- Opt out of ODP -->
+	<meta name="description" content="A blog about web development, codeigniter and wordpress, by web developer Jonathan Foucher" />
+	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
+    <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet/less" href="/assets/css/screen.less" type="text/css" media="screen" />
-    <!--<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />-->
-	<link rel="stylesheet" href="/assets/css/print.css" type="text/css" media="print" />
 
-    
-	<link rel="alternate" href="http://feeds.feedburner.com/GeekyNuggets" title="Geeky Nuggets" type="application/atom+xml" />
-	
-	<link rel="shortcut icon" type="image/png" href="/favicon.png" />
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script src="/assets/js/less-1.1.4.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
     <script src="/assets/js/jquery.timeago.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/assets/js/app.js"></script>
-    <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-8465441-2']);
-    _gaq.push(['_trackPageview']);
+    <!--<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />-->
+    <script src="/assets/js/less-1.1.4.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+	<link rel="alternate" href="http://feeds.feedburner.com/GeekyNuggets" title="Geeky Nuggets" type="application/atom+xml" />
 
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
-        '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+	<link rel="shortcut icon" type="image/png" href="/favicon.png" />
 
-    </script>
 </head>
-
 <body>
+
 	<div id="container" class="clearfix">
-		                <div id="header" class="center">
-            <div class="article-logo">
-                <h1>
-				    <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
-				        <span class="hoverline">Geeky Nuggets</span>
-				    </a>
-                </h1>
+		                <header id="header" class="center">
+            <div class="logo">
+                <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
+                    Geeky Nuggets
+                </a>
             </div>
-            <div class="hero">
-                <p class="moin">
-                    
-                    You&#8217;re currently viewing a single article. Feel free to skip back to
-                    <a href="/" rel="home" title="Go back to the homepage" tabindex="0">&sect; Index</a> or straight to
-                    <a href="/#notebook" title="Skip straight to the latest article" tabindex="0" accesskey="L">&sect; Latest article</a>.
-                </p>
-                <p>
-                    
-                </p>
-			</div>
-		</div> <!-- /#header.center -->
-		        <div id="nav" class="clear">
+            <div class="siteDesc"><a href="/about.html#notebook" title="About Jonathan Foucher
+                &amp; contact details" tabindex="0" accesskey="A">Jonathan Foucher</a>&rsquo;s blog <span
+                class="amp">&amp;</span> web development
+                notebook.
+            </div>
+                    <nav id="nav" class="clear">
             <ul class="nav nav-header caps">
 				<li><a href="/about.html#notebook" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
 				<li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Archives</a></li>
 				<li><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
 				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Subscribe to my posts, by email or in your feed reader" tabindex="0">Feed</a></li>
             </ul>
-			<div class="sitesearch floatRight">
-                <div class="sitesearch">
-                    <!-- Google Custom Search Element -->
-                    <form action="http://www.google.com/cse" class="center_column" id="searchForm" >
-                        <fieldset>
-                           <input type="hidden" name="cx" value="004905032692135561336:flcwnz7i1ww" />
-                           <input type="hidden" name="ie" value="UTF-8" />
-                           <label for="search" class="hidden">Search</label>
-                           <input id="search" class="text-input" type="text" name="q" size="15" tabindex="0" accesskey="S" />
-                           <input id="searchsubmit" type="submit" name="sa" value="Search" tabindex="0" />
-                        </fieldset>
-                    </form>
-                </div>
+			<div class="sitesearch">
+
+                <!-- Google Custom Search Element -->
+                <!--<form action="http://www.google.com/cse" class="center_column" id="searchForm" >
+                    <fieldset>
+                       <input type="hidden" name="cx" value="004905032692135561336:flcwnz7i1ww" />
+                       <input type="hidden" name="ie" value="UTF-8" />
+                       <label for="search" class="hidden">Search</label>
+                       <input id="search" class="text-input" type="text" name="q" size="15" tabindex="0" accesskey="S" />
+                       <input id="searchsubmit" type="submit" name="sa" value="Search" tabindex="0" />
+                    </fieldset>
+                </form>-->
+
             </div>
-			<div class="clear"></div>
-        </div> <!-- /#nav.clear -->
+
+        </nav> <!-- /#nav.clear -->
+
+
+            
+		</header> <!-- /#header.center -->
+        <div class="hero">
+
+            <p>
+                
+            </p>
+        </div>
 
 		<div id="notebook" class="center clear">
 			<div class="page-nav-top">
@@ -107,14 +97,23 @@
                 
             </div> <!-- /.page-nav-top -->
 
-            <h2 class="clear">ABC... Whatever</h2>
-            <span class="date" title="2005-03-04T16:26:31+01:00">
-                <span class="published">Published&thinsp;&bull;</span>
-                <span class="day">04</span>
-                <span class="month"><abbr>Mar</abbr></span>
-                <span class="year">2005</span>
-            </span>
+             <h2 class="post-title">
+                <a href="/2005/03/abc-whatever.html#notebook" title="Permanent link to ABC... Whatever">
+                    ABC... Whatever
+                </a>
+            </h2>
+            <div class="meta">
+                <!-- <span class="pdf">Download a <a href="/2005/03/abc-whatever.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
+                <span class="permalink">For referencing: <a href="/2005/03/abc-whatever.html" title="[Permalink] ABC... Whatever">permalink to this article</a>.</span>
+                    <span class="date" title="2005-03-04T16:26:31+01:00">
+                    <span class="published">Published&thinsp;&bull;</span>
+                    <span class="day">04</span>
+                    <span class="month"><abbr>Mar</abbr></span>
+                    <span class="year">2005</span>
+                </span>
+            </div> <!-- /.meta -->
             <div id="entry-content">
+
                 <p>I just got myself one of the longest email addresses of the world, over at <a href="http://www.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijk.com/">ABC... Whatever</a>(<a href="http://cnul.blogspot.com/">via</a>)!</p>
 
 <p>I just couldn't stop laughing when I saw their 'sales pitch' on the home page, so I just <strong>had</strong> to open an account with them.</p>
@@ -123,10 +122,7 @@
 
 <p>Ooops, looks like that address is too big for my layout! ;)</p>
 
-                <div class="meta">
-                    <!-- <span class="pdf">Download a <a href="/2005/03/abc-whatever.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
-                    <span class="permalink">For referencing: <a href="/2005/03/abc-whatever.html" title="[Permalink] ABC... Whatever">permalink to this article</a>.</span>
-                </div> <!-- /.meta -->
+
             </div> <!-- /.entry-content.colEight -->
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -145,36 +141,52 @@
 
             <div class="page-nav-bottom">
                 
-				    <span class="page-nav-item floatLeft"><a class="internal" rel="prev"  href="/2005/03/les-commentaires-sont-ouverts.html#notebook" title="View Les commentaires sont ouverts">&larr; View previous article</a></span>
+				    <span class="page-nav-item floatLeft"><a class="internal" rel="prev"  href="/2005/03/les-commentaires-sont-ouverts.html#notebook" title="Read Les commentaires sont ouverts">&larr; View previous article</a></span>
 				
 				
-				    <span class="page-nav-item floatRight"><a class="internal" rel="next"  href="/2005/03/changes-coming-soon.html#notebook" title="View Changes coming soon">View next article &rarr;</a></span>
+				    <span class="page-nav-item floatRight"><a class="internal" rel="next"  href="/2005/03/changes-coming-soon.html#notebook" title="Read Changes coming soon">View next article &rarr;</a></span>
                 
             </div> <!-- /.page-nav-bottom -->
         </div> <!-- /#notebook.center.clear -->
-                <div id="footer" class="clear">
-			<ul class="nav nav-footer caps">
-				<li><a href="/about.html" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
-				<li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Blog</a></li>
-				<li><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
-				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Feed link" tabindex="0">Feed</a></li>
-			</ul>
-			<span class="backtop floatRight"><a class="internal" href="#header" title="Return to the top of this page">Back to top &uarr;</a></span>
-			<div class="page-meta clear">
-				<div class="info">
-					
-					<p class="copyright ">
-                        This blog has been online in one form or another since
-                        <span class="date" title="March 2004">2004</span>&thinsp;&mdash;&thinsp;copyright &copy; Jonathan
-                        Foucher.&thinsp;&mdash;&thinsp;<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"
-                           title="You can use this for non-comercial purposes, provided you cite me as the author, and do not modify the content">
-                            Creative Commons License
-                        </a>.
-                    </p>
-				</div>
 
-			</div> <!-- /.page-meta.clear -->
-		</div> <!-- /#footer.center.clear -->
 	</div>
+    <footer id="footer" class="clear">
+        <ul class="nav nav-footer caps">
+            <li><a href="/about.html" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
+            <li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Blog</a></li>
+            <li><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
+            <li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Feed link" tabindex="0">Feed</a></li>
+        </ul>
+        <span class="backtop floatRight"><a class="internal" href="#header" title="Return to the top of this page">Back to top &uarr;</a></span>
+        <div class="page-meta clear">
+            <div class="info">
+
+                <p class="copyright ">
+                    This blog has been online in one form or another since
+                    <span class="date" title="March 2004">2004</span>&thinsp;&mdash;&thinsp;copyright &copy; Jonathan
+                    Foucher.&thinsp;&mdash;&thinsp;<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                       title="You can use this for non-comercial purposes, provided you cite me as the author, and do not modify the content">
+                        Creative Commons License
+                    </a>.
+                </p>
+            </div>
+
+        </div> <!-- /.page-meta.clear -->
+    </footer> <!-- /#footer.center.clear -->
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-8465441-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+        '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+
 </body>
 </html>
