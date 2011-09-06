@@ -22,18 +22,18 @@ $(document).ready(function(){
         $(this).width(codeWidth);
     });
     */
-    var origWidth=0;
+
     $('.highlight').hover(
     function(){
-        origWidth=$(this).width();
+
         var codeWidth=$(this).find('code').outerWidth();
         console.log(codeWidth);
-        if (origWidth<codeWidth){
-            $(this).animate({width:codeWidth});
+        if ($(this).width()<codeWidth){
+            $(this).stop(true).animate({width:codeWidth});
         }
     },
     function(){
-        $(this).animate({width:origWidth});
+        $(this).stop(true).animate({width:'100%'});
     });
 
 /*
