@@ -2,7 +2,9 @@
 layout: page
 nav_active: about
 meta_title: About Geeky Nuggets and Jonathan Foucher
+meta_keywords: web development, php, wordpress, codeigniter, six pixels, jekyll, github
 title: About <span class="amp">&amp;</span> Contact
+excerpt: The blog of Jonathan Foucher, a web developer, founder of <a href="http://6px.eu">Six Pixels</a> and general <a href="/projects#notebook">tinkerer</a>
 ---
 
 

@@ -2,6 +2,7 @@
 layout: project
 title:  Ubuntu Skype Indicator
 gitname: ubuntu-skype-indicator
+type: open_source
 
 ---
 

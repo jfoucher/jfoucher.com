@@ -9,7 +9,23 @@ layout: base
                     {{ page.title }}
                 </a>
             </h2>
-            <div class="page-content">
+            <div class="meta">
+                <div class="hero">
+
+                    <p>
+                        {{page.excerpt}}
+                    </p>
+                </div>
+                <!-- <span class="pdf">Download a <a href="{{ page.url }}.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
+                <span class="permalink">For referencing: <a href="{{ page.url }}" title="[Permalink] {{ page.title | strip_html }}">permalink to this article</a>.</span>
+                    <span class="date" title="{{ page.date | date_to_xmlschema }}">
+                    <span class="published">First published&thinsp;&bull;</span>
+                    <span class="day">09</span>
+                    <span class="month"><abbr>Mar</abbr></span>
+                    <span class="year">2004</span>
+                </span>
+            </div> <!-- /.meta -->
+            <div class="page-content page">
 
                 {{ content }}
             </div> <!-- /.page-content -->

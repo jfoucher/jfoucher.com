@@ -1,15 +1,17 @@
 ---
 title: Open source projects&thinsp;&mdash;&thinsp;by Jonathan Foucher&thinsp;&mdash;&thinsp;Web developer
 layout: base
+active: projects
 ---
         {% include header-about.html %}
 
         <div id="notebook" class="center clear">
-            <h2><em>Open Source Projects</em>&hellip;</h2>
+            <h2 class="post-title">Open Source Projects&hellip;</h2>
             <div class="page-content projects">
 
                 <ul class="projects-list">
                     {% for project in page.projects %}
+                    {% if project.type == 'open_source' %}
                     <li class="project">
                         <h3>
                             <a href="/{{ project.url }}" title="{{ project.title }}">{{ project.title }}</a>
@@ -24,8 +26,36 @@ layout: base
                             <a class="download" href="https://github.com/jfoucher/{{ project.gitdata['repository']['name'] }}/zipball/master">Download</a>
                         </div>
                     </li>
+                    {% endif %}
                     {% endfor %}
                 </ul>
+                <div class="more">For more, go to <a href="http://github.com/jfoucher">my github profile</a></div>
+            </div> <!-- /.page-content -->
+
+            <h2 class="post-title">Client Projects&hellip;</h2>
+            <div class="page-content projects">
+
+                <ul class="projects-list">
+                    {% for project in page.projects %}
+                    {% if project.type == 'client' %}
+                    <li class="project client">
+                        <div class="project-thumb">
+                            <a href="{{ project.website }}" title="Visit {{ project.title }}">
+                                <img src="http://images.shrinktheweb.com/xino.php?stwembed=1&stwsize=xlg&stwhash=ab8d131bf9&stwaccesskeyid=fb6255c323bed17&stwurl={{ project.website | escape }}" />
+                            </a>
+                        </div>
+                        <div class="project-description">
+                            <h3>
+                                <a href="{{ project.website }}" title="{{ project.title }}">{{ project.title }}</a>
+                            </h3>
+                            <p class="description">{{ project.content }}</p>
+                        </div>
+
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                <div class="more">There are more, just <a href="/about.html#contactForm">ask</a></div>
             </div> <!-- /.page-content -->
         </div> <!-- /#notebook -->
 

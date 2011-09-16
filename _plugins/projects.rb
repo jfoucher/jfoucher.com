@@ -14,10 +14,12 @@ module Jekyll
 
       self.process(@name)
       self.read_yaml(dir, name)
-      c = Curl::Easy.perform("http://github.com/api/v2/json/repos/show/jfoucher/" + self.data['gitname'])
-      #print c.body_str
-      self.data['gitdata'] = JSON.parse(c.body_str)
-      #print self.data['gitdata']
+      if self.data['type'] == "open_source"
+          c = Curl::Easy.perform("http://github.com/api/v2/json/repos/show/jfoucher/" + self.data['gitname'])
+          #print c.body_str
+          self.data['gitdata'] = JSON.parse(c.body_str)
+          #print self.data['gitdata']
+      end
 
 
     end

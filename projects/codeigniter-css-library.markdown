@@ -2,7 +2,7 @@
 layout: project
 title:  Codeigniter CSS Library
 gitname: codeigniter-css-library
-
+type: open_source
 
 ---
 
