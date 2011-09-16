@@ -419,7 +419,7 @@ div.hero{
                     .num{
                         display:inline-block;
                         font-family: @serifFont;
-                        width:1em;
+                        width:1.5em;
                         color:@navHover;
                     }
                 }
@@ -444,6 +444,67 @@ div.hero{
         li.project:hover{
             background:#e7e7e7;
             .text-shadow(0,1px,0,#fff);
+        }
+        li.project.client:hover{
+
+            background:none;
+        }
+        li.project.client{
+            padding:2em;
+            .column(11,12);
+            .row(11);
+            .project-thumb{
+                .column(5,11);
+                width:320px;
+                position:relative;
+                img{
+                    position:relative;
+                    .boxshadow(0,6px,25px,rgba(0,0,0,0.1));
+                }
+
+            }
+            .project-thumb:before{
+                -webkit-transform:rotate(-5deg);
+                -moz-transform:rotate(-5deg);
+                content:' ';
+                position:absolute;
+                z-index:0;
+                bottom:15px;
+                left:0px;
+                width:160px;
+                height:30px;
+                /*border:1px solid #000;*/
+                .boxshadow(10px,6px,25px,rgba(0,0,0,0.1));
+
+            }
+            .project-thumb:after{
+                -webkit-transform:rotate(5deg);
+                -moz-transform:rotate(5deg);
+                content:' ';
+                position:absolute;
+                z-index:-1;
+                bottom:15px;
+                right:0px;
+                width:160px;
+                height:30px;
+                /*border:1px solid #000;*/
+                .boxshadow(-10px,0px,12px,rgba(0,0,0,0.1));
+
+            }
+            .project-description{
+                .column(7,11);
+            }
+        }
+
+        .more{
+            clear:both;
+            float:right;
+            color:@terCopy;
+            font-size:1.2em;
+            a{
+                color:@secCopy;
+            }
+            
         }
 
     }
@@ -533,6 +594,7 @@ div.hero{
 
             }
         }
+
 
     }
     span.backtop{
