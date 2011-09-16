@@ -9,7 +9,7 @@
 -->
 <head>
     <title>
-        Fundacion Mapfre
+        Server Load Graph
         
     </title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -17,7 +17,7 @@
 	<meta name="author" content="Jonathan Foucher" />
 	<meta name="designer" content="Jonathan Foucher" />
 	<meta name="developer" content="Jonathan Foucher" />
-	<meta name="description" content="A blog about web development, codeigniter and wordpress, by web developer Jonathan Foucher" />
+	<meta name="description" content="A quick script that shows a graph of the load on your web server" />
 	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
@@ -96,10 +96,19 @@
         </div>
 
 		<div id="notebook" class="center clear">
-            <h2 class="clear">Fundacion Mapfre</h2>
+            <h2 class="clear">Server Load Graph</h2>
             <div class="page-content">
 
-                <p>&#8220;Fundación Mapfre&#8221; is the artistic foundation of one of Spain&#8217;s largest insurers. This website showcases the works available in the museum.</p>
+                <p>Flickholdr generates images on the fly, to be used as placeholders in html layouts.</p>
+
+<p>To install flickholdr on your server, you will need to be running PHP5.3 with the GD library. Nowadays, it is
+included by default, so you shouldn't have a problem. Just make sure it is activated.</p>
+
+<p>Also install/activate the rewrite module (mod_rewrite), which allows for clean image urls</p>
+
+<p>Copy these files to a publicly accessible folder on your web server. Edit application/config/config.php
+and change $config['base_url'] to the url you will use to access your flickholdr installation.
+Open the corresponding url in your browser. You should be greeted with the home page, similar to the one curently viewable at http://flickholdr.com</p>
 
             </div> <!-- /.page-content.colEight -->
             <div id="disqus_thread"></div>
