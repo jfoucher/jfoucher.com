@@ -314,7 +314,7 @@ div.hero{
     }
 
     h2.post-title{
-
+        clear:both;
         font-size:2em;
         line-height:1.6em;
         border-top:1px solid @headings+#ccc;
@@ -409,10 +409,41 @@ div.hero{
             .column(5,12);
             margin-left:0;
             .text-shadow(0,1px,2px,rgba(0,0,0,0.2));
-}
+            h3{
+
+                margin-top:0;
+            }
+            .project-meta{
+                float:left;
+                .forks,.watchers{
+                    .num{
+                        display:inline-block;
+                        font-family: @serifFont;
+                        width:1em;
+                        color:@navHover;
+                    }
+                }
+                
+            }
+
+            .project-code{
+                float:right;
+                text-align:right;
+                a.source,a.download{
+                    display:block;
+                    clear:both;
+                    color:@secCopy;
+
+                }
+                a.source:hover,a.download:hover{
+                    color:@mainCopy;
+                }
+            }
+        }
+        
         li.project:hover{
             background:#e7e7e7;
-            .text-shadow(0,1px,2px,rgba(255,255,255,0.8));
+            .text-shadow(0,1px,0,#fff);
         }
 
     }
