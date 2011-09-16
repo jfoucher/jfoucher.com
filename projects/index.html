@@ -59,7 +59,7 @@
             <ul class="nav nav-header caps">
 				<li><a href="/about.html#notebook" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
 				<li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Archives</a></li>
-				<li><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
+				<li class="active"><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
 				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Subscribe to my posts, by email or in your feed reader" tabindex="0">Feed</a></li>
             </ul>
 			<div class="sitesearch">
@@ -83,18 +83,62 @@
 
 
 		</header> <!-- /#header.center -->
-        <div class="hero">
 
-            <p>Besides developing engaging web application that provide a high return on investment, I like to research
-            and learn new things. This blog relates my experiences as a software developer.</p>
-            <div class="skip">
-                <span>Straight to: <a href="/#notebook" title="Skip straight to the latest article" tabindex="0"
-                accesskey="L">&sect; Latest article</a></span>
-            </div>
-        </div>
 
         <div id="notebook" class="center clear">
-            <h2><em>Open Source Projects</em>&hellip;</h2>
+            <h2 class="post-title">Open Source Projects&hellip;</h2>
+            <div class="page-content projects">
+
+                <ul class="projects-list">
+                    
+                    <li class="project">
+                        <h3>
+                            <a href="/projects/codeigniter-css-library.html" title="Codeigniter CSS Library">Codeigniter CSS Library</a>
+                        </h3>
+                        <p class="description">This library allows for easy css minification in Codeigniter</p>
+                        <div class="project-meta">
+                            <div class="watchers"><span class="num">3</span> watchers</div>
+                            <div class="forks"><span class="num">2</span> forks</div>
+                        </div>
+                        <div class="project-code">
+                            <a class="source" href="https://github.com/jfoucher/codeigniter-css-library">Source code</a>
+                            <a class="download" href="https://github.com/jfoucher/codeigniter-css-library/zipball/master">Download</a>
+                        </div>
+                    </li>
+                    
+                    <li class="project">
+                        <h3>
+                            <a href="/projects/ubuntu-skype-indicator.html" title="Ubuntu Skype Indicator">Ubuntu Skype Indicator</a>
+                        </h3>
+                        <p class="description">An missed chat and call indicator for skype, integrated in Ubuntu's messaging indicator</p>
+                        <div class="project-meta">
+                            <div class="watchers"><span class="num">6</span> watchers</div>
+                            <div class="forks"><span class="num">2</span> forks</div>
+                        </div>
+                        <div class="project-code">
+                            <a class="source" href="https://github.com/jfoucher/ubuntu-skype-indicator">Source code</a>
+                            <a class="download" href="https://github.com/jfoucher/ubuntu-skype-indicator/zipball/master">Download</a>
+                        </div>
+                    </li>
+                    
+                    <li class="project">
+                        <h3>
+                            <a href="/projects/flickholdr.html" title="FlickHoldr">FlickHoldr</a>
+                        </h3>
+                        <p class="description">Dummy images from flickr, by tags</p>
+                        <div class="project-meta">
+                            <div class="watchers"><span class="num">20</span> watchers</div>
+                            <div class="forks"><span class="num">4</span> forks</div>
+                        </div>
+                        <div class="project-code">
+                            <a class="source" href="https://github.com/jfoucher/flickholdr">Source code</a>
+                            <a class="download" href="https://github.com/jfoucher/flickholdr/zipball/master">Download</a>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div> <!-- /.page-content -->
+            <h2 class="post-title">Client Projects&hellip;</h2>
             <div class="page-content projects">
 
                 <ul class="projects-list">
@@ -149,23 +193,24 @@
         </div> <!-- /#notebook -->
 
 
+            <footer id="footer" class="clear">
+        <span class="backtop"><a class="internal" href="#header" title="Return to the top of this page">Back to top &uarr;</a></span>
+        <nav>
+            <ul id="nav-footer">
+                <li><a href="/about.html" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
+                <li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Archives</a></li>
+                <li><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
+                <li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Feed link" tabindex="0">Feed</a></li>
+            </ul>
+        </nav>
 
-	</div>
-    <footer id="footer" class="clear">
-        <ul class="nav nav-footer caps">
-            <li><a href="/about.html" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
-            <li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Blog</a></li>
-            <li><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
-            <li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Feed link" tabindex="0">Feed</a></li>
-        </ul>
-        <span class="backtop floatRight"><a class="internal" href="#header" title="Return to the top of this page">Back to top &uarr;</a></span>
         <div class="page-meta clear">
             <div class="info">
 
                 <p class="copyright ">
                     This blog has been online in one form or another since
-                    <span class="date" title="March 2004">2004</span>&thinsp;&mdash;&thinsp;copyright &copy; Jonathan
-                    Foucher.&thinsp;&mdash;&thinsp;<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                    <span class="date" title="March 2004">2004</span><br />Copyright &copy; <a href="http://jfoucher.com">Jonathan
+                    Foucher.</a><br /><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"
                        title="You can use this for non-comercial purposes, provided you cite me as the author, and do not modify the content">
                         Creative Commons License
                     </a>.
@@ -191,3 +236,4 @@
 
 </body>
 </html>
+	</div>
