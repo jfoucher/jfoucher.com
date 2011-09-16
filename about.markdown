@@ -1,5 +1,6 @@
 ---
 layout: page
+nav_active: about
 meta_title: About Geeky Nuggets and Jonathan Foucher
 title: About <span class="amp">&amp;</span> Contact
 ---
