@@ -60,7 +60,7 @@
             <ul class="nav nav-header caps">
 				<li><a href="/about.html#notebook" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
 				<li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Archives</a></li>
-				<li><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
+				<li class="active"><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
 				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Subscribe to my posts, by email or in your feed reader" tabindex="0">Feed</a></li>
             </ul>
 			<div class="sitesearch">
@@ -84,31 +84,48 @@
 
 
 		</header> <!-- /#header.center -->
-        <div class="hero">
 
-            <p>Besides developing engaging web application that provide a high return on investment, I like to research
-            and learn new things. This blog relates my experiences as a software developer.</p>
-            <div class="skip">
-                <span>Straight to: <a href="/#notebook" title="Skip straight to the latest article" tabindex="0"
-                accesskey="L">&sect; Latest article</a> <a href="/about.html#contactForm" title="Contact Jonathan Foucher" tabindex="1"
-                accesskey="C">&sect; Contact me</a></span>
-            </div>
-        </div>
 
 		<div id="notebook" class="center clear">
-            <h2 class="clear">FlickHoldr</h2>
+            <h2 class="post-title">FlickHoldr</h2>
+            <div class="meta">
+                <div class="hero">
+
+                    <p>
+                        Dummy images from flickr, by tags
+                    </p>
+                </div>
+                <!-- <span class="pdf">Download a <a href="projects/flickholdr.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
+                <span class="permalink">For referencing: <a href="projects/flickholdr.html" title="[Permalink] FlickHoldr">permalink to this article</a>.</span>
+                    <span class="date" title="Liquid error: undefined method `xmlschema' for "2011/04/24 08:40:44 -0700":String">
+                    <span class="published">Published&thinsp;&bull;</span>
+                    <span class="day">24</span>
+                    <span class="month"><abbr>Apr</abbr></span>
+                    <span class="year">2011</span>
+                </span>
+            </div> <!-- /.meta -->
             <div class="page-content">
 
                 <p>Flickholdr generates images on the fly, to be used as placeholders in html layouts.</p>
 
+
+
+
 <p>To install flickholdr on your server, you will need to be running PHP5.3 with the GD library. Nowadays, it is
 included by default, so you shouldn't have a problem. Just make sure it is activated.</p>
 
+
+
+
 <p>Also install/activate the rewrite module (mod_rewrite), which allows for clean image urls</p>
+
+
+
 
 <p>Copy these files to a publicly accessible folder on your web server. Edit application/config/config.php
 and change $config['base_url'] to the url you will use to access your flickholdr installation.
 Open the corresponding url in your browser. You should be greeted with the home page, similar to the one curently viewable at http://flickholdr.com</p>
+
 
             </div> <!-- /.page-content.colEight -->
             <div id="disqus_thread"></div>

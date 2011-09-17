@@ -1,6 +1,6 @@
 ---
 layout: page
-nav_active: about
+active: about
 meta_title: About Geeky Nuggets and Jonathan Foucher
 meta_keywords: web development, php, wordpress, codeigniter, six pixels, jekyll, github
 title: About <span class="amp">&amp;</span> Contact

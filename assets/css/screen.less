@@ -62,7 +62,10 @@ em{
     font-style:italic;
     font-family: @serifFont;
 }
-
+code{
+    font-family: Monaco,"Andale Mono","Courier New",Courier,monospace;
+    background:#efefef;
+}
 
 #container{
     background:@bg;
@@ -149,6 +152,9 @@ em{
     a:hover{
         border:none;
         color: @navHover;
+    }
+    li.active a{
+        color:@navHover;
     }
     /*
     .sitesearch{

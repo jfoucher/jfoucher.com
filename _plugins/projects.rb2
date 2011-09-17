@@ -37,7 +37,7 @@ module Jekyll
 
       projects=Array.new;
       site.pages.each{ |page|
-        path     = page.subfolder + '/' + page.name
+        path     = '/'+page.subfolder + '/' + page.name
         mod_date = File.mtime(site.source + path)
 
         if page.subfolder=~/projects/
@@ -45,6 +45,9 @@ module Jekyll
               project = Project.new(site, site.source, dir,page.name)
 
               projects << project
+              #project.render(site.layouts, site.site_payload)
+              #project.write(site.dest)
+              #site.pages << project
             end
         end
       }
@@ -56,6 +59,7 @@ module Jekyll
 
   class ProjectsIndexGenerator < Generator
     safe true
+    priority :highest
 
     def generate(site)
       if site.layouts.key? 'projects'
