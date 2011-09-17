@@ -17,7 +17,7 @@
 	<meta name="author" content="Jonathan Foucher" />
 	<meta name="designer" content="Jonathan Foucher" />
 	<meta name="developer" content="Jonathan Foucher" />
-	<meta name="description" content="A quick script that shows a graph of the load on your web server" />
+	<meta name="description" content="A blog about web development, codeigniter and wordpress, by web developer Jonathan Foucher" />
 	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
@@ -60,7 +60,7 @@
             <ul class="nav nav-header caps">
 				<li><a href="/about.html#notebook" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
 				<li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Archives</a></li>
-				<li><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
+				<li class="active"><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
 				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Subscribe to my posts, by email or in your feed reader" tabindex="0">Feed</a></li>
             </ul>
 			<div class="sitesearch">
@@ -84,31 +84,126 @@
 
 
 		</header> <!-- /#header.center -->
-        <div class="hero">
 
-            <p>Besides developing engaging web application that provide a high return on investment, I like to research
-            and learn new things. This blog relates my experiences as a software developer.</p>
-            <div class="skip">
-                <span>Straight to: <a href="/#notebook" title="Skip straight to the latest article" tabindex="0"
-                accesskey="L">&sect; Latest article</a> <a href="/about.html#contactForm" title="Contact Jonathan Foucher" tabindex="1"
-                accesskey="C">&sect; Contact me</a></span>
-            </div>
-        </div>
 
 		<div id="notebook" class="center clear">
-            <h2 class="clear">Server Load Graph</h2>
+            <h2 class="post-title">Server Load Graph</h2>
+            <div class="meta">
+                <div class="hero">
+
+                    <p>
+                        Shows a graph of yourr server load using google chart API
+                    </p>
+                </div>
+                <!-- <span class="pdf">Download a <a href="projects/serverload.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
+                <span class="permalink">For referencing: <a href="projects/serverload.html" title="[Permalink] Server Load Graph">permalink to this article</a>.</span>
+                    <span class="date" title="Liquid error: undefined method `xmlschema' for "2011/09/15 03:15:16 -0700":String">
+                    <span class="published">Published&thinsp;&bull;</span>
+                    <span class="day">15</span>
+                    <span class="month"><abbr>Sep</abbr></span>
+                    <span class="year">2011</span>
+                </span>
+            </div> <!-- /.meta -->
             <div class="page-content">
 
-                <p>Flickholdr generates images on the fly, to be used as placeholders in html layouts.</p>
+                <p>This is a small script I whipped up in about 15 minutes because my web server was slow, and I wanted to be able to see the load and it's evolution, as well as being able to record its evolution to show the people I buy the hosting from how bad things really are ;)</p>
 
-<p>To install flickholdr on your server, you will need to be running PHP5.3 with the GD library. Nowadays, it is
-included by default, so you shouldn't have a problem. Just make sure it is activated.</p>
 
-<p>Also install/activate the rewrite module (mod_rewrite), which allows for clean image urls</p>
 
-<p>Copy these files to a publicly accessible folder on your web server. Edit application/config/config.php
-and change $config['base_url'] to the url you will use to access your flickholdr installation.
-Open the corresponding url in your browser. You should be greeted with the home page, similar to the one curently viewable at http://flickholdr.com</p>
+
+<h2>Requirements</h2>
+
+
+
+
+<ul>
+<li>Mysql, although it is trivial to modify the script to use say a flat text file for data storage</li>
+<li>A linux server (can't get the server load on windows)</li>
+<li>With access to <code>cron</code></li>
+<li>javascript on the client side</li>
+</ul>
+
+
+
+
+<h2>Installation</h2>
+
+
+
+
+<ul>
+<li>Copy wherever you want on your web server</li>
+<li>Change the <code>define</code>d constants to your values</li>
+<li>Create the required database table.</li>
+</ul>
+
+
+
+
+<p>Here is the schema:</p>
+
+
+
+
+<div class="highlight"><pre><code class="sql">    <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">monitor</span> <span class="p">(</span>
+      <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+      <span class="o">`</span><span class="k">timestamp</span><span class="o">`</span> <span class="k">timestamp</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+      <span class="o">`</span><span class="n">load1</span><span class="o">`</span> <span class="nb">float</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+      <span class="o">`</span><span class="n">load5</span><span class="o">`</span> <span class="nb">float</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+      <span class="o">`</span><span class="n">load15</span><span class="o">`</span> <span class="nb">float</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+      <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
+    <span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">MyISAM</span>  <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">latin1</span> <span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">0</span> <span class="p">;</span>
+</code></pre>
+</div>
+
+
+
+
+<ul>
+<li>Update your crontab to execute the script at your chosen frequency</li>
+</ul>
+
+
+
+
+<p>For this last point, it all depends on your web host, sometimes you can create cron tasks from your administration panel, such as cPanel, otherwise, you'll have to login with ssh.</p>
+
+
+
+
+<p>The first case is generally pretty easy:
+just choose how often the load should be updated and put the following command in the command field of your graphical interface:</p>
+
+
+
+
+<div class="highlight"><pre><code class="bash">    php /full/path/to/your/file/uptime.php savetodb
+</code></pre>
+</div>
+
+
+
+
+<p>Of course, change the path to the full path to your file...</p>
+
+
+
+
+<p>If you have to edit your own crontab, just type <code>crontab -e</code>  in the shell to edit and then put the following line, modified to suit:
+just choose how often the load should be updated and put the following command in the command field of your graphical interface:</p>
+
+
+
+
+<div class="highlight"><pre><code class="bash">    */10 * * * * php /full/path/to/your/file/uptime.php savetodb
+</code></pre>
+</div>
+
+
+
+
+<p>This will record a new data point to database every 10 minutes. for something that will run for a long time, I feel it is more than enough, but I'll leave that up to you</p>
+
 
             </div> <!-- /.page-content.colEight -->
             <div id="disqus_thread"></div>

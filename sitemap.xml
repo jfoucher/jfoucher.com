@@ -6,7 +6,7 @@
   </url>
   <url>
       <loc>//archives.html</loc>
-      <lastmod>2011-09-16</lastmod>
+      <lastmod>2011-09-17</lastmod>
   </url>
   <url>
       <loc>//assets/sitemap/</loc>
@@ -18,7 +18,7 @@
   </url>
   <url>
       <loc>//projects/serverload.markdown</loc>
-      <lastmod>2011-09-16</lastmod>
+      <lastmod>2011-09-17</lastmod>
   </url>
   <url>
       <loc>//projects/codeigniter-css-library.markdown</loc>
@@ -30,6 +30,10 @@
   </url>
   <url>
       <loc>//projects/linkers.markdown</loc>
+      <lastmod>2011-09-16</lastmod>
+  </url>
+  <url>
+      <loc>//projects/vessenger.markdown</loc>
       <lastmod>2011-09-16</lastmod>
   </url>
   <url>
@@ -55,6 +59,38 @@
   <url>
       <loc>//about.markdown</loc>
       <lastmod>2011-09-16</lastmod>
+  </url>
+  <url>
+      <loc>/projects/mapfre.markdown</loc>
+      <lastmod>2011-09-16</lastmod>
+  </url>
+  <url>
+      <loc>/projects/flickholdr.markdown</loc>
+      <lastmod>2011-09-16</lastmod>
+  </url>
+  <url>
+      <loc>/projects/ubuntu-skype-indicator.markdown</loc>
+      <lastmod>2011-09-16</lastmod>
+  </url>
+  <url>
+      <loc>/projects/louiseemoi.markdown</loc>
+      <lastmod>2011-09-16</lastmod>
+  </url>
+  <url>
+      <loc>/projects/vessenger.markdown</loc>
+      <lastmod>2011-09-16</lastmod>
+  </url>
+  <url>
+      <loc>/projects/linkers.markdown</loc>
+      <lastmod>2011-09-16</lastmod>
+  </url>
+  <url>
+      <loc>/projects/codeigniter-css-library.markdown</loc>
+      <lastmod>2011-09-16</lastmod>
+  </url>
+  <url>
+      <loc>/projects/serverload.markdown</loc>
+      <lastmod>2011-09-17</lastmod>
   </url>
   <url>
       <loc>/projects/</loc>
