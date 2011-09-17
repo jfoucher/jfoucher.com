@@ -9,7 +9,7 @@
 -->
 <head>
     <title>
-    About Geeky Nuggets and Jonathan Foucher
+        FlickHoldr
         
     </title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -17,8 +17,8 @@
 	<meta name="author" content="Jonathan Foucher" />
 	<meta name="designer" content="Jonathan Foucher" />
 	<meta name="developer" content="Jonathan Foucher" />
-	<meta name="description" content="The blog of Jonathan Foucher, a web developer, founder of Six Pixels and general tinkerer" />
-	<meta name="keywords" content="web development, php, wordpress, codeigniter, six pixels, jekyll, github" />
+	<meta name="description" content="A blog about web development, codeigniter and wordpress, by web developer Jonathan Foucher" />
+	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
     <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
@@ -58,9 +58,9 @@
             </div>
                     <nav id="nav" class="clear">
             <ul class="nav nav-header caps">
-				<li class="active"><a href="/about.html#notebook" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
+				<li><a href="/about.html#notebook" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
 				<li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Archives</a></li>
-				<li><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
+				<li class="active"><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
 				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Subscribe to my posts, by email or in your feed reader" tabindex="0">Feed</a></li>
             </ul>
 			<div class="sitesearch">
@@ -87,57 +87,52 @@
 
 
 		<div id="notebook" class="center clear">
-            <h2 class="post-title">
-                <a href="/about.html#notebook" title="Permanent link to About &amp; Contact">
-                    About <span class="amp">&amp;</span> Contact
-                </a>
-            </h2>
+            <h2 class="post-title">FlickHoldr</h2>
             <div class="meta">
                 <div class="hero">
 
                     <p>
-                        The blog of Jonathan Foucher, a web developer, founder of <a href="http://6px.eu">Six Pixels</a> and general <a href="/projects#notebook">tinkerer</a>
+                        Dummy images from flickr, by tags
                     </p>
                 </div>
-
-                <span class="date" title="Liquid error: undefined method `xmlschema' for nil:NilClass">
-                    <span class="published">First published&thinsp;&bull;</span>
-                    <span class="day">09</span>
-                    <span class="month"><abbr>Mar</abbr></span>
-                    <span class="year">2004</span>
+                <!-- <span class="pdf">Download a <a href="_projects/flickholdr.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
+                <span class="permalink">For referencing: <a href="_projects/flickholdr.html" title="[Permalink] FlickHoldr">permalink to this article</a>.</span>
+                    <span class="date" title="Liquid error: undefined method `xmlschema' for "2011/04/24 08:40:44 -0700":String">
+                    <span class="published">Published&thinsp;&bull;</span>
+                    <span class="day">24</span>
+                    <span class="month"><abbr>Apr</abbr></span>
+                    <span class="year">2011</span>
                 </span>
             </div> <!-- /.meta -->
-            <div class="page-content page">
+            <div class="page-content">
 
-                <p>Founder of <a href="http://6px.eu">Six Pixels</a>, a web design and development shop operating out of spain</p>
+                <p>Flickholdr generates images on the fly, to be used as placeholders in html layouts.</p>
 
-<p>I have a degree in Yacht Design from Southampton Solent University. I am first and foremost a <a href="http://jfoucher.fr">freelance web developper, based in France</a> and working for international companies and public entities.</p>
+<p>To install flickholdr on your server, you will need to be running PHP5.3 with the GD library. Nowadays, it is
+included by default, so you shouldn't have a problem. Just make sure it is activated.</p>
 
-<p>Some of my clients include global companies like Bosch and Coca Cola, and spanish ones such as Fundación Mapfre, Ayuntamiento de Alcobendas and Museo Thyssen.</p>
+<p>Also install/activate the rewrite module (mod_rewrite), which allows for clean image urls</p>
 
-<p>I love working with PHP and Javascript to develop an engaging user experience. I also really enjoy learning new skills. For example, at the moment, I am simultaneously writing an iOs app, an Android app, a Java enterprise web application, moving my blog from <a href="http://jfoucher.com/wordpress/" title="My Wordpress plugins and themes">Wordpress</a> to <a href="https://github.com/mojombo/jekyll/wiki/">Jekyll</a>, developping desktop apps with <a href="http://appcelerator.com">appcelerator Titanium</a> and working on a few PHP webapps.</p>
+<p>Copy these files to a publicly accessible folder on your web server. Edit application/config/config.php
+and change $config['base_url'] to the url you will use to access your flickholdr installation.
+Open the corresponding url in your browser. You should be greeted with the home page, similar to the one curently viewable at http://flickholdr.com</p>
 
-<h3>About this blog</h3>
+            </div> <!-- /.page-content.colEight -->
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                var disqus_shortname = 'geekynuggets'; // required: replace example with your forum shortname
 
-<p>This blog is hosted on <a href="http://guthub.com">github</a>. It's a static website, generated with <a href="http://jekyllrb.com/">Jekyll</a>. You can read my writeup about my [move from Wordpress to Jekyll]</p>
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-<div id="contactForm">
-<script type="text/javascript">var host = (("https:" == document.location.protocol) ? "https://secure." : "http://");document.write(unescape("%3Cscript src='" + host + "wufoo.com/scripts/embed/form.js' type='text/javascript'%3E%3C/script%3E"));</script>
-
-<script type="text/javascript">
-var z7x3k7 = new WufooForm();
-z7x3k7.initialize({
-'userName':'jfoucher',
-'formHash':'z7x3k7',
-'autoResize':true,
-'height':'514',
-'header':'show'});
-z7x3k7.display();
-</script>
-</div>
-
-
-            </div> <!-- /.page-content -->
         </div> <!-- /#notebook.center.clear -->
 
             <footer id="footer" class="clear">

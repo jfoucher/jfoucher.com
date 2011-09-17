@@ -13,14 +13,15 @@ module Jekyll
       @name = name
 
       self.process(@name)
-      self.read_yaml(dir, name)
+      print File.join(base, '_projects')
+      self.read_yaml(File.join(base, '_projects'), name)
       if self.data['type'] == "open_source"
           c = Curl::Easy.perform("http://github.com/api/v2/json/repos/show/jfoucher/" + self.data['gitname'])
           #print c.body_str
           self.data['gitdata'] = JSON.parse(c.body_str)
           #print self.data['gitdata']
       end
-      self.data['test'] = "test"
+      self.data['page_type'] = "project"
 
 
     end
@@ -28,26 +29,22 @@ module Jekyll
 
   class ProjectGenerator < Generator
     safe true
-    priority :highest
+    priority :high
     
 
     def generate(site)
-      if site.layouts.key? 'projects'
-        dir = site.config['projects_dir'] || 'projects'
-        #print dir
-
-
-      base_dir = site.config['project_dir'] || 'projects'
+        dir = site.config['project_dest_dir'] || 'projects'
+      base_dir = site.config['project_dir'] || '_projects'
       projects= []
-      Find.find("projects") do |file|
+      Find.find(base_dir) do |file|
         if file=~/.markdown$/
           projects << file
         end
       end
       projects.each do |project_path|
-        project_name = project_path.sub(/^projects\/([^\.]+)\..*/, '\1')
+        project_name = project_path.sub(/^_projects\/([^\.]+)\..*/, '\1')
         
-        project = Project.new(site, site.source, base_dir, project_name + ".markdown")
+        project = Project.new(site, site.source, dir, project_name + ".markdown")
         project.render(site.layouts, site.site_payload)
         project.write(site.dest)
 
@@ -57,7 +54,6 @@ module Jekyll
         #site.static_files << Jekyll::StaticProjectFile.new(site, site.dest, base_dir, project_name + '.html')
       end
 
-      end
     end
 
     def write_project(site, dir)

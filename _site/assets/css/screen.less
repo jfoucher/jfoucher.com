@@ -9,7 +9,7 @@
 @gutter-width: 30;
 @columns: 16;
 
-/*@total-width:100%;*/
+@total-width:100%;
 
 
 /*
@@ -82,7 +82,7 @@ code{
     position:relative;
     div.logo{
         text-align:center;
-        .column(6);
+        .column(7);
     }
     div.logo{
         h1{
@@ -108,7 +108,7 @@ code{
     }
 
     .siteDesc{
-        .column(10);
+        .column(9);
         font-size:0.95em;
         font-variant: small-caps;
         vertical-align:bottom;
@@ -411,7 +411,7 @@ div.hero{
         .offset(1);
         margin-bottom:2em;
         li.project{
-            padding:2em;
+            padding:3.7%;
             .column(5,12);
             margin-left:0;
             .text-shadow(0,1px,2px,rgba(0,0,0,0.2));
@@ -456,49 +456,57 @@ div.hero{
             background:none;
         }
         li.project.client{
-            padding:2em;
+            
+            padding:3.7%;
             .column(11,12);
             .row(11);
             .project-thumb{
-                .column(5,11);
-                width:320px;
+                .column(5,10);
+                max-width:320px;
                 position:relative;
+
                 img{
                     position:relative;
-                    .boxshadow(0,6px,25px,rgba(0,0,0,0.1));
+                    z-index:2;
+                    background:#fff; /* TODO put spinner in background? */
+                    border:1px solid #d2d2d2;
+                .radius(6px);
+                    .boxshadow(0,0,12px,rgba(0,0,0,0.1));
+
                 }
 
             }
-            .project-thumb:before{
-                -webkit-transform:rotate(-5deg);
-                -moz-transform:rotate(-5deg);
+
+            .project-thumb:after{
+
                 content:' ';
                 position:absolute;
-                z-index:0;
-                bottom:15px;
-                left:0px;
-                width:160px;
-                height:30px;
-                /*border:1px solid #000;*/
-                .boxshadow(10px,6px,25px,rgba(0,0,0,0.1));
+                z-index:1;
+                bottom:10px;
+                right:20px;
+                left:20px;
+                height:20px;
+                -moz-border-top-left-radius:     50% 50%;
+                -moz-border-top-right-radius:    50% 50%;
+                -moz-border-bottom-right-radius: 50% 50%;
+                -moz-border-bottom-left-radius:  50% 50%;
+                -webkit-border-top-left-radius:     50% 50%;
+                -webkit-border-top-right-radius:    50% 50%;
+                -webkit-border-bottom-right-radius: 50% 50%;
+                -webkit-border-bottom-left-radius:  50% 50%;
+                border-top-left-radius:     50% 50%;
+                border-top-right-radius:    50% 50%;
+                border-bottom-right-radius: 50% 50%;
+                border-bottom-left-radius:  50% 50%;
+                /*border:1px solid #666;*/
+                .boxshadow(0,0,12px,rgba(0,0,0,0.8));
 
             }
-            .project-thumb:after{
-                -webkit-transform:rotate(5deg);
-                -moz-transform:rotate(5deg);
-                content:' ';
-                position:absolute;
-                z-index:-1;
-                bottom:15px;
-                right:0px;
-                width:160px;
-                height:30px;
-                /*border:1px solid #000;*/
-                .boxshadow(-10px,0px,12px,rgba(0,0,0,0.1));
-
+            .project-thumb:hover:after{
+                .boxshadow(0,0,5px,rgba(0,0,0,0.8));
             }
             .project-description{
-                .column(7,11);
+                .column(6,11);
             }
         }
 
@@ -643,19 +651,81 @@ Utility clases
 /* Media Queries
 -------------------------------------*/
 
-@media (max-width: 960px) {
+@media (max-width: 1600px) {
 
     #container{
 
-        width:  950px;
+        width:  1160px;
     }
 
+
 }
-@media (max-width: 768px) {
+
+@media (max-width: 1280px) {
+
+    #container{
+        width:  950px;
+    }
+    #header{
+        div.logo{
+            text-align:center;
+            .column(10);
+        }
+        .siteDesc{
+            .column(6);
+            line-height:1.7em;
+        }
+    }
+    #aside{
+        display:none;
+    }
+    div.hero{
+        .column(16,16);
+    }
+    #notebook{
+        .meta{
+            .column(4,16);
+        }
+        #entry-content,.page-content{
+            .column(11,16);
+            .offset(1);
+        }
+
+        .page-content.projects{
+            .column(15,16);
+            .offset(1);
+
+            margin-bottom:2em;
+            li.project{
+                padding:3.7%;
+                .column(6,15);
+            }
+            li.project.client{
+                padding:3.7%;
+                .column(14,15);
+                .row(14);
+                .project-thumb{
+                    .column(5,14);
+
+                }
+                .project-description{
+                    .column(7,14);
+                }
+            }
+
+        }
+    }
+
+
+    #footer #nav-footer li a {
+        padding: 1em 2em;
+    }
+}
+@media (max-width: 980px) {
 
     #container{
 
-        width:  760px;
+        width:  720px;
     }
 
     
@@ -666,5 +736,8 @@ Utility clases
 }
 
 @media (max-width:480px){
+
+}
+@media (max-width:320px){
 
 }

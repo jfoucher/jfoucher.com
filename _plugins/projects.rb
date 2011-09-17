@@ -5,25 +5,6 @@ require 'json'
 module Jekyll
 
 
-  class Project < Page
-    def initialize(site, base, dir,name)
-      @site = site
-      @base = base
-      @dir = dir
-      @name = name
-
-      self.process(@name)
-      self.read_yaml(dir, name)
-      if self.data['type'] == "open_source"
-          c = Curl::Easy.perform("http://github.com/api/v2/json/repos/show/jfoucher/" + self.data['gitname'])
-          #print c.body_str
-          self.data['gitdata'] = JSON.parse(c.body_str)
-          #print self.data['gitdata']
-      end
-
-
-    end
-  end
 
   class ProjectsIndex < Page
     def initialize(site, base, dir)
@@ -37,18 +18,11 @@ module Jekyll
 
       projects=Array.new;
       site.pages.each{ |page|
-        path     = '/'+page.subfolder + '/' + page.name
-        mod_date = File.mtime(site.source + path)
-
-        if page.subfolder=~/projects/
-            unless page.name=~/index/
-              project = Project.new(site, site.source, dir,page.name)
-
-              projects << project
-              #project.render(site.layouts, site.site_payload)
-              #project.write(site.dest)
-              #site.pages << project
-            end
+        #path     = '/'+page.subfolder + '/' + page.name
+        #mod_date = File.mtime(site.source + path)
+       
+        if page.data['page_type'] = 'project'
+              projects << page
         end
       }
 
@@ -59,7 +33,7 @@ module Jekyll
 
   class ProjectsIndexGenerator < Generator
     safe true
-    priority :highest
+    priority :low
 
     def generate(site)
       if site.layouts.key? 'projects'
