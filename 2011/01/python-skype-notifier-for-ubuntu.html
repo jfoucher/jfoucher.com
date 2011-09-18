@@ -146,7 +146,21 @@
 <h3>Anyway, to the coding!</h3>
 
 
-<p>Liquid error:</p>
+
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/env python</span>
+
+<span class="kn">import</span> <span class="nn">indicate</span>
+<span class="kn">import</span> <span class="nn">gobject</span>
+<span class="kn">import</span> <span class="nn">pynotify</span>
+<span class="kn">import</span> <span class="nn">gtk</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">Skype4Py</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</code></pre>
+</div>
+
 
 <p>The first line tell the host system to use python to interpret that file</p>
 
@@ -377,7 +391,16 @@ Next, we create the notification server instance, choose an icon, connect the fu
 
 <p>And finally, the indicator events callbacks (what happens when we click on the skype indicator, or on a particular message</p>
 
-<p>Liquid error:</p>
+<div class="highlight"><pre><code class="python">   <span class="k">def</span> <span class="nf">display_msg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indicator</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">):</span>
+        <span class="c">#hide this indicator</span>
+        <span class="n">indicator</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+        <span class="c">#messaging menu goes back to normal</span>
+        <span class="n">indicator</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s">&quot;draw-attention&quot;</span><span class="p">,</span> <span class="s">&quot;false&quot;</span><span class="p">)</span>
+        <span class="c"># open the skype chat window for this user</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">skype</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">OpenMessageDialog</span><span class="p">(</span><span class="n">indicator</span><span class="o">.</span><span class="n">get_property</span><span class="p">(</span><span class="s">&quot;handle&quot;</span><span class="p">))</span>
+</code></pre>
+</div>
+
 
 <p>At the end of the file, we start everything :</p>
 
