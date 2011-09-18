@@ -909,7 +909,9 @@ Utility clases
         }
     }
     #nav{
-        text-align:center;
+        ul{
+            text-align:center;
+        }
         a{
             padding:0.5em 0.8em;
             font-size:0.9em;
@@ -963,13 +965,22 @@ Utility clases
 
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) or (max-width:480px)  {
   /* iPhone, Android rules here */
 
     #container{
 
-        width:  314px;
-        padding:0 3px;
+        width:  100%;
+        padding:0;
+    }
+    #nav{
+        a{
+            padding:0.4em;
+            font-size:0.8em;
+        }
+        li:last-child a{
+            padding-right:0.4em;
+        }
     }
 
 }
