@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>2011-09-18T15:07:22+02:00</updated>
+	<updated>2011-09-18T15:09:59+02:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -30,50 +30,7 @@
 
 &lt;p&gt;&lt;a title=&quot;server load graph on github&quot; href=&quot;https://github.com/jfoucher/Server-load-graph&quot; target=&quot;_blank&quot;&gt;Get the source on github&lt;/a&gt;&lt;/p&gt;
 
-&lt;div id=&quot;readme&quot;&gt;
-&lt;div&gt;
-
-&lt;h3&gt;Requirements&lt;/h3&gt;
-&lt;ul&gt;
-    &lt;li&gt;Mysql, although it is trivial to modify the script to use say a flat text file for data storage&lt;/li&gt;
-    &lt;li&gt;A linux server (can't get the server load on windows)&lt;/li&gt;
-    &lt;li&gt;With access to &lt;code inline=&quot;true&quot;&gt;cron&lt;/code&gt;&lt;/li&gt;
-    &lt;li&gt;javascript on the client side&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Installation&lt;/h3&gt;
-&lt;ul&gt;
-    &lt;li&gt;Copy wherever you want on your web server&lt;/li&gt;
-    &lt;li&gt;Change the &lt;code inline=&quot;true&quot;&gt;define&lt;/code&gt;d constants to your values&lt;/li&gt;
-    &lt;li&gt;Create the required database table.
-Here is the schema:
-
-&lt;pre&gt;&lt;code&gt;
-CREATE TABLE IF NOT EXISTS monitor (
-    `id` int(11) NOT NULL AUTO_INCREMENT,
-    `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `load1` float NOT NULL,
-    `load5` float NOT NULL,
-    `load15` float NOT NULL, PRIMARY KEY (`id`) )
-    ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-
-    &lt;li&gt;Update your crontab to execute the script at your chosen frequency
-
-For this last point, it all depends on your web host, sometimes you can create cron tasks from your administration panel, such as cPanel, otherwise, you'll have to login with ssh.
-
-The first case is generally pretty easy: just choose how often the load should be updated and put the following command in the command field of your graphical interface:
-&lt;pre&gt;&lt;code&gt;php /full/path/to/your/file/uptime.php savetodb &lt;/code&gt;&lt;/pre&gt;
-Of course, change the path to the full path to your file...
-
-If you have to edit your own crontab, just type &lt;code&gt;crontab -e&lt;/code&gt; in the shell to edit and then put the following line, modified to suit:
-&lt;pre&gt;&lt;code&gt;*/10 * * * * php /full/path/to/your/file/uptime.php savetodb &lt;/code&gt;&lt;/pre&gt;
-This will record a new data point to database every 10 minutes. for something that will run for a long time, I feel it is more than enough, but I'll leave that up to you
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
+&lt;p&gt;(http://blog.jfoucher.com/projects/serverload.html)[installation and project details]&lt;/p&gt;
 &lt;a href=&quot;http://jfoucher.com/2011/09/a-10-minute-script-to-graph-your-server-load.html&quot;&gt;A 10 minute script to graph your server load&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
