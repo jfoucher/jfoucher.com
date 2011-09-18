@@ -768,6 +768,16 @@ Utility clases
 
             .column(16,16);
             .offset(0);
+            
+            div.image-with-caption{
+                max-width:95%;
+            }
+            img, div.image-with-caption img{
+                width:100%;
+                height:100%;
+            }
+
+
             ul{margin-left:0;list-style:none;}
             li{
                 .row(16);
@@ -822,6 +832,9 @@ Utility clases
                     }
                     
 
+                }
+                .project-thumb:after{
+                    bottom:2px;
                 }
 
                 .project-description{
