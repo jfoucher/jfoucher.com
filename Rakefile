@@ -17,12 +17,18 @@ end
 
 
 desc 'Build and deploy'
-task :deploy => :copy do
+task :deploy do
+  sh 'cd assets/css/;lessc screen.less > screen.css; mv *.less ../../_assets/;cd ../..'
+  sh "sed -i'.bkp' -e's/stylesheet.less/stylesheet/' _includes/head.html"
+  sh "sed -i'.bkp' -e's/screen.less/screen.css/' _includes/head.html"
+
+  jekyll
   sh 'cp -r _site/* /var/www/jfoucher.github/'
   #sh 'cd _static/'
   sh 'cd /var/www/jfoucher.github; git add .; git commit -am"Building and pushing with rake"; git push'
   #sh 'git commit -am"Building and pushing with rake"'
   #sh 'git push'
+  sh 'cd /var/www/jfoucher.github.com/; cp _assets/*.less assets/css/'
 end
 
 desc 'Local deploy'

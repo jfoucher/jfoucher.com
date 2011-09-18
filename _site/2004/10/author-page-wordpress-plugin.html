@@ -22,14 +22,14 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
     <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet/less" href="/assets/css/screen.less" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 
     <script src="/assets/js/jquery.timeago.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/assets/js/app.js"></script>
     <!--<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />-->
-    <script src="/assets/js/less-1.1.4.js" type="text/javascript"></script>
+    <!--<script src="/assets/js/less-1.1.4.js" type="text/javascript"></script>-->
     <!--[if lt IE 9]>
     <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -41,6 +41,7 @@
 
 </head>
 <body>
+
 
 	<div id="container" class="clearfix">
 		                <header id="header" class="center">
@@ -182,22 +183,22 @@ You may want to change some of the text in the plugin file to your own language.
 <p><a href=http://jfoucher.info/2004/10/08/plugin-wordpress-page-auteur/" hreflang="fr">En Fran?ais</a></p>
 
 
+
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'geekynuggets'; // required: replace example with your forum shortname
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
             </div> <!-- /.entry-content.colEight -->
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'geekynuggets'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
             <div class="page-nav-bottom">
                 
 				    <span class="page-nav-item page-prev"><a class="internal" rel="prev"  href="/2004/10/mise-jour-de-s%25ef%25bf%25bdcurit%25ef%25bf%25bd-pour-firefox-10pr.html#notebook" title="Read Mise   jour de s?curit? pour Firefox 1.0PR">&larr; View previous article</a></span>
@@ -247,6 +248,19 @@ You may want to change some of the text in the plugin file to your own language.
     })();
 
     </script>
+            
+    <!-- Piwik -->
+    <script type="text/javascript">
+    var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.6px.eu/" : "http://stats.6px.eu/");
+    document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script type="text/javascript">
+    try {
+    var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+    piwikTracker.trackPageView();
+    piwikTracker.enableLinkTracking();
+    } catch( err ) {}
+    </script><noscript><p><img src="http://stats.6px.eu/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+    <!-- End Piwik Tracking Code -->
 
 </body>
 </html>
