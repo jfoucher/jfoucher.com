@@ -1,0 +1,57 @@
+<p>This is a quick and dirty PHP script that I whipped up in about 10 minutes, used to show the load averages on the server it is placed.</p>
+
+<p>Here are the load curves for the server that hosts most of my websites at the moment. It is an overworked shared server, which explains why all the curves are through the roof...</p>
+
+<iframe src="http://xiilo.com/uptime.php" width="650" height="450"></iframe>
+
+
+<p>The load is updated every minute with a crontab that calls this same script.</p>
+
+<p>The visualization is done using the Google chart API, which does require javascript but offers some great chart options, the "annotatedtimeline" being especially suitable to my purpose.</p>
+
+<p><a title="server load graph on github" href="https://github.com/jfoucher/Server-load-graph" target="_blank">Get the source on github</a></p>
+
+<div id="readme">
+<div>
+
+<h3>Requirements</h3>
+<ul>
+    <li>Mysql, although it is trivial to modify the script to use say a flat text file for data storage</li>
+    <li>A linux server (can't get the server load on windows)</li>
+    <li>With access to <code inline="true">cron</code></li>
+    <li>javascript on the client side</li>
+</ul>
+<h3>Installation</h3>
+<ul>
+    <li>Copy wherever you want on your web server</li>
+    <li>Change the <code inline="true">define</code>d constants to your values</li>
+    <li>Create the required database table.
+Here is the schema:
+
+<pre><code>
+CREATE TABLE IF NOT EXISTS monitor (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `load1` float NOT NULL,
+    `load5` float NOT NULL,
+    `load15` float NOT NULL, PRIMARY KEY (`id`) )
+    ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
+</code></pre>
+</li>
+
+    <li>Update your crontab to execute the script at your chosen frequency
+
+For this last point, it all depends on your web host, sometimes you can create cron tasks from your administration panel, such as cPanel, otherwise, you'll have to login with ssh.
+
+The first case is generally pretty easy: just choose how often the load should be updated and put the following command in the command field of your graphical interface:
+<pre><code>php /full/path/to/your/file/uptime.php savetodb </code></pre>
+Of course, change the path to the full path to your file...
+
+If you have to edit your own crontab, just type <code>crontab -e</code> in the shell to edit and then put the following line, modified to suit:
+<pre><code>*/10 * * * * php /full/path/to/your/file/uptime.php savetodb </code></pre>
+This will record a new data point to database every 10 minutes. for something that will run for a long time, I feel it is more than enough, but I'll leave that up to you
+</li>
+</ul>
+</div>
+</div>
+
