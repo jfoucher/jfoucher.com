@@ -81,7 +81,6 @@ code{
     margin-top:2em;
     position:relative;
     div.logo{
-        text-align:center;
         .column(7);
     }
     div.logo{
@@ -383,20 +382,29 @@ div.hero{
             clear:both;
             margin:1em 0;
         }
+
+        ul{
+            list-style:disc;
+            margin-left:2em;
+            li {
+
+            }
+        }
         p{
             margin-bottom:1.2em;
         }
-        p:first-child:first-letter{
+        > p:first-child:first-letter{
             font-size:6em;
             color:@navHover;
             float:left;
             display:block;
-            margin-left:0;
+            margin:0 5px 0 0 ;
             font-family: Georgia, "Times New Roman", times, serif;
             line-height:0.9em;
         }
-        p:first-child:first-line{
+        > p:first-child:first-line{
             font-variant:small-caps;
+            text-transform: uppercase;
             
         }
         #contactForm{
@@ -666,10 +674,10 @@ Utility clases
 
     #container{
         width:  950px;
+        padding:0 10px;
     }
     #header{
         div.logo{
-            text-align:center;
             .column(10);
         }
         .siteDesc{
@@ -706,7 +714,8 @@ Utility clases
                 .column(14,15);
                 .row(14);
                 .project-thumb{
-                    .column(5,14);
+                    min-width:320px;
+                    .column(6,14);
 
                 }
                 .project-description{
@@ -727,7 +736,102 @@ Utility clases
     #container{
 
         width:  720px;
+        padding:0 10px;
     }
+    #header{
+        div.logo{
+            .column(9);
+            font-size:0.7em;
+        }
+        .siteDesc{
+            .column(7);
+
+        }
+    }
+    #nav{
+        a{
+            padding:1em 1.5em;
+        }
+        li:last-child a{
+            padding-right:0;
+        }
+    }
+
+    #notebook.archives{
+        .meta {
+            display:none;
+        }
+        #entry-content{
+
+            .column(16,16);
+            .offset(0);
+            ul{margin-left:0;list-style:none;}
+            li{
+                .row(16);
+                a{
+
+                    span.date{
+                        .column(5,16);
+                        
+                    }
+                    .day{
+                        .column(1,5);
+                    }
+                     .year, .month{
+                        .column(2,5)
+                    }
+
+                    span.title{
+                        .column(11,16);
+                        
+                    }
+                    span.excerpt{
+                        .column(11,16);
+                        .offset(5);
+                    }
+                }
+            }
+        }
+    }
+    #notebook{
+        .page-content.projects{
+            .column(16,16);
+            .offset(0);
+            margin-left:0;
+            margin-bottom:2em;
+            ul{margin-left:0;list-style:none;}
+            li.project{
+                padding:1.8%;
+                .column(7,16);
+                .offset(0);
+
+            }
+
+            li.project.client{
+
+                padding:0;
+                .column(16,16);
+                .row(16);
+                .project-thumb{
+                    .column(7,16);
+                    img{
+                        .column(7,16);
+                    }
+                    
+
+                }
+
+                .project-description{
+                    .column(9,16);
+                }
+            }
+
+
+        }
+    }
+
+
+
 
     
 }
