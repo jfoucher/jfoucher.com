@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>2011-09-19T00:11:20+02:00</updated>
+	<updated>2011-09-19T00:51:53+02:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -464,10 +464,9 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<link href="http://jfoucher.com/2011/02/installing-running-apc-cache-codeigniter.html"/>
 		<updated>2011-02-13T23:33:33+01:00</updated>
 		<id>http://jfoucher.com/2011/02/installing-running-apc-cache-codeigniter</id>
-		<content type="html">&lt;p&gt;Codeigniter 2 now includes an excellent cache driver, which makes it dead easy to use any one of the great available cache librairies such as &lt;a href=&quot;http://php.net/apc&quot;&gt;APC&lt;/a&gt; o &lt;a href=&quot;http://www.memcached.org/&quot;&gt;memcached&lt;/a&gt;. In this post I will focus on APC, it's installation on an &lt;a href=&quot;/?p=193&quot;&gt;Ubuntu 10.04 server&lt;/a&gt;, and a few benchmarks to compare the various cache systems.  For my testing, I will use an Ubuntu Server installation, on a VirtualBox virtual machine with 256 Mb of RAM and a single processor. This enables me to test things until everything breaks, than just scrap that VM and start with a clean one. However, a description of this setup is a story for another day...&lt;/p&gt;
+		<content type="html">&lt;p&gt;Codeigniter 2 now includes an excellent cache driver, which makes it dead easy to use any one of the great available cache librairies such as &lt;a href=&quot;http://php.net/apc&quot;&gt;APC&lt;/a&gt; or &lt;a href=&quot;http://www.memcached.org/&quot;&gt;memcached&lt;/a&gt;. In this post I will focus on APC, it's installation on an &lt;a href=&quot;/?p=193&quot;&gt;Ubuntu 10.04 server&lt;/a&gt;, and a few benchmarks to compare the various cache systems.  For my testing, I will use an Ubuntu Server installation, on a VirtualBox virtual machine with 256 Mb of RAM and a single processor. This enables me to test things until everything breaks, than just scrap that VM and start with a clean one. However, a description of this setup is a story for another day...&lt;/p&gt;
 
 &lt;h3&gt;Installation&lt;/h3&gt;
-
 
 &lt;p&gt;On Ubuntu, and on other debian based linuxes, you can install APC by typing&lt;/p&gt;
 
@@ -501,35 +500,26 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;h3&gt;Benchmarks&lt;/h3&gt;
 
-
 &lt;p&gt;These are the results for 50 concurrent connections : For APC we get about 43 requests/s, with the file caching mecanism around 25, requests/s, and with no cache at all we are below 18 requests/s&lt;/p&gt;
 
 &lt;p style=&quot;text-align: center;&quot;&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/02/chart22.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-387&quot; title=&quot;Codeigniter APC cache benchmark&quot; src=&quot;http://cdn.jfoucher.com/uploads/2011/02/chart22.png&quot; alt=&quot;APC: 43, File: 25, None: 18 &quot; width=&quot;560&quot; height=&quot;260&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 
-&lt;p style=&quot;text-align: left;&quot;&gt;For low concurency (2) the improvement when using APC is similar: in this case the number of requests per second nearly doubled, from 19 to 47 between the case without any caching system and the APC case&lt;/p&gt;
+&lt;p&gt;For low concurency (2) the improvement when using APC is similar: in this case the number of requests per second nearly doubled, from 19 to 47 between the case without any caching system and the APC case&lt;/p&gt;
 
 
-&lt;p style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/02/chart2.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-383&quot; title=&quot;Codeigniter cache benchmark: low concurency&quot; src=&quot;http://cdn.jfoucher.com/uploads/2011/02/chart2.png&quot; alt=&quot;APC: 46.37 rps, File: 27.23 rps, None: 18.99 rps&quot; width=&quot;560&quot; height=&quot;260&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/02/chart2.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-383&quot; title=&quot;Codeigniter cache benchmark: low concurency&quot; src=&quot;http://cdn.jfoucher.com/uploads/2011/02/chart2.png&quot; alt=&quot;APC: 46.37 rps, File: 27.23 rps, None: 18.99 rps&quot; width=&quot;560&quot; height=&quot;260&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 
-&lt;p style=&quot;text-align: left;&quot;&gt;So just turning the default codeigniter cache on gives us a significant speed improvement, going all the way and installing APC can nearly double the speed of your application. Not too shabby I should think.&lt;/p&gt;
+&lt;p&gt;So just turning the default codeigniter cache on gives us a significant speed improvement, going all the way and installing APC can nearly double the speed of your application. Not too shabby I should think.&lt;/p&gt;
 
 
-&lt;p style=&quot;text-align: left;&quot;&gt;It is &lt;strong&gt;so&lt;/strong&gt; easy to take advantage of this caching mechasism on Codeigniter 2 that it would really be a pity not to do so!&lt;/p&gt;
+&lt;p&gt;It is &lt;strong&gt;so&lt;/strong&gt; easy to take advantage of this caching mechasism on Codeigniter 2 that it would really be a pity not to do so!&lt;/p&gt;
 
 
-&lt;p style=&quot;text-align: left;&quot;&gt;The only caching library missing here is memcached. Have you tried any of these caching libraries with codeigniter 2?&lt;/p&gt;
+&lt;p&gt;The only caching library missing here is memcached. Have you tried any of these caching libraries with codeigniter 2?&lt;/p&gt;
 
 
-&lt;p style=&quot;text-align: left;&quot;&gt;&lt;/p&gt;
-
-
-&lt;p&gt;
-&lt;/p&gt;
-
-
-&lt;p&gt;&lt;/p&gt;
 
 &lt;a href=&quot;http://jfoucher.com/2011/02/installing-running-apc-cache-codeigniter.html&quot;&gt;Installing and running APC cache with CodeIgniter&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>

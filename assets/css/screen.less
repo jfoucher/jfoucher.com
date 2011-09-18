@@ -299,7 +299,11 @@ div.hero{
 
 }
 
-
+#jonathan{
+    display:block;
+    float:left;
+    margin-right:1em;
+}
 #notebook{
     .column(16);
     padding-top:2em;
@@ -738,7 +742,7 @@ Utility clases
 
     #container{
 
-        width:  720px;
+        width:  700px;
         padding:0 10px;
     }
     #header{
@@ -769,13 +773,7 @@ Utility clases
             .column(16,16);
             .offset(0);
             
-            div.image-with-caption{
-                max-width:95%;
-            }
-            img, div.image-with-caption img{
-                width:100%;
-                height:100%;
-            }
+
 
 
             ul{margin-left:0;list-style:none;}
@@ -807,6 +805,15 @@ Utility clases
         }
     }
     #notebook{
+        #entry-content{
+            div.image-with-caption{
+                max-width:95%;
+            }
+            img, div.image-with-caption img{
+                max-width:100%;
+                height:100%;
+            }
+        }
         .page-content.projects{
             .column(16,16);
             .offset(0);
@@ -851,14 +858,117 @@ Utility clases
 
     
 }
+@media (max-width: 728px) {
+    #container{
+
+        width:  600px;
+        padding:0 5px;
+    }
+
+    #notebook{
+        #entry-content,.page-content{
+            .column(16);
+            .offset(0);
+        }
+        .meta{
+            .column(16);
+            .hero{
+                .column(16);
+                .offset(0);
+                margin:0;
+            }
+            margin-bottom:1em;
+            .permalink{
+                float:right;
+            }
+        }
+    }
+    #footer #nav-footer li a{
+        padding:0.6em 1em;
+    }
+
+
+}
 @media (max-width: 640px) {
+    #container{
+
+        width:  450px;
+        padding:0 5px;
+    }
+    #header{
+        text-align:center;
+        padding-top:1em;
+        div.logo{
+            .column(16);
+            font-size:0.7em;
+        }
+        .siteDesc{
+            .column(16);
+
+        }
+    }
+    #nav{
+        text-align:center;
+        a{
+            padding:0.5em 0.8em;
+            font-size:0.9em;
+        }
+        li:last-child a{
+            padding-right:0.8em;
+        }
+    }
+    #notebook{
+        padding-top:1em;
+        h2.post-title{
+            margin:0.4em 0;
+        }
+        .page-content.projects{
+            li.project{
+                .column(16);
+            }
+            li.project.client{
+
+                padding:0 0 2em 0;
+                .column(16,16);
+                .row(16);
+                .project-thumb{
+                    .column(16);
+                    text-align:center;
+                    
+                    img{
+                        .column(16);
+                    }
+                    margin-bottom:1em;
+
+
+                }
+                .project-thumb:after{
+                    bottom:2px;
+                }
+
+                .project-description{
+                    .column(16);
+                }
+            }
+        }
+
+    }
+    #footer #nav-footer{
+
+        clear:right;
+    }
+
 
 
 }
 
-@media (max-width:480px){
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  /* iPhone, Android rules here */
 
-}
-@media (max-width:320px){
+    #container{
+
+        width:  314px;
+        padding:0 3px;
+    }
 
 }
