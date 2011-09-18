@@ -115,7 +115,7 @@ div.hero div.skip a{display:block;float:right;width:7em;clear:right;}
 #notebook #entry-content ul,#notebook .page-content ul{list-style:disc;margin-left:2em;}
 #notebook #entry-content p,#notebook .page-content p{margin-bottom:1.2em;}
 #notebook #entry-content p:first-child:first-letter,#notebook .page-content p:first-child:first-letter{font-size:6em;color:#ff8000;float:left;display:block;margin:0 5px 0 0 ;font-family:Georgia,"Times New Roman",times,serif;line-height:0.9em;}
-#notebook #entry-content p:first-child:first-line,#notebook .page-content p:first-child:first-line{text-transform:uppercase;}
+#notebook #entry-content p:first-child:first-line,#notebook .page-content p:first-child:first-line{font-variant:small-caps;text-transform:uppercase;}
 #notebook #entry-content #contactForm,#notebook .page-content #contactForm{margin-left:-6px;}
 #notebook .page-content.projects{display:inline;float:left;width:72.65625%;margin:0 1.171875%;margin-left:7.421875%;margin-bottom:2em;}#notebook .page-content.projects li.project{padding:3.7%;display:inline;float:left;width:38.54166666666667%;margin:0 1.5625%;margin-left:0;-webkit-text-shadow:0 1px 2px rgba(0, 0, 0, 0.2);-moz-text-shadow:0 1px 2px rgba(0, 0, 0, 0.2);-o-text-shadow:0 1px 2px rgba(0, 0, 0, 0.2);-khtml-text-shadow:0 1px 2px rgba(0, 0, 0, 0.2);text-shadow:0 1px 2px rgba(0, 0, 0, 0.2);}#notebook .page-content.projects li.project h3{margin-top:0;}
 #notebook .page-content.projects li.project .project-meta{float:left;}#notebook .page-content.projects li.project .project-meta .forks .num,#notebook .page-content.projects li.project .project-meta .watchers .num{display:inline-block;font-family:Georgia,"Times New Roman",times,serif;width:1.5em;color:#ff8000;}
