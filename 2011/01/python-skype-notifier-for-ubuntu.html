@@ -218,7 +218,102 @@ Next, we create the notification server instance, choose an icon, connect the fu
 
 <p>This next function is where the meat of the process takes place. Please read the inline comments to understand how it works, and ask for clarification by <a href="#respond">posting a comment</a>.</p>
 
-<p>Liquid error:</p>
+<div class="highlight"><pre><code class="python">   <span class="k">def</span> <span class="nf">create_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;Loads skype messages, displays them as notification bubbles and also shows them in the messaging menu&quot;&quot;&quot;</span>
+
+        <span class="c">#initialize count dictionaries</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="o">=</span><span class="p">{}</span>
+        <span class="c">#get unread messages from skype, set self.unread variable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_messages</span><span class="p">()</span>
+
+        <span class="c">#self.unread is a dictionary having the username of the sender as key and a list of messages as value</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">unread</span><span class="p">:</span>
+
+            <span class="c"># Here we look at the first message from this user to set the messaging menu indicator</span>
+            <span class="c"># we only want one indicator per user</span>
+            <span class="n">msg</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">unread</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="c">#initialize message count for this user</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">oldcount</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">oldcount</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+
+            <span class="c"># if this user doesn&#39;t have his indicator yet</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">indicator</span><span class="p">:</span>
+                <span class="c"># create indicator</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">indicator</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">indicate</span><span class="o">.</span><span class="n">Indicator</span><span class="p">()</span>
+                <span class="k">print</span> <span class="s">&quot;creating indicator&quot;</span>
+
+                <span class="c"># Set indicator properties</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fullname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name_from_handle</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">indicator</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s">&quot;subtype&quot;</span><span class="p">,</span> <span class="s">&quot;im&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">indicator</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s">&quot;sender&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fullname</span> <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">indicator</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s">&quot;handle&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+                <span class="c">#this gets the most user-friendly name available for this user</span>
+                <span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_from_handle</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+                <span class="c"># get an avatar for this user</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c"># This will only work on windows</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">=</span><span class="n">name</span> <span class="o">+</span> <span class="s">&#39;.jpg&#39;</span>
+                    <span class="n">user</span><span class="o">.</span><span class="n">SaveAvatarToFile</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+                <span class="k">except</span> <span class="n">Skype4Py</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">ISkypeError</span><span class="p">:</span>
+                    <span class="c"># So on linux we use a generated monster ID. Fun but useless!</span>
+                    <span class="n">h</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+                    <span class="c">#TODO find a way to get skype avatars on linux</span>
+                    <span class="n">urllib</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s">&#39;http://friedcellcollective.net/monsterid/monster/</span><span class="si">%s</span><span class="s">/64&#39;</span> <span class="o">%</span> <span class="n">h</span><span class="p">,</span><span class="n">name</span> <span class="o">+</span> <span class="s">&#39;.jpg&#39;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">=</span><span class="n">name</span> <span class="o">+</span> <span class="s">&#39;.jpg&#39;</span>
+
+                <span class="c">#convert the imge to a pixbuf</span>
+                <span class="n">pixbuf</span><span class="o">=</span><span class="n">gtk</span><span class="o">.</span><span class="n">gdk</span><span class="o">.</span><span class="n">pixbuf_new_from_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">)</span>
+                <span class="c"># for use in the indicator</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">indicator</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">set_property_icon</span><span class="p">(</span><span class="s">&quot;icon&quot;</span><span class="p">,</span> <span class="n">pixbuf</span><span class="p">)</span>
+
+                <span class="c"># set the timestamp of the indicator (this is what makes the indicator display the time since the message was received</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">indicator</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">set_property_time</span><span class="p">(</span><span class="s">&quot;time&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">indicator</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+                <span class="c"># when the user clicks on the indicator message, open the skype messaging window for this user</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">indicator</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&quot;user-display&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">display_msg</span><span class="p">)</span>
+                
+            <span class="n">msgbody</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+            <span class="c">#reverse list so latest message is at the bottom</span>
+            <span class="k">for</span> <span class="n">eachmsg</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">unread</span><span class="p">[</span><span class="n">name</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="c"># msgbody contains all the messages from that user so far</span>
+                <span class="n">msgbody</span> <span class="o">+=</span> <span class="n">eachmsg</span><span class="o">.</span><span class="n">Body</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+
+            <span class="c"># We set this person&#39;s indicator body to the compound text</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">indicator</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s">&quot;body&quot;</span><span class="p">,</span> <span class="n">msgbody</span><span class="p">)</span>
+
+            <span class="c"># if there are more than one message from this user, we set the indicator count to be displayed in the messaging menu.</span>
+            <span class="c"># Otherwise the time elapsed since receiving the message will be shown</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">indicator</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s">&quot;count&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">[</span><span class="n">name</span><span class="p">]))</span>
+            
+            <span class="c"># If a new message arrived since last time checked, mark notification as not shown</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">oldcount</span><span class="p">[</span><span class="n">name</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">notifShown</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">=</span><span class="bp">False</span>
+
+            <span class="c">#If notification marked as not shown, show it</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">notifShown</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">showNotification</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fullname</span><span class="p">,</span> <span class="n">msgbody</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">):</span>
+                <span class="c">#mark notification as shown</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">notifShown</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">=</span><span class="bp">True</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">indicator</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s">&quot;draw-attention&quot;</span><span class="p">,</span> <span class="s">&quot;true&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">indicator</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+                <span class="k">print</span> <span class="s">&quot;notification shown for&quot;</span><span class="p">,</span> <span class="n">name</span>
+
+            <span class="k">print</span> <span class="s">&quot;</span><span class="si">%d</span><span class="s"> messages from </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">[</span><span class="n">name</span><span class="p">],</span><span class="n">name</span><span class="p">)</span>
+        <span class="c"># Set oldcountt variable for next loop</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">oldcount</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span>
+        <span class="c"># Loop runs as long as true is returned</span>
+        <span class="k">return</span> <span class="bp">True</span>
+</code></pre>
+</div>
+
 
 <p>When a new messages arrives, this is what the messaging menu looks like
 <a href="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator-menu.png"><img src="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator-menu.png" alt="Messaging menu open qith unread messages" title="skype-indicator-menu" width="376" height="256" class="aligncenter size-full wp-image-258" /></a></p>
@@ -279,8 +374,20 @@ Next, we create the notification server instance, choose an icon, connect the fu
 <p>This is what it looks like with three new messages
 <a href="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator.png"><img src="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator.png" alt="The Ubuntu skype indicator with three new messages" title="skype-indicator" width="428" height="232" class="aligncenter size-full wp-image-253" /></a></p>
 
-<p>The next one shows the popup notification that skype is not loaded :
-Liquid error:</p>
+<p>The next one shows the popup notification that skype is not loaded :</p>
+
+<div class="highlight"><pre><code class="python">   <span class="k">def</span> <span class="nf">noSkype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Shows a notification if skype is not started&#39;&#39;&#39;</span>
+        <span class="n">title</span><span class="o">=</span><span class="s">&#39;Start Skype&#39;</span>
+        <span class="n">message</span><span class="o">=</span><span class="s">&#39;Please start skype otherwise this won</span><span class="se">\&#39;</span><span class="s">t work&#39;</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">showNotification</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+        <span class="n">n</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s">&quot;icon-name&quot;</span><span class="p">,</span><span class="n">gtk</span><span class="o">.</span><span class="n">STOCK_DIALOG_WARNING</span><span class="p">)</span>
+        <span class="n">n</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">n</span>
+</code></pre>
+</div>
+
 
 <p>And finally, the indicator events callbacks (what happens when we click on the skype indicator, or on a particular message</p>
 
@@ -566,7 +673,14 @@ Liquid error:</p>
 <p>Download the script, or fork it on the <a href="https://github.com/jfoucher/ubuntu-skype-indicator">ubuntu-skype-indicator github repository</a></p>
 
 <p>UPDATE: Before you run this script, you need to install its dependencies, python-indicate and skype4py
-On ubuntu, it's as simple as running Liquid error:</p>
+On ubuntu, it's as simple as running</p>
+
+<div class="highlight"><pre><code class="bash">sudo apt-get install python-skype python-indicate
+</code></pre>
+</div>
+
+
+
 
 
             </div> <!-- /.entry-content.colEight -->
