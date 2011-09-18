@@ -17,7 +17,7 @@
 	<meta name="author" content="Jonathan Foucher" />
 	<meta name="designer" content="Jonathan Foucher" />
 	<meta name="developer" content="Jonathan Foucher" />
-	<meta name="description" content="<!--:en-->Learning python by building a semi-useful Skype instant message notifier<!--:--><!--:fr-->Learning python by building a semi-useful Skype instant message notifier<!--:-->" />
+	<meta name="description" content="Learning python by building a semi-useful Skype instant message notifierLearning python by building a semi-useful Skype instant message notifier" />
 	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
@@ -29,17 +29,19 @@
     <script src="/assets/js/jquery.timeago.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/assets/js/app.js"></script>
     <!--<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />-->
-    <script src="/assets/js/less-1.1.4.js" type="text/javascript"></script>
+    <!--<script src="/assets/js/less-1.1.4.js" type="text/javascript"></script>-->
     <!--[if lt IE 9]>
     <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     
+    <script type="text/javascript" src="http://www.shrinktheweb.com/scripts/pagepix.js"></script>
 	<link rel="alternate" href="http://feeds.feedburner.com/GeekyNuggets" title="Geeky Nuggets" type="application/atom+xml" />
 
 	<link rel="shortcut icon" type="image/png" href="/favicon.png" />
 
 </head>
 <body>
+
 
 	<div id="container" class="clearfix">
 		                <header id="header" class="center">
@@ -144,21 +146,7 @@
 <h3>Anyway, to the coding!</h3>
 
 
-
-
-<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/env python</span>
-
-<span class="kn">import</span> <span class="nn">indicate</span>
-<span class="kn">import</span> <span class="nn">gobject</span>
-<span class="kn">import</span> <span class="nn">pynotify</span>
-<span class="kn">import</span> <span class="nn">gtk</span>
-<span class="kn">import</span> <span class="nn">hashlib</span>
-<span class="kn">import</span> <span class="nn">Skype4Py</span>
-<span class="kn">import</span> <span class="nn">urllib</span>
-<span class="kn">import</span> <span class="nn">os</span>
-</code></pre>
-</div>
-
+<p>Liquid error:</p>
 
 <p>The first line tell the host system to use python to interpret that file</p>
 
@@ -389,16 +377,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
 
 <p>And finally, the indicator events callbacks (what happens when we click on the skype indicator, or on a particular message</p>
 
-<div class="highlight"><pre><code class="python">   <span class="k">def</span> <span class="nf">display_msg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indicator</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">):</span>
-        <span class="c">#hide this indicator</span>
-        <span class="n">indicator</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
-        <span class="c">#messaging menu goes back to normal</span>
-        <span class="n">indicator</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s">&quot;draw-attention&quot;</span><span class="p">,</span> <span class="s">&quot;false&quot;</span><span class="p">)</span>
-        <span class="c"># open the skype chat window for this user</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">skype</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">OpenMessageDialog</span><span class="p">(</span><span class="n">indicator</span><span class="o">.</span><span class="n">get_property</span><span class="p">(</span><span class="s">&quot;handle&quot;</span><span class="p">))</span>
-</code></pre>
-</div>
-
+<p>Liquid error:</p>
 
 <p>At the end of the file, we start everything :</p>
 
