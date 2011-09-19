@@ -107,11 +107,10 @@ div.hero div.skip a{display:block;float:right;width:7em;clear:right;}
 #notebook .page-next{float:right;}
 #notebook h2.post-title{clear:both;font-size:2em;line-height:1.6em;border-top:1px solid #dddddd;font-family:'ITC Avant Garde Gothic Std','URW Gothic L','Century Gothic','Avant Garde',Verdana,sans-serif;margin:1em 0;-webkit-text-shadow:0 1px 1px rgba(0, 0, 0, 0.1);-moz-text-shadow:0 1px 1px rgba(0, 0, 0, 0.1);-o-text-shadow:0 1px 1px rgba(0, 0, 0, 0.1);-khtml-text-shadow:0 1px 1px rgba(0, 0, 0, 0.1);text-shadow:0 1px 1px rgba(0, 0, 0, 0.1);}#notebook h2.post-title a{color:#ff8000;}
 #notebook h2.post-title a:hover{color:#111111;text-decoration:none;}
-#notebook .meta{display:inline;float:left;width:16.40625%;margin:0 1.171875%;color:#555555;font-size:0.85em;margin-left:0;}#notebook .meta .share{display:block;}
-#notebook .meta .permalink,#notebook .meta .date{display:block;}
-#notebook .meta .permalink .day,#notebook .meta .date .day,#notebook .meta .permalink .month,#notebook .meta .date .month,#notebook .meta .permalink .year,#notebook .meta .date .year{font-family:Georgia,"Times New Roman",times,serif;}
-#notebook .meta .permalink a,#notebook .meta .date a{color:#999999;}
-#notebook .meta .permalink a:hover,#notebook .meta .date a:hover{color:#555555;text-decoration:unerline;}
+#notebook .meta{display:inline;float:left;width:16.40625%;margin:0 1.171875%;color:#555555;font-size:0.85em;margin-left:0;}#notebook .meta .permalink,#notebook .meta .date,#notebook .meta .share{display:block;}
+#notebook .meta .permalink .day,#notebook .meta .date .day,#notebook .meta .share .day,#notebook .meta .permalink .month,#notebook .meta .date .month,#notebook .meta .share .month,#notebook .meta .permalink .year,#notebook .meta .date .year,#notebook .meta .share .year{font-family:Georgia,"Times New Roman",times,serif;}
+#notebook .meta .permalink a,#notebook .meta .date a,#notebook .meta .share a{color:#999999;}
+#notebook .meta .permalink a:hover,#notebook .meta .date a:hover,#notebook .meta .share a:hover{color:#555555;text-decoration:unerline;}
 #notebook .meta .hero{color:#333333;font-size:1.4em;margin:0 0 2em 0;width:100%;padding:0;}
 #notebook #entry-content,#notebook .page-content{display:inline;float:left;width:47.65625%;margin:0 1.171875%;margin-left:7.421875%;}#notebook #entry-content h3,#notebook .page-content h3,#notebook #entry-content h2,#notebook .page-content h2{color:#ff8000;font-family:'ITC Avant Garde Gothic Std','URW Gothic L','Century Gothic','Avant Garde',Verdana,sans-serif;font-size:1.5em;clear:both;margin:1em 0;}
 #notebook #entry-content ul,#notebook .page-content ul{list-style:disc;margin-left:2em;}
