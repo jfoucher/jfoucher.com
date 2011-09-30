@@ -1,0 +1,207 @@
+<!DOCTYPE html> 
+<html lang="en">
+<!--
+	Access keys:
+		H = homepage
+		S = search input field
+		L = latest article on the homepage
+		A = about page
+-->
+<head>
+    <title>
+        Captcha
+        
+    </title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="content-language" content="en" />
+	<meta name="author" content="Jonathan Foucher" />
+	<meta name="designer" content="Jonathan Foucher" />
+	<meta name="developer" content="Jonathan Foucher" />
+	<meta name="description" content="A blog about web development, codeigniter and wordpress, by web developer Jonathan Foucher" />
+	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
+    <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+    <script src="/assets/js/jquery.timeago.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+    <!--<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />-->
+    <!--<script src="/assets/js/less-1.1.4.js" type="text/javascript"></script>-->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <script type="text/javascript" src="http://www.shrinktheweb.com/scripts/pagepix.js"></script>
+	<link rel="alternate" href="http://feeds.feedburner.com/GeekyNuggets" title="Geeky Nuggets" type="application/atom+xml" />
+
+	<link rel="shortcut icon" type="image/png" href="/favicon.png" />
+
+</head>
+<body>
+
+
+	<div id="container" class="clearfix">
+		                <header id="header" class="center">
+            <div class="logo">
+                <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
+                    Geeky Nuggets
+                </a>
+            </div>
+            <div class="siteDesc"><a href="/about.html#notebook" title="About Jonathan Foucher
+                &amp; contact details" tabindex="0" accesskey="A">Jonathan Foucher</a>&rsquo;s blog <span
+                class="amp">&amp;</span> web development
+                notebook.
+            </div>
+                    <nav id="nav" class="clear">
+            <ul class="nav nav-header caps">
+				<li><a href="/about.html#notebook" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
+				<li class="active"><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Archives</a></li>
+				<li><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
+				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Subscribe to my posts, by email or in your feed reader" tabindex="0">Feed</a></li>
+            </ul>
+			<div class="sitesearch">
+
+                <!-- Google Custom Search Element -->
+                <!--<form action="http://www.google.com/cse" class="center_column" id="searchForm" >
+                    <fieldset>
+                       <input type="hidden" name="cx" value="004905032692135561336:flcwnz7i1ww" />
+                       <input type="hidden" name="ie" value="UTF-8" />
+                       <label for="search" class="hidden">Search</label>
+                       <input id="search" class="text-input" type="text" name="q" size="15" tabindex="0" accesskey="S" />
+                       <input id="searchsubmit" type="submit" name="sa" value="Search" tabindex="0" />
+                    </fieldset>
+                </form>-->
+
+            </div>
+
+        </nav> <!-- /#nav.clear -->
+
+
+            
+		</header> <!-- /#header.center -->
+
+
+		<div id="notebook" class="center clear">
+			<div class="page-nav-top">
+                
+				    <span class="page-nav-item page-prev"><a class="internal" rel="prev"  href="/2005/03/new-blog.html#notebook" title="View New blog">&larr; View previous article</a></span>
+				
+				
+				    <span class="page-nav-item page-next"><a class="internal" rel="next"  href="/2005/03/feeds.html#notebook" title="View Feeds">View next article &rarr;</a></span>
+                
+            </div> <!-- /.page-nav-top -->
+
+             <h2 class="post-title">
+                <a href="/2005/03/captcha.html#notebook" title="Permanent link to Captcha">
+                    Captcha
+                </a>
+            </h2>
+
+            <div class="meta">
+                <div class="hero">
+
+                    <p>
+                        
+                    </p>
+                </div>
+                <!-- <span class="pdf">Download a <a href="/2005/03/captcha.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
+                <span class="permalink">For referencing: <a href="/2005/03/captcha.html" title="[Permalink] Captcha">permalink to this article</a>.</span>
+                    <span class="date" title="2005-03-10T14:47:08+01:00">
+                    <span class="published">Published&thinsp;&bull;</span>
+                    <span class="day">10</span>
+                    <span class="month"><abbr>Mar</abbr></span>
+                    <span class="year">2005</span>
+                </span>
+            </div> <!-- /.meta -->
+            <div id="entry-content">
+
+                <p>Ok, I finally got the <a href="http://www.wikipedia.org/wiki/captcha" title="read about captcha on Wikipedia">captcha</a> working. Wasn't that hard, but it was more the concept that was kind of eluding me... Where to send the data from the image and from the text box, how to compare them and so on.</p>
+
+<p>I like the way my little script works, because if for whatever reason the commenter didn't fil the captcha field properly, they wil be sent an email containing a link allowing them to publish their own comment. I'm wondering if spammers would learn how to make their robots do that... Anyway, doesn't matter because I haven't had a <em>single</em> comment spam since I changed over from wordpress yesterday. Wait and see, I guess.</p>
+
+
+
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'geekynuggets'; // required: replace example with your forum shortname
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div> <!-- /.entry-content.colEight -->
+            <div class="page-nav-bottom">
+                
+				    <span class="page-nav-item page-prev"><a class="internal" rel="prev"  href="/2005/03/new-blog.html#notebook" title="Read New blog">&larr; View previous article</a></span>
+				
+				
+				    <span class="page-nav-item page-next"><a class="internal" rel="next"  href="/2005/03/feeds.html#notebook" title="Read Feeds">View next article &rarr;</a></span>
+                
+            </div> <!-- /.page-nav-bottom -->
+        </div> <!-- /#notebook.center.clear -->
+            <footer id="footer" class="clear">
+        <span class="backtop"><a class="internal" href="#header" title="Return to the top of this page">Back to top &uarr;</a></span>
+        <nav>
+            <ul id="nav-footer">
+                <li><a href="/about.html" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
+                <li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Archives</a></li>
+                <li><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
+                <li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Feed link" tabindex="0">Feed</a></li>
+            </ul>
+        </nav>
+
+        <div class="page-meta clear">
+            <div class="info">
+
+                <p class="copyright ">
+                    This blog has been online in one form or another since
+                    <span class="date" title="March 2004">2004</span><br />Copyright &copy; <a href="http://jfoucher.com">Jonathan
+                    Foucher.</a><br /><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                       title="You can use this for non-comercial purposes, provided you cite me as the author, and do not modify the content">
+                        Creative Commons License
+                    </a>.
+                </p>
+            </div>
+
+        </div> <!-- /.page-meta.clear -->
+    </footer> <!-- /#footer.center.clear -->
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-8465441-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+        '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+            
+    <!-- Piwik -->
+    <script type="text/javascript">
+    var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.6px.eu/" : "http://stats.6px.eu/");
+    document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script type="text/javascript">
+    try {
+    var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+    piwikTracker.trackPageView();
+    piwikTracker.enableLinkTracking();
+    } catch( err ) {}
+    </script><noscript><p><img src="http://stats.6px.eu/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+    <!-- End Piwik Tracking Code -->
+
+</body>
+</html>
+	</div>
