@@ -17,9 +17,9 @@
 	<meta name="author" content="Jonathan Foucher" />
 	<meta name="designer" content="Jonathan Foucher" />
 	<meta name="developer" content="Jonathan Foucher" />
-	<meta name="description" content="We take advantage of Codeigniter 2's caching mechanism to dramatically speed up our sites with APC" />
+	<meta name="description" content="We take advantage of Codeigniter 2's cached mechanism to dramatically speed up our sites with APC" />
 	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
     <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />
@@ -29,11 +29,12 @@
     <script src="/assets/js/jquery.timeago.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/assets/js/app.js"></script>
     <!--<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />-->
-    <script src="/assets/js/less-1.1.4.js" type="text/javascript"></script>
+    <!--<script src="/assets/js/less-1.1.4.js" type="text/javascript"></script>-->
     <!--[if lt IE 9]>
     <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     
+    <script type="text/javascript" src="http://www.shrinktheweb.com/scripts/pagepix.js"></script>
 	<link rel="alternate" href="http://feeds.feedburner.com/GeekyNuggets" title="Geeky Nuggets" type="application/atom+xml" />
 
 	<link rel="shortcut icon" type="image/png" href="/favicon.png" />
@@ -57,7 +58,7 @@
                     <nav id="nav" class="clear">
             <ul class="nav nav-header caps">
 				<li><a href="/about.html#notebook" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
-				<li class="active"><a href="/archives.html" title="View the blog archives" tabindex="0">Archives</a></li>
+				<li class="active"><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Archives</a></li>
 				<li><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
 				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Subscribe to my posts, by email or in your feed reader" tabindex="0">Feed</a></li>
             </ul>
@@ -103,7 +104,7 @@
                 <div class="hero">
 
                     <p>
-                        We take advantage of Codeigniter 2's caching mechanism to dramatically speed up our sites with APC
+                        We take advantage of Codeigniter 2's cached mechanism to dramatically speed up our sites with APC
                     </p>
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2011/02/installing-running-apc-cache-codeigniter.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
@@ -114,14 +115,13 @@
                     <span class="month"><abbr>Feb</abbr></span>
                     <span class="year">2011</span>
                 </span>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=http://jfoucher.com/2011/02/installing-running-apc-cache-codeigniter.html" class="share facebook">Share on Facebook</a>
-                <a class="share twitter" href="http://twitter.com/home?status=Currently reading Installing and running APC cache with CodeIgniter - http://jfoucher.com/2011/02/installing-running-apc-cache-codeigniter.html" title="Click to share this post on Twitter">Share on Twitter</a>
             </div> <!-- /.meta -->
             <div id="entry-content">
 
-                <p>Codeigniter 2 now includes an excellent cache driver, which makes it dead easy to use any one of the great available cache librairies such as <a href="http://php.net/apc">APC</a> or <a href="http://www.memcached.org/">memcached</a>. In this post I will focus on APC, it's installation on an <a href="/?p=193">Ubuntu 10.04 server</a>, and a few benchmarks to compare the various cache systems.  For my testing, I will use an Ubuntu Server installation, on a VirtualBox virtual machine with 256 Mb of RAM and a single processor. This enables me to test things until everything breaks, than just scrap that VM and start with a clean one. However, a description of this setup is a story for another day...</p>
+                <p>Codeigniter 2 now includes an excellent cache driver, which makes it dead easy to use any one of the great available cache librairies such as <a href="http://php.net/apc">APC</a> o <a href="http://www.memcached.org/">memcached</a>. In this post I will focus on APC, it's installation on an <a href="/?p=193">Ubuntu 10.04 server</a>, and a few benchmarks to compare the various cache systems.  For my testing, I will use an Ubuntu Server installation, on a VirtualBox virtual machine with 256 Mb of RAM and a single processor. This enables me to test things until everything breaks, than just scrap that VM and start with a clean one. However, a description of this setup is a story for another day...</p>
 
 <h3>Installation</h3>
+
 
 <p>On Ubuntu, and on other debian based linuxes, you can install APC by typing</p>
 
@@ -155,26 +155,35 @@
 
 <h3>Benchmarks</h3>
 
+
 <p>These are the results for 50 concurrent connections : For APC we get about 43 requests/s, with the file caching mecanism around 25, requests/s, and with no cache at all we are below 18 requests/s</p>
 
 <p style="text-align: center;"><a href="http://cdn.jfoucher.com/uploads/2011/02/chart22.png"><img class="aligncenter size-full wp-image-387" title="Codeigniter APC cache benchmark" src="http://cdn.jfoucher.com/uploads/2011/02/chart22.png" alt="APC: 43, File: 25, None: 18 " width="560" height="260" /></a></p>
 
 
-<p>For low concurency (2) the improvement when using APC is similar: in this case the number of requests per second nearly doubled, from 19 to 47 between the case without any caching system and the APC case</p>
+<p style="text-align: left;">For low concurency (2) the improvement when using APC is similar: in this case the number of requests per second nearly doubled, from 19 to 47 between the case without any caching system and the APC case</p>
 
 
-<p><a href="http://cdn.jfoucher.com/uploads/2011/02/chart2.png"><img class="aligncenter size-full wp-image-383" title="Codeigniter cache benchmark: low concurency" src="http://cdn.jfoucher.com/uploads/2011/02/chart2.png" alt="APC: 46.37 rps, File: 27.23 rps, None: 18.99 rps" width="560" height="260" /></a></p>
+<p style="text-align: left;"><a href="http://cdn.jfoucher.com/uploads/2011/02/chart2.png"><img class="aligncenter size-full wp-image-383" title="Codeigniter cache benchmark: low concurency" src="http://cdn.jfoucher.com/uploads/2011/02/chart2.png" alt="APC: 46.37 rps, File: 27.23 rps, None: 18.99 rps" width="560" height="260" /></a></p>
 
 
-<p>So just turning the default codeigniter cache on gives us a significant speed improvement, going all the way and installing APC can nearly double the speed of your application. Not too shabby I should think.</p>
+<p style="text-align: left;">So just turning the default codeigniter cache on gives us a significant speed improvement, going all the way and installing APC can nearly double the speed of your application. Not too shabby I should think.</p>
 
 
-<p>It is <strong>so</strong> easy to take advantage of this caching mechasism on Codeigniter 2 that it would really be a pity not to do so!</p>
+<p style="text-align: left;">It is <strong>so</strong> easy to take advantage of this caching mechasism on Codeigniter 2 that it would really be a pity not to do so!</p>
 
 
-<p>The only caching library missing here is memcached. Have you tried any of these caching libraries with codeigniter 2?</p>
+<p style="text-align: left;">The only caching library missing here is memcached. Have you tried any of these caching libraries with codeigniter 2?</p>
 
 
+<p style="text-align: left;"></p>
+
+
+<p>
+</p>
+
+
+<p></p>
 
 
 
