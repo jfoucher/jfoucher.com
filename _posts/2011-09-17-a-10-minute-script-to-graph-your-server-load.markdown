@@ -17,4 +17,4 @@ The visualization is done using the Google chart API, which does require javascr
 
 <a title="server load graph on github" href="https://github.com/jfoucher/Server-load-graph" target="_blank">Get the source on github</a>
 
-[installation and project details](http://blog.jfoucher.com/projects/serverload.html)
+[installation and project details](http://jfoucher.com/projects/serverload.html)
