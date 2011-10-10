@@ -171,6 +171,10 @@
     _gaq.push(['_setAccount', 'UA-8465441-2']);
     _gaq.push(['_trackPageview']);
 
+
+    _gaq.push(['_trackEvent', 'Error', '404', 'page: ' + document.location.pathname + document.location.search + ' ref: ' + document.referrer ]);
+
+
     (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
