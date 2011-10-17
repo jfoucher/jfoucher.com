@@ -797,14 +797,62 @@ Utility clases
 
     
 }
-@media (max-width: 640px) {
+@media (max-width: 720px) {
+    #container{
+
+        width:  94%;
+        padding:3%;
+    }
+    #nav{
+        padding:0;
+        text-align:center;
+        ul{
+
+            padding:0;
+            text-align:center;
+        }
+        a{
+            padding:0.5em 0.75em;
+        }
+        li:last-child a{
+            padding-right:0;
+        }
+    }
+
+    #notebook{
+
+        .meta{
+            .column(16,16);
+
+            .hero{
+                margin-bottom:0.5em;
+            }
+            margin-bottom:1.5em
+
+        }
+        .page-content,#entry-content{
+            .column(16,16);
+            .offset(0);
+
+        }
+    }
 
 
 }
 
 @media (max-width:480px){
+    #container{
+
+        width: 98%;
+        padding:1%;
+    }
 
 }
 @media (max-width:320px){
+    #container{
+
+        width: 100%;
+        padding:0;
+    }
 
 }
