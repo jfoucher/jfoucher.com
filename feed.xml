@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>2011-10-17T07:03:28+02:00</updated>
+	<updated>2011-10-31T16:33:36+01:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -48,7 +48,8 @@ It took me... a few months to finally find the time figure out how to set up eve
 
 &lt;p&gt;On Ubuntu and Debian, it couldn't be easier: just open a terminal and type&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo apt-get install php-xdebug
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo apt-get install
+php5-xdebug
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -93,7 +94,7 @@ It took me... a few months to finally find the time figure out how to set up eve
 &lt;h3&gt;Prepare PhpStorm&lt;/h3&gt;
 
 
-&lt;p&gt;Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the &quot;Accept debug connections&quot; button, and activate Xdebug by using a browser extension. �Here are four extensions to do this:&lt;/p&gt;
+&lt;p&gt;Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the &quot;Accept debug connections&quot; button, and activate Xdebug by using a browser extension. Here are four extensions to do this:&lt;/p&gt;
 
 &lt;ul&gt;
     &lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/58688&quot;&gt;Firefox&lt;/a&gt;&lt;/li&gt;
