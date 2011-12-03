@@ -109,7 +109,7 @@
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2011/04/the-making-of-flickholdr-an-image-placeholder-generator.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2011/04/the-making-of-flickholdr-an-image-placeholder-generator.html" title="[Permalink] The making of flickholdr.com, an image placeholder generator">permalink to this article</a>.</span>
-                    <span class="date" title="2011-04-03T21:42:49+02:00">
+                    <span class="date" title="2011-04-03T19:42:49+00:00">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">03</span>
                     <span class="month"><abbr>Apr</abbr></span>
@@ -140,44 +140,15 @@
 <p>Most of the code deals with pulling images from flickr, and then doing various to them before display. The code that pulls the image from flickr is located in a model called Flickr_model with three methods:</p>
 
 <ol>
-    <li>A public method called 
-<div class="highlight"><pre><code class="php"><span class="x">search()</span>
-</code></pre>
-</div>
-
-  that gets images using the <a href="http://www.flickr.com/services/api/">flickr API</a></li>
-    <li>A private method called 
-<div class="highlight"><pre><code class="php"><span class="x">_get_sizes()</span>
-</code></pre>
-</div>
-
- that finds the sizes available for that particular image</li>
-    <li>Another private method 
-<div class="highlight"><pre><code class="php"><span class="x">_get_author()</span>
-</code></pre>
-</div>
-
- that gets the information for the image and returns the name of the author, to be displayed in the watermark</li>
+    <li>A public method called Liquid error: undefined method `join' for "search()":String  that gets images using the <a href="http://www.flickr.com/services/api/">flickr API</a></li>
+    <li>A private method called Liquid error: undefined method `join' for "_get_sizes()":String that finds the sizes available for that particular image</li>
+    <li>Another private method Liquid error: undefined method `join' for "_get_author()":String that gets the information for the image and returns the name of the author, to be displayed in the watermark</li>
 </ol>
 
 
-<p>The</p>
+<p>The Liquid error: undefined method `join' for "search()":String method returns as soon as it finds an image of at least the required size.</p>
 
-<div class="highlight"><pre><code class="php"><span class="x">search()</span>
-</code></pre>
-</div>
-
-
-<p> method returns as soon as it finds an image of at least the required size.</p>
-
-<p>The controller private method</p>
-
-<div class="highlight"><pre><code class="php"><span class="x">_get_image()</span>
-</code></pre>
-</div>
-
-
-<p> then takes charge of resizing, cropping and watermarking the image, using codeigniter's <a title="Codeigniter image manipulation class manual" href="http://codeigniter.com/user_guide/libraries/image_lib.html">image manipulation library</a> to keep things quick and simple. I just tweaked the watermarking method of that class to allow for semi-transparent watermarks.</p>
+<p>The controller private method Liquid error: undefined method `join' for "_get_image()":String then takes charge of resizing, cropping and watermarking the image, using codeigniter's <a title="Codeigniter image manipulation class manual" href="http://codeigniter.com/user_guide/libraries/image_lib.html">image manipulation library</a> to keep things quick and simple. I just tweaked the watermarking method of that class to allow for semi-transparent watermarks.</p>
 
 <p>The controller then sends the image to the browser with the proper headers.</p>
 
