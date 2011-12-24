@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>2011-12-24T00:22:05+00:00</updated>
+	<updated>2011-12-24T00:25:56+00:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -56,7 +56,7 @@ Liquid error: undefined method &lt;code&gt;join' for &quot;gksu gedit /etc/apach
 Within this file, there will be a single line, referencing the xdebug zend extension, something like this (the path can vary slightly)
 Liquid error: undefined method&lt;/code&gt;join' for &quot;zend_extension=/usr/lib/php5/20090626/xdebug.so&quot;:String
 This is what we're going to add:
-Liquid error: undefined method &lt;code&gt;join' for #&amp;lt;String:0xb7107144&amp;gt;
+Liquid error: undefined method &lt;code&gt;join' for #&amp;lt;String:0xb71c0144&amp;gt;
 Now we restart apache so that the new configuration is taken into account:
 Liquid error: undefined method&lt;/code&gt;join' for &quot;sudo /etc/init.d/apache2 restart&quot;:String
 And we that we are &lt;strong&gt;done&lt;/strong&gt; on the server side of things&lt;/p&gt;
@@ -122,7 +122,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;p&gt;The code for this file is as shown below:&lt;/p&gt;
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb7115ba4&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb71ceba4&gt;&lt;/p&gt;
 
 &lt;h3&gt;Get the OAuth token and secret&lt;/h3&gt;
 
@@ -131,7 +131,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;p&gt;Navigate to &lt;a href=&quot;http://twittertokens.6px.eu&quot;&gt;http://twittertokens.6px.eu&lt;/a&gt;, put your consumer data and consumer secret in the apropriate fields and click on &quot;Sign in with Twitter&quot;. A twitter page will open asking for your confirmation. Click &quot;Sign in&quot; and you are redirected to http://twittertokens.6px.eu/. You should see 4 lines of code appear, that look like this:&lt;/p&gt;
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb711571c&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb71ce71c&gt;
 Copy this code to the corresponding spot in the TwitterUpdateTask.php file, overwriting what's already there.&lt;/p&gt;
 
 &lt;p&gt;Please note though that I'm not making any claims as to how secure this is or whatever. I don't store any of your data anywhere, but if sending your application consumer token and secret worries you, find another way to get the Oauth tokens.&lt;/p&gt;
@@ -140,15 +140,15 @@ Copy this code to the corresponding spot in the TwitterUpdateTask.php file, over
 
 
 &lt;p&gt;First, we define the custom task:
-Liquid error: undefined method `join' for #&amp;lt;String:0xb71154b0&gt;&lt;/p&gt;
+Liquid error: undefined method `join' for #&amp;lt;String:0xb71ce4b0&gt;&lt;/p&gt;
 
 &lt;p&gt;Secondly, let's create a custom target that will send a tweet with the message we want.&lt;/p&gt;
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb711526c&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb71ce26c&gt;&lt;/p&gt;
 
 &lt;p&gt;Now we can call this task from another one, but we need to make that the twitter.status is set. Let's we have a &quot;staging&quot; target. Part of it could look like this:&lt;/p&gt;
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb7115014&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb71ce014&gt;&lt;/p&gt;
 
 &lt;p&gt;This will post the message to twitter, replacing the Liquid error: undefined method `join' for &quot;${build.time}&quot;:String token by the actual build and time.&lt;/p&gt;
 
@@ -162,7 +162,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<link href="http://jfoucher.com/2011/04/css-minification-library-for-codeigniter.html"/>
 		<updated>2011-04-11T12:10:51+00:00</updated>
 		<id>http://jfoucher.com/2011/04/css-minification-library-for-codeigniter</id>
-		<content type="html">&lt;p&gt;For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like Liquid error: undefined method `join' for #&amp;lt;String:0xb71256bc&gt;&lt;/p&gt;
+		<content type="html">&lt;p&gt;For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like Liquid error: undefined method `join' for #&amp;lt;String:0xb71de6bc&gt;&lt;/p&gt;
 
 &lt;p&gt;After some searching, I found a css minification library for PHP, &lt;a href=&quot;https://code.google.com/p/minify/&quot;&gt;minify&lt;/a&gt;&lt;/p&gt;
 
@@ -182,11 +182,11 @@ I modelled the interaction on the image library, as I guess that's what most peo
 
 &lt;p&gt;The following code, which should go in your controller, will look very familiar to Codeigniter users.&lt;/p&gt;
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb7125478&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb71de478&gt;&lt;/p&gt;
 
 &lt;p&gt;Will output the following stylesheet tag:&lt;/p&gt;
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb7125234&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb71de234&gt;&lt;/p&gt;
 
 &lt;h3&gt;Get It!&lt;/h3&gt;
 
@@ -303,10 +303,10 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<content type="html">&lt;p&gt;I couldn't find something that did just what I wanted and no more: send me an email when someone gets a 404 error on my blog. It seems pretty simple, and it really is. More than that actually. It's problably the simplest plugin I've ever written.&lt;/p&gt;
 
 &lt;p&gt;Check it out:
-Liquid error: undefined method &lt;code&gt;join' for #&amp;lt;String:0xb71500b0&amp;gt;
+Liquid error: undefined method &lt;code&gt;join' for #&amp;lt;String:0xb72090b0&amp;gt;
 This is the main part of the code, the one gets executed everytime the Liquid error: undefined method&lt;/code&gt;join' for &quot;get_header&quot;:String hook is called. It basically just checks the $wp_query object to see if the current url gives a 404 error and then passes that url to the email_admin function&lt;/p&gt;
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb714fc28&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb7208c28&gt;&lt;/p&gt;
 
 &lt;p&gt;This function sets some headers for the email, such as the sender's name and email, and the subject of the message, and then sends the message. No error is shown if the message can't be sent, as this would be displayed on the page.&lt;/p&gt;
 
@@ -316,11 +316,11 @@ This is the main part of the code, the one gets executed everytime the Liquid er
 
 
 &lt;p&gt;Check it out:&lt;br /&gt;
-Liquid error: undefined method `join' for #&lt;String:0xb714f9d0&gt;&lt;br /&gt;
+Liquid error: undefined method `join' for #&lt;String:0xb72089d0&gt;&lt;br /&gt;
 This is the main part of the code, the one gets executed everytime the Liquid error: undefined method `join' for &quot;get_header&quot;:String hook is called. It basically just checks the $wp_query object to see if the current url gives a 404 error and then passes that url to the email_admin function&lt;/p&gt;
 
 
-&lt;p&gt;Liquid error: undefined method `join' for #&lt;String:0xb714f548&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&lt;String:0xb7208548&gt;&lt;/p&gt;
 
 
 &lt;p&gt;This function sets some headers for the email, such as the sender's name and email, and the subject of the message, and then sends the message. No error is shown if the message can't be sent, as this would be displayed on the page.&lt;/p&gt;
@@ -386,60 +386,60 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;h3&gt;Anyway, to the coding!&lt;/h3&gt;
 
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb716fb04&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb7228b04&gt;&lt;/p&gt;
 
 &lt;p&gt;The first line tell the host system to use python to interpret that file&lt;/p&gt;
 
 &lt;p&gt;The next lines import the required python modules.&lt;/p&gt;
 
 &lt;p&gt;Next, we have to define the main class and declare some variables:
-Liquid error: undefined method &lt;code&gt;join' for #&amp;lt;String:0xb716f8c0&amp;gt;
+Liquid error: undefined method &lt;code&gt;join' for #&amp;lt;String:0xb72288c0&amp;gt;
 This is the clas initialization function
-Liquid error: undefined method&lt;/code&gt;join' for #&amp;lt;String:0xb716f67c&gt;
+Liquid error: undefined method&lt;/code&gt;join' for #&amp;lt;String:0xb722867c&gt;
 The first line creates the skype API instance, after which we call the loadSkype() function, which checks if skype is loaded and if not, starts it. We'll look at that function later on.
 Next, we create the notification server instance, choose an icon, connect the function server_display to the server-display event (when the icon is clicked on) and finally run the create_indicators function that looks for skype messages and displays them accordingly.&lt;/p&gt;
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb716f410&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb7228410&gt;&lt;/p&gt;
 
 &lt;p&gt;This basically tries to start skype if it is not already started and calls noSkype() if it couldn't start it. noSype() shows a notification message to let the user know that they have to start Skype.
 &lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/01/skype-not-started.png&quot;&gt;&lt;img src=&quot;http://cdn.jfoucher.com/uploads/2011/01/skype-not-started.png&quot; alt=&quot;Error shown if Skype is not running&quot; title=&quot;skype-not-started&quot; width=&quot;428&quot; height=&quot;213&quot; class=&quot;aligncenter size-full wp-image-256&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;This next function is where the meat of the process takes place. Please read the inline comments to understand how it works, and ask for clarification by &lt;a href=&quot;#respond&quot;&gt;posting a comment&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb716f1cc&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb72281cc&gt;&lt;/p&gt;
 
 &lt;p&gt;When a new messages arrives, this is what the messaging menu looks like
 &lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/01/skype-indicator-menu.png&quot;&gt;&lt;img src=&quot;http://cdn.jfoucher.com/uploads/2011/01/skype-indicator-menu.png&quot; alt=&quot;Messaging menu open qith unread messages&quot; title=&quot;skype-indicator-menu&quot; width=&quot;376&quot; height=&quot;256&quot; class=&quot;aligncenter size-full wp-image-258&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The function that gets unread skype messages is as follows For each message, we add it to a list containg the messages from a particular user in the self.unread dictionary.&lt;/p&gt;
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb716ef24&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb7227f24&gt;&lt;/p&gt;
 
 &lt;p&gt;The next two functions are in charge of getting the skype user username as well as the friendliest name available.&lt;/p&gt;
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb716ecb8&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb7227cb8&gt;&lt;/p&gt;
 
 &lt;p&gt;Below is the generic function in charge of showing popup notifications.&lt;/p&gt;
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb716ea74&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb7227a74&gt;&lt;/p&gt;
 
 &lt;p&gt;This is what it looks like with three new messages
 &lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/01/skype-indicator.png&quot;&gt;&lt;img src=&quot;http://cdn.jfoucher.com/uploads/2011/01/skype-indicator.png&quot; alt=&quot;The Ubuntu skype indicator with three new messages&quot; title=&quot;skype-indicator&quot; width=&quot;428&quot; height=&quot;232&quot; class=&quot;aligncenter size-full wp-image-253&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The next one shows the popup notification that skype is not loaded :
-Liquid error: undefined method `join' for #&amp;lt;String:0xb716e7f4&gt;&lt;/p&gt;
+Liquid error: undefined method `join' for #&amp;lt;String:0xb72277f4&gt;&lt;/p&gt;
 
 &lt;p&gt;And finally, the indicator events callbacks (what happens when we click on the skype indicator, or on a particular message&lt;/p&gt;
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb716e510&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb7227510&gt;&lt;/p&gt;
 
 &lt;p&gt;At the end of the file, we start everything :&lt;/p&gt;
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb716e2cc&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb72272cc&gt;&lt;/p&gt;
 
 &lt;p&gt;And finally, here is the complete source code :&lt;/p&gt;
 
-&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb716e088&gt;&lt;/p&gt;
+&lt;p&gt;Liquid error: undefined method `join' for #&amp;lt;String:0xb7227088&gt;&lt;/p&gt;
 
 &lt;p&gt;Download the script, or fork it on the &lt;a href=&quot;https://github.com/jfoucher/ubuntu-skype-indicator&quot;&gt;ubuntu-skype-indicator github repository&lt;/a&gt;&lt;/p&gt;
 
@@ -477,7 +477,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;blockquote&gt;
 &lt;p class=&quot;line862&quot;&gt;If you re-used the existing configuration, note that Ubuntu kernels build with debugging information on, which makes the resulting kernel modules (*.ko files) much larger than they would otherwise be. To turn this off, go into the config's &quot;Kernel hacking&quot;&amp;lt;!-- ; then, under &quot;Kernel debugging&quot;, --&amp;gt; and turn OFF &quot;Compile the kernel with debug info&quot;.&lt;/p&gt;
 &lt;p class=&quot;line874&quot;&gt;Now you can compile the kernel and create the packages:&lt;/p&gt;
-Liquid error: undefined method `join' for #&lt;String:0xb717ee10&gt;&lt;/blockquote&gt;
+Liquid error: undefined method `join' for #&lt;String:0xb7237e10&gt;&lt;/blockquote&gt;
 
 
 &lt;p style=&quot;text-align: center;&quot;&gt;&lt;img class=&quot;aligncenter&quot; src=&quot;http://media.tumblr.com/tumblr_let0e9SCP01qzbvjd.png&quot; alt=&quot;&quot; width=&quot;500&quot; height=&quot;338&quot; /&gt;&lt;/p&gt;
