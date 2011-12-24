@@ -146,60 +146,60 @@
 <h3>Anyway, to the coding!</h3>
 
 
-<p>Liquid error: undefined method `join' for #&lt;String:0xb72159dc></p>
+<p>Liquid error: undefined method `join' for #&lt;String:0xb716fb04></p>
 
 <p>The first line tell the host system to use python to interpret that file</p>
 
 <p>The next lines import the required python modules.</p>
 
 <p>Next, we have to define the main class and declare some variables:
-Liquid error: undefined method <code>join' for #&lt;String:0xb7215798&gt;
+Liquid error: undefined method <code>join' for #&lt;String:0xb716f8c0&gt;
 This is the clas initialization function
-Liquid error: undefined method</code>join' for #&lt;String:0xb7215554>
+Liquid error: undefined method</code>join' for #&lt;String:0xb716f67c>
 The first line creates the skype API instance, after which we call the loadSkype() function, which checks if skype is loaded and if not, starts it. We'll look at that function later on.
 Next, we create the notification server instance, choose an icon, connect the function server_display to the server-display event (when the icon is clicked on) and finally run the create_indicators function that looks for skype messages and displays them accordingly.</p>
 
-<p>Liquid error: undefined method `join' for #&lt;String:0xb72152e8></p>
+<p>Liquid error: undefined method `join' for #&lt;String:0xb716f410></p>
 
 <p>This basically tries to start skype if it is not already started and calls noSkype() if it couldn't start it. noSype() shows a notification message to let the user know that they have to start Skype.
 <a href="http://cdn.jfoucher.com/uploads/2011/01/skype-not-started.png"><img src="http://cdn.jfoucher.com/uploads/2011/01/skype-not-started.png" alt="Error shown if Skype is not running" title="skype-not-started" width="428" height="213" class="aligncenter size-full wp-image-256" /></a></p>
 
 <p>This next function is where the meat of the process takes place. Please read the inline comments to understand how it works, and ask for clarification by <a href="#respond">posting a comment</a>.</p>
 
-<p>Liquid error: undefined method `join' for #&lt;String:0xb72150a4></p>
+<p>Liquid error: undefined method `join' for #&lt;String:0xb716f1cc></p>
 
 <p>When a new messages arrives, this is what the messaging menu looks like
 <a href="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator-menu.png"><img src="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator-menu.png" alt="Messaging menu open qith unread messages" title="skype-indicator-menu" width="376" height="256" class="aligncenter size-full wp-image-258" /></a></p>
 
 <p>The function that gets unread skype messages is as follows For each message, we add it to a list containg the messages from a particular user in the self.unread dictionary.</p>
 
-<p>Liquid error: undefined method `join' for #&lt;String:0xb7214dd4></p>
+<p>Liquid error: undefined method `join' for #&lt;String:0xb716ef24></p>
 
 <p>The next two functions are in charge of getting the skype user username as well as the friendliest name available.</p>
 
-<p>Liquid error: undefined method `join' for #&lt;String:0xb7214b90></p>
+<p>Liquid error: undefined method `join' for #&lt;String:0xb716ecb8></p>
 
 <p>Below is the generic function in charge of showing popup notifications.</p>
 
-<p>Liquid error: undefined method `join' for #&lt;String:0xb721494c></p>
+<p>Liquid error: undefined method `join' for #&lt;String:0xb716ea74></p>
 
 <p>This is what it looks like with three new messages
 <a href="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator.png"><img src="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator.png" alt="The Ubuntu skype indicator with three new messages" title="skype-indicator" width="428" height="232" class="aligncenter size-full wp-image-253" /></a></p>
 
 <p>The next one shows the popup notification that skype is not loaded :
-Liquid error: undefined method `join' for #&lt;String:0xb72146a4></p>
+Liquid error: undefined method `join' for #&lt;String:0xb716e7f4></p>
 
 <p>And finally, the indicator events callbacks (what happens when we click on the skype indicator, or on a particular message</p>
 
-<p>Liquid error: undefined method `join' for #&lt;String:0xb72143e8></p>
+<p>Liquid error: undefined method `join' for #&lt;String:0xb716e510></p>
 
 <p>At the end of the file, we start everything :</p>
 
-<p>Liquid error: undefined method `join' for #&lt;String:0xb72141a4></p>
+<p>Liquid error: undefined method `join' for #&lt;String:0xb716e2cc></p>
 
 <p>And finally, here is the complete source code :</p>
 
-<p>Liquid error: undefined method `join' for #&lt;String:0xb7213f4c></p>
+<p>Liquid error: undefined method `join' for #&lt;String:0xb716e088></p>
 
 <p>Download the script, or fork it on the <a href="https://github.com/jfoucher/ubuntu-skype-indicator">ubuntu-skype-indicator github repository</a></p>
 
