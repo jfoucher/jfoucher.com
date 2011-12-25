@@ -179,7 +179,12 @@
 </div>
 
 <br />
-This is the main part of the code, the one gets executed everytime the Liquid error:  hook is called. It basically just checks the $wp_query object to see if the current url gives a 404 error and then passes that url to the email_admin function</p>
+This is the main part of the code, the one gets executed everytime the 
+<div class="highlight"><pre><code class="php"><span class="x">get_header</span>
+</code></pre>
+</div>
+
+ hook is called. It basically just checks the $wp_query object to see if the current url gives a 404 error and then passes that url to the email_admin function</p>
 
 
 <p>
