@@ -18,7 +18,7 @@ end
 
 desc 'Build and deploy'
 task :deploy do
-  sh 'cd assets/css/;lessc screen.less > screen.css; mv *.less ../../_assets/;cd ../..'
+  sh 'cd assets/css/;lessc screen.less > screen.css; rm *.less;cd ../..'
   sh "sed -i'.bkp' -e's/stylesheet.less/stylesheet/' _includes/head.html"
   sh "sed -i'.bkp' -e's/screen.less/screen.css/' _includes/head.html"
 
@@ -33,6 +33,7 @@ end
 
 desc 'Local deploy'
 task :local => :copy do
+
   sh 'rm -rf /var/www/jfoucher.github/*'
   sh 'cp -r _site/* /var/www/jfoucher.github/'
 end

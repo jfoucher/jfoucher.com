@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>2011-10-01T00:48:36+02:00</updated>
+	<updated>2011-12-25T13:47:07+00:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -13,9 +13,89 @@
 
 	
 	<entry>
+		<title>Implementing BrowserID identification for your website</title>
+		<link href="http://jfoucher.com/2011/12/implementing-browserid-identification.html"/>
+		<updated>2011-12-24T00:00:00+00:00</updated>
+		<id>http://jfoucher.com/2011/12/implementing-browserid-identification</id>
+		<content type="html">&lt;h3&gt;BrowserID &lt;a href=&quot;http://identity.mozilla.com/post/7616727542/introducing-browserid-a-better-way-to-sign-in&quot;&gt;was released a few months ago&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;It is a new way to sign in to websites or web applications that doesn't require you to give your password each time you want to login. It doesn't even require you to register as such on each website. In that way, it is very similar to openId, but without the usability issues.&lt;/p&gt;
+
+&lt;p&gt;For developpers, Mozilla set up a service that provides everything you need to let your users simply login without handling any of the dirty work yourself. http://browserid.org is an identity provider that allows your users to create and manage their accounts across the web. One account for an infinite number of websites. Could this finally be our &lt;a href=&quot;http://www.codinghorror.com/blog/2010/11/your-internet-drivers-license.html&quot;&gt;Internet driver's license&lt;/a&gt;?&lt;/p&gt;
+
+&lt;h3&gt;&lt;a href=&quot;https://github.com/mozilla/browserid/wiki/How-to-Use-BrowserID-on-Your-Site&quot;&gt;Implementing BrowserID&lt;/a&gt; on your site or app is easy&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Include the following javascript snippet in your page&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;https://browserid.org/include.js&amp;quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;Identify the user&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;When the user clicks on your &quot;Login&quot; button, a window pops up asking them to confirm that they want to login, or asking them to create a browserID account if they haven't done it yet. Once they decide that they want to login, they are redirected to your site, and the following function is called, with the assertion being passed to the callback if the login was successful&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getVerifiedEmail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assertion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assertion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// This code will be invoked once the user has successfully&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// selected an email address they control to sign in with.&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// something went wrong!  the user isn&amp;#39;t logged in.&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;If the assertion is there, the user authenticated successfully. now you must verify that the assertion really is authentic, and get the relevant data from it. You &lt;em&gt;could&lt;/em&gt; &lt;a href=&quot;https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest&quot;&gt;do it yourself&lt;/a&gt;, but if you don't have any special requirements, I recommend you just use the service provided by http://browserid.org&lt;/p&gt;
+
+&lt;p&gt;To do so, and once you have the &lt;code&gt;assertion&lt;/code&gt;, you have to make a POST request to http://browserid.org/verify, with two parameters: the assertion and the audience, which is simply the hostname of your site. This has to be done from your server. For security reasons, it won't work if you do it as an ajax request from the user's browser. What I suggest is that you call a url on your server from the javascript callback which will be in charge of itself making the request to browserid.org. This an example implementation for the &lt;a href=&quot;http://www.slimframework.com/&quot;&gt;Slim framework&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/browserid&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;nv&quot;&gt;$assertion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;assertion&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//get the POSTed assertion&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$post_data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;assertion&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$assertion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;audience&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SERVER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//SERVER is my site&amp;#39;s hostname&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;https://browserid.org/verify&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$post_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//This makes a post request to browserid.org&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json_decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;status&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;okay&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;handle_users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//This logs the user in if we have an account for that email address,&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//or creates it otherwise&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$msg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Could not log you in&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$status&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;json_encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;message&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;status&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+&lt;a href=&quot;http://jfoucher.com/2011/12/implementing-browserid-identification.html&quot;&gt;Implementing BrowserID identification for your website&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
+	</entry>
+	
+	<entry>
 		<title>A 10 minute script to graph your server load</title>
 		<link href="http://jfoucher.com/2011/09/a-10-minute-script-to-graph-your-server-load.html"/>
-		<updated>2011-09-17T01:09:13+02:00</updated>
+		<updated>2011-09-16T23:09:13+00:00</updated>
 		<id>http://jfoucher.com/2011/09/a-10-minute-script-to-graph-your-server-load</id>
 		<content type="html">&lt;p&gt;This is a quick and dirty PHP script that I whipped up in about 10 minutes, used to show the load averages on the server where it is uploaded.&lt;/p&gt;
 
@@ -30,7 +110,7 @@
 
 &lt;p&gt;&lt;a title=&quot;server load graph on github&quot; href=&quot;https://github.com/jfoucher/Server-load-graph&quot; target=&quot;_blank&quot;&gt;Get the source on github&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://blog.jfoucher.com/projects/serverload.html&quot;&gt;installation and project details&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://jfoucher.com/projects/serverload.html&quot;&gt;installation and project details&lt;/a&gt;&lt;/p&gt;
 &lt;a href=&quot;http://jfoucher.com/2011/09/a-10-minute-script-to-graph-your-server-load.html&quot;&gt;A 10 minute script to graph your server load&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
@@ -38,7 +118,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Remote debugging with Xdebug and PhpStorm on Ubuntu</title>
 		<link href="http://jfoucher.com/2011/08/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu.html"/>
-		<updated>2011-08-18T01:09:13+02:00</updated>
+		<updated>2011-08-17T23:09:13+00:00</updated>
 		<id>http://jfoucher.com/2011/08/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu</id>
 		<content type="html">&lt;p&gt;Being able to debug your php application right from your IDE is something that you can't fully realise the power of, unless you've tried it. The advantages are immediately obvious: as soon as the connection from Xdebug is successful, you are blinded by variable inspection, code stepping, breakpoints, etc... Debugging heaven!
 It took me... a few months to finally find the time figure out how to set up everything properly, so I hope this post can help someone, somewhere. But don't worry: it retrospect, it's not that difficult at all.&lt;/p&gt;
@@ -48,7 +128,8 @@ It took me... a few months to finally find the time figure out how to set up eve
 
 &lt;p&gt;On Ubuntu and Debian, it couldn't be easier: just open a terminal and type&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo apt-get install php-xdebug
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo apt-get install
+php5-xdebug
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -93,7 +174,7 @@ It took me... a few months to finally find the time figure out how to set up eve
 &lt;h3&gt;Prepare PhpStorm&lt;/h3&gt;
 
 
-&lt;p&gt;Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the &quot;Accept debug connections&quot; button, and activate Xdebug by using a browser extension. ï¿½Here are four extensions to do this:&lt;/p&gt;
+&lt;p&gt;Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the &quot;Accept debug connections&quot; button, and activate Xdebug by using a browser extension. Here are four extensions to do this:&lt;/p&gt;
 
 &lt;ul&gt;
     &lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/58688&quot;&gt;Firefox&lt;/a&gt;&lt;/li&gt;
@@ -123,7 +204,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>A Phing task to update your Twitter status</title>
 		<link href="http://jfoucher.com/2011/06/phing-task-to-update-twitter-status.html"/>
-		<updated>2011-06-29T14:10:00+02:00</updated>
+		<updated>2011-06-29T12:10:00+00:00</updated>
 		<id>http://jfoucher.com/2011/06/phing-task-to-update-twitter-status</id>
 		<content type="html">&lt;h3&gt;Phing and Twitter&lt;/h3&gt;
 
@@ -313,7 +394,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>CSS minification library for codeigniter</title>
 		<link href="http://jfoucher.com/2011/04/css-minification-library-for-codeigniter.html"/>
-		<updated>2011-04-11T14:10:51+02:00</updated>
+		<updated>2011-04-11T12:10:51+00:00</updated>
 		<id>http://jfoucher.com/2011/04/css-minification-library-for-codeigniter</id>
 		<content type="html">&lt;p&gt;For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like&lt;/p&gt;
 
@@ -387,7 +468,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>The making of flickholdr.com, an image placeholder generator</title>
 		<link href="http://jfoucher.com/2011/04/the-making-of-flickholdr-an-image-placeholder-generator.html"/>
-		<updated>2011-04-03T21:42:49+02:00</updated>
+		<updated>2011-04-03T19:42:49+00:00</updated>
 		<id>http://jfoucher.com/2011/04/the-making-of-flickholdr-an-image-placeholder-generator</id>
 		<content type="html">&lt;p&gt;There are a few services available to web designer and HTML coders to use dummy images in their html mockups or templates. The one I used to use is &lt;a href=&quot;http://dummyimage.com&quot;&gt;dummyimage&lt;/a&gt; but it is somewhat limited in that the images are completely static: a flat color and some text. I needed the same kind of service, but with actual images or photographs rather than simple placeholders. Something like dynamically generated stock images.&lt;/p&gt;
 
@@ -462,7 +543,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Installing and running APC cache with CodeIgniter</title>
 		<link href="http://jfoucher.com/2011/02/installing-running-apc-cache-codeigniter.html"/>
-		<updated>2011-02-13T23:33:33+01:00</updated>
+		<updated>2011-02-13T22:33:33+00:00</updated>
 		<id>http://jfoucher.com/2011/02/installing-running-apc-cache-codeigniter</id>
 		<content type="html">&lt;p&gt;Codeigniter 2 now includes an excellent cache driver, which makes it dead easy to use any one of the great available cache librairies such as &lt;a href=&quot;http://php.net/apc&quot;&gt;APC&lt;/a&gt; o &lt;a href=&quot;http://www.memcached.org/&quot;&gt;memcached&lt;/a&gt;. In this post I will focus on APC, it's installation on an &lt;a href=&quot;/?p=193&quot;&gt;Ubuntu 10.04 server&lt;/a&gt;, and a few benchmarks to compare the various cache systems.  For my testing, I will use an Ubuntu Server installation, on a VirtualBox virtual machine with 256 Mb of RAM and a single processor. This enables me to test things until everything breaks, than just scrap that VM and start with a clean one. However, a description of this setup is a story for another day...&lt;/p&gt;
 
@@ -538,7 +619,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Wordpress 404 notification by email</title>
 		<link href="http://jfoucher.com/2011/01/wordpress-email-404-notification.html"/>
-		<updated>2011-01-22T23:42:45+01:00</updated>
+		<updated>2011-01-22T22:42:45+00:00</updated>
 		<id>http://jfoucher.com/2011/01/wordpress-email-404-notification</id>
 		<content type="html">&lt;p&gt;I couldn't find something that did just what I wanted and no more: send me an email when someone gets a 404 error on my blog. It seems pretty simple, and it really is. More than that actually. It's problably the simplest plugin I've ever written.&lt;/p&gt;
 
@@ -644,7 +725,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Spanish characters on Qwerty keyboard for Ubuntu 10.10</title>
 		<link href="http://jfoucher.com/2011/01/spanish-characters-on-qwerty-keyboard-for-ubuntu-10-10.html"/>
-		<updated>2011-01-14T22:06:17+01:00</updated>
+		<updated>2011-01-14T21:06:17+00:00</updated>
 		<id>http://jfoucher.com/2011/01/spanish-characters-on-qwerty-keyboard-for-ubuntu-10-10</id>
 		<content type="html">&lt;p&gt;Typing spanish characters on a standard QWERTY (or other) keyboard is near impossible. I have used the Character Palette panel applet to do so, but this method requires clicking on the letter you want, and then paste it where you want it. To much work for my tastes. Yes I'm lazy. I'm a programmer.&lt;/p&gt;
 
@@ -695,7 +776,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Python skype notifier for Ubuntu</title>
 		<link href="http://jfoucher.com/2011/01/python-skype-notifier-for-ubuntu.html"/>
-		<updated>2011-01-14T13:21:52+01:00</updated>
+		<updated>2011-01-14T12:21:52+00:00</updated>
 		<id>http://jfoucher.com/2011/01/python-skype-notifier-for-ubuntu</id>
 		<content type="html">&lt;p&gt;What's the best way to learn a new programming language ? Well, according to &lt;a href=&quot;http://programmers.stackexchange.com/q/3519/3984&quot;&gt;this question&lt;/a&gt; the best (only ?) way to learn a new language is just to code in that language.&lt;/p&gt;
 
@@ -1267,7 +1348,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Compile custom kernel on Ubuntu 10.10</title>
 		<link href="http://jfoucher.com/2011/01/compile-custom-kernel-on-ubuntu-10-10.html"/>
-		<updated>2011-01-12T15:06:02+01:00</updated>
+		<updated>2011-01-12T14:06:02+00:00</updated>
 		<id>http://jfoucher.com/2011/01/compile-custom-kernel-on-ubuntu-10-10</id>
 		<content type="html">&lt;p&gt;First off, you want to grab the latest kernel source from &lt;a href=&quot;http://kernel.org/&quot;&gt;http://kernel.org/&lt;/a&gt; and save it to a folder on your computer. I used my browser's default :&lt;/p&gt;
 
@@ -1396,7 +1477,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>New version of the auto-tag plugin released!</title>
 		<link href="http://jfoucher.com/2010/05/version-autotag-plugin-released.html"/>
-		<updated>2010-05-19T16:45:10+02:00</updated>
+		<updated>2010-05-19T14:45:10+00:00</updated>
 		<id>http://jfoucher.com/2010/05/version-autotag-plugin-released</id>
 		<content type="html">&lt;p&gt;&lt;a href=&quot;http://wordpress.org/extend/plugins/auto-tag/&quot;&gt;Version 0.4 is here!&lt;/a&gt;&lt;/p&gt;
 
@@ -1412,7 +1493,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Coding challenge: One app a month</title>
 		<link href="http://jfoucher.com/2010/01/coding-challenge-app-month.html"/>
-		<updated>2010-01-02T12:34:11+01:00</updated>
+		<updated>2010-01-02T11:34:11+00:00</updated>
 		<id>http://jfoucher.com/2010/01/coding-challenge-app-month</id>
 		<content type="html">&lt;p&gt;This is the challenge I set myself for 2010 : Develop one webapp per month during the whole year.This is the challenge I set myself for 2010 : Develop one webapp per month during the whole year. Read more about it &lt;a href=&quot;http://jfoucher.fr/blog/one-app-a-month-challenge/&quot;&gt;on my portfolio&lt;/a&gt;&lt;/p&gt;
 &lt;a href=&quot;http://jfoucher.com/2010/01/coding-challenge-app-month.html&quot;&gt;Coding challenge: One app a month&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
@@ -1422,7 +1503,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>One app a month challenge</title>
 		<link href="http://jfoucher.com/2010/01/one-app-a-month-challenge.html"/>
-		<updated>2010-01-02T00:29:39+01:00</updated>
+		<updated>2010-01-01T23:29:39+00:00</updated>
 		<id>http://jfoucher.com/2010/01/one-app-a-month-challenge</id>
 		<content type="html">&lt;p&gt;To keep learning and progressing in my line of work, you have to be &lt;strong&gt;learning new things&lt;/strong&gt; everyday. The evolution is so fast that if you don't go forward, you are effectively going backwards.&lt;/p&gt;
 
@@ -1445,7 +1526,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>BlueIce Plugin</title>
 		<link href="http://jfoucher.com/2009/12/blueice-plugin.html"/>
-		<updated>2009-12-14T17:59:32+01:00</updated>
+		<updated>2009-12-14T16:59:32+00:00</updated>
 		<id>http://jfoucher.com/2009/12/blueice-plugin</id>
 		<content type="html">&lt;p&gt;I just created a very simple plugin for &lt;a title=&quot;The Anti-CMS&quot; href=&quot;http://blueiceapp.com&quot;&gt;BlueIce&lt;/a&gt;, the anti-CMS. It simply inserts a list containg links to all pages in the web site. The author published it on his &lt;a href=&quot;http://blueiceapp.com/docs/plugins&quot;&gt;3rd party plugins&lt;/a&gt; page, and I highly recommend his anti-CMS for small, semi static sites.&lt;/p&gt;
 
@@ -1457,7 +1538,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Why Google Wave is useless (with invites giveaway)</title>
 		<link href="http://jfoucher.com/2009/11/google-wave-useless.html"/>
-		<updated>2009-11-20T10:00:29+01:00</updated>
+		<updated>2009-11-20T09:00:29+00:00</updated>
 		<id>http://jfoucher.com/2009/11/google-wave-useless</id>
 		<content type="html">&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Google Wave&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/11/Screenshot-1.png&quot;&gt;&lt;img class=&quot;size-medium wp-image-172&quot; title=&quot;Google Wave&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/11/Screenshot-1-300x158.png&quot; alt=&quot;Google Wave&quot; width=&quot;300&quot; height=&quot;158&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
@@ -1500,7 +1581,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>EducaThyssen</title>
 		<link href="http://jfoucher.com/2009/10/190.html"/>
-		<updated>2009-10-06T09:36:34+02:00</updated>
+		<updated>2009-10-06T07:36:34+00:00</updated>
 		<id>http://jfoucher.com/2009/10/190</id>
 		<content type="html">&lt;div class=&quot;image-with-caption alignnone&quot; style=&quot;width:370px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Una web del Museo Thyssen-Bornemisza&lt;/div&gt;&lt;a href=&quot;http://www.educathyssen.org&quot;&gt;&lt;img src=&quot;http://jfoucher.fr/wp-content/uploads/2009/10/Pantallazo-2-370x232.jpg&quot; alt=&quot;Una web del Museo Thyssen-Bornemisza&quot; title=&quot;Educathyssen.org&quot; width=&quot;370&quot; height=&quot;232&quot; class=&quot;size-medium wp-image-189&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
@@ -1513,7 +1594,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Cafepress SIGG bottles discount and coupon code !</title>
 		<link href="http://jfoucher.com/2009/07/cafepress-sigg-bottles-discount-coupon-code.html"/>
-		<updated>2009-07-27T21:13:36+02:00</updated>
+		<updated>2009-07-27T19:13:36+00:00</updated>
 		<id>http://jfoucher.com/2009/07/cafepress-sigg-bottles-discount-coupon-code</id>
 		<content type="html">&lt;p&gt;You've probably seen that cafepress let's you&lt;a href=&quot;http://www.cafepress.com/designer/sigg/&quot;&gt; customize your sigg bottle&lt;/a&gt;, and you also no doubt know that water bottles are bad for the &lt;a href=&quot;http://ecoquotidien.fr&quot;&gt;environment&lt;/a&gt;, as only a small proportion are recycled, and many end up scattered around natural areas, not least of which, due to their rather &lt;em&gt;floating&lt;/em&gt; nature, our beaches. Sigg bottles are a durable, light and trendy alternative, and today we are going to &lt;em&gt;design our own&lt;/em&gt;, but not using &lt;a href=&quot;http://cafepress.com&quot;&gt;cafepress'&lt;/a&gt; flash designer!&lt;/p&gt;
 
@@ -1599,7 +1680,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Access to MySQL import class</title>
 		<link href="http://jfoucher.com/2009/07/access-to-mysql-import-class.html"/>
-		<updated>2009-07-18T09:57:25+02:00</updated>
+		<updated>2009-07-18T07:57:25+00:00</updated>
 		<id>http://jfoucher.com/2009/07/access-to-mysql-import-class</id>
 		<content type="html">&lt;p&gt;In my latest project &lt;a href=&quot;http://tecknosfera.com&quot;&gt;at work&lt;/a&gt; I need to import data from an acess database into mySQL to be able to create an online shop from that data. Instead of importing just the database of that particular client, I created a generic PHP class that can import any Access database to MySQL.&lt;/p&gt;
 
@@ -1616,7 +1697,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Ecoquotidien.fr</title>
 		<link href="http://jfoucher.com/2009/07/ecoquotidien.html"/>
-		<updated>2009-07-10T10:18:11+02:00</updated>
+		<updated>2009-07-10T08:18:11+00:00</updated>
 		<id>http://jfoucher.com/2009/07/ecoquotidien</id>
 		<content type="html">&lt;div class=&quot;image-with-caption alignleft&quot; style=&quot;width:370px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Ecoquotidien&lt;/div&gt;&lt;a href=&quot;http://ecoquotidien.fr&quot;&gt;&lt;img src=&quot;http://jfoucher.fr/wp-content/uploads/2009/07/ecoquotidien-370x231.jpg&quot; alt=&quot;Ecoquotidien&quot; title=&quot;Ecoquotidien&quot; width=&quot;370&quot; height=&quot;231&quot; class=&quot;size-medium wp-image-157&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
@@ -1629,19 +1710,6 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;Based in &lt;a href=&quot;http://wordpress.org&quot;&gt;Wordpress&lt;/a&gt;, this blog makes extensive use of &lt;a href=&quot;http://jquery.com&quot;&gt;jQuery&lt;/a&gt; to give life to the page, with animations, dynamic content, etc... The clouds, for example move around on the screen as if an imaginary electronic wind was blowing!
 [/lang_en]&lt;/p&gt;
 &lt;a href=&quot;http://jfoucher.com/2009/07/ecoquotidien.html&quot;&gt;Ecoquotidien.fr&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
-href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
-	</entry>
-	
-	<entry>
-		<title>WP-Feedly theme available for download</title>
-		<link href="http://jfoucher.com/2009/06/wpfeedly-theme-download.html"/>
-		<updated>2009-06-27T11:19:32+02:00</updated>
-		<id>http://jfoucher.com/2009/06/wpfeedly-theme-download</id>
-		<content type="html">&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;WP-Feedly Screenshot&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot1.png&quot;&gt;&lt;img class=&quot;size-full wp-image-138&quot; title=&quot;WP-Feedly Screenshot&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot1.png&quot; alt=&quot;WP-Feedly Screenshot&quot; width=&quot;300&quot; height=&quot;255&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
-
-
-&lt;p&gt;After some beta testing and subsequent bug squashing, WP-Feedly is ready for prime-time, and &lt;a href=&quot;/wp-feedly.zip&quot;&gt;available for download&lt;/a&gt;.&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2009/06/wpfeedly-theme-download.html&quot;&gt;WP-Feedly theme available for download&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
