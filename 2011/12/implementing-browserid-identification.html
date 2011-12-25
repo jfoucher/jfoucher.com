@@ -118,7 +118,7 @@
 
                 <p>BrowserID <a href="http://identity.mozilla.com/post/7616727542/introducing-browserid-a-better-way-to-sign-in">was released a few months ago</a> and is a new way to sign in to websites or web applications that doesn't require you to give your password each time you want to login. It doesn't even require you to register as such on each website. In that way, it is very similar to openId, but without the usability issues.</p>
 
-<p>For developpers, Mozilla set up a service that provides everything you need to let your users simply login without handling any of the dirty work yourself. http://browserid.org is an identity provider that allows your users to create and manage their accounts across the web. One account for an infinite number of websites. Could this finally be our <a href="http://www.codinghorror.com/blog/2010/11/your-internet-drivers-license.html">universal login mechanism</a>?</p>
+<p>For developpers, Mozilla set up a service that provides everything you need to let your users simply login without handling any of the dirty work yourself. <a href="http://browserid.org">http://browserid.org</a> is an identity provider that allows your users to create and manage their accounts across the web. One account for an infinite number of websites. Could this finally be our <a href="http://www.codinghorror.com/blog/2010/11/your-internet-drivers-license.html">universal login mechanism</a>?</p>
 
 <h3><a href="https://github.com/mozilla/browserid/wiki/How-to-Use-BrowserID-on-Your-Site">Implementing BrowserID</a> on your site or app is easy</h3>
 
@@ -145,11 +145,11 @@
 </div>
 
 
-<p>If the assertion is there, the user authenticated successfully. now you must verify that the assertion really is authentic, and get the relevant data from it. You <em>could</em> <a href="https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest">do it yourself</a>, but if you don't have any special requirements, I recommend you just use the service provided by http://browserid.org</p>
+<p>If the assertion is there, the user authenticated successfully. now you must verify that the assertion really is authentic, and get the relevant data from it. You <em>could</em> <a href="https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest">do it yourself</a>, but if you don't have any special requirements, I recommend you just use the service provided by <a href="http://browserid.org">http://browserid.org</a></p>
 
 <h4>Verify the assertion</h4>
 
-<p>To do so, and once you have the <code>assertion</code>, you have to make a POST request to http://browserid.org/verify, with two parameters: the assertion and the audience, which is simply the hostname of your site. This has to be done from your server. For security reasons, it won't work if you do it as an ajax request from the user's browser. What I suggest is that you call a url on your server from the javascript callback which will be in charge of itself making the request to browserid.org. Do it as a POST request as that assertion is a <em>long</em> string. This an example implementation for the <a href="http://www.slimframework.com/">Slim framework</a>:</p>
+<p>To do so, and once you have the <code>assertion</code>, you have to make a POST request to <a href="http://browserid.org/verify">http://browserid.org/verify</a>, with two parameters: the assertion and the audience, which is simply the hostname of your site. This has to be done from your server. For security reasons, it won't work if you do it as an ajax request from the user's browser. What I suggest is that you call a url on your server from the javascript callback which will be in charge of itself making the request to browserid.org. Do it as a POST request as that assertion is a <em>long</em> string. This an example implementation for the <a href="http://www.slimframework.com/">Slim framework</a>:</p>
 
 <div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
 <span class="nv">$app</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;/browserid&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$app</span><span class="p">)</span> <span class="p">{</span>

@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>2011-12-25T15:36:10+00:00</updated>
+	<updated>2011-12-25T16:34:42+00:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -19,7 +19,7 @@
 		<id>http://jfoucher.com/2011/12/implementing-browserid-identification</id>
 		<content type="html">&lt;p&gt;BrowserID &lt;a href=&quot;http://identity.mozilla.com/post/7616727542/introducing-browserid-a-better-way-to-sign-in&quot;&gt;was released a few months ago&lt;/a&gt; and is a new way to sign in to websites or web applications that doesn't require you to give your password each time you want to login. It doesn't even require you to register as such on each website. In that way, it is very similar to openId, but without the usability issues.&lt;/p&gt;
 
-&lt;p&gt;For developpers, Mozilla set up a service that provides everything you need to let your users simply login without handling any of the dirty work yourself. http://browserid.org is an identity provider that allows your users to create and manage their accounts across the web. One account for an infinite number of websites. Could this finally be our &lt;a href=&quot;http://www.codinghorror.com/blog/2010/11/your-internet-drivers-license.html&quot;&gt;universal login mechanism&lt;/a&gt;?&lt;/p&gt;
+&lt;p&gt;For developpers, Mozilla set up a service that provides everything you need to let your users simply login without handling any of the dirty work yourself. &lt;a href=&quot;http://browserid.org&quot;&gt;http://browserid.org&lt;/a&gt; is an identity provider that allows your users to create and manage their accounts across the web. One account for an infinite number of websites. Could this finally be our &lt;a href=&quot;http://www.codinghorror.com/blog/2010/11/your-internet-drivers-license.html&quot;&gt;universal login mechanism&lt;/a&gt;?&lt;/p&gt;
 
 &lt;h3&gt;&lt;a href=&quot;https://github.com/mozilla/browserid/wiki/How-to-Use-BrowserID-on-Your-Site&quot;&gt;Implementing BrowserID&lt;/a&gt; on your site or app is easy&lt;/h3&gt;
 
@@ -46,11 +46,11 @@
 &lt;/div&gt;
 
 
-&lt;p&gt;If the assertion is there, the user authenticated successfully. now you must verify that the assertion really is authentic, and get the relevant data from it. You &lt;em&gt;could&lt;/em&gt; &lt;a href=&quot;https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest&quot;&gt;do it yourself&lt;/a&gt;, but if you don't have any special requirements, I recommend you just use the service provided by http://browserid.org&lt;/p&gt;
+&lt;p&gt;If the assertion is there, the user authenticated successfully. now you must verify that the assertion really is authentic, and get the relevant data from it. You &lt;em&gt;could&lt;/em&gt; &lt;a href=&quot;https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest&quot;&gt;do it yourself&lt;/a&gt;, but if you don't have any special requirements, I recommend you just use the service provided by &lt;a href=&quot;http://browserid.org&quot;&gt;http://browserid.org&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4&gt;Verify the assertion&lt;/h4&gt;
 
-&lt;p&gt;To do so, and once you have the &lt;code&gt;assertion&lt;/code&gt;, you have to make a POST request to http://browserid.org/verify, with two parameters: the assertion and the audience, which is simply the hostname of your site. This has to be done from your server. For security reasons, it won't work if you do it as an ajax request from the user's browser. What I suggest is that you call a url on your server from the javascript callback which will be in charge of itself making the request to browserid.org. Do it as a POST request as that assertion is a &lt;em&gt;long&lt;/em&gt; string. This an example implementation for the &lt;a href=&quot;http://www.slimframework.com/&quot;&gt;Slim framework&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;To do so, and once you have the &lt;code&gt;assertion&lt;/code&gt;, you have to make a POST request to &lt;a href=&quot;http://browserid.org/verify&quot;&gt;http://browserid.org/verify&lt;/a&gt;, with two parameters: the assertion and the audience, which is simply the hostname of your site. This has to be done from your server. For security reasons, it won't work if you do it as an ajax request from the user's browser. What I suggest is that you call a url on your server from the javascript callback which will be in charge of itself making the request to browserid.org. Do it as a POST request as that assertion is a &lt;em&gt;long&lt;/em&gt; string. This an example implementation for the &lt;a href=&quot;http://www.slimframework.com/&quot;&gt;Slim framework&lt;/a&gt;:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;$app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/browserid&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
