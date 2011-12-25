@@ -103,7 +103,7 @@
 					<li>
 						<a href="/2011/12/implementing-browserid-identification.html#notebook" title="Implementing BrowserID identification for your website">
 							<span class="date">
-								<span class="day">24</span>
+								<span class="day">25</span>
 								<span class="month"><abbr>Dec</abbr></span>
 							</span> 
 							<span class="title">Implementing BrowserID identification for your website</span>
@@ -161,37 +161,29 @@
             <div class="meta">
                 <!-- <span class="pdf">Download a <a href="/2011/12/implementing-browserid-identification.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2011/12/implementing-browserid-identification.html" title="[Permalink] Implementing BrowserID identification for your website">permalink to this article</a>.</span>
-                <span class="date" title="2011-12-24T00:00:00+00:00">
+                <span class="date" title="2011-12-25T13:05:13+00:00">
                     <span class="published">Published&thinsp;&bull;</span>
-                    <span class="day">24</span>
+                    <span class="day">25</span>
                     <span class="month"><abbr>Dec</abbr></span>
                     <span class="year">2011</span>
                 </span>
             </div> <!-- /.meta -->
             <div id="entry-content">
 
-                <h3>BrowserID <a href="http://identity.mozilla.com/post/7616727542/introducing-browserid-a-better-way-to-sign-in">was released a few months ago</a></h3>
+                <p>BrowserID <a href="http://identity.mozilla.com/post/7616727542/introducing-browserid-a-better-way-to-sign-in">was released a few months ago</a> and is a new way to sign in to websites or web applications that doesn't require you to give your password each time you want to login. It doesn't even require you to register as such on each website. In that way, it is very similar to openId, but without the usability issues.</p>
 
-<p>It is a new way to sign in to websites or web applications that doesn't require you to give your password each time you want to login. It doesn't even require you to register as such on each website. In that way, it is very similar to openId, but without the usability issues.</p>
-
-<p>For developpers, Mozilla set up a service that provides everything you need to let your users simply login without handling any of the dirty work yourself. http://browserid.org is an identity provider that allows your users to create and manage their accounts across the web. One account for an infinite number of websites. Could this finally be our <a href="http://www.codinghorror.com/blog/2010/11/your-internet-drivers-license.html">Internet driver's license</a>?</p>
+<p>For developpers, Mozilla set up a service that provides everything you need to let your users simply login without handling any of the dirty work yourself. http://browserid.org is an identity provider that allows your users to create and manage their accounts across the web. One account for an infinite number of websites. Could this finally be our <a href="http://www.codinghorror.com/blog/2010/11/your-internet-drivers-license.html">universal login mechanism</a>?</p>
 
 <h3><a href="https://github.com/mozilla/browserid/wiki/How-to-Use-BrowserID-on-Your-Site">Implementing BrowserID</a> on your site or app is easy</h3>
 
-<ol>
-<li>Include the following javascript snippet in your page</li>
-</ol>
-
+<h4>Include the following javascript snippet in your page</h4>
 
 <div class="highlight"><pre><code class="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://browserid.org/include.js&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
 </code></pre>
 </div>
 
 
-<ol>
-<li>Identify the user</li>
-</ol>
-
+<h4>Identify the user</h4>
 
 <p>When the user clicks on your "Login" button, a window pops up asking them to confirm that they want to login, or asking them to create a browserID account if they haven't done it yet. Once they decide that they want to login, they are redirected to your site, and the following function is called, with the assertion being passed to the callback if the login was successful</p>
 
@@ -209,7 +201,9 @@
 
 <p>If the assertion is there, the user authenticated successfully. now you must verify that the assertion really is authentic, and get the relevant data from it. You <em>could</em> <a href="https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest">do it yourself</a>, but if you don't have any special requirements, I recommend you just use the service provided by http://browserid.org</p>
 
-<p>To do so, and once you have the <code>assertion</code>, you have to make a POST request to http://browserid.org/verify, with two parameters: the assertion and the audience, which is simply the hostname of your site. This has to be done from your server. For security reasons, it won't work if you do it as an ajax request from the user's browser. What I suggest is that you call a url on your server from the javascript callback which will be in charge of itself making the request to browserid.org. This an example implementation for the <a href="http://www.slimframework.com/">Slim framework</a>:</p>
+<h4>Verify the assertion</h4>
+
+<p>To do so, and once you have the <code>assertion</code>, you have to make a POST request to http://browserid.org/verify, with two parameters: the assertion and the audience, which is simply the hostname of your site. This has to be done from your server. For security reasons, it won't work if you do it as an ajax request from the user's browser. What I suggest is that you call a url on your server from the javascript callback which will be in charge of itself making the request to browserid.org. Do it as a POST request as that assertion is a <em>long</em> string. This an example implementation for the <a href="http://www.slimframework.com/">Slim framework</a>:</p>
 
 <div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
 <span class="nv">$app</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;/browserid&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$app</span><span class="p">)</span> <span class="p">{</span>
@@ -240,7 +234,30 @@
 </div>
 
 
+<p>This call to the browserID API returns some json_encoded stuff, for example something like this :</p>
 
+<div class="highlight"><pre><code class="javascript"><span class="p">{</span>
+    <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;okay&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;lloyd@example.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;audience&quot;</span><span class="o">:</span> <span class="s2">&quot;https://mysite.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;expires&quot;</span><span class="o">:</span> <span class="mi">1308859352261</span><span class="p">,</span>
+    <span class="s2">&quot;issuer&quot;</span><span class="o">:</span> <span class="s2">&quot;browserid.org&quot;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+<h4>Login or register</h4>
+
+<p>If you don't get anything, or the status is not okay, something failed. Otherwise, great, your user just asked to be logged in! (or registered)</p>
+
+<p>If the status was okay, you then need to proceed to login your user (set session varibles, or whatever...) or register them (create an account in your database and then log them in)</p>
+
+<p>The data returned is very basic, but allows you to check whether that user laready has an account or your site or not. You are then free to ask them for additional data, such as their name, date of birth, etc...</p>
+
+<p>And that's it! I'm really happy because now I can forget about email address verification, lost passwords and all the annoying stuff that having actual users imply. Let someone else do the hard work is what I say!! Especially when it integrates so well everywhere.</p>
+
+<p>Oh by the way, there's a <a href="http://wordpress.org/extend/plugins/browserid/">Wordpress plugin</a> for that</p>
 
 
             </div> <!-- /.entry-content.colEight -->

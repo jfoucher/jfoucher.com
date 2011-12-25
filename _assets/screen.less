@@ -339,6 +339,7 @@ div.hero{
         }
     }
 
+
     .meta{
         .column(3,16);
 
@@ -381,6 +382,13 @@ div.hero{
             font-size:1.5em;
             clear:both;
             margin:1em 0;
+        }
+        h4{
+            font-size:1.1em;
+            font-weight:bold;
+            font-family:@headingFont;
+            clear:both;
+            margin:1em 0 0.5em 0;
         }
 
         ul{
@@ -795,15 +803,84 @@ Utility clases
         }
     }
 
+    #footer{
+        #nav-footer{
+            clear:both;
+            li{
+                a{
+
+                    padding:0.5em 0.8em;
+                }
+            }
+
+
+        }
+    }
+
+
+
 
     
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
     #container{
 
-            width:  94%;
-            padding:0 3%;
+        width:  94%;
+        padding:0 3%;
+    }
+    #header{
+        padding:1em 0;
+        div.logo{
+            .column(16);
+            font-size:0.7em;
+            text-align:center;
         }
+        .siteDesc{
+            .column(16);
+            text-align:center;
+        }
+    }
+    #nav{
+        margin:0 auto;
+
+        ul{
+            text-align: center;
+        }
+        a{
+            font-size:0.8em;
+            padding:0.5em 0.8em;
+        }
+    }
+    #notebook{
+        .meta{
+            .column(16);
+            margin-bottom:1em;
+            .permalink, .date{
+                display:inline;
+            }
+            .date{
+                float:right;
+            }
+        }
+        #entry-content{
+            .column(16);
+        }
+    }
+
+    #footer{
+        #nav-footer{
+
+            clear:both;
+            li{
+                a{
+
+                    padding:0.2em 0.5em;
+                }
+            }
+
+
+        }
+    }
 
 }
 
@@ -813,12 +890,32 @@ Utility clases
         width:  100%;
         padding:0 ;
     }
+    div.hero div.skip{
+        display:none;
+    }
+    #footer span.backtop{
+        display:none;
+    }
 }
 @media (max-width:320px){
     #container{
 
         width:  100%;
         padding:0 ;
+    }
+    #nav{
+        margin:0 auto;
+
+        ul{
+            text-align: center;
+        }
+        a{
+            font-size:0.75em;
+            padding:0.1em 0.3em;
+        }
+    }
+    #notebook .meta{
+        display:none;
     }
 
 }
