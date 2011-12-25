@@ -120,11 +120,42 @@
 
                 <p>I couldn't find something that did just what I wanted and no more: send me an email when someone gets a 404 error on my blog. It seems pretty simple, and it really is. More than that actually. It's problably the simplest plugin I've ever written.</p>
 
-<p>Check it out:
-Liquid error: undefined method <code>join' for #&lt;String:0xb72090b0&gt;
-This is the main part of the code, the one gets executed everytime the Liquid error: undefined method</code>join' for "get_header":String hook is called. It basically just checks the $wp_query object to see if the current url gives a 404 error and then passes that url to the email_admin function</p>
+<p>Check it out:</p>
 
-<p>Liquid error: undefined method `join' for #&lt;String:0xb7208c28></p>
+<div class="highlight"><pre><code class="php"><span class="x">function email_error(){</span>
+<span class="x">    global $wp_query;</span>
+<span class="x">    $location=$_SERVER[&#39;REQUEST_URI&#39;];</span>
+<span class="x">    if ($wp_query-&amp;gt;is_404){</span>
+<span class="x">        email_admin($location);</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+<span class="x">add_action(&#39;get_header&#39;, &#39;email_error&#39;);</span>
+</code></pre>
+</div>
+
+
+<p>This is the main part of the code, the one gets executed everytime the</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">get_header</span>
+</code></pre>
+</div>
+
+
+<p> hook is called. It basically just checks the $wp_query object to see if the current url gives a 404 error and then passes that url to the email_admin function</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">function email_admin($location){</span>
+<span class="x">    $name=get_option(&#39;blogname&#39;);</span>
+<span class="x">    $email = get_option(&#39;admin_email&#39;);</span>
+<span class="x">    $headers  = &quot;MIME-Version: 1.0\r\n&quot;;</span>
+<span class="x">    $headers .= &quot;Content-type: text/plain; charset=UTF-8\r\n&quot;;</span>
+<span class="x">    $headers .= &#39;From: &quot;&#39; . $name . &#39;&quot; &amp;lt;&#39; .$email. &quot;&amp;gt;\r\n&quot;;</span>
+<span class="x">    $subject=&#39;404 error in &#39;.$name;</span>
+<span class="x">    $body=&#39;A 404 error occured at the following url: &#39;.$_SERVER[&#39;SERVER_NAME&#39;].$location;</span>
+<span class="x">    @mail($email,$subject,$body,$headers);</span>
+<span class="x">}</span>
+</code></pre>
+</div>
+
 
 <p>This function sets some headers for the email, such as the sender's name and email, and the subject of the message, and then sends the message. No error is shown if the message can't be sent, as this would be displayed on the page.</p>
 
@@ -134,11 +165,39 @@ This is the main part of the code, the one gets executed everytime the Liquid er
 
 
 <p>Check it out:<br />
-Liquid error: undefined method `join' for #<String:0xb72089d0><br />
-This is the main part of the code, the one gets executed everytime the Liquid error: undefined method `join' for "get_header":String hook is called. It basically just checks the $wp_query object to see if the current url gives a 404 error and then passes that url to the email_admin function</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">&lt;br /&gt;</span>
+<span class="x">function email_error(){&lt;br /&gt;</span>
+<span class="x">    global $wp_query;&lt;br /&gt;</span>
+<span class="x">    $location=$_SERVER[&#39;REQUEST_URI&#39;];&lt;/p&gt;</span>
+<span class="x">&lt;p&gt;   if ($wp_query-&gt;is_404){&lt;br /&gt;</span>
+<span class="x">        email_admin($location);&lt;br /&gt;</span>
+<span class="x">    }&lt;br /&gt;</span>
+<span class="x">}&lt;br /&gt;</span>
+<span class="x">add_action(&#39;get_header&#39;, &#39;email_error&#39;);&lt;br /&gt;</span>
+</code></pre>
+</div>
+
+<br />
+This is the main part of the code, the one gets executed everytime the Liquid error:  hook is called. It basically just checks the $wp_query object to see if the current url gives a 404 error and then passes that url to the email_admin function</p>
 
 
-<p>Liquid error: undefined method `join' for #<String:0xb7208548></p>
+<p>
+<div class="highlight"><pre><code class="php"><span class="x">&lt;br /&gt;</span>
+<span class="x">function email_admin($location){&lt;br /&gt;</span>
+<span class="x">    $name=get_option(&#39;blogname&#39;);&lt;br /&gt;</span>
+<span class="x">    $email = get_option(&#39;admin_email&#39;);&lt;br /&gt;</span>
+<span class="x">    $headers  = &quot;MIME-Version: 1.0\r\n&quot;;&lt;br /&gt;</span>
+<span class="x">    $headers .= &quot;Content-type: text/plain; charset=UTF-8\r\n&quot;;&lt;br /&gt;</span>
+<span class="x">    $headers .= &#39;From: &quot;&#39; . $name . &#39;&quot; &lt;&#39; .$email. &quot;&gt;\r\n&quot;;&lt;br /&gt;</span>
+<span class="x">    $subject=&#39;404 error in &#39;.$name;&lt;br /&gt;</span>
+<span class="x">    $body=&#39;A 404 error occured at the following url: &#39;.$_SERVER[&#39;SERVER_NAME&#39;].$location;&lt;br /&gt;</span>
+<span class="x">    @mail($email,$subject,$body,$headers);&lt;br /&gt;</span>
+<span class="x">}&lt;br /&gt;</span>
+</code></pre>
+</div>
+
+</p>
 
 
 <p>This function sets some headers for the email, such as the sender's name and email, and the subject of the message, and then sends the message. No error is shown if the message can't be sent, as this would be displayed on the page.</p>

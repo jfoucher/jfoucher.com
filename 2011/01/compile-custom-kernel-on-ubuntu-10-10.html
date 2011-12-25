@@ -118,30 +118,106 @@
             </div> <!-- /.meta -->
             <div id="entry-content">
 
-                <p>First off, you want to grab the latest kernel source from <a href="http://kernel.org/">http://kernel.org/</a> and save it to a folder on your computer. I used my browser's default : Liquid error: undefined method `join' for "~/Downloads":String. Right click on the archive and select "extract here"</p>
+                <p>First off, you want to grab the latest kernel source from <a href="http://kernel.org/">http://kernel.org/</a> and save it to a folder on your computer. I used my browser's default :</p>
+
+<div class="highlight"><pre><code class="bash">~/Downloads
+</code></pre>
+</div>
+
+
+<p>. Right click on the archive and select "extract here"</p>
 
 <h3>Configuration</h3>
 
 
-<p>Open a terminal, "cd" to your source directory, in my case Liquid error: undefined method <code>join' for "cd ~/Downloads/linux-2.6.37":String and run Liquid error: undefined method</code>join' for "make gconfig":String if using Ubuntu or Liquid error: undefined method <code>join' for "make kconfig":String if running Kubuntu. At that point, you'll need to know a fair bit about your system's hardware, to select only the options that are applicable. I like to reuse my current config as a starting point, so if you are using the default ubuntu kernel, the configuration used is stored in the Liquid error: undefined method</code>join' for "/boot":String directory, with names like Liquid error: undefined method <code>join' for "config-2.6.35-24-generic":String Copy the latest one to your linux source directory. When the configuration editor is loaded, choose Liquid error: undefined method</code>join' for "File >> Load":String and select the file you just copied over. Now the Ubuntu default configuration is loaded. If you were to compile your kernel you would get the same kind of system you have now : functional but suboptimal.</p>
+<p>Open a terminal, "cd" to your source directory, in my case</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nb">cd</span> ~/Downloads/linux-2.6.37
+</code></pre>
+</div>
+
+
+<p> and run</p>
+
+<div class="highlight"><pre><code class="bash">make gconfig
+</code></pre>
+</div>
+
+
+<p> if using Ubuntu or</p>
+
+<div class="highlight"><pre><code class="bash">make kconfig
+</code></pre>
+</div>
+
+
+<p> if running Kubuntu. At that point, you'll need to know a fair bit about your system's hardware, to select only the options that are applicable. I like to reuse my current config as a starting point, so if you are using the default ubuntu kernel, the configuration used is stored in the</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">/boot</span>
+</code></pre>
+</div>
+
+
+<p> directory, with names like</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">config-2.6.35-24-generic</span>
+</code></pre>
+</div>
+
+
+<p> Copy the latest one to your linux source directory. When the configuration editor is loaded, choose</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">File &gt;&gt; Load</span>
+</code></pre>
+</div>
+
+
+<p> and select the file you just copied over. Now the Ubuntu default configuration is loaded. If you were to compile your kernel you would get the same kind of system you have now : functional but suboptimal.</p>
 
 <p>We'll try and better that a bit.</p>
 
 <p>The first submenu I open is Processor type and features. In there, I disable everything related to SMP and Paravirtualized guest support as I do not plan to run this as a VM guest. I choose the type of processor appropriate to my machine, in this case "new Xeon"</p>
 
-<p>You can use Liquid error: undefined method `join' for "make localmodconfig":String which will disable all the modules not currently loaded from your config file. Be careful though, because if there are devices and/of file systems you're not using at the moment, the drivers won't be added.</p>
+<p>You can use</p>
+
+<div class="highlight"><pre><code class="bash">make localmodconfig
+</code></pre>
+</div>
+
+
+<p> which will disable all the modules not currently loaded from your config file. Be careful though, because if there are devices and/of file systems you're not using at the moment, the drivers won't be added.</p>
 
 <h3>Compiling and instalation</h3>
 
 
-<p>Once you're happy with the configuration, save and close the editor, and run Liquid error: undefined method <code>join' for "make all":String or Liquid error: undefined method</code>join' for "make -j4 all":String on multicore processors to run several processes in parallel, which will compile the kernel and the modules specified in the .config file</p>
+<p>Once you're happy with the configuration, save and close the editor, and run</p>
+
+<div class="highlight"><pre><code class="bash">make all
+</code></pre>
+</div>
+
+
+<p> or</p>
+
+<div class="highlight"><pre><code class="bash">make -j4 all
+</code></pre>
+</div>
+
+
+<p> on multicore processors to run several processes in parallel, which will compile the kernel and the modules specified in the .config file</p>
 
 <p>That's the regular debian method, in which you have to run mkinitrd afterwards. I ended up doing it <a href="https://help.ubuntu.com/community/Kernel/Compile">the ubuntu way</a>, where you create .deb packages you can later install with your preferred package manager.</p>
 
 <blockquote>
 <p class="line862">If you re-used the existing configuration, note that Ubuntu kernels build with debugging information on, which makes the resulting kernel modules (*.ko files) much larger than they would otherwise be. To turn this off, go into the config's "Kernel hacking"&lt;!-- ; then, under "Kernel debugging", --&gt; and turn OFF "Compile the kernel with debug info".</p>
 <p class="line874">Now you can compile the kernel and create the packages:</p>
-Liquid error: undefined method `join' for #<String:0xb7237e10></blockquote>
+
+<div class="highlight"><pre><code class="bash">make-kpkg clean <span class="c"># only needed if you want to do a &quot;clean&quot; build</span>
+fakeroot make-kpkg --initrd --append-to-version<span class="o">=</span>-some-string-here kernel-image kernel-headers
+</code></pre>
+</div>
+
+</blockquote>
 
 
 <p style="text-align: center;"><img class="aligncenter" src="http://media.tumblr.com/tumblr_let0e9SCP01qzbvjd.png" alt="" width="500" height="338" /></p>

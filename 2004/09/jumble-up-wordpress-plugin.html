@@ -134,11 +134,21 @@ Install is not difficult : <a href="/jumble.php.txt">Download</a>, rename to jum
 
 Now, to target specific IPs for jumble-isation, open jumble.php and edit the line where it says :
 
-Liquid error: undefined method `join' for "$jumbleIPs = array(\"0.0.0.0\");":String
+
+<div class="highlight"><pre><code class="php"><span class="x">$jumbleIPs = array(&quot;0.0.0.0&quot;);</span>
+</code></pre>
+</div>
+
+
 
 and add spammer IPs as such :
 
-Liquid error: undefined method `join' for "$jumbleIPs = array(\"10.1.12.13\",\"34.123.45.3\");":String</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">$jumbleIPs = array(&quot;10.1.12.13&quot;,&quot;34.123.45.3&quot;);</span>
+</code></pre>
+</div>
+
+</p>
 
 
 <p>This is what the 'Jumble Up!' plugin will do to the commenters which you consider as spammers or trolls, based on their IP address. I took some inspiration from the <a title="View this plugin" hreflang="en" href="http://wiki.wordpress.org/Disemvoweler">Disemvoweler plugin</a> for the spam targeting.</p>
@@ -150,7 +160,12 @@ Liquid error: undefined method `join' for "$jumbleIPs = array(\"10.1.12.13\",\"3
 <p>Now, to target specific IPs for jumble-isation, open jumble.php and edit the line where it says :</p>
 
 
-<p>Liquid error: undefined method `join' for "$jumbleIPs = array(\"0.0.0.0\");":String</p>
+<p>
+<div class="highlight"><pre><code class="php"><span class="x">$jumbleIPs = array(&quot;0.0.0.0&quot;);</span>
+</code></pre>
+</div>
+
+</p>
 
 
 <p>and add spammer IPs as such :</p>
