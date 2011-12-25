@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>2011-12-25T16:41:47+00:00</updated>
+	<updated>2011-12-25T16:44:01+00:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -13,7 +13,7 @@
 
 	
 	<entry>
-		<title>Implementing BrowserID identification for your website</title>
+		<title>Implementing BrowserID identification on your website</title>
 		<link href="http://jfoucher.com/2011/12/implementing-browserid-identification.html"/>
 		<updated>2011-12-25T13:05:13+00:00</updated>
 		<id>http://jfoucher.com/2011/12/implementing-browserid-identification</id>
@@ -105,7 +105,7 @@
 &lt;p&gt;And that's it! I'm really happy because now I can forget about email address verification, lost passwords and all the annoying stuff that having actual users imply. Let someone else do the hard work is what I say!! Especially when it integrates so well everywhere.&lt;/p&gt;
 
 &lt;p&gt;Oh by the way, there's a &lt;a href=&quot;http://wordpress.org/extend/plugins/browserid/&quot;&gt;Wordpress plugin&lt;/a&gt; for that&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2011/12/implementing-browserid-identification.html&quot;&gt;Implementing BrowserID identification for your website&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+&lt;a href=&quot;http://jfoucher.com/2011/12/implementing-browserid-identification.html&quot;&gt;Implementing BrowserID identification on your website&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
