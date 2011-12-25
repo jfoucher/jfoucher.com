@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>2011-12-25T14:14:59+00:00</updated>
+	<updated>2011-12-25T15:01:55+00:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -17,28 +17,20 @@
 		<link href="http://jfoucher.com/2011/12/implementing-browserid-identification.html"/>
 		<updated>2011-12-25T13:05:13+00:00</updated>
 		<id>http://jfoucher.com/2011/12/implementing-browserid-identification</id>
-		<content type="html">&lt;h3&gt;BrowserID &lt;a href=&quot;http://identity.mozilla.com/post/7616727542/introducing-browserid-a-better-way-to-sign-in&quot;&gt;was released a few months ago&lt;/a&gt;&lt;/h3&gt;
+		<content type="html">&lt;p&gt;BrowserID &lt;a href=&quot;http://identity.mozilla.com/post/7616727542/introducing-browserid-a-better-way-to-sign-in&quot;&gt;was released a few months ago&lt;/a&gt; and is a new way to sign in to websites or web applications that doesn't require you to give your password each time you want to login. It doesn't even require you to register as such on each website. In that way, it is very similar to openId, but without the usability issues.&lt;/p&gt;
 
-&lt;p&gt;It is a new way to sign in to websites or web applications that doesn't require you to give your password each time you want to login. It doesn't even require you to register as such on each website. In that way, it is very similar to openId, but without the usability issues.&lt;/p&gt;
-
-&lt;p&gt;For developpers, Mozilla set up a service that provides everything you need to let your users simply login without handling any of the dirty work yourself. http://browserid.org is an identity provider that allows your users to create and manage their accounts across the web. One account for an infinite number of websites. Could this finally be our &lt;a href=&quot;http://www.codinghorror.com/blog/2010/11/your-internet-drivers-license.html&quot;&gt;Internet driver's license&lt;/a&gt;?&lt;/p&gt;
+&lt;p&gt;For developpers, Mozilla set up a service that provides everything you need to let your users simply login without handling any of the dirty work yourself. http://browserid.org is an identity provider that allows your users to create and manage their accounts across the web. One account for an infinite number of websites. Could this finally be our &lt;a href=&quot;http://www.codinghorror.com/blog/2010/11/your-internet-drivers-license.html&quot;&gt;universal login mechanism&lt;/a&gt;?&lt;/p&gt;
 
 &lt;h3&gt;&lt;a href=&quot;https://github.com/mozilla/browserid/wiki/How-to-Use-BrowserID-on-Your-Site&quot;&gt;Implementing BrowserID&lt;/a&gt; on your site or app is easy&lt;/h3&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Include the following javascript snippet in your page&lt;/li&gt;
-&lt;/ol&gt;
-
+&lt;h4&gt;Include the following javascript snippet in your page&lt;/h4&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;https://browserid.org/include.js&amp;quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/script&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 
-&lt;ol&gt;
-&lt;li&gt;Identify the user&lt;/li&gt;
-&lt;/ol&gt;
-
+&lt;h4&gt;Identify the user&lt;/h4&gt;
 
 &lt;p&gt;When the user clicks on your &quot;Login&quot; button, a window pops up asking them to confirm that they want to login, or asking them to create a browserID account if they haven't done it yet. Once they decide that they want to login, they are redirected to your site, and the following function is called, with the assertion being passed to the callback if the login was successful&lt;/p&gt;
 
@@ -55,6 +47,8 @@
 
 
 &lt;p&gt;If the assertion is there, the user authenticated successfully. now you must verify that the assertion really is authentic, and get the relevant data from it. You &lt;em&gt;could&lt;/em&gt; &lt;a href=&quot;https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest&quot;&gt;do it yourself&lt;/a&gt;, but if you don't have any special requirements, I recommend you just use the service provided by http://browserid.org&lt;/p&gt;
+
+&lt;h4&gt;Verify the assertion&lt;/h4&gt;
 
 &lt;p&gt;To do so, and once you have the &lt;code&gt;assertion&lt;/code&gt;, you have to make a POST request to http://browserid.org/verify, with two parameters: the assertion and the audience, which is simply the hostname of your site. This has to be done from your server. For security reasons, it won't work if you do it as an ajax request from the user's browser. What I suggest is that you call a url on your server from the javascript callback which will be in charge of itself making the request to browserid.org. Do it as a POST request as that assertion is a &lt;em&gt;long&lt;/em&gt; string. This an example implementation for the &lt;a href=&quot;http://www.slimframework.com/&quot;&gt;Slim framework&lt;/a&gt;:&lt;/p&gt;
 
@@ -99,6 +93,8 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
+
+&lt;h4&gt;Login or register&lt;/h4&gt;
 
 &lt;p&gt;If you don't get anything, or the status is not okay, something failed. Otherwise, great, your user just asked to be logged in! (or registered)&lt;/p&gt;
 
