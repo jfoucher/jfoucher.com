@@ -581,14 +581,14 @@ div.hero{
                     line-height:1.5*1.3em;
                     font-size:1.3em;
                     .column(7,10);
-                    .row(7);
+
 
                 }
                 span.excerpt{
                     display:block;
                     clear:both;
                     .column(7,10);
-                    .offset(3);
+                    .offset(5);
                 }
             }
             a:hover{
@@ -741,6 +741,10 @@ Utility clases
 }
 @media (max-width: 980px) {
 
+
+    .highlight pre {
+        overflow:auto;
+    }
     #container{
 
         width:  94%;
@@ -896,6 +900,20 @@ Utility clases
     #footer span.backtop{
         display:none;
     }
+    #notebook .meta{
+        display:none;
+    }
+    #nav{
+        margin:0 auto;
+
+        ul{
+            text-align: center;
+        }
+        a{
+            font-size:0.75em;
+            padding:0.1em 0.3em;
+        }
+    }
 }
 @media (max-width:320px){
     #container{
@@ -910,12 +928,11 @@ Utility clases
             text-align: center;
         }
         a{
-            font-size:0.75em;
-            padding:0.1em 0.3em;
+            font-size:0.7em;
+            padding:0.1em 0.1em;
         }
     }
-    #notebook .meta{
-        display:none;
-    }
+
+
 
 }

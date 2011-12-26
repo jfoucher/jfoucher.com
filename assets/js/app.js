@@ -29,20 +29,20 @@ $(document).ready(function(){
         $(this).width(codeWidth);
     });
     */
+    if (window.innerWidth > 1000){
+        $('.highlight').hover(
+        function(){
 
-    $('.highlight').hover(
-    function(){
-
-        var codeWidth=$(this).find('code').outerWidth();
-        console.log(codeWidth);
-        if ($(this).width()<codeWidth){
-            $(this).stop(true).animate({width:codeWidth});
-        }
-    },
-    function(){
-        $(this).stop(true).animate({width:'100%'});
-    });
-
+            var codeWidth=$(this).find('code').outerWidth();
+            console.log(codeWidth);
+            if ($(this).width()<codeWidth){
+                $(this).stop(true).animate({width:codeWidth});
+            }
+        },
+        function(){
+            $(this).stop(true).animate({width:'100%'});
+        });
+    }
 
     //TODO get from localStorage if available
     $.getJSON("http://twitter.com/statuses/user_timeline.json?screen_name=jfoucher&count=4&callback=?",

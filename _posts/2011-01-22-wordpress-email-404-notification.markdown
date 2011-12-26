@@ -1,7 +1,7 @@
 --- 
 layout: post
 title: Wordpress 404 notification by email
-excerpt: <!--:en-->A Wordpress plugin that sends an email to the site admin when a user gets a 404 error<!--:--><!--:fr-->A Wordpress plugin that sends an email to the site admin when a user gets a 404 error<!--:-->
+excerpt: A Wordpress plugin that sends an email to the site admin when a user gets a 404 error
 tags: []
 
 date: Sat Jan 22 23:42:45 +0100 2011

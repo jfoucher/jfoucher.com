@@ -1,7 +1,7 @@
 --- 
 layout: post
 title: Python skype notifier for Ubuntu
-excerpt: <!--:en-->Learning python by building a semi-useful Skype instant message notifier<!--:--><!--:fr-->Learning python by building a semi-useful Skype instant message notifier<!--:-->
+excerpt: Learning python by building a semi-useful Skype instant message notifier
 tags: []
 
 date: Fri Jan 14 13:21:52 +0100 2011
@@ -12,9 +12,9 @@ Because it's <a href="http://en.wikipedia.org/wiki/Python_(programming_language)
 
 No, seriously, that's why :<a href="http://xkcd.com/353/"><img class="aligncenter size-medium wp-image-201" title="python" src="http://cdn.jfoucher.com/uploads/2011/01/python-264x300.png" alt="I wrote 20 short programs in Python yesterday.  It was wonderful.  Perl, I'm leaving you." width="264" height="300" /></a>No, not this "that's why"! <a href="http://programmers.stackexchange.com/questions/10675/ideal-programming-language-learning-sequence#answer-10748">That one</a>
 
-If you are just starting out as a programmer, I cannot recommend <a href="http://learnpythonthehardway.org/">Learn Python The Hard Way</a> highly enough. It is an excellent introduction to the ideas and skills you will need as a programmer, starting from the very basics, like you've never seen a for loop in your life. Actually the first 10 or so lessons do not include ANY control structures!
+If you are just starting out as a programmer, I cannot recommend <a href="http://learnpythonthehardway.org/">Learn Python The Hard Way</a> highly enough. It is an excellent introduction to the ideas and skills you will need as a programmer, starting from the very basics, like you've never seen a for loop in your life.ï¿½Actually the first 10 or so lessons do not include ANY control structures!
 
-If on the other hand you  already have some coding experience, I recomend <a href="http://diveintopython.org/">Dive Into Python</a>.  Although it's no quite as hands on as Learn Python the Hard Way, it's a very good book, only covering the basics insofar as they are specific to python.
+If on the other hand you ï¿½already have some coding experience, I recomend <a href="http://diveintopython.org/">Dive Into Python</a>. ï¿½Although it's no quite as hands on as Learn Python the Hard Way, it's a very good book, only covering the basics insofar as they are specific to python.
 <h3>Why for <a href="/2011/01/193-compile-custom-kernel-on-ubuntu-10-10.html">Ubuntu</a>?</h3>
 That's what I use. Simple as that. Also python and pygtk are included by default, making distribution much easier.
 <h3>Why Skype?</h3>

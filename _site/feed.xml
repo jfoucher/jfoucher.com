@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>2011-12-25T15:00:06+00:00</updated>
+	<updated>2011-12-26T20:13:51+00:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -13,13 +13,13 @@
 
 	
 	<entry>
-		<title>Implementing BrowserID identification for your website</title>
+		<title>Implementing BrowserID identification on your website</title>
 		<link href="http://jfoucher.com/2011/12/implementing-browserid-identification.html"/>
 		<updated>2011-12-25T13:05:13+00:00</updated>
 		<id>http://jfoucher.com/2011/12/implementing-browserid-identification</id>
 		<content type="html">&lt;p&gt;BrowserID &lt;a href=&quot;http://identity.mozilla.com/post/7616727542/introducing-browserid-a-better-way-to-sign-in&quot;&gt;was released a few months ago&lt;/a&gt; and is a new way to sign in to websites or web applications that doesn't require you to give your password each time you want to login. It doesn't even require you to register as such on each website. In that way, it is very similar to openId, but without the usability issues.&lt;/p&gt;
 
-&lt;p&gt;For developpers, Mozilla set up a service that provides everything you need to let your users simply login without handling any of the dirty work yourself. http://browserid.org is an identity provider that allows your users to create and manage their accounts across the web. One account for an infinite number of websites. Could this finally be our &lt;a href=&quot;http://www.codinghorror.com/blog/2010/11/your-internet-drivers-license.html&quot;&gt;universal login mechanism&lt;/a&gt;?&lt;/p&gt;
+&lt;p&gt;For developpers, Mozilla set up a service that provides everything you need to let your users simply login without handling any of the dirty work yourself. &lt;a href=&quot;http://browserid.org&quot;&gt;http://browserid.org&lt;/a&gt; is an identity provider that allows your users to create and manage their accounts across the web. One account for an infinite number of websites. Could this finally be our &lt;a href=&quot;http://www.codinghorror.com/blog/2010/11/your-internet-drivers-license.html&quot;&gt;universal login mechanism&lt;/a&gt;?&lt;/p&gt;
 
 &lt;h3&gt;&lt;a href=&quot;https://github.com/mozilla/browserid/wiki/How-to-Use-BrowserID-on-Your-Site&quot;&gt;Implementing BrowserID&lt;/a&gt; on your site or app is easy&lt;/h3&gt;
 
@@ -46,11 +46,11 @@
 &lt;/div&gt;
 
 
-&lt;p&gt;If the assertion is there, the user authenticated successfully. now you must verify that the assertion really is authentic, and get the relevant data from it. You &lt;em&gt;could&lt;/em&gt; &lt;a href=&quot;https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest&quot;&gt;do it yourself&lt;/a&gt;, but if you don't have any special requirements, I recommend you just use the service provided by http://browserid.org&lt;/p&gt;
+&lt;p&gt;If the assertion is there, the user authenticated successfully. now you must verify that the assertion really is authentic, and get the relevant data from it. You &lt;em&gt;could&lt;/em&gt; &lt;a href=&quot;https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest&quot;&gt;do it yourself&lt;/a&gt;, but if you don't have any special requirements, I recommend you just use the service provided by &lt;a href=&quot;http://browserid.org&quot;&gt;http://browserid.org&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4&gt;Verify the assertion&lt;/h4&gt;
 
-&lt;p&gt;To do so, and once you have the &lt;code&gt;assertion&lt;/code&gt;, you have to make a POST request to http://browserid.org/verify, with two parameters: the assertion and the audience, which is simply the hostname of your site. This has to be done from your server. For security reasons, it won't work if you do it as an ajax request from the user's browser. What I suggest is that you call a url on your server from the javascript callback which will be in charge of itself making the request to browserid.org. Do it as a POST request as that assertion is a &lt;em&gt;long&lt;/em&gt; string. This an example implementation for the &lt;a href=&quot;http://www.slimframework.com/&quot;&gt;Slim framework&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;To do so, and once you have the &lt;code&gt;assertion&lt;/code&gt;, you have to make a POST request to &lt;a href=&quot;http://browserid.org/verify&quot;&gt;http://browserid.org/verify&lt;/a&gt;, with two parameters: the assertion and the audience, which is simply the hostname of your site. This has to be done from your server. For security reasons, it won't work if you do it as an ajax request from the user's browser. What I suggest is that you call a url on your server from the javascript callback which will be in charge of itself making the request to browserid.org. Do it as a POST request as that assertion is a &lt;em&gt;long&lt;/em&gt; string. This an example implementation for the &lt;a href=&quot;http://www.slimframework.com/&quot;&gt;Slim framework&lt;/a&gt;:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;$app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/browserid&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -98,14 +98,14 @@
 
 &lt;p&gt;If you don't get anything, or the status is not okay, something failed. Otherwise, great, your user just asked to be logged in! (or registered)&lt;/p&gt;
 
-&lt;p&gt;If the status was okay, you then need to proceed to login your user (set session varibles, or whatever...) or register them (create an account in your database and then log them in)&lt;/p&gt;
+&lt;p&gt;If the status was &quot;okay&quot;, you then need to proceed to login your user (set session varibles, or whatever...) or register them (create an account in your database and then log them in)&lt;/p&gt;
 
-&lt;p&gt;The data returned is very basic, but allows you to check whether that user laready has an account or your site or not. You are then free to ask them for additional data, such as their name, date of birth, etc...&lt;/p&gt;
+&lt;p&gt;The data returned is very basic, but allows you to check whether that user already has an account or your site or not. You are then free to ask them for additional data, such as their name, date of birth, etc...&lt;/p&gt;
 
 &lt;p&gt;And that's it! I'm really happy because now I can forget about email address verification, lost passwords and all the annoying stuff that having actual users imply. Let someone else do the hard work is what I say!! Especially when it integrates so well everywhere.&lt;/p&gt;
 
 &lt;p&gt;Oh by the way, there's a &lt;a href=&quot;http://wordpress.org/extend/plugins/browserid/&quot;&gt;Wordpress plugin&lt;/a&gt; for that&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2011/12/implementing-browserid-identification.html&quot;&gt;Implementing BrowserID identification for your website&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+&lt;a href=&quot;http://jfoucher.com/2011/12/implementing-browserid-identification.html&quot;&gt;Implementing BrowserID identification on your website&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
@@ -804,9 +804,9 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;p&gt;No, seriously, that's why :&lt;a href=&quot;http://xkcd.com/353/&quot;&gt;&lt;img class=&quot;aligncenter size-medium wp-image-201&quot; title=&quot;python&quot; src=&quot;http://cdn.jfoucher.com/uploads/2011/01/python-264x300.png&quot; alt=&quot;I wrote 20 short programs in Python yesterday.  It was wonderful.  Perl, I'm leaving you.&quot; width=&quot;264&quot; height=&quot;300&quot; /&gt;&lt;/a&gt;No, not this &quot;that's why&quot;! &lt;a href=&quot;http://programmers.stackexchange.com/questions/10675/ideal-programming-language-learning-sequence#answer-10748&quot;&gt;That one&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;If you are just starting out as a programmer, I cannot recommend &lt;a href=&quot;http://learnpythonthehardway.org/&quot;&gt;Learn Python The Hard Way&lt;/a&gt; highly enough. It is an excellent introduction to the ideas and skills you will need as a programmer, starting from the very basics, like you've never seen a for loop in your life. Actually the first 10 or so lessons do not include ANY control structures!&lt;/p&gt;
+&lt;p&gt;If you are just starting out as a programmer, I cannot recommend &lt;a href=&quot;http://learnpythonthehardway.org/&quot;&gt;Learn Python The Hard Way&lt;/a&gt; highly enough. It is an excellent introduction to the ideas and skills you will need as a programmer, starting from the very basics, like you've never seen a for loop in your life.ï¿½Actually the first 10 or so lessons do not include ANY control structures!&lt;/p&gt;
 
-&lt;p&gt;If on the other hand you  already have some coding experience, I recomend &lt;a href=&quot;http://diveintopython.org/&quot;&gt;Dive Into Python&lt;/a&gt;.  Although it's no quite as hands on as Learn Python the Hard Way, it's a very good book, only covering the basics insofar as they are specific to python.&lt;/p&gt;
+&lt;p&gt;If on the other hand you ï¿½already have some coding experience, I recomend &lt;a href=&quot;http://diveintopython.org/&quot;&gt;Dive Into Python&lt;/a&gt;. ï¿½Although it's no quite as hands on as Learn Python the Hard Way, it's a very good book, only covering the basics insofar as they are specific to python.&lt;/p&gt;
 
 &lt;h3&gt;Why for &lt;a href=&quot;/2011/01/193-compile-custom-kernel-on-ubuntu-10-10.html&quot;&gt;Ubuntu&lt;/a&gt;?&lt;/h3&gt;
 
@@ -1508,16 +1508,6 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
 	<entry>
-		<title>Coding challenge: One app a month</title>
-		<link href="http://jfoucher.com/2010/01/coding-challenge-app-month.html"/>
-		<updated>2010-01-02T11:34:11+00:00</updated>
-		<id>http://jfoucher.com/2010/01/coding-challenge-app-month</id>
-		<content type="html">&lt;p&gt;This is the challenge I set myself for 2010 : Develop one webapp per month during the whole year.This is the challenge I set myself for 2010 : Develop one webapp per month during the whole year. Read more about it &lt;a href=&quot;http://jfoucher.fr/blog/one-app-a-month-challenge/&quot;&gt;on my portfolio&lt;/a&gt;&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2010/01/coding-challenge-app-month.html&quot;&gt;Coding challenge: One app a month&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
-href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
-	</entry>
-	
-	<entry>
 		<title>One app a month challenge</title>
 		<link href="http://jfoucher.com/2010/01/one-app-a-month-challenge.html"/>
 		<updated>2010-01-01T23:29:39+00:00</updated>
@@ -1548,6 +1538,9 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<content type="html">&lt;p&gt;I just created a very simple plugin for &lt;a title=&quot;The Anti-CMS&quot; href=&quot;http://blueiceapp.com&quot;&gt;BlueIce&lt;/a&gt;, the anti-CMS. It simply inserts a list containg links to all pages in the web site. The author published it on his &lt;a href=&quot;http://blueiceapp.com/docs/plugins&quot;&gt;3rd party plugins&lt;/a&gt; page, and I highly recommend his anti-CMS for small, semi static sites.&lt;/p&gt;
 
 &lt;p&gt;It includes a clever cache system, so your web site will be almost as fast as if it was pure static html. All pages are rendered using &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt;, making for simple content editing, using a &lt;a href=&quot;http://geany.org/&quot;&gt;text editor&lt;/a&gt; and an FTP client.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;UPDATE 2011:&lt;/em&gt;
+Blue ice seems to be dead, and so so is this plugin, i guess...&lt;/p&gt;
 &lt;a href=&quot;http://jfoucher.com/2009/12/blueice-plugin.html&quot;&gt;BlueIce Plugin&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
@@ -1592,19 +1585,6 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;p&gt;Have a good weekend&lt;/p&gt;
 &lt;a href=&quot;http://jfoucher.com/2009/11/google-wave-useless.html&quot;&gt;Why Google Wave is useless (with invites giveaway)&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
-href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
-	</entry>
-	
-	<entry>
-		<title>EducaThyssen</title>
-		<link href="http://jfoucher.com/2009/10/190.html"/>
-		<updated>2009-10-06T07:36:34+00:00</updated>
-		<id>http://jfoucher.com/2009/10/190</id>
-		<content type="html">&lt;div class=&quot;image-with-caption alignnone&quot; style=&quot;width:370px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Una web del Museo Thyssen-Bornemisza&lt;/div&gt;&lt;a href=&quot;http://www.educathyssen.org&quot;&gt;&lt;img src=&quot;http://jfoucher.fr/wp-content/uploads/2009/10/Pantallazo-2-370x232.jpg&quot; alt=&quot;Una web del Museo Thyssen-Bornemisza&quot; title=&quot;Educathyssen.org&quot; width=&quot;370&quot; height=&quot;232&quot; class=&quot;size-medium wp-image-189&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Algunas mejoras en la web de &lt;a href=&quot;http://www.educathyssen.org&quot;&gt;Educathyssen.org&lt;/a&gt;, como por ejemplo le gestion de las encuestas, de los favoritos personales para cada usuario, el funccionamiento de los blogs, mejoras de seguridad en los formularios, etc...&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2009/10/190.html&quot;&gt;EducaThyssen&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
@@ -1727,6 +1707,32 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;Based in &lt;a href=&quot;http://wordpress.org&quot;&gt;Wordpress&lt;/a&gt;, this blog makes extensive use of &lt;a href=&quot;http://jquery.com&quot;&gt;jQuery&lt;/a&gt; to give life to the page, with animations, dynamic content, etc... The clouds, for example move around on the screen as if an imaginary electronic wind was blowing!
 [/lang_en]&lt;/p&gt;
 &lt;a href=&quot;http://jfoucher.com/2009/07/ecoquotidien.html&quot;&gt;Ecoquotidien.fr&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
+	</entry>
+	
+	<entry>
+		<title>WP-Feedly theme available for download</title>
+		<link href="http://jfoucher.com/2009/06/wpfeedly-theme-download.html"/>
+		<updated>2009-06-27T09:19:32+00:00</updated>
+		<id>http://jfoucher.com/2009/06/wpfeedly-theme-download</id>
+		<content type="html">&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;WP-Feedly Screenshot&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot1.png&quot;&gt;&lt;img class=&quot;size-full wp-image-138&quot; title=&quot;WP-Feedly Screenshot&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot1.png&quot; alt=&quot;WP-Feedly Screenshot&quot; width=&quot;300&quot; height=&quot;255&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After some beta testing and subsequent bug squashing, WP-Feedly is ready for prime-time, and &lt;a href=&quot;/wp-feedly.zip&quot;&gt;available for download&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2009/06/wpfeedly-theme-download.html&quot;&gt;WP-Feedly theme available for download&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
+	</entry>
+	
+	<entry>
+		<title>New portfolio theme: CleanFolio</title>
+		<link href="http://jfoucher.com/2009/06/portfolio-theme.html"/>
+		<updated>2009-06-26T22:17:07+00:00</updated>
+		<id>http://jfoucher.com/2009/06/portfolio-theme</id>
+		<content type="html">&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;CleanFolio&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot.png&quot;&gt;&lt;img class=&quot;size-medium wp-image-130&quot; title=&quot;CleanFolio&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot-300x187.png&quot; alt=&quot;CleanFolio&quot; width=&quot;300&quot; height=&quot;187&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I've been working on my profesionnal portfolio these days, and I'm thinking about releasing the theme. It's a very clean and white design, with a jQuery carousel to present my past work. You can see a demo on &lt;a href=&quot;http://jfoucher.fr&quot;&gt;Jonathan Foucher's portfolio&lt;/a&gt;. So, should I release it? Do you like it?&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2009/06/portfolio-theme.html&quot;&gt;New portfolio theme: CleanFolio&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	
