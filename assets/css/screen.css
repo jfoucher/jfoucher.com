@@ -98,7 +98,7 @@ div.hero div.skip a{display:block;float:right;width:7em;clear:right;}
 #aside .blog-latest li a span.title{line-height:1.5em;display:inline;float:left;width:60.416666666666664%;margin:0 3.125%;}
 #aside .blog-latest li a:hover{text-decoration:none;background:#e7e7e7;-webkit-text-shadow:0 1px 0 rgba(255, 255, 255, 0.6);-moz-text-shadow:0 1px 0 rgba(255, 255, 255, 0.6);-o-text-shadow:0 1px 0 rgba(255, 255, 255, 0.6);-khtml-text-shadow:0 1px 0 rgba(255, 255, 255, 0.6);text-shadow:0 1px 0 rgba(255, 255, 255, 0.6);}
 #aside h4{font-size:1.2em;font-weight:bold;margin-bottom:1em;}
-#aside .more{float:right;font-size:0.84em;margin-top:1.5em;}#aside .more a{color:#9999ff;}
+#aside .more{float:right;font-size:0.84em;margin-top:1.5em;}#aside .more a,#aside .more span.follow{color:#9999ff;line-height:20px;vertical-align:top;}
 #aside #tweets .timeago{display:block;padding:0.3em;line-height:1em;float:right;color:#999999;font-size:0.8em;}
 #notebook{display:inline;float:left;width:97.65625%;margin:0 1.171875%;padding-top:2em;}#notebook .page-nav-bottom{clear:both;}
 #notebook .page-nav-top a,#notebook .page-nav-bottom a{color:#999999;font-size:0.85em;}
