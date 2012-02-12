@@ -118,17 +118,12 @@
                 <div class="share">
                     <a href="https://twitter.com/share" class="twitter-share-button" data-via="jfoucher">Tweet</a>
                     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                    
+
                 </div>
             </div> <!-- /.meta -->
             <div id="entry-content">
 
                 <p>For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like</p>
-
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">css</span><span class="o">-&gt;</span><span class="na">link</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;/assets/css/fonts.css&#39;</span><span class="p">,</span><span class="s1">&#39;/assets/css/layout.css&#39;</span><span class="p">);</span><span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
-</div>
-
 
 <p>After some searching, I found a css minification library for PHP, <a href="https://code.google.com/p/minify/">minify</a></p>
 
@@ -148,29 +143,7 @@ I modelled the interaction on the image library, as I guess that's what most peo
 
 <p>The following code, which should go in your controller, will look very familiar to Codeigniter users.</p>
 
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;css&#39;</span><span class="p">);</span>
-<span class="c1">//array of files to concatenate and minify</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;source_file&#39;</span><span class="p">]</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;/assets/css/layout.css&#39;</span><span class="p">,</span><span class="s1">&#39;/assets/css/fonts.css&#39;</span><span class="p">);</span>
-<span class="c1">//where to output the result</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;dest_file&#39;</span><span class="p">]</span><span class="s1">&#39;/assets/css/css.min.css&#39;</span><span class="p">;</span>
-<span class="c1">//Cache time in hours</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;cache_time&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">48</span><span class="p">;</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">css</span><span class="o">-&gt;</span><span class="na">initialize</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
-<span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">css</span><span class="o">-&gt;</span><span class="na">link</span><span class="p">();</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
-</div>
-
-
 <p>Will output the following stylesheet tag:</p>
-
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/assets/css/css.min.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span> <span class="nt">/&gt;</span>
-</code></pre>
-</div>
-
-
-
 
 <h3>Get It!</h3>
 
@@ -182,12 +155,8 @@ I modelled the interaction on the image library, as I guess that's what most peo
 
 <p>I'm not sure the way I've done it, using a</p>
 
-<div class="highlight"><pre><code class="php"><span class="x">$config</span>
-</code></pre>
-</div>
-
-
 <p> array and so on, is the best way. It might be a bit overkill for such a simple library. I'd love to hear your thoughts on the subject.</p>
+
 
 
 

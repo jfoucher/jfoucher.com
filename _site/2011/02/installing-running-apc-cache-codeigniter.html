@@ -118,7 +118,7 @@
                 <div class="share">
                     <a href="https://twitter.com/share" class="twitter-share-button" data-via="jfoucher">Tweet</a>
                     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                    
+
                 </div>
             </div> <!-- /.meta -->
             <div id="entry-content">
@@ -130,31 +130,11 @@
 
 <p>On Ubuntu, and on other debian based linuxes, you can install APC by typing</p>
 
-<div class="highlight"><pre><code class="bash">sudo apt-get install php-apc
-</code></pre>
-</div>
-
-
 <p> on the command line. Of course, you will have to install Apache and php before that, but that is really easy:</p>
-
-<div class="highlight"><pre><code class="bash">sudo apt-get install php5
-</code></pre>
-</div>
-
 
 <p> will install <a href="http://php.net">PHP</a> and all needed dependencies, including <a href="http://apache.org">apache</a> So now that APC is installed, just restart apache</p>
 
-<div class="highlight"><pre><code class="bash">sudo /etc/init.d/apache2 restart
-</code></pre>
-</div>
-
-
 <p> and you're ready to go.  In codeigniter, you don't need to do anything special. Just turn the cache on by putting the following line somewhere in your controller:</p>
-
-<div class="highlight"><pre><code class="php"><span class="x">$this-&amp;gt;output-&amp;gt;cache(n);</span>
-</code></pre>
-</div>
-
 
 <p> Where 'n' is the number of minutes to cache that particular content.  The cache library is clever enough to pick the best cache driver from the four available ones (memcached, APC, file and dummy). Forget about the dummy driver: it doesn't do anything</p>
 
@@ -189,6 +169,7 @@
 
 
 <p></p>
+
 
 
 
