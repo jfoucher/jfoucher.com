@@ -101,6 +101,16 @@
 				<ul>
 				    
 					<li>
+						<a href="/2012/02/from-titanium-to-air-building-desktop-apps-with-javascript.html#notebook" title="From Titanium to Adobe Air, or, Building Desktop Apps with Javascript">
+							<span class="date">
+								<span class="day">13</span>
+								<span class="month"><abbr>Feb</abbr></span>
+							</span> 
+							<span class="title">From Titanium to Adobe Air, or, Building Desktop Apps with Javascript</span>
+						</a>
+					</li>
+                    
+					<li>
 						<a href="/2011/12/implementing-browserid-identification.html#notebook" title="Implementing BrowserID identification on your website">
 							<span class="date">
 								<span class="day">25</span>
@@ -113,20 +123,10 @@
 					<li>
 						<a href="/2011/09/a-10-minute-script-to-graph-your-server-load.html#notebook" title="A 10 minute script to graph your server load">
 							<span class="date">
-								<span class="day">16</span>
+								<span class="day">17</span>
 								<span class="month"><abbr>Sep</abbr></span>
 							</span> 
 							<span class="title">A 10 minute script to graph your server load</span>
-						</a>
-					</li>
-                    
-					<li>
-						<a href="/2011/08/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu.html#notebook" title="Remote debugging with Xdebug and PhpStorm on Ubuntu">
-							<span class="date">
-								<span class="day">17</span>
-								<span class="month"><abbr>Aug</abbr></span>
-							</span> 
-							<span class="title">Remote debugging with Xdebug and PhpStorm on Ubuntu</span>
 						</a>
 					</li>
                     
@@ -150,122 +150,109 @@
 		<div id="notebook" class="center clear">
 			<div class="page-nav-top">
                 
-				    <span class="page-nav-item floatLeft"><a class="internal" rel="prev"  href="/2011/09/a-10-minute-script-to-graph-your-server-load.html#notebook" title="View A 10 minute script to graph your server load">&larr; View previous article</a></span>
+				    <span class="page-nav-item floatLeft"><a class="internal" rel="prev"  href="/2011/12/implementing-browserid-identification.html#notebook" title="View Implementing BrowserID identification on your website">&larr; View previous article</a></span>
 				
 				
             </div> <!-- /.page-nav-top -->
 
             <h2 class="post-title">
-                <a href="/2011/12/implementing-browserid-identification.html#notebook" title="Permanent link to Implementing BrowserID identification on your website">
-                    Implementing BrowserID identification on your website
+                <a href="/2012/02/from-titanium-to-air-building-desktop-apps-with-javascript.html#notebook" title="Permanent link to From Titanium to Adobe Air, or, Building Desktop Apps with Javascript">
+                    From Titanium to Adobe Air, or, Building Desktop Apps with Javascript
                 </a>
             </h2>
             <div class="meta">
-                <!-- <span class="pdf">Download a <a href="/2011/12/implementing-browserid-identification.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
-                <span class="permalink">For referencing: <a href="/2011/12/implementing-browserid-identification.html" title="[Permalink] Implementing BrowserID identification on your website">permalink to this article</a>.</span>
-                <span class="date" title="2011-12-25T13:05:13+00:00">
+                <!-- <span class="pdf">Download a <a href="/2012/02/from-titanium-to-air-building-desktop-apps-with-javascript.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
+                <span class="permalink">For referencing: <a href="/2012/02/from-titanium-to-air-building-desktop-apps-with-javascript.html" title="[Permalink] From Titanium to Adobe Air, or, Building Desktop Apps with Javascript">permalink to this article</a>.</span>
+                <span class="date" title="2012-02-13T00:00:00+01:00">
                     <span class="published">Published&thinsp;&bull;</span>
-                    <span class="day">25</span>
-                    <span class="month"><abbr>Dec</abbr></span>
-                    <span class="year">2011</span>
+                    <span class="day">13</span>
+                    <span class="month"><abbr>Feb</abbr></span>
+                    <span class="year">2012</span>
                 </span>
             </div> <!-- /.meta -->
             <div id="entry-content">
 
-                <p>BrowserID <a href="http://identity.mozilla.com/post/7616727542/introducing-browserid-a-better-way-to-sign-in">was released a few months ago</a> and is a new way to sign in to websites or web applications that doesn't require you to give your password each time you want to login. It doesn't even require you to register as such on each website. In that way, it is very similar to openId, but without the usability issues.</p>
+                <p><a href="http://vessenger.com">Vessenger</a> is an app that allows closed groups such as organizations, to chat and
+send documents to each other or to a central repository. People can be divided
+in groups so that they can share status updates or documents with just the
+required people. In some ways it is similar to yammer, but was to be based
+primarily on a desktop app.</p>
 
-<p>For developpers, Mozilla set up a service that provides everything you need to let your users simply login without handling any of the dirty work yourself. <a href="http://browserid.org">http://browserid.org</a> is an identity provider that allows your users to create and manage their accounts across the web. One account for an infinite number of websites. Could this finally be our <a href="http://www.codinghorror.com/blog/2010/11/your-internet-drivers-license.html">universal login mechanism</a>?</p>
+<h3>We decide to use Titanium</h3>
 
-<h3><a href="https://github.com/mozilla/browserid/wiki/How-to-Use-BrowserID-on-Your-Site">Implementing BrowserID</a> on your site or app is easy</h3>
+<p>After some brainstorming with the company owner, we decided that we'd make the
+app available cross platform, and at least for Mac OSX and Windows. I personally
+use Linux, so I also wanted to make sure that it would work on Linux as well.
+Developping two or three native apps was not a viable option, so we decided to
+use a framework that would allow us to use HTML and Javascript, such as Titanium
+and Adobe Air. Titanium looked like it had great support from the community, is
+Open source and actively developped, so we went with that.</p>
 
-<h4>Include the following javascript snippet in your page</h4>
+<p>Developing in Titanium takes some getting used to, but is not much different to
+building javascript heavy web applications. Initially, an index.html file is
+loaded by Titanium, in which we load all the required javascript files. At first
+I had everything in one big and quickly growing javascript file, which although
+properly namespaced, was really giving me headaches just to move around. So I split
+it up in several smaller files, by functionality, as I should have done since
+the beginning.</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://browserid.org/include.js&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-</code></pre>
-</div>
+<p>Working in Titanium can be frustrating at times, and although it works pretty
+well, I had to spend a lot of time looking through the documentation. After some
+time, I realized that the docs for Tianium are not easy to understand, not
+particularly friendly and sometimes even incomplete.</p>
 
+<p>I started working on <a href="http://vessenger.com">Vessenger</a> by doing most of the UI, the status message
+sending and retrieving, and getting a basic version of the chat feature working
+for demo purposes. The status updates was the easiest one to build, and I added
+the possibility to upload files within you status update. They can be any type
+of files, with images showing a thumbnail when seen by your colleagues. All the
+files live on <a href="http://vessenger.com">Vessenger</a>'s servers, which makes it very easy to retrieve
+information at a later date, just by looking at your (infinite) chat or status
+history.</p>
 
-<h4>Identify the user</h4>
+<h3>Switching to Adobe Air</h3>
 
-<p>When the user clicks on your "Login" button, a window pops up asking them to confirm that they want to login, or asking them to create a browserID account if they haven't done it yet. Once they decide that they want to login, they are redirected to your site, and the following function is called, with the assertion being passed to the callback if the login was successful</p>
+<p>I then started working on the chat feature, which is where we noticed an issue
+with the repeated server polling we were doing: as well as being suboptimal on
+the server side, the was also a memory leak on the client side, which seemd to
+be caused by Titanium not properly closing and/or releasing the connection
+object, a problem compouded by the fact that Titanium has no method for
+explicitely closing a remote connection. As I was connecting to the server
+several times per second, the memory footprint of the application grew fairly
+quickly. After a lot a frustration trying to make it right, we decided the
+problem lay with Titanium and decided to switch to Adobe Air. Regretfully, the
+latest Air version is not supported on Linux anymore, but it's possible to make
+the app the app compatible with Air 2.6 to get it to run properly on linux.</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="nx">navigator</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">getVerifiedEmail</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">assertion</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">assertion</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// This code will be invoked once the user has successfully</span>
-        <span class="c1">// selected an email address they control to sign in with.</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="c1">// something went wrong!  the user isn&#39;t logged in.</span>
-    <span class="p">}</span>
-<span class="p">});</span>
-</code></pre>
-</div>
+<blockquote><p>The memory used by the app could climb to 600Mb overnight...</p></blockquote>
 
+<p>The switch to Adobe air did not involve the complete rewrite I feared, as most
+of the code is compatible and I had created some abstractions for things like
+connecting to the API and storing data. Nevertheless, EncryptedLocalStorage is
+great: very easy to use and has all the features needed. My only problem with
+Adobe Air was the way it handled cookies: it basically did not, so I had to
+create that from scratch, storing the cookies in EcryptedLocalStorage and
+sending it explicitely with each and every request. In hindsight I should
+have setup a dedicated server with node.js to talk to the API, and socket.io
+to talk between the desktop app and the node server. I am actually implementing
+this solution now for another project and I think it would be a perfect fit
+for <a href="http://vessenger.com">Vessenger</a> as well.</p>
 
-<p>If the assertion is there, the user authenticated successfully. now you must verify that the assertion really is authentic, and get the relevant data from it. You <em>could</em> <a href="https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest">do it yourself</a>, but if you don't have any special requirements, I recommend you just use the service provided by <a href="http://browserid.org">http://browserid.org</a></p>
+<h3>Sort issues caused by Titanium</h3>
 
-<h4>Verify the assertion</h4>
-
-<p>To do so, and once you have the <code>assertion</code>, you have to make a POST request to <a href="http://browserid.org/verify">http://browserid.org/verify</a>, with two parameters: the assertion and the audience, which is simply the hostname of your site. This has to be done from your server. For security reasons, it won't work if you do it as an ajax request from the user's browser. What I suggest is that you call a url on your server from the javascript callback which will be in charge of itself making the request to browserid.org. Do it as a POST request as that assertion is a <em>long</em> string. This an example implementation for the <a href="http://www.slimframework.com/">Slim framework</a>:</p>
-
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
-<span class="nv">$app</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;/browserid&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$app</span><span class="p">)</span> <span class="p">{</span>
-
-        <span class="nv">$assertion</span><span class="o">=</span><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;assertion&#39;</span><span class="p">);</span>
-        <span class="c1">//get the POSTed assertion</span>
-        <span class="nv">$post_data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;assertion&#39;</span> <span class="o">=&gt;</span> <span class="nv">$assertion</span><span class="p">,</span> <span class="s1">&#39;audience&#39;</span> <span class="o">=&gt;</span> <span class="nx">SERVER</span><span class="p">);</span>
-        <span class="c1">//SERVER is my site&#39;s hostname</span>
-        <span class="nv">$r</span> <span class="o">=</span> <span class="nx">Http</span><span class="o">::</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;https://browserid.org/verify&#39;</span><span class="p">,</span><span class="nv">$post_data</span><span class="p">);</span>
-        <span class="c1">//This makes a post request to browserid.org</span>
-        <span class="nv">$result</span><span class="o">=</span><span class="nx">json_decode</span><span class="p">(</span><span class="nv">$r</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
-
-        <span class="k">if</span><span class="p">(</span><span class="nv">$result</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;okay&#39;</span><span class="p">){</span>
-            <span class="nx">handle_users</span><span class="p">(</span><span class="nv">$app</span><span class="p">,</span><span class="nv">$result</span><span class="p">);</span>
-            <span class="c1">//This logs the user in if we have an account for that email address,</span>
-            <span class="c1">//or creates it otherwise</span>
-        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="nv">$msg</span><span class="o">=</span><span class="s1">&#39;Could not log you in&#39;</span><span class="p">;</span>
-            <span class="nv">$status</span><span class="o">=</span><span class="k">false</span><span class="p">;</span>
-            <span class="k">echo</span> <span class="nx">json_encode</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="o">=&gt;</span><span class="nv">$msg</span><span class="p">,</span><span class="s1">&#39;status&#39;</span><span class="o">=&gt;</span><span class="nv">$status</span><span class="p">));</span>
-        <span class="p">}</span>
-
-
-    <span class="p">}</span>
-<span class="p">);</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
-</div>
-
-
-<p>This call to the browserID API returns some json_encoded stuff, for example something like this :</p>
-
-<div class="highlight"><pre><code class="javascript"><span class="p">{</span>
-    <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;okay&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;lloyd@example.com&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;audience&quot;</span><span class="o">:</span> <span class="s2">&quot;https://mysite.com&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;expires&quot;</span><span class="o">:</span> <span class="mi">1308859352261</span><span class="p">,</span>
-    <span class="s2">&quot;issuer&quot;</span><span class="o">:</span> <span class="s2">&quot;browserid.org&quot;</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-
-<h4>Login or register</h4>
-
-<p>If you don't get anything, or the status is not okay, something failed. Otherwise, great, your user just asked to be logged in! (or registered)</p>
-
-<p>If the status was "okay", you then need to proceed to login your user (set session varibles, or whatever...) or register them (create an account in your database and then log them in)</p>
-
-<p>The data returned is very basic, but allows you to check whether that user already has an account or your site or not. You are then free to ask them for additional data, such as their name, date of birth, etc...</p>
-
-<p>And that's it! I'm really happy because now I can forget about email address verification, lost passwords and all the annoying stuff that having actual users imply. Let someone else do the hard work is what I say!! Especially when it integrates so well everywhere.</p>
-
-<p>Oh by the way, there's a <a href="http://wordpress.org/extend/plugins/browserid/">Wordpress plugin</a> for that</p>
+<p>So by a combination of moving to Air and reducing the polling frequency for the
+things that did not need to be refreshed so often, I managed to eliminate the
+memory leak. Development could then continue as previously planned: I integrated
+<a href="http://vessenger.com/snaplr">Snaplr</a> in the file upload dialogs, allowing the user to easily take a
+screenshot, annotate it and upload it along along with his message, to be seen
+instantly by the people he is chatting with. For me this is one of the killer
+features of <a href="http://vessenger.com">Vessenger</a></p>
 
 
             </div> <!-- /.entry-content.colEight -->
             <div class="page-nav-bottom">
                 
-				    <span class="page-nav-item floatLeft"><a class="internal" rel="prev"  href="/2011/09/a-10-minute-script-to-graph-your-server-load.html#notebook" title="Read A 10 minute script to graph your server load">&larr; View previous article</a></span>
+				    <span class="page-nav-item floatLeft"><a class="internal" rel="prev"  href="/2011/12/implementing-browserid-identification.html#notebook" title="Read Implementing BrowserID identification on your website">&larr; View previous article</a></span>
 				
 				
             </div> <!-- /.page-nav-bottom -->
