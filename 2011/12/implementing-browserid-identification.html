@@ -131,9 +131,26 @@
 
 <h4>Include the following javascript snippet in your page</h4>
 
+<div class="highlight"><pre><code class="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://browserid.org/include.js&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+</code></pre>
+</div>
+
+
 <h4>Identify the user</h4>
 
 <p>When the user clicks on your "Login" button, a window pops up asking them to confirm that they want to login, or asking them to create a browserID account if they haven't done it yet. Once they decide that they want to login, they are redirected to your site, and the following function is called, with the assertion being passed to the callback if the login was successful</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">navigator</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">getVerifiedEmail</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">assertion</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">assertion</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// This code will be invoked once the user has successfully</span>
+        <span class="c1">// selected an email address they control to sign in with.</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// something went wrong!  the user isn&#39;t logged in.</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <p>If the assertion is there, the user authenticated successfully. now you must verify that the assertion really is authentic, and get the relevant data from it. You <em>could</em> <a href="https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest">do it yourself</a>, but if you don't have any special requirements, I recommend you just use the service provided by <a href="http://browserid.org">http://browserid.org</a></p>
 
@@ -141,7 +158,47 @@
 
 <p>To do so, and once you have the <code>assertion</code>, you have to make a POST request to <a href="http://browserid.org/verify">http://browserid.org/verify</a>, with two parameters: the assertion and the audience, which is simply the hostname of your site. This has to be done from your server. For security reasons, it won't work if you do it as an ajax request from the user's browser. What I suggest is that you call a url on your server from the javascript callback which will be in charge of itself making the request to browserid.org. Do it as a POST request as that assertion is a <em>long</em> string. This an example implementation for the <a href="http://www.slimframework.com/">Slim framework</a>:</p>
 
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$app</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;/browserid&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$app</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="nv">$assertion</span><span class="o">=</span><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;assertion&#39;</span><span class="p">);</span>
+        <span class="c1">//get the POSTed assertion</span>
+        <span class="nv">$post_data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;assertion&#39;</span> <span class="o">=&gt;</span> <span class="nv">$assertion</span><span class="p">,</span> <span class="s1">&#39;audience&#39;</span> <span class="o">=&gt;</span> <span class="nx">SERVER</span><span class="p">);</span>
+        <span class="c1">//SERVER is my site&#39;s hostname</span>
+        <span class="nv">$r</span> <span class="o">=</span> <span class="nx">Http</span><span class="o">::</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;https://browserid.org/verify&#39;</span><span class="p">,</span><span class="nv">$post_data</span><span class="p">);</span>
+        <span class="c1">//This makes a post request to browserid.org</span>
+        <span class="nv">$result</span><span class="o">=</span><span class="nx">json_decode</span><span class="p">(</span><span class="nv">$r</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="nv">$result</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;okay&#39;</span><span class="p">){</span>
+            <span class="nx">handle_users</span><span class="p">(</span><span class="nv">$app</span><span class="p">,</span><span class="nv">$result</span><span class="p">);</span>
+            <span class="c1">//This logs the user in if we have an account for that email address,</span>
+            <span class="c1">//or creates it otherwise</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="nv">$msg</span><span class="o">=</span><span class="s1">&#39;Could not log you in&#39;</span><span class="p">;</span>
+            <span class="nv">$status</span><span class="o">=</span><span class="k">false</span><span class="p">;</span>
+            <span class="k">echo</span> <span class="nx">json_encode</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="o">=&gt;</span><span class="nv">$msg</span><span class="p">,</span><span class="s1">&#39;status&#39;</span><span class="o">=&gt;</span><span class="nv">$status</span><span class="p">));</span>
+        <span class="p">}</span>
+
+
+    <span class="p">}</span>
+<span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre>
+</div>
+
+
 <p>This call to the browserID API returns some json_encoded stuff, for example something like this :</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="p">{</span>
+    <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;okay&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;lloyd@example.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;audience&quot;</span><span class="o">:</span> <span class="s2">&quot;https://mysite.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;expires&quot;</span><span class="o">:</span> <span class="mi">1308859352261</span><span class="p">,</span>
+    <span class="s2">&quot;issuer&quot;</span><span class="o">:</span> <span class="s2">&quot;browserid.org&quot;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
 
 <h4>Login or register</h4>
 
