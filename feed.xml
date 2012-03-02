@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>2012-03-02T01:15:12+01:00</updated>
+	<updated>2012-03-02T01:22:16+01:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -306,7 +306,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 All I did was wrap the main minification function in Codeigniter specific code.
 I modelled the interaction on the image library, as I guess that's what most people are used to.&lt;/p&gt;
 
-&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;css minification library for codeigniter&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/04/Screenshot.png&quot;&gt;&lt;img class=&quot;size-medium wp-image-450&quot; title=&quot;css minification for codeigniter&quot; src=&quot;http://cdn.jfoucher.com/uploads/2011/04/Screenshot-300x162.png&quot; alt=&quot;css minification for codeigniter&quot; width=&quot;300&quot; height=&quot;162&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;css minification library for codeigniter&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2011/04/Screenshot.png&quot;&gt;&lt;img class=&quot;size-medium wp-image-450&quot; title=&quot;css minification for codeigniter&quot; src=&quot;http://jfoucher.com/uploads/2011/04/Screenshot-300x162.png&quot; alt=&quot;css minification for codeigniter&quot; width=&quot;300&quot; height=&quot;162&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 
@@ -346,7 +346,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;p&gt;And then the idea dawned on me: why not use &lt;a href=&quot;http://flickr.com&quot;&gt;flickr&lt;/a&gt;'s &lt;a href=&quot;http://creativecommons.org/&quot;&gt;creative commons&lt;/a&gt; licensed images? The quality is often very good, especially for &quot;interesting&quot; images, a lot of sizes are available, and users often use tags to classify their images, making it rather easy to get placeholder images about a particular subject.&lt;/p&gt;
 
-&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:600px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;flickholdr.com&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/03/FlickHoldr1.png&quot;&gt;&lt;img class=&quot;size-full wp-image-413&quot; title=&quot;FlickHoldr&quot; src=&quot;http://cdn.jfoucher.com/uploads/2011/03/FlickHoldr1.png&quot; alt=&quot;screenshot of flickholdr.com&quot; width=&quot;600&quot; height=&quot;417&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:600px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;flickholdr.com&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2011/03/FlickHoldr1.png&quot;&gt;&lt;img class=&quot;size-full wp-image-413&quot; title=&quot;FlickHoldr&quot; src=&quot;http://jfoucher.com/uploads/2011/03/FlickHoldr1.png&quot; alt=&quot;screenshot of flickholdr.com&quot; width=&quot;600&quot; height=&quot;417&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;The execution&lt;/h3&gt;
@@ -416,13 +416,13 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;p&gt;These are the results for 50 concurrent connections : For APC we get about 43 requests/s, with the file caching mecanism around 25, requests/s, and with no cache at all we are below 18 requests/s&lt;/p&gt;
 
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/02/chart22.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-387&quot; title=&quot;Codeigniter APC cache benchmark&quot; src=&quot;http://cdn.jfoucher.com/uploads/2011/02/chart22.png&quot; alt=&quot;APC: 43, File: 25, None: 18 &quot; width=&quot;560&quot; height=&quot;260&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2011/02/chart22.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-387&quot; title=&quot;Codeigniter APC cache benchmark&quot; src=&quot;http://jfoucher.com/uploads/2011/02/chart22.png&quot; alt=&quot;APC: 43, File: 25, None: 18 &quot; width=&quot;560&quot; height=&quot;260&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 
 &lt;p style=&quot;text-align: left;&quot;&gt;For low concurency (2) the improvement when using APC is similar: in this case the number of requests per second nearly doubled, from 19 to 47 between the case without any caching system and the APC case&lt;/p&gt;
 
 
-&lt;p style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/02/chart2.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-383&quot; title=&quot;Codeigniter cache benchmark: low concurency&quot; src=&quot;http://cdn.jfoucher.com/uploads/2011/02/chart2.png&quot; alt=&quot;APC: 46.37 rps, File: 27.23 rps, None: 18.99 rps&quot; width=&quot;560&quot; height=&quot;260&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2011/02/chart2.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-383&quot; title=&quot;Codeigniter cache benchmark: low concurency&quot; src=&quot;http://jfoucher.com/uploads/2011/02/chart2.png&quot; alt=&quot;APC: 46.37 rps, File: 27.23 rps, None: 18.99 rps&quot; width=&quot;560&quot; height=&quot;260&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 
 &lt;p style=&quot;text-align: left;&quot;&gt;So just turning the default codeigniter cache on gives us a significant speed improvement, going all the way and installing APC can nearly double the speed of your application. Not too shabby I should think.&lt;/p&gt;
@@ -484,7 +484,7 @@ This is the main part of the code, the one gets executed everytime the
 &lt;p&gt;This function sets some headers for the email, such as the sender's name and email, and the subject of the message, and then sends the message. No error is shown if the message can't be sent, as this would be displayed on the page.&lt;/p&gt;
 
 
-&lt;p&gt;Until approval by the wordpress.org guys, you can download it here: &lt;a href='http://cdn.jfoucher.com/uploads/2011/01/email-404.zip'&gt;Email 404 Wordpress plugin&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Until approval by the wordpress.org guys, you can download it here: &lt;a href='http://jfoucher.com/uploads/2011/01/email-404.zip'&gt;Email 404 Wordpress plugin&lt;/a&gt;&lt;/p&gt;
 
 
 &lt;p&gt;&lt;/p&gt;&lt;/p&gt;
@@ -515,7 +515,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;. Open the&lt;/p&gt;
 
 &lt;p&gt; submenu, and choose whichever one you like best. I think the Win key is a good choice as it's not used for anything much... Except remind us of our freedom...
-&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1.png&quot;&gt;&lt;img src=&quot;http://cdn.jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1-300x218.png&quot; alt=&quot;Keyboard Layout Options&quot; title=&quot;Keyboard Layout Options&quot; width=&quot;300&quot; height=&quot;218&quot; class=&quot;aligncenter size-medium wp-image-264&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;http://jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1.png&quot;&gt;&lt;img src=&quot;http://jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1-300x218.png&quot; alt=&quot;Keyboard Layout Options&quot; title=&quot;Keyboard Layout Options&quot; width=&quot;300&quot; height=&quot;218&quot; class=&quot;aligncenter size-medium wp-image-264&quot; /&gt;&lt;/a&gt;
 And yay! Writing Spanish is cool again!&lt;/p&gt;
 &lt;a href=&quot;http://jfoucher.com/2011/01/spanish-characters-on-qwerty-keyboard-for-ubuntu-10-10.html&quot;&gt;Spanish characters on Qwerty keyboard for Ubuntu 10.10&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
@@ -533,7 +533,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;p&gt;Because it's &lt;a href=&quot;http://en.wikipedia.org/wiki/Python_(programming_language)#Name_and_neologisms&quot;&gt;named after the Monty Python&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;No, seriously, that's why :&lt;a href=&quot;http://xkcd.com/353/&quot;&gt;&lt;img class=&quot;aligncenter size-medium wp-image-201&quot; title=&quot;python&quot; src=&quot;http://cdn.jfoucher.com/uploads/2011/01/python-264x300.png&quot; alt=&quot;I wrote 20 short programs in Python yesterday.  It was wonderful.  Perl, I'm leaving you.&quot; width=&quot;264&quot; height=&quot;300&quot; /&gt;&lt;/a&gt;No, not this &quot;that's why&quot;! &lt;a href=&quot;http://programmers.stackexchange.com/questions/10675/ideal-programming-language-learning-sequence#answer-10748&quot;&gt;That one&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;No, seriously, that's why :&lt;a href=&quot;http://xkcd.com/353/&quot;&gt;&lt;img class=&quot;aligncenter size-medium wp-image-201&quot; title=&quot;python&quot; src=&quot;http://jfoucher.com/uploads/2011/01/python-264x300.png&quot; alt=&quot;I wrote 20 short programs in Python yesterday.  It was wonderful.  Perl, I'm leaving you.&quot; width=&quot;264&quot; height=&quot;300&quot; /&gt;&lt;/a&gt;No, not this &quot;that's why&quot;! &lt;a href=&quot;http://programmers.stackexchange.com/questions/10675/ideal-programming-language-learning-sequence#answer-10748&quot;&gt;That one&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;If you are just starting out as a programmer, I cannot recommend &lt;a href=&quot;http://learnpythonthehardway.org/&quot;&gt;Learn Python The Hard Way&lt;/a&gt; highly enough. It is an excellent introduction to the ideas and skills you will need as a programmer, starting from the very basics, like you've never seen a for loop in your life.ï¿½Actually the first 10 or so lessons do not include ANY control structures!&lt;/p&gt;
 
@@ -566,12 +566,12 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 Next, we create the notification server instance, choose an icon, connect the function server_display to the server-display event (when the icon is clicked on) and finally run the create_indicators function that looks for skype messages and displays them accordingly.&lt;/p&gt;
 
 &lt;p&gt;This basically tries to start skype if it is not already started and calls noSkype() if it couldn't start it. noSype() shows a notification message to let the user know that they have to start Skype.
-&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/01/skype-not-started.png&quot;&gt;&lt;img src=&quot;http://cdn.jfoucher.com/uploads/2011/01/skype-not-started.png&quot; alt=&quot;Error shown if Skype is not running&quot; title=&quot;skype-not-started&quot; width=&quot;428&quot; height=&quot;213&quot; class=&quot;aligncenter size-full wp-image-256&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/uploads/2011/01/skype-not-started.png&quot;&gt;&lt;img src=&quot;http://jfoucher.com/uploads/2011/01/skype-not-started.png&quot; alt=&quot;Error shown if Skype is not running&quot; title=&quot;skype-not-started&quot; width=&quot;428&quot; height=&quot;213&quot; class=&quot;aligncenter size-full wp-image-256&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;This next function is where the meat of the process takes place. Please read the inline comments to understand how it works, and ask for clarification by &lt;a href=&quot;#respond&quot;&gt;posting a comment&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;When a new messages arrives, this is what the messaging menu looks like
-&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/01/skype-indicator-menu.png&quot;&gt;&lt;img src=&quot;http://cdn.jfoucher.com/uploads/2011/01/skype-indicator-menu.png&quot; alt=&quot;Messaging menu open qith unread messages&quot; title=&quot;skype-indicator-menu&quot; width=&quot;376&quot; height=&quot;256&quot; class=&quot;aligncenter size-full wp-image-258&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png&quot;&gt;&lt;img src=&quot;http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png&quot; alt=&quot;Messaging menu open qith unread messages&quot; title=&quot;skype-indicator-menu&quot; width=&quot;376&quot; height=&quot;256&quot; class=&quot;aligncenter size-full wp-image-258&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The function that gets unread skype messages is as follows For each message, we add it to a list containg the messages from a particular user in the self.unread dictionary.&lt;/p&gt;
 
@@ -580,7 +580,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
 &lt;p&gt;Below is the generic function in charge of showing popup notifications.&lt;/p&gt;
 
 &lt;p&gt;This is what it looks like with three new messages
-&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2011/01/skype-indicator.png&quot;&gt;&lt;img src=&quot;http://cdn.jfoucher.com/uploads/2011/01/skype-indicator.png&quot; alt=&quot;The Ubuntu skype indicator with three new messages&quot; title=&quot;skype-indicator&quot; width=&quot;428&quot; height=&quot;232&quot; class=&quot;aligncenter size-full wp-image-253&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/uploads/2011/01/skype-indicator.png&quot;&gt;&lt;img src=&quot;http://jfoucher.com/uploads/2011/01/skype-indicator.png&quot; alt=&quot;The Ubuntu skype indicator with three new messages&quot; title=&quot;skype-indicator&quot; width=&quot;428&quot; height=&quot;232&quot; class=&quot;aligncenter size-full wp-image-253&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The next one shows the popup notification that skype is not loaded :&lt;/p&gt;
 
@@ -732,7 +732,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<link href="http://jfoucher.com/2009/11/google-wave-useless.html"/>
 		<updated>2009-11-20T10:00:29+01:00</updated>
 		<id>http://jfoucher.com/2009/11/google-wave-useless</id>
-		<content type="html">&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Google Wave&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/11/Screenshot-1.png&quot;&gt;&lt;img class=&quot;size-medium wp-image-172&quot; title=&quot;Google Wave&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/11/Screenshot-1-300x158.png&quot; alt=&quot;Google Wave&quot; width=&quot;300&quot; height=&quot;158&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+		<content type="html">&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Google Wave&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/11/Screenshot-1.png&quot;&gt;&lt;img class=&quot;size-medium wp-image-172&quot; title=&quot;Google Wave&quot; src=&quot;http://jfoucher.com/uploads/2009/11/Screenshot-1-300x158.png&quot; alt=&quot;Google Wave&quot; width=&quot;300&quot; height=&quot;158&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;1. You need to have it open in your browser to appear online&lt;/h3&gt;
@@ -784,61 +784,61 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;p&gt;Anyway, to get a cheaper custom sigg bottle, we need to &lt;em&gt;open a cafepress account&lt;/em&gt;, and set up a shop. Don't worry, it's completely free. First, click on &quot;sign in&quot; at the top of the home page in cafepress, then click continue once you reach the screen below.&lt;/p&gt;
 
-&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Register at Cafepress&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress1.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-151&quot; title=&quot;Sign In&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress1-300x159.jpg&quot; alt=&quot;Register at Cafepress&quot; width=&quot;300&quot; height=&quot;159&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Register at Cafepress&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/07/cafepress1.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-151&quot; title=&quot;Sign In&quot; src=&quot;http://jfoucher.com/uploads/2009/07/cafepress1-300x159.jpg&quot; alt=&quot;Register at Cafepress&quot; width=&quot;300&quot; height=&quot;159&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 &lt;p&gt;You arrive at the page shown below where you enter your registration information. Fill all the  fields in and then click on &quot;Join now&quot;.&lt;/p&gt;
 
-&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Enter your information&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress2.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-152&quot; title=&quot;Register&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress2-300x168.jpg&quot; alt=&quot;Enter your information&quot; width=&quot;300&quot; height=&quot;168&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Enter your information&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/07/cafepress2.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-152&quot; title=&quot;Register&quot; src=&quot;http://jfoucher.com/uploads/2009/07/cafepress2-300x168.jpg&quot; alt=&quot;Enter your information&quot; width=&quot;300&quot; height=&quot;168&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Fill in more info and then click &quot;Open your shop!&quot;&lt;/p&gt;
 
-&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Fill in More Info&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress3.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-153&quot; title=&quot;More Info&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress3-300x124.jpg&quot; alt=&quot;Fill in More Info&quot; width=&quot;300&quot; height=&quot;124&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Fill in More Info&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/07/cafepress3.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-153&quot; title=&quot;More Info&quot; src=&quot;http://jfoucher.com/uploads/2009/07/cafepress3-300x124.jpg&quot; alt=&quot;Fill in More Info&quot; width=&quot;300&quot; height=&quot;124&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 &lt;p&gt;You are now given a choice to open a basic or a premium shop.  For our purposes, a free basic shop is sufficient, so click on &quot;Open a basic shop&quot;&lt;/p&gt;
 
-&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Choose shop type&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress4.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-155&quot; title=&quot;Shop type&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress4-300x217.jpg&quot; alt=&quot;Choose shop type&quot; width=&quot;300&quot; height=&quot;217&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Choose shop type&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/07/cafepress4.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-155&quot; title=&quot;Shop type&quot; src=&quot;http://jfoucher.com/uploads/2009/07/cafepress4-300x217.jpg&quot; alt=&quot;Choose shop type&quot; width=&quot;300&quot; height=&quot;217&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Fill in some more details on the next page and click on &quot;Submit&quot;, then click on &quot;Build your shop once you reach the page below&lt;/p&gt;
 
-&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Build your shop&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress5.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-156&quot; title=&quot;Build your shop&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress5-300x179.jpg&quot; alt=&quot;Build your shop&quot; width=&quot;300&quot; height=&quot;179&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Build your shop&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/07/cafepress5.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-156&quot; title=&quot;Build your shop&quot; src=&quot;http://jfoucher.com/uploads/2009/07/cafepress5-300x179.jpg&quot; alt=&quot;Build your shop&quot; width=&quot;300&quot; height=&quot;179&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 &lt;p&gt;I leave it as an exercise to the reader to insert a product, preferably a Sigg botlle into the shop. Once you reach the screen below, you can keep going.&lt;/p&gt;
 
-&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Sigg bottle added to shop&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress6.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-157&quot; title=&quot;Sigg bottle added to shop&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress6-300x211.jpg&quot; alt=&quot;Sigg bottle added to shop&quot; width=&quot;300&quot; height=&quot;211&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Sigg bottle added to shop&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/07/cafepress6.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-157&quot; title=&quot;Sigg bottle added to shop&quot; src=&quot;http://jfoucher.com/uploads/2009/07/cafepress6-300x211.jpg&quot; alt=&quot;Sigg bottle added to shop&quot; width=&quot;300&quot; height=&quot;211&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 &lt;blockquote&gt;Draw your image using Gimp or Inkscape, or whatever software you are used to.&lt;/blockquote&gt;
 
 
-&lt;p&gt;Great, you've added a Sigg bottle to your shop. The only slight problem is that it's completely white. We really need to do something about that! So, &lt;em&gt;is your image ready&lt;/em&gt;? No? Well let's go then. Cafepress provides a &lt;a href=&quot;http://www.cafepress.com/content/help/img/templates/280_H_F.jpg&quot;&gt;template&lt;/a&gt; for the image on the Sigg bottles, and I suggest you follow it to get an image of the proper size. The only thing is that it's at 200 dpi, which seems a bit low for printing, so I suggest you scale it up to at least 300 DPI, or a pixel size of 975x1800. Here is &lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/07/280_H_R.png&quot;&gt;my template at 600 DPI&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Great, you've added a Sigg bottle to your shop. The only slight problem is that it's completely white. We really need to do something about that! So, &lt;em&gt;is your image ready&lt;/em&gt;? No? Well let's go then. Cafepress provides a &lt;a href=&quot;http://www.cafepress.com/content/help/img/templates/280_H_F.jpg&quot;&gt;template&lt;/a&gt; for the image on the Sigg bottles, and I suggest you follow it to get an image of the proper size. The only thing is that it's at 200 dpi, which seems a bit low for printing, so I suggest you scale it up to at least 300 DPI, or a pixel size of 975x1800. Here is &lt;a href=&quot;http://jfoucher.com/uploads/2009/07/280_H_R.png&quot;&gt;my template at 600 DPI&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Draw your image using &lt;a href=&quot;http://gimp.org&quot;&gt;Gimp&lt;/a&gt; or &lt;a href=&quot;http://inkscape.org&quot;&gt;Inkscape&lt;/a&gt;, or whatever software you are used to, or just choose a photograph from your collection. The thing to keep in mind is that the shape of the template is the maximum size of your image, but it can be smaller...&lt;/p&gt;
 
 &lt;p&gt;Ok, so now you have your image the way you like it, I suggest you &lt;em&gt;give it a try&lt;/em&gt; on the &lt;a href=&quot;http://www.cafepress.com/designer/sigg/&quot;&gt;flash designer&lt;/a&gt;. When you are entirely satisfied, click on &quot;edit&quot; below the image of the bottle to get to the page shown on the screenshot below.&lt;/p&gt;
 
-&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Add image&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress7.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-161&quot; title=&quot;Add image&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress7-300x207.jpg&quot; alt=&quot;Add image&quot; width=&quot;300&quot; height=&quot;207&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Add image&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/07/cafepress7.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-161&quot; title=&quot;Add image&quot; src=&quot;http://jfoucher.com/uploads/2009/07/cafepress7-300x207.jpg&quot; alt=&quot;Add image&quot; width=&quot;300&quot; height=&quot;207&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 &lt;p&gt;On the right hand side, click on the &quot;select image&quot; button, then on &quot;Upload image&quot;, which brings you to a page where you can upload a number of images, choose and &lt;em&gt;upload your image&lt;/em&gt;. It takes a few steps, which I'm not going to detail here.&lt;/p&gt;
 
-&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Image applied to bottle&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress8.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-165&quot; title=&quot;Image applied to bottle&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress8-300x205.jpg&quot; alt=&quot;Image applied to bottle&quot; width=&quot;300&quot; height=&quot;205&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Image applied to bottle&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/07/cafepress8.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-165&quot; title=&quot;Image applied to bottle&quot; src=&quot;http://jfoucher.com/uploads/2009/07/cafepress8-300x205.jpg&quot; alt=&quot;Image applied to bottle&quot; width=&quot;300&quot; height=&quot;205&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Once you selected the image to apply to your bottle, you can tweak it's size, but if you used the template, it should fill all the space available, see screenshot above.&lt;/p&gt;
 
 &lt;p&gt;Click next, and you can write a title, a description and choose a price for your item. Don't worry, you'll be able to buy it at the base price later, so &lt;em&gt;set any markup you like&lt;/em&gt;. I didn't touch anything, as it doesn't matter for our purposes. But feel free to change things if you want to sell your custom bottle later.&lt;/p&gt;
 
-&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Change item details&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress9.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-166&quot; title=&quot;Change item details&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress9-300x195.jpg&quot; alt=&quot;Change item details&quot; width=&quot;300&quot; height=&quot;195&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Change item details&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/07/cafepress9.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-166&quot; title=&quot;Change item details&quot; src=&quot;http://jfoucher.com/uploads/2009/07/cafepress9-300x195.jpg&quot; alt=&quot;Change item details&quot; width=&quot;300&quot; height=&quot;195&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Once you click &quot;save and finish&quot;, &lt;em&gt;your custom Sigg bottle is created!&lt;/em&gt; You can now buy it at the base price by following these instructions : first, click on the &quot;your shops&quot; link at the top left of the page shown above, then on &quot;buy&quot; on the same line as your shop's name, and then &quot;Click to buy from your own shop&quot;, after which you get to the product page for your custom bottle, which you can then buy following normal procedures.&lt;/p&gt;
 
-&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Buy your custom Sigg bottle&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress11.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-167&quot; title=&quot;Buy your custom Sigg bottle&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/07/cafepress11-300x129.jpg&quot; alt=&quot;Buy your custom Sigg bottle&quot; width=&quot;300&quot; height=&quot;129&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Buy your custom Sigg bottle&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/07/cafepress11.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-167&quot; title=&quot;Buy your custom Sigg bottle&quot; src=&quot;http://jfoucher.com/uploads/2009/07/cafepress11-300x129.jpg&quot; alt=&quot;Buy your custom Sigg bottle&quot; width=&quot;300&quot; height=&quot;129&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 &lt;p&gt;When you get to the checkout form, fill in the following Cafepress coupon code: POPPYSNEEZE to get a further $5 discount, on purchases over $50.&lt;/p&gt;
@@ -897,7 +897,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<link href="http://jfoucher.com/2009/06/wpfeedly-theme-download.html"/>
 		<updated>2009-06-27T11:19:32+02:00</updated>
 		<id>http://jfoucher.com/2009/06/wpfeedly-theme-download</id>
-		<content type="html">&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;WP-Feedly Screenshot&lt;/div&gt;&lt;a href=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot1.png&quot;&gt;&lt;img class=&quot;size-full wp-image-138&quot; title=&quot;WP-Feedly Screenshot&quot; src=&quot;http://cdn.jfoucher.com/uploads/2009/06/screenshot1.png&quot; alt=&quot;WP-Feedly Screenshot&quot; width=&quot;300&quot; height=&quot;255&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+		<content type="html">&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;WP-Feedly Screenshot&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/06/screenshot1.png&quot;&gt;&lt;img class=&quot;size-full wp-image-138&quot; title=&quot;WP-Feedly Screenshot&quot; src=&quot;http://jfoucher.com/uploads/2009/06/screenshot1.png&quot; alt=&quot;WP-Feedly Screenshot&quot; width=&quot;300&quot; height=&quot;255&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
 &lt;p&gt;After some beta testing and subsequent bug squashing, WP-Feedly is ready for prime-time, and &lt;a href=&quot;/wp-feedly.zip&quot;&gt;available for download&lt;/a&gt;.&lt;/p&gt;

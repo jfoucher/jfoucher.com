@@ -143,13 +143,13 @@
 
 <p>These are the results for 50 concurrent connections : For APC we get about 43 requests/s, with the file caching mecanism around 25, requests/s, and with no cache at all we are below 18 requests/s</p>
 
-<p style="text-align: center;"><a href="http://cdn.jfoucher.com/uploads/2011/02/chart22.png"><img class="aligncenter size-full wp-image-387" title="Codeigniter APC cache benchmark" src="http://cdn.jfoucher.com/uploads/2011/02/chart22.png" alt="APC: 43, File: 25, None: 18 " width="560" height="260" /></a></p>
+<p style="text-align: center;"><a href="http://jfoucher.com/uploads/2011/02/chart22.png"><img class="aligncenter size-full wp-image-387" title="Codeigniter APC cache benchmark" src="http://jfoucher.com/uploads/2011/02/chart22.png" alt="APC: 43, File: 25, None: 18 " width="560" height="260" /></a></p>
 
 
 <p style="text-align: left;">For low concurency (2) the improvement when using APC is similar: in this case the number of requests per second nearly doubled, from 19 to 47 between the case without any caching system and the APC case</p>
 
 
-<p style="text-align: left;"><a href="http://cdn.jfoucher.com/uploads/2011/02/chart2.png"><img class="aligncenter size-full wp-image-383" title="Codeigniter cache benchmark: low concurency" src="http://cdn.jfoucher.com/uploads/2011/02/chart2.png" alt="APC: 46.37 rps, File: 27.23 rps, None: 18.99 rps" width="560" height="260" /></a></p>
+<p style="text-align: left;"><a href="http://jfoucher.com/uploads/2011/02/chart2.png"><img class="aligncenter size-full wp-image-383" title="Codeigniter cache benchmark: low concurency" src="http://jfoucher.com/uploads/2011/02/chart2.png" alt="APC: 46.37 rps, File: 27.23 rps, None: 18.99 rps" width="560" height="260" /></a></p>
 
 
 <p style="text-align: left;">So just turning the default codeigniter cache on gives us a significant speed improvement, going all the way and installing APC can nearly double the speed of your application. Not too shabby I should think.</p>
