@@ -4,13 +4,60 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>2012-04-01T09:40:58+02:00</updated>
+	<updated>2012-04-08T01:40:01+02:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
 	</author>
 	<rights>Copyright (c) 2004-2011,Jonathan Foucher; Some rights reserved.</rights>
 
+	
+	<entry>
+		<title>Git tips from stackoverflow</title>
+		<link href="http://jfoucher.com/2012/04/github-tricks-from-stackoverflow.html"/>
+		<updated>2012-04-09T00:00:00+02:00</updated>
+		<id>http://jfoucher.com/2012/04/github-tricks-from-stackoverflow</id>
+		<content type="html">&lt;p&gt;Here are some pretty cool and very useful git tricks I learnt  by searching or reading stackoverflow.
+Most of them are operations that should be pretty easy to do, and seem pointlessly complicated. The second one is an excellent example of both the flexibility and the lack of user friendliness of the git UI&lt;/p&gt;
+
+&lt;h3&gt;Prevent a file from being commited, ever&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/a/8485503/210824&quot;&gt;Git: Never Commit Changed Files (But still keep original revisioned.)&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;git update-index --assume-unchanged &amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;To make it commitable again run&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;git update-index --no-assume-unchanged &amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;Commits no yet pushed&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/a/3338774/210824&quot;&gt;Viewing Unpushed Git Commits&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want to see all commits on all branches that aren't pushed yet, you might be looking for something like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;git log --branches --not --remotes
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;And if you only want to see the most recent commit on each branch, and the branch names, this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;git log --branches --not --remotes --simplify-by-decoration --decorate --oneline
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+&lt;a href=&quot;http://jfoucher.com/2012/04/github-tricks-from-stackoverflow.html&quot;&gt;Git tips from stackoverflow&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
+	</entry>
 	
 	<entry>
 		<title>From Titanium to Adobe Air, or, Building Desktop Apps with Javascript</title>
@@ -1699,7 +1746,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Fill in More Info&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/07/cafepress3.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-153&quot; title=&quot;More Info&quot; src=&quot;http://jfoucher.com/uploads/2009/07/cafepress3-300x124.jpg&quot; alt=&quot;Fill in More Info&quot; width=&quot;300&quot; height=&quot;124&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
-&lt;p&gt;You are now given a choice to open a basic or a premium shop.  For our purposes, a free basic shop is sufficient, so click on &quot;Open a basic shop&quot;&lt;/p&gt;
+&lt;p&gt;You are now given a choice to open a basic or a premium shop.ï¿½ For our purposes, a free basic shop is sufficient, so click on &quot;Open a basic shop&quot;&lt;/p&gt;
 
 &lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Choose shop type&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/07/cafepress4.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-155&quot; title=&quot;Shop type&quot; src=&quot;http://jfoucher.com/uploads/2009/07/cafepress4-300x217.jpg&quot; alt=&quot;Choose shop type&quot; width=&quot;300&quot; height=&quot;217&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
@@ -1791,19 +1838,6 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;Based in &lt;a href=&quot;http://wordpress.org&quot;&gt;Wordpress&lt;/a&gt;, this blog makes extensive use of &lt;a href=&quot;http://jquery.com&quot;&gt;jQuery&lt;/a&gt; to give life to the page, with animations, dynamic content, etc... The clouds, for example move around on the screen as if an imaginary electronic wind was blowing!
 [/lang_en]&lt;/p&gt;
 &lt;a href=&quot;http://jfoucher.com/2009/07/ecoquotidien.html&quot;&gt;Ecoquotidien.fr&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
-href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
-	</entry>
-	
-	<entry>
-		<title>WP-Feedly theme available for download</title>
-		<link href="http://jfoucher.com/2009/06/wpfeedly-theme-download.html"/>
-		<updated>2009-06-27T11:19:32+02:00</updated>
-		<id>http://jfoucher.com/2009/06/wpfeedly-theme-download</id>
-		<content type="html">&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;WP-Feedly Screenshot&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/06/screenshot1.png&quot;&gt;&lt;img class=&quot;size-full wp-image-138&quot; title=&quot;WP-Feedly Screenshot&quot; src=&quot;http://jfoucher.com/uploads/2009/06/screenshot1.png&quot; alt=&quot;WP-Feedly Screenshot&quot; width=&quot;300&quot; height=&quot;255&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
-
-
-&lt;p&gt;After some beta testing and subsequent bug squashing, WP-Feedly is ready for prime-time, and &lt;a href=&quot;/wp-feedly.zip&quot;&gt;available for download&lt;/a&gt;.&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2009/06/wpfeedly-theme-download.html&quot;&gt;WP-Feedly theme available for download&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	

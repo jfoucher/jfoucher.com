@@ -9,7 +9,7 @@
 -->
 <head>
     <title>
-        From Titanium to Adobe Air, or, Building Desktop Apps with Javascript
+        Git tips from stackoverflow
         
     </title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -17,7 +17,7 @@
 	<meta name="author" content="Jonathan Foucher" />
 	<meta name="designer" content="Jonathan Foucher" />
 	<meta name="developer" content="Jonathan Foucher" />
-	<meta name="description" content="A blog about web development, codeigniter and wordpress, by web developer Jonathan Foucher" />
+	<meta name="description" content="Sometimes git is confusing, and things that should be simple quickly look like mmagic incantations. Here are two such cases" />
 	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
@@ -87,16 +87,14 @@
 		<div id="notebook" class="center clear">
 			<div class="page-nav-top">
                 
-				    <span class="page-nav-item page-prev"><a class="internal" rel="prev"  href="/2011/12/implementing-browserid-identification.html#notebook" title="View Implementing BrowserID identification on your website">&larr; View previous article</a></span>
+				    <span class="page-nav-item page-prev"><a class="internal" rel="prev"  href="/2012/02/from-titanium-to-air-building-desktop-apps-with-javascript.html#notebook" title="View From Titanium to Adobe Air, or, Building Desktop Apps with Javascript">&larr; View previous article</a></span>
 				
 				
-				    <span class="page-nav-item page-next"><a class="internal" rel="next"  href="/2012/04/github-tricks-from-stackoverflow.html#notebook" title="View Git tips from stackoverflow">View next article &rarr;</a></span>
-                
             </div> <!-- /.page-nav-top -->
 
              <h2 class="post-title">
-                <a href="/2012/02/from-titanium-to-air-building-desktop-apps-with-javascript.html#notebook" title="Permanent link to From Titanium to Adobe Air, or, Building Desktop Apps with Javascript">
-                    From Titanium to Adobe Air, or, Building Desktop Apps with Javascript
+                <a href="/2012/04/github-tricks-from-stackoverflow.html#notebook" title="Permanent link to Git tips from stackoverflow">
+                    Git tips from stackoverflow
                 </a>
             </h2>
 
@@ -104,15 +102,15 @@
                 <div class="hero">
 
                     <p>
-                        
+                        Sometimes git is confusing, and things that should be simple quickly look like mmagic incantations. Here are two such cases
                     </p>
                 </div>
-                <!-- <span class="pdf">Download a <a href="/2012/02/from-titanium-to-air-building-desktop-apps-with-javascript.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
-                <span class="permalink">For referencing: <a href="/2012/02/from-titanium-to-air-building-desktop-apps-with-javascript.html" title="[Permalink] From Titanium to Adobe Air, or, Building Desktop Apps with Javascript">permalink to this article</a>.</span>
-                    <span class="date" title="2012-02-13T00:00:00+01:00">
+                <!-- <span class="pdf">Download a <a href="/2012/04/github-tricks-from-stackoverflow.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
+                <span class="permalink">For referencing: <a href="/2012/04/github-tricks-from-stackoverflow.html" title="[Permalink] Git tips from stackoverflow">permalink to this article</a>.</span>
+                    <span class="date" title="2012-04-09T00:00:00+02:00">
                     <span class="published">Published&thinsp;&bull;</span>
-                    <span class="day">13</span>
-                    <span class="month"><abbr>Feb</abbr></span>
+                    <span class="day">09</span>
+                    <span class="month"><abbr>Apr</abbr></span>
                     <span class="year">2012</span>
                 </span>
                 <div class="share">
@@ -123,81 +121,44 @@
             </div> <!-- /.meta -->
             <div id="entry-content">
 
-                <p><a href="http://vessenger.com">Vessenger</a> is an app that allows closed groups such as
-organizations, to chat and send documents to each other or to a central
-repository. People can be divided in groups so that they can share status
-updates or documents with just the required people. In some ways it is similar
-to yammer, but was to be based primarily on a desktop app.</p>
+                <p>Here are some pretty cool and very useful git tricks I learnt  by searching or reading stackoverflow.
+Most of them are operations that should be pretty easy to do, and seem pointlessly complicated. The second one is an excellent example of both the flexibility and the lack of user friendliness of the git UI</p>
 
-<h3>We decide to use Titanium</h3>
+<h3>Prevent a file from being commited, ever</h3>
 
-<p>After some brainstorming with the company owner, we decided that we'd make the
-app available cross platform, and at least for Mac OSX and Windows. I
-personally use Linux, so I also wanted to make sure that it would work on Linux
-as well.  Developping two or three native apps was not a viable option, so we
-decided to use a framework that would allow us to use HTML and Javascript, such
-as Titanium and Adobe Air. Titanium looked like it had great support from the
-community, is Open source and actively developped, so we went with that.</p>
+<p><a href="http://stackoverflow.com/a/8485503/210824">Git: Never Commit Changed Files (But still keep original revisioned.)</a></p>
 
-<p>Developing in Titanium takes some getting used to, but is not much different to
-building javascript heavy web applications. Initially, an index.html file is
-loaded by Titanium, in which we load all the required javascript files. At
-first I had everything in one big and quickly growing javascript file, which
-although properly namespaced, was really giving me headaches just to move
-around. So I split it up in several smaller files, by functionality, as I
-should have done since the beginning.</p>
+<div class="highlight"><pre><code class="bash">git update-index --assume-unchanged &lt;file&gt;
+</code></pre>
+</div>
 
-<p>Working in Titanium can be frustrating at times, and although it works pretty
-well, I had to spend a lot of time looking through the documentation. After
-some time, I realized that the docs for Tianium are not easy to understand, not
-particularly friendly and sometimes even incomplete.</p>
 
-<p>I started working on <a href="http://vessenger.com">Vessenger</a> by doing most of the UI,
-the status message sending and retrieving, and getting a basic version of the
-chat feature working for demo purposes. The status updates was the easiest one
-to build, and I added the possibility to upload files within you status update.
-They can be any type of files, with images showing a thumbnail when seen by
-your colleagues. All the files live on <a href="http://vessenger.com">Vessenger</a>'s
-servers, which makes it very easy to retrieve information at a later date, just
-by looking at your (infinite) chat or status history.</p>
+<p>To make it commitable again run</p>
 
-<h3>Switching to Adobe Air</h3>
+<div class="highlight"><pre><code class="bash">git update-index --no-assume-unchanged &lt;file&gt;
+</code></pre>
+</div>
 
-<p>I then started working on the chat feature, which is where we noticed an issue
-with the repeated server polling we were doing: as well as being suboptimal on
-the server side, the was also a memory leak on the client side, which seemd to
-be caused by Titanium not properly closing and/or releasing the connection
-object, a problem compouded by the fact that Titanium has no method for
-explicitely closing a remote connection. As I was connecting to the server
-several times per second, the memory footprint of the application grew fairly
-quickly. After a lot a frustration trying to make it right, we decided the
-problem lay with Titanium and decided to switch to Adobe Air. Regretfully, the
-latest Air version is not supported on Linux anymore, but it's possible to make
-the app the app compatible with Air 2.6 to get it to run properly on linux.</p>
 
-<blockquote><p>The memory used by the app could climb to 600Mb overnight...</p></blockquote>
+<h3>Commits no yet pushed</h3>
 
-<p>The switch to Adobe air did not involve the complete rewrite I feared, as most
-of the code is compatible and I had created some abstractions for things like
-connecting to the API and storing data. Nevertheless, EncryptedLocalStorage is
-great: very easy to use and has all the features needed. My only problem with
-Adobe Air was the way it handled cookies: it basically did not, so I had to
-create that from scratch, storing the cookies in EcryptedLocalStorage and
-sending it explicitely with each and every request. In hindsight I should have
-setup a dedicated server with node.js to talk to the API, and socket.io to talk
-between the desktop app and the node server. I am actually implementing this
-solution now for another project and I think it would be a perfect fit for
-<a href="http://vessenger.com">Vessenger</a> as well.</p>
+<p><a href="http://stackoverflow.com/a/3338774/210824">Viewing Unpushed Git Commits</a></p>
 
-<h3>Sort issues caused by Titanium</h3>
+<p>If you want to see all commits on all branches that aren't pushed yet, you might be looking for something like this:</p>
 
-<p>So by a combination of moving to Air and reducing the polling frequency for the
-things that did not need to be refreshed so often, I managed to eliminate the
-memory leak. Development could then continue as previously planned: I
-integrated <a href="http://vessenger.com/snaplr">Snaplr</a> in the file upload dialogs,
-allowing the user to easily take a screenshot, annotate it and upload it along
-along with his message, to be seen instantly by the people he is chatting with.
-For me this is one of the killer features of <a href="http://vessenger.com">Vessenger</a></p>
+<div class="highlight"><pre><code class="bash">git log --branches --not --remotes
+</code></pre>
+</div>
+
+
+<p>And if you only want to see the most recent commit on each branch, and the branch names, this:</p>
+
+<div class="highlight"><pre><code class="bash">git log --branches --not --remotes --simplify-by-decoration --decorate --oneline
+</code></pre>
+</div>
+
+
+
 
 
 
@@ -219,11 +180,9 @@ For me this is one of the killer features of <a href="http://vessenger.com">Vess
             </div> <!-- /.entry-content.colEight -->
             <div class="page-nav-bottom">
                 
-				    <span class="page-nav-item page-prev"><a class="internal" rel="prev"  href="/2011/12/implementing-browserid-identification.html#notebook" title="Read Implementing BrowserID identification on your website">&larr; View previous article</a></span>
+				    <span class="page-nav-item page-prev"><a class="internal" rel="prev"  href="/2012/02/from-titanium-to-air-building-desktop-apps-with-javascript.html#notebook" title="Read From Titanium to Adobe Air, or, Building Desktop Apps with Javascript">&larr; View previous article</a></span>
 				
 				
-				    <span class="page-nav-item page-next"><a class="internal" rel="next"  href="/2012/04/github-tricks-from-stackoverflow.html#notebook" title="Read Git tips from stackoverflow">View next article &rarr;</a></span>
-                
             </div> <!-- /.page-nav-bottom -->
         </div> <!-- /#notebook.center.clear -->
             <footer id="footer" class="clear">
