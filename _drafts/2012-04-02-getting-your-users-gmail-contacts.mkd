@@ -1,0 +1,7 @@
+###Retrieve gmail contacts by asking for user/password
+
+This is what google calls the [ClientLogin](https://developers.google.com/accounts/docs/AuthForInstalledApps#Using) method of authentication. It allow you user to simply input their username and password and see a list of their contacts displayed, where they can select which ones to invite, in this case.
+
+What I wanted to do was something similar to what Dropbox does for their referral program: Allow the user to input their email and password, show them a list of their contacts and allow them to select who to invite.
+
+The invited contacts' emails would then populate a textarea which sends the invites when the form is submitted

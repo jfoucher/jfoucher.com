@@ -18,7 +18,7 @@ It was very easy to modify it so that It could be used in our CodeIgniter applic
 All I did was wrap the main minification function in Codeigniter specific code.
 I modelled the interaction on the image library, as I guess that's what most people are used to.
 
-<div class="image-with-caption aligncenter" style="width:300px"><div class="caption">css minification library for codeigniter</div><a href="http://cdn.jfoucher.com/uploads/2011/04/Screenshot.png"><img class="size-medium wp-image-450" title="css minification for codeigniter" src="http://cdn.jfoucher.com/uploads/2011/04/Screenshot-300x162.png" alt="css minification for codeigniter" width="300" height="162" /></a></div>
+<div class="image-with-caption aligncenter" style="width:300px"><div class="caption">css minification library for codeigniter</div><a href="http://jfoucher.com/uploads/2011/04/Screenshot.png"><img class="size-medium wp-image-450" title="css minification for codeigniter" src="http://jfoucher.com/uploads/2011/04/Screenshot-300x162.png" alt="css minification for codeigniter" width="300" height="162" /></a></div>
 
 <h3>How to use</h3>
 Using the library involves loading it, setting up an array with some configuration values, such as the source css file(s), the destination file (optional) or the time that the generated file should be cached, and finally initializing the library with the configuration array() .

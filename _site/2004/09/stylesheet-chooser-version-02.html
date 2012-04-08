@@ -109,7 +109,7 @@
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2004/09/stylesheet-chooser-version-02.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2004/09/stylesheet-chooser-version-02.html" title="[Permalink] Stylesheet Chooser Version 0.2">permalink to this article</a>.</span>
-                    <span class="date" title="2004-09-02T18:28:10+00:00">
+                    <span class="date" title="2004-09-02T20:28:10+02:00">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">02</span>
                     <span class="month"><abbr>Sep</abbr></span>
@@ -131,12 +131,24 @@
 
 <p>To define which stylesheets to use (no, it's not automatic...), you have to define an array called $styles, before you call any of the other functions.You can do it like this, for example :</p>
 
+<div class="highlight"><pre><code class="php"><span class="x">$styles=array(&quot;styles/default&quot;,&quot;styles/no-style&quot;)</span>
+</code></pre>
+</div>
+
+
 <p>if your stylesheets are in the styles directory. Omit the '.css' part. The first one in the list will be used as your default style. The plugin will automatically select the last part of the path (in this case new, default and no-style) and use them as the text in the selection box.
 The optional parameter - for example style_link(false) - can be set to 'true' (default) if you want to @import the style sheets (<a href="http://www.thesitewizard.com/css/excludecss.shtml">ignored by NS4</a>), or to 'false' to get this kind of links: &lt;link rel="stylesheet" title="....&gt; for the current chosen style sheet and like this:&lt;link rel="alternate stylesheet" title="....&gt; for the other(s).</p>
 
 <p>style_chooser() will insert the form that is used to select the stylesheet. Place it wherever you want, in your sidebar for example.</p>
 
 <p>In version 0.23+, it is possible to have a short comment appear below the selection dropdown. For this, the only thing you have to do is insert it in your stylesheets like this:</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">/*</span>
+<span class="x">Comment: Write your comment here.</span>
+<span class="x">*/</span>
+</code></pre>
+</div>
+
 
 <p>And that's it, now each stylesheet has it's own "introduction text".</p>
 

@@ -38,8 +38,8 @@ desc 'Local deploy'
 task :local do
   sh 'cd /var/www/jfoucher.github.com/; cp _assets/*.less assets/css/'
   sh 'cd assets/css/;lessc screen.less > screen.css; rm *.less;cd ../..'
-  sh "sed -i'.bkp' -e's/stylesheet.less/stylesheet/' _includes/head.html"
-  sh "sed -i'.bkp' -e's/screen.less/screen.css/' _includes/head.html"
+  #sh "sed -i'.bkp' -e's/stylesheet.less/stylesheet/' _includes/head.html"
+  #sh "sed -i'.bkp' -e's/screen.less/screen.css/' _includes/head.html"
   jekyll
   sh 'rm -rf /var/www/jfoucher.github/*'
   sh 'cp -r _site/* /var/www/jfoucher.github/'

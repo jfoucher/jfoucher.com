@@ -10,7 +10,7 @@ What's the best way to learn a new programming language ? Well, according to <a 
 <h3>Why Python ?</h3>
 Because it's <a href="http://en.wikipedia.org/wiki/Python_(programming_language)#Name_and_neologisms">named after the Monty Python</a>
 
-No, seriously, that's why :<a href="http://xkcd.com/353/"><img class="aligncenter size-medium wp-image-201" title="python" src="http://cdn.jfoucher.com/uploads/2011/01/python-264x300.png" alt="I wrote 20 short programs in Python yesterday.  It was wonderful.  Perl, I'm leaving you." width="264" height="300" /></a>No, not this "that's why"! <a href="http://programmers.stackexchange.com/questions/10675/ideal-programming-language-learning-sequence#answer-10748">That one</a>
+No, seriously, that's why :<a href="http://xkcd.com/353/"><img class="aligncenter size-medium wp-image-201" title="python" src="http://jfoucher.com/uploads/2011/01/python-264x300.png" alt="I wrote 20 short programs in Python yesterday.  It was wonderful.  Perl, I'm leaving you." width="264" height="300" /></a>No, not this "that's why"! <a href="http://programmers.stackexchange.com/questions/10675/ideal-programming-language-learning-sequence#answer-10748">That one</a>
 
 If you are just starting out as a programmer, I cannot recommend <a href="http://learnpythonthehardway.org/">Learn Python The Hard Way</a> highly enough. It is an excellent introduction to the ideas and skills you will need as a programmer, starting from the very basics, like you've never seen a for loop in your life.�Actually the first 10 or so lessons do not include ANY control structures!
 
@@ -80,7 +80,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
 {% endhighlight %}
 
 This basically tries to start skype if it is not already started and calls noSkype() if it couldn't start it. noSype() shows a notification message to let the user know that they have to start Skype.
-<a href="http://cdn.jfoucher.com/uploads/2011/01/skype-not-started.png"><img src="http://cdn.jfoucher.com/uploads/2011/01/skype-not-started.png" alt="Error shown if Skype is not running" title="skype-not-started" width="428" height="213" class="aligncenter size-full wp-image-256" /></a>
+<a href="http://jfoucher.com/uploads/2011/01/skype-not-started.png"><img src="http://jfoucher.com/uploads/2011/01/skype-not-started.png" alt="Error shown if Skype is not running" title="skype-not-started" width="428" height="213" class="aligncenter size-full wp-image-256" /></a>
 
 
 This next function is where the meat of the process takes place. Please read the inline comments to understand how it works, and ask for clarification by <a href="#respond">posting a comment</a>.
@@ -182,7 +182,7 @@ This next function is where the meat of the process takes place. Please read the
 {% endhighlight %}
 
 When a new messages arrives, this is what the messaging menu looks like
-<a href="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator-menu.png"><img src="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator-menu.png" alt="Messaging menu open qith unread messages" title="skype-indicator-menu" width="376" height="256" class="aligncenter size-full wp-image-258" /></a>
+<a href="http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png"><img src="http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png" alt="Messaging menu open qith unread messages" title="skype-indicator-menu" width="376" height="256" class="aligncenter size-full wp-image-258" /></a>
 
 
 The function that gets unread skype messages is as follows For each message, we add it to a list containg the messages from a particular user in the self.unread dictionary.
@@ -236,7 +236,7 @@ Below is the generic function in charge of showing popup notifications.
 {% endhighlight %}
 
 This is what it looks like with three new messages
-<a href="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator.png"><img src="http://cdn.jfoucher.com/uploads/2011/01/skype-indicator.png" alt="The Ubuntu skype indicator with three new messages" title="skype-indicator" width="428" height="232" class="aligncenter size-full wp-image-253" /></a>
+<a href="http://jfoucher.com/uploads/2011/01/skype-indicator.png"><img src="http://jfoucher.com/uploads/2011/01/skype-indicator.png" alt="The Ubuntu skype indicator with three new messages" title="skype-indicator" width="428" height="232" class="aligncenter size-full wp-image-253" /></a>
 
 The next one shows the popup notification that skype is not loaded :
 {% highlight python %}

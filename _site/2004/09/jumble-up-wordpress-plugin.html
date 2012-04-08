@@ -109,7 +109,7 @@
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2004/09/jumble-up-wordpress-plugin.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2004/09/jumble-up-wordpress-plugin.html" title="[Permalink] Jumble Up! Wordpress Plugin">permalink to this article</a>.</span>
-                    <span class="date" title="2004-09-12T09:31:25+00:00">
+                    <span class="date" title="2004-09-12T11:31:25+02:00">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">12</span>
                     <span class="month"><abbr>Sep</abbr></span>
@@ -140,12 +140,18 @@ Install is not difficult : <a href="/jumble.php.txt">Download</a>, rename to jum
 Now, to target specific IPs for jumble-isation, open jumble.php and edit the line where it says :
 
 
+<div class="highlight"><pre><code class="php"><span class="x">$jumbleIPs = array(&quot;0.0.0.0&quot;);</span>
+</code></pre>
+</div>
 
 
 
 and add spammer IPs as such :
 
 
+<div class="highlight"><pre><code class="php"><span class="x">$jumbleIPs = array(&quot;10.1.12.13&quot;,&quot;34.123.45.3&quot;);</span>
+</code></pre>
+</div>
 
 </p>
 
@@ -160,6 +166,9 @@ and add spammer IPs as such :
 
 
 <p>
+<div class="highlight"><pre><code class="php"><span class="x">$jumbleIPs = array(&quot;0.0.0.0&quot;);</span>
+</code></pre>
+</div>
 
 </p>
 

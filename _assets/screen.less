@@ -1,9 +1,11 @@
 @import 'reset';
 @import 'grid';
 @import 'syntax';
-@import '/assets/fonts/museosans/stylesheet.css';
+@import '/assets/fonts/colaborate/stylesheet.css';
 
 @import '/assets/fonts/bodoni/stylesheet.css';
+@import '/assets/fonts/tex/stylesheet.css';
+@import '/assets/fonts/cardo/stylesheet.css';
 
 @column-width: 50;
 @gutter-width: 30;
@@ -23,25 +25,26 @@ Color palette
 @secCopy:#555;
 @terCopy:#999;
 @headings:#222;
-@links: #36c;
+@links: #da378a;
 @linksHover: @links - #333;
 @coverBg:#fffff6;
 @covertextShadow:#fff;
-@navHover:#ff8000;
+@navHover:#80cc00;
 @headings:#111;
 
 /*
 Fonts
 */
-@headingFont:'ITC Avant Garde Gothic Std','URW Gothic L','Century Gothic', 'Avant Garde', Verdana, sans-serif;
-@textFont: "MuseoSans500", Helvetica, Arial, sans-serif;
-@serifFont: Georgia, "Times New Roman", times, serif;
+@headingFont:"TeXGyreAdventorRegular", 'ITC Avant Garde Gothic Std','URW Gothic L','Century Gothic', 'Avant Garde', Verdana, sans-serif;
+@textFont: "ColaborateLightRegular", Helvetica, Arial, sans-serif;
+@serifFont: "CardoRegular", Georgia, "Times New Roman", times, serif;
 
 body{
     margin:0;
     color:@mainCopy;
     background:@bg;
     font-family: @textFont;
+    font-size:18px;
     line-height:1.5em;
 }
 a{
@@ -81,7 +84,7 @@ code{
     margin-top:2em;
     position:relative;
     div.logo{
-        .column(7);
+        .column(8);
     }
     div.logo{
         h1{
@@ -107,12 +110,12 @@ code{
     }
 
     .siteDesc{
-        .column(9);
-        font-size:0.95em;
+        .column(8);
+        font-size:1.2em;
         font-variant: small-caps;
         vertical-align:bottom;
         color:@terCopy;
-        line-height:4.6em;
+        line-height:3em;
 
     }
 
@@ -137,16 +140,13 @@ code{
         
     }
     a{
-        font-family: Helvetica, arial, sans-serif;
         color:@terCopy;
         font-size:0.9em;
         display:inline-block;
         padding:1em 2.5em;
         .transition(all, 0.3s, ease);
         text-transform: uppercase;
-        
 
-        
     }
     a:hover{
         border:none;
@@ -389,7 +389,7 @@ div.hero{
         h4{
             font-size:1.1em;
             font-weight:bold;
-            font-family:@headingFont;
+            font-family:@textFont;
             clear:both;
             margin:1em 0 0.5em 0;
         }
@@ -695,10 +695,10 @@ Utility clases
     }
     #header{
         div.logo{
-            .column(10);
+            .column(11);
         }
         .siteDesc{
-            .column(6);
+            .column(5);
             line-height:1.7em;
         }
     }
@@ -742,13 +742,33 @@ Utility clases
 
         }
     }
+    #notebook.archives{
 
+        #entry-content{
+            li{
+                a{
+
+                    span.date{
+                        .day, .month, .year {
+                            font-size:1.3em;
+                        }
+                    }
+                    span.title{
+                        font-size: 1.2em;
+                    }
+
+
+
+                }
+            }
+        }
+    }
 
     #footer #nav-footer li a {
         padding: 1em 2em;
     }
 }
-@media (max-width: 980px) {
+@media (max-width: 1024px) {
 
 
     .highlight pre {
@@ -784,17 +804,19 @@ Utility clases
             display:none;
         }
         #entry-content{
-
             .column(16,16);
             .offset(0);
             ul{margin-left:0;list-style:none;}
+            padding: 0.3em 0;
             li{
                 .row(16);
                 a{
 
                     span.date{
-                        .column(5,16);
-                        
+                        .day, .month, .year{
+                            font-size:1.2em;
+                        }
+
                     }
                     .day{
                         .column(1,5);
@@ -805,11 +827,13 @@ Utility clases
 
                     span.title{
                         .column(11,16);
-                        
+
+                        font-size: 1.2em;
                     }
                     span.excerpt{
                         .column(11,16);
                         .offset(5);
+                        font-size: 1em;
                     }
                 }
             }
@@ -837,7 +861,9 @@ Utility clases
 }
 @media (max-width: 768px) {
     #container{
-
+        div.hero{
+            font-size: 1em;
+        }
         width:  94%;
         padding:0 3%;
     }
@@ -851,6 +877,12 @@ Utility clases
         .siteDesc{
             .column(16);
             text-align:center;
+        }
+    }
+    #notebook{
+
+        h2.post-title{
+	    font-size: 1.4em;
         }
     }
     #nav{
@@ -875,8 +907,21 @@ Utility clases
                 float:right;
             }
         }
-        #entry-content{
+        #entry-content, .page-content{
             .column(16);
+            ul{
+                margin-left:0;
+            }
+        }
+        .page-content.projects {
+            .column(16);
+            li.project{
+                padding:0.5em 0;
+                .column(16);
+                &.client{
+                    padding:0.5em 0;
+                }
+            }
         }
     }
 
@@ -890,27 +935,52 @@ Utility clases
                     padding:0.2em 0.5em;
                 }
             }
-
-
         }
     }
 
 }
 
 @media (max-width:480px){
-    #container{
+    #header{
+        padding-top:0.5em;
+        div.logo{
+            a{
+                font-size: 2.4em;
 
+            }
+        }
+
+    }
+
+    #container{
         width:  100%;
         padding:0 ;
+        div.hero{
+            display:none;
+        }
     }
+
+
+
     div.hero div.skip{
         display:none;
     }
     #footer span.backtop{
         display:none;
     }
-    #notebook .meta{
-        display:none;
+    #notebook{
+        padding-top:0.5em;
+        .meta{
+            display:none;
+        }
+        #entryc-content, .page-content{
+            h2, h3{
+                font-size: 1.1em;
+            }
+        }
+        h2.post-title{
+            font-size: 1.2em;
+        }
     }
     #nav{
         margin:0 auto;
@@ -919,7 +989,7 @@ Utility clases
             text-align: center;
         }
         a{
-            font-size:0.75em;
+            font-size:0.65em;
             padding:0.1em 0.3em;
         }
     }
@@ -937,7 +1007,7 @@ Utility clases
             text-align: center;
         }
         a{
-            font-size:0.7em;
+            font-size:0.6em;
             padding:0.1em 0.1em;
         }
     }
