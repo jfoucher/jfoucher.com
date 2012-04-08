@@ -3,7 +3,7 @@ layout: project
 title:  Louise Emoi
 website: http://www.louiseemoi.com
 type: client
-
+thumb: louise.png
 
 ---
 

@@ -3,7 +3,7 @@ layout: project
 title:  Vessenger
 website: http://vessenger.com
 type: client
-
+thumb: vessenger.png
 
 ---
 

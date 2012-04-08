@@ -14,7 +14,7 @@ active: projects
                     {% if project.type == 'open_source' %}
                     <li class="project">
                         <h3>
-                            <a href="/{{ project.url }}" title="{{ project.title }}">{{ project.title }}</a>
+                            <a href="{% if project.website %}{{ project.website}}{% else %}/{{project.url}}{%endif%}" title="{{ project.title }}">{{ project.title }}</a>
                         </h3>
                         <p class="description">{{ project.gitdata['repository']['description'] }}</p>
                         <div class="project-meta">
@@ -41,7 +41,7 @@ active: projects
                     <li class="project client">
                         <div class="project-thumb">
                             <a href="{{ project.website }}" title="Visit {{ project.title }}">
-                                <img src="http://images.shrinktheweb.com/xino.php?stwembed=1&stwsize=xlg&stwhash=ab8d131bf9&stwaccesskeyid=fb6255c323bed17&stwurl={{ project.website | escape }}" />
+                                <img src="/assets/img/thumbs/{{ project.thumb }}" />
                             </a>
                         </div>
                         <div class="project-description">
