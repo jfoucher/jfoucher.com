@@ -29,20 +29,7 @@ $(document).ready(function(){
         $(this).width(codeWidth);
     });
     */
-    if (window.innerWidth > 1000){
-        $('.highlight').hover(
-        function(){
 
-            var codeWidth=$(this).find('code').outerWidth();
-            console.log(codeWidth);
-            if ($(this).width()<codeWidth){
-                $(this).stop(true).animate({width:codeWidth});
-            }
-        },
-        function(){
-            $(this).stop(true).animate({width:'100%'});
-        });
-    }
 
     //TODO get from localStorage if available
     $.getJSON("http://twitter.com/statuses/user_timeline.json?screen_name=jfoucher&count=4&callback=?",
@@ -80,15 +67,33 @@ $(document).ready(function(){
         }
 
     });
-    var excerpt=$('#notebook.archives li a span.excerpt');
-    excerpt.hide();
-    $('#notebook.archives li').hover(function(e){
-        $(this).find('span.excerpt').stop(true,true).slideDown(function(){
-            $(this).css({display:'block'});
+
+    if (window.innerWidth > 1024){
+        var excerpt=$('#notebook.archives li a span.excerpt');
+
+        $('#notebook.archives li').hover(function(e){
+            $(this).find('span.excerpt').stop(true,true).slideDown(function(){
+                $(this).css({display:'block'});
+            });
+        },function(e){
+            $(this).find('span.excerpt').stop(true,true).slideUp();
         });
-    },function(e){
-        $(this).find('span.excerpt').stop(true,true).slideUp();
-    });
+
+        excerpt.hide();
+        console.log(1024);
+        $('.highlight').hover(
+            function(){
+
+                var codeWidth=$(this).find('code').outerWidth();
+                console.log(codeWidth);
+                if ($(this).width()<codeWidth){
+                    $(this).stop(true).animate({width:codeWidth});
+                }
+            },
+            function(){
+                $(this).stop(true).animate({width:'100%'});
+            });
+    }
 
 
 });
