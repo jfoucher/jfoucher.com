@@ -131,7 +131,7 @@
 
                 <p>What I wanted to do was something similar to what Dropbox does for their referral program: Allow the user to input their email and password, show them a list of their contacts and allow them to select who to invite. The invited contacts' emails would then be saved directly to database and an email sent to them.</p>
 
-<p>This is what google calls the <a href="https://developers.google.com/accounts/docs/AuthForInstalledApps#Using">ClientLogin</a> method of authentication. It allow you user to simply input their username and password and see a list of their contacts displayed, where they can select which ones to invite, in this case.</p>
+<p>This is what google calls the <a href="https://developers.google.com/accounts/docs/AuthForInstalledApps#Using">ClientLogin</a> method of authentication. It allow your user to simply input their username and password and see a list of their contacts displayed, where they can select which ones to invite, in this case.</p>
 
 <p>The way to do that is pretty easy, first we have to make a POST request to google to get an authentification token for the subsequent authenticated requests. I chose to use the <a href="https://github.com/kriswallsmith/Buzz">Buzz PHP library</a> as my HTTP client. It makes everything easy and removes the necessity of countless <code>curl_set_opts()</code>. Buzz requires PHP 5.3, but I'm using Symfony2 which also does, so that's not a problem, actually more of a boon as I find PHP5.3 code generally cleaner.</p>
 
