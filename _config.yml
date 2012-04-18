@@ -8,3 +8,4 @@ meta_desc: A blog about web development, codeigniter and wordpress, by web devel
 meta_keywords: Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration
 exclude: Rakefile
 author: Jonathan Foucher
+future: false

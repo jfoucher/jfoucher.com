@@ -2,7 +2,8 @@
 layout: post
 title: Git tips from stackoverflow
 tags: [webdev, php, git]
-excerpt: Sometimes git is confusing, and things that should be simple quickly look like mmagic incantations. Here are two such cases
+excerpt: Sometimes git is confusing, and things that should be simple quickly look like magic incantations. Here are two such cases
+hn_like_button: true
 ---
 
 Here are some pretty cool and very useful git tricks I learnt  by searching or reading stackoverflow.
