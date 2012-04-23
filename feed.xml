@@ -4,13 +4,219 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>2012-04-20T15:20:01+02:00</updated>
+	<updated>2012-04-23T15:20:02+02:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
 	</author>
 	<rights>Copyright (c) 2004-2011,Jonathan Foucher; Some rights reserved.</rights>
 
+	
+	<entry>
+		<title>Installing PHP, Apache2 and nginx for faster websites</title>
+		<link href="http://jfoucher.com/2012/04/installing-apache-php-and-nginx-for-faster-websites.html"/>
+		<updated>2012-04-23T08:17:07+02:00</updated>
+		<id>http://jfoucher.com/2012/04/installing-apache-php-and-nginx-for-faster-websites</id>
+		<content type="html">&lt;p&gt;My contract with my previous shared hosting contractor is coming to a close, and as they seem to have all but abandoned their business, I decided it was time to move away. I looked at using Amazon's EC2, but ultimately decided to go with Bhost, with which I'm fairly happy so far. To get some decent performance out of it, I planned to use Nginx as my web server&lt;/p&gt;
+
+&lt;h3&gt;Keep using Apache as usual&lt;/h3&gt;
+
+&lt;p&gt;All my websites are configured to work with apache, sometimes using fairly advanced rewrite rules, and a fair proportion of wordpress sites. So to save myself a ton of work I decided to just use Nginx as a proxy to apache and not reconfigure each site to use Nginx's rewrite rules.&lt;/p&gt;
+
+&lt;h3&gt;Install required software&lt;/h3&gt;
+
+&lt;p&gt;I'm using Ubuntu, but the steps below should be fairly easy to adapt to your distribution of choice. To install everything from scratch, just run &lt;code&gt;sudo apt-get install php5 apache2 mysql-server php5-mysql nginx&lt;/code&gt;. This installs mysql, Apache, PHP and Nginx&lt;/p&gt;
+
+&lt;h3&gt;Configure Apache and Nginx&lt;/h3&gt;
+
+&lt;p&gt;I created one bash script that creates the necessary virtual hosts files for Apache and Nginx, by taking a template a doing a search/replace with sed. Here is the apache virtual host template that goes into &lt;code&gt;/etc/apache2/sites-available&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;apache&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;VirtualHost&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;*:8080&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;ServerAdmin&lt;/span&gt; webmaster@localhost
+        &lt;span class=&quot;nb&quot;&gt;ServerName&lt;/span&gt; template
+        &lt;span class=&quot;nb&quot;&gt;ServerAlias&lt;/span&gt; template www.template cdn.template cdn2.template
+        &lt;span class=&quot;nb&quot;&gt;DocumentRoot&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;/var/www/template&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Directory&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nb&quot;&gt;Options&lt;/span&gt; FollowSymLinks
+                &lt;span class=&quot;nb&quot;&gt;AllowOverride&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;None&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Directory&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Directory&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/var/www/template/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nb&quot;&gt;Options&lt;/span&gt; Indexes FollowSymLinks MultiViews
+                &lt;span class=&quot;nb&quot;&gt;AllowOverride&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;All&lt;/span&gt;
+                &lt;span class=&quot;nb&quot;&gt;Order&lt;/span&gt; allow,deny
+                &lt;span class=&quot;nb&quot;&gt;allow&lt;/span&gt; from &lt;span class=&quot;k&quot;&gt;all&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Directory&amp;gt;&lt;/span&gt;
+
+        &lt;span class=&quot;nb&quot;&gt;ScriptAlias&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;/cgi-bin/&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;/usr/lib/cgi-bin/&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Directory&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/usr/lib/cgi-bin&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nb&quot;&gt;AllowOverride&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;None&lt;/span&gt;
+                &lt;span class=&quot;nb&quot;&gt;Options&lt;/span&gt; +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+                &lt;span class=&quot;nb&quot;&gt;Order&lt;/span&gt; allow,deny
+                &lt;span class=&quot;nb&quot;&gt;Allow&lt;/span&gt; from &lt;span class=&quot;k&quot;&gt;all&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Directory&amp;gt;&lt;/span&gt;
+
+        &lt;span class=&quot;nb&quot;&gt;ErrorLog&lt;/span&gt; ${APACHE_LOG_DIR}/error.log
+
+        &lt;span class=&quot;c&quot;&gt;# Possible values include: debug, info, notice, warn, error, crit,&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# alert, emerg.&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;LogLevel&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;warn&lt;/span&gt;
+
+        &lt;span class=&quot;nb&quot;&gt;CustomLog&lt;/span&gt; ${APACHE_LOG_DIR}/access.log combined
+
+    &lt;span class=&quot;nb&quot;&gt;Alias&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;/doc/&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/usr/share/doc/&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;Directory&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/usr/share/doc/&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;Options&lt;/span&gt; Indexes MultiViews FollowSymLinks
+        &lt;span class=&quot;nb&quot;&gt;AllowOverride&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;None&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;Order&lt;/span&gt; deny,allow
+        &lt;span class=&quot;nb&quot;&gt;Deny&lt;/span&gt; from &lt;span class=&quot;k&quot;&gt;all&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;Allow&lt;/span&gt; from &lt;span class=&quot;m&quot;&gt;127.0.0.0/255&lt;/span&gt;.0.0.0 ::1/128
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Directory&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;You'll notice that Apache listens on port 8080. You need to change the port from 80 to 8080 in &lt;code&gt;/etc/apache2/ports.conf&lt;/code&gt; as well, this is what mine looks like after the change :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;apache&quot;&gt;&lt;span class=&quot;nb&quot;&gt;NameVirtualHost&lt;/span&gt; *:8080
+&lt;span class=&quot;nb&quot;&gt;Listen&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;8080&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;IfModule&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mod_ssl.c&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# If you add NameVirtualHost *:443 here, you will also have to change&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# the VirtualHost statement in /etc/apache2/sites-available/default-ssl&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# to &amp;lt;VirtualHost *:443&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Server Name Indication for SSL named virtual hosts is currently not&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# supported by MSIE on Windows XP.&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;Listen&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;443&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/IfModule&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;IfModule&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mod_gnutls.c&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;Listen&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;443&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/IfModule&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Next up is the template for the default nginx site, which is much simpler and goes in &lt;code&gt;/etc/nginx/sites-available&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;nginx&quot;&gt;&lt;span class=&quot;k&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kn&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;kn&quot;&gt;access_log&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/var/log/nginx.access.log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;kn&quot;&gt;error_log&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/var/log/nginx.error.log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;kn&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/var/www/template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;kn&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;index.php&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;index.html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;kn&quot;&gt;server_name&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;template&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;*.template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;kn&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;kn&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;X-Real-IP&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$remote_addr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;kn&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;X-Forwarded-For&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$proxy_add_x_forwarded_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;kn&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Host&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;kn&quot;&gt;proxy_pass&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://127.0.0.1:8080&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;kn&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/\.(ht|git)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;kn&quot;&gt;deny&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;All that does is proxy everything to apache on localhost, port 8080&lt;/p&gt;
+
+&lt;p&gt;So, our virtual host templates are ready, and if you only have one or two sites you could copy the contents to a new file by hand and change the word &lt;code&gt;template&lt;/code&gt; for your actual domain name / folder, but as I had quite a few sites to convert, I created a small bash script that takes car of it for me, by just calling it with the hostname:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;CMDLN_ARGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;$@&amp;quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Command line arguments for this script&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;CMDLN_ARGS
+
+&lt;span class=&quot;c&quot;&gt;# Run this script as root if not already.&lt;/span&gt;
+chk_root &lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+ &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; ! &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; id -u &lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; -eq 0 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Please enter your password.&amp;quot;&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;sudo su -c &lt;span class=&quot;s2&quot;&gt;&amp;quot;${0} ${CMDLN_ARGS}&amp;quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Call this prog as root&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# since we&amp;#39;re &amp;#39;execing&amp;#39; above, we wont reach this exit&lt;/span&gt;
+              &lt;span class=&quot;c&quot;&gt;# unless something goes wrong.&lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+chk_root
+cat /etc/apache2/sites-available/template | sed &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/template/$1/g&amp;quot;&lt;/span&gt; |cat &amp;gt; /etc/apache2/sites-available/&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
+ln -s /etc/apache2/sites-available/&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; /etc/apache2/sites-enabled/&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
+cat /etc/nginx/sites-available/template | sed &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/template/$1/g&amp;quot;&lt;/span&gt; |cat &amp;gt; /etc/nginx/sites-available/&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
+ln -s /etc/nginx/sites-available/&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; /etc/nginx/sites-enabled/&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -d /var/www/&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;;
+&lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;host directory exists&amp;quot;&lt;/span&gt;;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;creating directory&amp;quot;&lt;/span&gt;
+  mkdir &lt;span class=&quot;s2&quot;&gt;&amp;quot;/var/www/$1&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+chown -R www-data:www-data /var/www/&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
+
+/etc/init.d/apache2 restart
+/etc/init.d/nginx restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Put this say in your home folder and give it executable permission with &lt;code&gt;chmod 755 new_host&lt;/code&gt; or whatever you named the file.&lt;/p&gt;
+
+&lt;p&gt;Then run it with &lt;code&gt;./new_host example.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This will create a folder in &lt;code&gt;/var/www/example.com&lt;/code&gt;, copy the updated template virtual host configuration to the required location and restart apache and nginx.&lt;/p&gt;
+
+&lt;p&gt;Now put some content in that folder and configure your mysql connection if neccesary&lt;/p&gt;
+
+&lt;p&gt;You should now be able to browse to example.com and see your brand new site. Some quick benchmarking with ab gives roughly a tenfold increase in requests per second, depending on the configuration of the website itself&lt;/p&gt;
+
+&lt;p&gt;These are some rough numbers for &lt;a href=&quot;http://6px.eu&quot;&gt;Six Pixels&lt;/a&gt;, built with Kohana2 without any caching mechanism&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ab -c20 -n200 http://6px.eu:8080/&lt;/code&gt; is hitting Apache on port 8080&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;Server Hostname:        6px.eu
+Server Port:            8080
+
+Document Path:          /
+Document Length:        12101 bytes
+
+Concurrency Level:      20
+Time taken for tests:   282.679 seconds
+Complete requests:      200
+Failed requests:        0
+Write errors:           0
+Total transferred:      2486000 bytes
+HTML transferred:       2420200 bytes
+Requests per second:    0.71 [#/sec] (mean)
+Time per request:       28267.940 [ms] (mean)
+Time per request:       1413.397 [ms] (mean, across all concurrent requests)
+Transfer rate:          8.59 [Kbytes/sec] received&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now with nginx &lt;code&gt;ab -c20 -n200 http://6px.eu/&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;Server Hostname:        6px.eu
+Server Port:            80
+
+Document Path:          /
+Document Length:        12081 bytes
+
+Concurrency Level:      20
+Time taken for tests:   40.606 seconds
+Complete requests:      200
+Failed requests:        0
+Write errors:           0
+Total transferred:      2482000 bytes
+HTML transferred:       2416200 bytes
+Requests per second:    4.93 [#/sec] (mean)
+Time per request:       4060.612 [ms] (mean)
+Time per request:       203.031 [ms] (mean, across all concurrent requests)
+Transfer rate:          59.69 [Kbytes/sec] received&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;a href=&quot;http://jfoucher.com/2012/04/installing-apache-php-and-nginx-for-faster-websites.html&quot;&gt;Installing PHP, Apache2 and nginx for faster websites&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
+	</entry>
 	
 	<entry>
 		<title>Import contacts from Google by entering your email and password</title>
@@ -1746,23 +1952,6 @@ Cafepress coupon code: a further $5 discount&lt;/blockquote&gt;
 
 &lt;p&gt;I hope you enjoy this post. If you decide to follow this tutorial, send a pic of your bottle in the comments.&lt;/p&gt;
 &lt;a href=&quot;http://jfoucher.com/2009/07/cafepress-sigg-bottles-discount-coupon-code.html&quot;&gt;Cafepress SIGG bottles discount and coupon code !&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
-href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
-	</entry>
-	
-	<entry>
-		<title>Access to MySQL import class</title>
-		<link href="http://jfoucher.com/2009/07/access-to-mysql-import-class.html"/>
-		<updated>2009-07-18T09:57:25+02:00</updated>
-		<id>http://jfoucher.com/2009/07/access-to-mysql-import-class</id>
-		<content type="html">&lt;p&gt;In my latest project &lt;a href=&quot;http://tecknosfera.com&quot;&gt;at work&lt;/a&gt; I need to import data from an acess database into mySQL to be able to create an online shop from that data. Instead of importing just the database of that particular client, I created a generic PHP class that can import any Access database to MySQL.&lt;/p&gt;
-
-&lt;blockquote&gt;
-Big databases must be imported by chunks.&lt;/blockquote&gt;
-
-
-&lt;p&gt;Since Access databases can get so big, the import class has to do its job by chunks, to avoid memory limits. It also needs to reload itself when it detects it is close to the time limit, all of which it now does without any problems.
-We can now import (hopefully) any Access database.&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2009/07/access-to-mysql-import-class.html&quot;&gt;Access to MySQL import class&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	

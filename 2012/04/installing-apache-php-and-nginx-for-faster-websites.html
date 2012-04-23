@@ -9,7 +9,7 @@
 -->
 <head>
     <title>
-        Geeky Nuggets&thinsp;&mdash;&thinsp;Jonathan Foucher's web development experiments
+        Installing PHP, Apache2 and nginx for faster websites
         
     </title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -17,8 +17,8 @@
 	<meta name="author" content="Jonathan Foucher" />
 	<meta name="designer" content="Jonathan Foucher" />
 	<meta name="developer" content="Jonathan Foucher" />
-	<meta name="description" content="A blog about web development, codeigniter and wordpress, by web developer Jonathan Foucher" />
-	<meta name="keywords" content="php, wordpress, codeigniter, France, Spain" />
+	<meta name="description" content="I recently decided to go with a small VPS for some of my sites, and to get decent performance without too much work I used Nginx as a proxy to Apache2" />
+	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
     <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
@@ -46,12 +46,10 @@
 	<div id="container" class="clearfix">
 		                <header id="header" class="center">
             <div class="logo">
-                <h1>
-                    <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
-                        Geeky Nuggets
-                    </a>
-                </h1>
-			</div>
+                <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
+                    Geeky Nuggets
+                </a>
+            </div>
             <div class="siteDesc"><a href="/about.html#notebook" title="About Jonathan Foucher
                 &amp; contact details" tabindex="0" accesskey="A">Jonathan Foucher</a>&rsquo;s blog <span
                 class="amp">&amp;</span> web development
@@ -60,7 +58,7 @@
                     <nav id="nav" class="clear">
             <ul class="nav nav-header caps">
 				<li><a href="/about.html#notebook" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
-				<li><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Archives</a></li>
+				<li class="active"><a href="/archives.html#cover" title="View the blog archives" tabindex="0">Archives</a></li>
 				<li><a href="/projects/#notebook" title="Go to the code portfolio of Jonathan Foucher" tabindex="0">Projects</a></li>
 				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Subscribe to my posts, by email or in your feed reader" tabindex="0">Feed</a></li>
             </ul>
@@ -82,93 +80,52 @@
         </nav> <!-- /#nav.clear -->
 
 
-
-
+            
 		</header> <!-- /#header.center -->
-        <div class="hero">
 
-            <p>Besides developing engaging web applications that provide a high return on investment, I like to research
-            and learn new things. This blog relates my experiences as a software developer.</p>
-            <div class="skip">
-                <span>Straight to: <a href="/#notebook" title="Skip straight to the latest article" tabindex="0"
-                accesskey="L">&sect; Latest article</a> <a href="/about.html#contactForm" title="Contact Jonathan Foucher" tabindex="1"
-                accesskey="C">&sect; Contact me</a></span>
-            </div>
-        </div>
-		        <aside id="aside">
-			<div class="blog-latest">
-				<h4>Latest from the <em>Blog</em>&hellip;</h4>
-				<ul>
-				    
-					<li>
-						<a href="/2012/04/installing-apache-php-and-nginx-for-faster-websites.html#notebook" title="Installing PHP, Apache2 and nginx for faster websites">
-							<span class="date">
-								<span class="day">23</span>
-								<span class="month"><abbr>Apr</abbr></span>
-							</span> 
-							<span class="title">Installing PHP, Apache2 and nginx for faster websites</span>
-						</a>
-					</li>
-                    
-					<li>
-						<a href="/2012/04/getting-your-users-gmail-contacts.html#notebook" title="Import contacts from Google by entering your email and password">
-							<span class="date">
-								<span class="day">15</span>
-								<span class="month"><abbr>Apr</abbr></span>
-							</span> 
-							<span class="title">Import contacts from Google by entering your email and password</span>
-						</a>
-					</li>
-                    
-					<li>
-						<a href="/2012/04/github-tricks-from-stackoverflow.html#notebook" title="Git tips from stackoverflow">
-							<span class="date">
-								<span class="day">09</span>
-								<span class="month"><abbr>Apr</abbr></span>
-							</span> 
-							<span class="title">Git tips from stackoverflow</span>
-						</a>
-					</li>
-                    
-				</ul>
-				<p class="more"><a class="internal floatRight" href="/archives.html#cover" title="View the blog
-                archives">&hellip;read through the archives</a></p>
-			</div> <!-- /.index.colSix.floatLeft -->
-			<div class="twitter-latest">
-				<h4>Latest from <em>Twitter</em>&hellip;</h4>
-				<ul id="tweets">
-                </ul>
-                <p class="more">
-                    <span class="follow">&hellip;you should </span><a href="https://twitter.com/jfoucher" class="twitter-follow-button internal" data-width="130px" data-show-screen-name="true" data-align="right" data-show-count="false">Follow @jfoucher</a>
-                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-			</div>
-			<div class="clear"></div>
-		</aside> <!-- /#aside -->
 
-        
 		<div id="notebook" class="center clear">
 			<div class="page-nav-top">
                 
-				    <span class="page-nav-item floatLeft"><a class="internal" rel="prev"  href="/2012/04/getting-your-users-gmail-contacts.html#notebook" title="View Import contacts from Google by entering your email and password">&larr; View previous article</a></span>
+				    <span class="page-nav-item page-prev"><a class="internal" rel="prev"  href="/2012/04/getting-your-users-gmail-contacts.html#notebook" title="View Import contacts from Google by entering your email and password">&larr; View previous article</a></span>
 				
 				
             </div> <!-- /.page-nav-top -->
 
-            <h2 class="post-title">
+             <h2 class="post-title">
                 <a href="/2012/04/installing-apache-php-and-nginx-for-faster-websites.html#notebook" title="Permanent link to Installing PHP, Apache2 and nginx for faster websites">
                     Installing PHP, Apache2 and nginx for faster websites
                 </a>
             </h2>
+
             <div class="meta">
+                <div class="hero">
+
+                    <p>
+                        I recently decided to go with a small VPS for some of my sites, and to get decent performance without too much work I used Nginx as a proxy to Apache2
+                    </p>
+                </div>
                 <!-- <span class="pdf">Download a <a href="/2012/04/installing-apache-php-and-nginx-for-faster-websites.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2012/04/installing-apache-php-and-nginx-for-faster-websites.html" title="[Permalink] Installing PHP, Apache2 and nginx for faster websites">permalink to this article</a>.</span>
-                <span class="date" title="2012-04-23T08:17:07+02:00">
+                    <span class="date" title="2012-04-23T08:17:07+02:00">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">23</span>
                     <span class="month"><abbr>Apr</abbr></span>
                     <span class="year">2012</span>
                 </span>
+                <div class="share">
+                    <div class="iframes">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-via="jfoucher">Tweet</a>
+                        
+<iframe scrolling="no" height="28px" width="115px" src="http://hnlike.com/upvote.php?link=http%3A%2F%2Fjfoucher.com/2012/04/installing-apache-php-and-nginx-for-faster-websites.html&amp;title=Installing PHP, Apache2 and nginx for faster websites">
+    <a href="http://hnlike.com/upvote.php?link=http%3A%2F%2Fjfoucher.com/2012/04/installing-apache-php-and-nginx-for-faster-websites.html&amp;title=Installing PHP, Apache2 and nginx for faster websites">upvote on HN</a>
+</iframe>
+
+
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+                    </div>
+                </div>
             </div> <!-- /.meta -->
             <div id="entry-content">
 
@@ -371,16 +328,30 @@ Transfer rate:          59.69 [Kbytes/sec] received</code></pre></div>
 
 
 
+
+
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'geekynuggets'; // required: replace example with your forum shortname
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
             </div> <!-- /.entry-content.colEight -->
             <div class="page-nav-bottom">
                 
-				    <span class="page-nav-item floatLeft"><a class="internal" rel="prev"  href="/2012/04/getting-your-users-gmail-contacts.html#notebook" title="Read Import contacts from Google by entering your email and password">&larr; View previous article</a></span>
+				    <span class="page-nav-item page-prev"><a class="internal" rel="prev"  href="/2012/04/getting-your-users-gmail-contacts.html#notebook" title="Read Import contacts from Google by entering your email and password">&larr; View previous article</a></span>
 				
 				
             </div> <!-- /.page-nav-bottom -->
         </div> <!-- /#notebook.center.clear -->
-        
-
             <footer id="footer" class="clear">
         <span class="backtop"><a class="internal" href="#header" title="Return to the top of this page">Back to top &uarr;</a></span>
         <nav>
