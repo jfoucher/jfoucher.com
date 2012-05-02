@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>2012-04-26T15:20:02+02:00</updated>
+	<updated>2012-05-02T09:19:25+02:00</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -214,6 +214,90 @@ Time per request:       4060.612 [ms] (mean)
 Time per request:       203.031 [ms] (mean, across all concurrent requests)
 Transfer rate:          59.69 [Kbytes/sec] received&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
+
+&lt;h3&gt;Update:&lt;/h3&gt;
+
+&lt;p&gt;As rightly noted by &lt;a href=&quot;https://twitter.com/#!/arnaud_lb/status/196610128261296129&quot;&gt;@arnaud_lb&lt;/a&gt; the benchmarks should give nearly the same results,
+as nginx is waiting for Apache to return it's data before sending it along.
+What happened in those benchmarks is that &lt;a href=&quot;http://cloudflare.com&quot;&gt;cloudflare.com&lt;/a&gt; (highly recommended by the way) was caching some results and not others.&lt;/p&gt;
+
+&lt;p&gt;When I tried on localhost, the results were effectively the same.
+So the way to get better performance is to get nginx to cache the results from apache, by adding the following to your nginx virtual host definition :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;nginx&quot;&gt;                &lt;span class=&quot;k&quot;&gt;proxy_cache&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;proxy_cache_use_stale&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;timeout&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;invalid_header&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;updating&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;proxy_cache_key&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$scheme$host$request_uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;proxy_cache_valid&lt;/span&gt;       &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;301&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;302&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;proxy_cache_valid&lt;/span&gt;       &lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;proxy_cache_valid&lt;/span&gt;       &lt;span class=&quot;s&quot;&gt;any&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;where the &lt;code&gt;proxy_cache&lt;/code&gt; named &lt;code&gt;one&lt;/code&gt; is defined in nginx.conf as such :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;nginx&quot;&gt;&lt;span class=&quot;k&quot;&gt;proxy_cache_path&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/usr/local/nginx/proxy&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;levels=1:2&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;keys_zone=one:15m&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;inactive=7d&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;max_size=1000m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The &lt;code&gt;proxy_cache_valid&lt;/code&gt; entries above define different cache times for various response codes&lt;/p&gt;
+
+&lt;p&gt;And here are the real benchmarks :&lt;/p&gt;
+
+&lt;h4&gt;Apache:&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;Server Hostname:        direct.6px.eu
+Server Port:            8080
+
+Document Path:          /
+Document Length:        11487 bytes
+
+Concurrency Level:      10
+Time taken for tests:   15.082 seconds
+Complete requests:      200
+Failed requests:        0
+Write errors:           0
+Total transferred:      2338600 bytes
+HTML transferred:       2297400 bytes
+Requests per second:    13.26 [#/sec] (mean)
+Time per request:       754.075 [ms] (mean)
+Time per request:       75.408 [ms] (mean, across all concurrent requests)
+Transfer rate:          151.43 [Kbytes/sec] received&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Nginx:&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;Server Hostname:        direct.6px.eu
+Server Port:            80
+
+Document Path:          /
+Document Length:        3031 bytes
+
+Concurrency Level:      10
+Time taken for tests:   0.027 seconds
+Complete requests:      200
+Failed requests:        0
+Write errors:           0
+Total transferred:      654600 bytes
+HTML transferred:       606200 bytes
+Requests per second:    7305.94 [#/sec] (mean)
+Time per request:       1.369 [ms] (mean)
+Time per request:       0.137 [ms] (mean, across all concurrent requests)
+Transfer rate:          23351.88 [Kbytes/sec] received&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Just, wow...&lt;/p&gt;
+
+&lt;p&gt;Careful though as this will wreak havoc on your sessions, at the minimum you can disable caching for logged-in users with&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;nginx&quot;&gt;&lt;span class=&quot;k&quot;&gt;proxy_cache_bypass&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$cookie_session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;proxy_no_cache&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$cookie_session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;where &lt;code&gt;session&lt;/code&gt; is the name of your cookie&lt;/p&gt;
 &lt;a href=&quot;http://jfoucher.com/2012/04/installing-apache-php-and-nginx-for-faster-websites.html&quot;&gt;Installing PHP, Apache2 and nginx for faster websites&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>

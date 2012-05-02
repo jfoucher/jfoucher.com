@@ -370,6 +370,90 @@ Time per request:       203.031 [ms] (mean, across all concurrent requests)
 Transfer rate:          59.69 [Kbytes/sec] received</code></pre></div>
 
 
+<h3>Update:</h3>
+
+<p>As rightly noted by <a href="https://twitter.com/#!/arnaud_lb/status/196610128261296129">@arnaud_lb</a> the benchmarks should give nearly the same results,
+as nginx is waiting for Apache to return it's data before sending it along.
+What happened in those benchmarks is that <a href="http://cloudflare.com">cloudflare.com</a> (highly recommended by the way) was caching some results and not others.</p>
+
+<p>When I tried on localhost, the results were effectively the same.
+So the way to get better performance is to get nginx to cache the results from apache, by adding the following to your nginx virtual host definition :</p>
+
+<div class="highlight"><pre><code class="nginx">                <span class="k">proxy_cache</span> <span class="no">on</span><span class="s">e</span><span class="p">;</span>
+                <span class="k">proxy_cache_use_stale</span> <span class="s">error</span> <span class="s">timeout</span> <span class="s">invalid_header</span> <span class="s">updating</span><span class="p">;</span>
+                <span class="k">proxy_cache_key</span> <span class="nv">$scheme$host$request_uri</span><span class="p">;</span>
+                <span class="k">proxy_cache_valid</span>       <span class="mi">200</span> <span class="mi">301</span> <span class="mi">302</span> <span class="mi">20m</span><span class="p">;</span>
+                <span class="k">proxy_cache_valid</span>       <span class="mi">404</span> <span class="mi">1m</span><span class="p">;</span>
+                <span class="k">proxy_cache_valid</span>       <span class="s">any</span> <span class="mi">15m</span><span class="p">;</span>
+</code></pre>
+</div>
+
+
+<p>where the <code>proxy_cache</code> named <code>one</code> is defined in nginx.conf as such :</p>
+
+<div class="highlight"><pre><code class="nginx"><span class="k">proxy_cache_path</span> <span class="s">/usr/local/nginx/proxy</span> <span class="s">levels=1:2</span> <span class="s">keys_zone=one:15m</span> <span class="s">inactive=7d</span> <span class="s">max_size=1000m</span><span class="p">;</span>
+</code></pre>
+</div>
+
+
+<p>The <code>proxy_cache_valid</code> entries above define different cache times for various response codes</p>
+
+<p>And here are the real benchmarks :</p>
+
+<h4>Apache:</h4>
+
+<div class="highlight"><pre><code>Server Hostname:        direct.6px.eu
+Server Port:            8080
+
+Document Path:          /
+Document Length:        11487 bytes
+
+Concurrency Level:      10
+Time taken for tests:   15.082 seconds
+Complete requests:      200
+Failed requests:        0
+Write errors:           0
+Total transferred:      2338600 bytes
+HTML transferred:       2297400 bytes
+Requests per second:    13.26 [#/sec] (mean)
+Time per request:       754.075 [ms] (mean)
+Time per request:       75.408 [ms] (mean, across all concurrent requests)
+Transfer rate:          151.43 [Kbytes/sec] received</code></pre></div>
+
+
+<h4>Nginx:</h4>
+
+<div class="highlight"><pre><code>Server Hostname:        direct.6px.eu
+Server Port:            80
+
+Document Path:          /
+Document Length:        3031 bytes
+
+Concurrency Level:      10
+Time taken for tests:   0.027 seconds
+Complete requests:      200
+Failed requests:        0
+Write errors:           0
+Total transferred:      654600 bytes
+HTML transferred:       606200 bytes
+Requests per second:    7305.94 [#/sec] (mean)
+Time per request:       1.369 [ms] (mean)
+Time per request:       0.137 [ms] (mean, across all concurrent requests)
+Transfer rate:          23351.88 [Kbytes/sec] received</code></pre></div>
+
+
+<p>Just, wow...</p>
+
+<p>Careful though as this will wreak havoc on your sessions, at the minimum you can disable caching for logged-in users with</p>
+
+<div class="highlight"><pre><code class="nginx"><span class="k">proxy_cache_bypass</span> <span class="nv">$cookie_session</span><span class="p">;</span>
+<span class="k">proxy_no_cache</span> <span class="nv">$cookie_session</span><span class="p">;</span>
+</code></pre>
+</div>
+
+
+<p>where <code>session</code> is the name of your cookie</p>
+
 
             </div> <!-- /.entry-content.colEight -->
             <div class="page-nav-bottom">
