@@ -7,6 +7,8 @@ hn_like_button: true
 date: Mon Apr 23 08:17:07 +0200 2012
 ---
 
+
+
 My contract with my previous shared hosting contractor is coming to a close, and as they seem to have all but abandoned their business, I decided it was time to move away. I looked at using Amazon's EC2, but ultimately decided to go with Bhost, with which I'm fairly happy so far. To get some decent performance out of it, I planned to use Nginx as my web server
 
 ###Keep using Apache as usual
@@ -198,3 +200,83 @@ Requests per second:    4.93 [#/sec] (mean)
 Time per request:       4060.612 [ms] (mean)
 Time per request:       203.031 [ms] (mean, across all concurrent requests)
 Transfer rate:          59.69 [Kbytes/sec] received</code></pre></div>
+
+### Update:
+
+As rightly noted by [@arnaud_lb](https://twitter.com/#!/arnaud_lb/status/196610128261296129) the benchmarks should give nearly the same results,
+as nginx is waiting for Apache to return it's data before sending it along.
+What happened in those benchmarks is that [cloudflare.com](http://cloudflare.com) (highly recommended by the way) was caching some results and not others.
+
+When I tried on localhost, the results were effectively the same.
+So the way to get better performance is to get nginx to cache the results from apache, by adding the following to your nginx virtual host definition :
+
+{% highlight nginx %}
+                proxy_cache one;
+                proxy_cache_use_stale error timeout invalid_header updating;
+                proxy_cache_key $scheme$host$request_uri;
+                proxy_cache_valid       200 301 302 20m;
+                proxy_cache_valid       404 1m;
+                proxy_cache_valid       any 15m;
+{% endhighlight %}
+
+where the `proxy_cache` named `one` is defined in nginx.conf as such :
+
+{% highlight nginx %}
+proxy_cache_path /usr/local/nginx/proxy levels=1:2 keys_zone=one:15m inactive=7d max_size=1000m;
+{% endhighlight %}
+
+The `proxy_cache_valid` entries above define different cache times for various response codes
+
+And here are the real benchmarks :
+
+####Apache:
+<div class="highlight"><pre><code>Server Hostname:        direct.6px.eu
+Server Port:            8080
+
+Document Path:          /
+Document Length:        11487 bytes
+
+Concurrency Level:      10
+Time taken for tests:   15.082 seconds
+Complete requests:      200
+Failed requests:        0
+Write errors:           0
+Total transferred:      2338600 bytes
+HTML transferred:       2297400 bytes
+Requests per second:    13.26 [#/sec] (mean)
+Time per request:       754.075 [ms] (mean)
+Time per request:       75.408 [ms] (mean, across all concurrent requests)
+Transfer rate:          151.43 [Kbytes/sec] received</code></pre></div>
+
+####Nginx:
+<div class="highlight"><pre><code>Server Hostname:        direct.6px.eu
+Server Port:            80
+
+Document Path:          /
+Document Length:        3031 bytes
+
+Concurrency Level:      10
+Time taken for tests:   0.027 seconds
+Complete requests:      200
+Failed requests:        0
+Write errors:           0
+Total transferred:      654600 bytes
+HTML transferred:       606200 bytes
+Requests per second:    7305.94 [#/sec] (mean)
+Time per request:       1.369 [ms] (mean)
+Time per request:       0.137 [ms] (mean, across all concurrent requests)
+Transfer rate:          23351.88 [Kbytes/sec] received</code></pre></div>
+
+
+Just, wow...
+
+Careful though as this will wreak havoc on your sessions, at the minimum you can disable caching for logged-in users with
+
+{% highlight nginx %}
+
+proxy_cache_bypass $cookie_session;
+proxy_no_cache $cookie_session;
+
+{% endhighlight %}
+
+where `session` is the name of your cookie

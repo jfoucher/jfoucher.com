@@ -8,8 +8,12 @@ date: Fri Jan 14 22:06:17 +0100 2011
 ---
 Typing spanish characters on a standard QWERTY (or other) keyboard is near impossible. I have used the Character Palette panel applet to do so, but this method requires clicking on the letter you want, and then paste it where you want it. To much work for my tastes. Yes I'm lazy. I'm a programmer.
 
-So, an easier is using the compose key. This allows me to type that key and a single apostrophe followed by the letter e for example, and get a é. I mapped the compose key to the left Win key, so the sequience is {% highlight php %}LWin - ' > e{% endhighlight %} which writes é
+So, an easier is using the compose key. This allows me to type that key and a single apostrophe followed by the letter e for example, and get a ï¿½. I mapped the compose key to the left Win key, so the sequience is `LWin - ' > e` which writes Ã©
 
-To choose the compose key, open {% highlight php %}Preferences > Keyboard{% endhighlight %},  {% highlight php %}Layouts{% endhighlight %} tab and click on {% highlight php %}Options{% endhighlight %}. Open the {% highlight php %}Compose key position{% endhighlight %} submenu, and choose whichever one you like best. I think the Win key is a good choice as it's not used for anything much... Except remind us of our freedom...
-<a href="http://jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1.png"><img src="http://jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1-300x218.png" alt="Keyboard Layout Options" title="Keyboard Layout Options" width="300" height="218" class="aligncenter size-medium wp-image-264" /></a>
+To choose the compose key, open `Preferences > Keyboard`,  `Layouts` tab and click on `Options`. Open the `Compose key position` submenu, and choose whichever one you like best. I think the Win key is a good choice as it's not used for anything much... Except remind us of our freedom...
+
+<a href="http://jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1.png">
+<img src="http://jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1-300x218.png" alt="Keyboard Layout Options" title="Keyboard Layout Options" width="300" height="218" class="aligncenter size-medium wp-image-264" />
+</a>
+
 And yay! Writing Spanish is cool again!
