@@ -21,6 +21,7 @@
 	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
+    <link href="http://tent.jfoucher.com/profile" rel="https://tent.io/rels/profile" />
     <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 	<!--<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />-->
 
@@ -171,7 +172,7 @@
         <span class="c1">//SERVER is my site&#39;s hostname</span>
         <span class="nv">$r</span> <span class="o">=</span> <span class="nx">Http</span><span class="o">::</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;https://browserid.org/verify&#39;</span><span class="p">,</span><span class="nv">$post_data</span><span class="p">);</span>
         <span class="c1">//This makes a post request to browserid.org</span>
-        <span class="nv">$result</span><span class="o">=</span><span class="nx">json_decode</span><span class="p">(</span><span class="nv">$r</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
+        <span class="nv">$result</span><span class="o">=</span><span class="nb">json_decode</span><span class="p">(</span><span class="nv">$r</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
 
         <span class="k">if</span><span class="p">(</span><span class="nv">$result</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;okay&#39;</span><span class="p">){</span>
             <span class="nx">handle_users</span><span class="p">(</span><span class="nv">$app</span><span class="p">,</span><span class="nv">$result</span><span class="p">);</span>
@@ -180,7 +181,7 @@
         <span class="p">}</span><span class="k">else</span><span class="p">{</span>
             <span class="nv">$msg</span><span class="o">=</span><span class="s1">&#39;Could not log you in&#39;</span><span class="p">;</span>
             <span class="nv">$status</span><span class="o">=</span><span class="k">false</span><span class="p">;</span>
-            <span class="k">echo</span> <span class="nx">json_encode</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="o">=&gt;</span><span class="nv">$msg</span><span class="p">,</span><span class="s1">&#39;status&#39;</span><span class="o">=&gt;</span><span class="nv">$status</span><span class="p">));</span>
+            <span class="k">echo</span> <span class="nb">json_encode</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="o">=&gt;</span><span class="nv">$msg</span><span class="p">,</span><span class="s1">&#39;status&#39;</span><span class="o">=&gt;</span><span class="nv">$status</span><span class="p">));</span>
         <span class="p">}</span>
 
 

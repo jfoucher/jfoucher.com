@@ -21,6 +21,7 @@
 	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
+    <link href="http://tent.jfoucher.com/profile" rel="https://tent.io/rels/profile" />
     <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 	<!--<link rel="stylesheet" href="/assets/css/screen.css" type="text/css" media="screen" />-->
 
@@ -144,7 +145,7 @@
         <span class="nv">$returns</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
         <span class="k">foreach</span> <span class="p">(</span><span class="nb">explode</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="nv">$data</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$line</span><span class="p">)</span>
         <span class="p">{</span>
-            <span class="nv">$line</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="nv">$line</span><span class="p">);</span>
+            <span class="nv">$line</span> <span class="o">=</span> <span class="nx">trim</span><span class="p">(</span><span class="nv">$line</span><span class="p">);</span>
             <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$line</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
             <span class="k">list</span><span class="p">(</span><span class="nv">$k</span><span class="p">,</span><span class="nv">$v</span><span class="p">)</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="nv">$line</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
             <span class="nv">$returns</span><span class="p">[</span><span class="nv">$k</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$v</span><span class="p">;</span>
@@ -195,7 +196,7 @@
         <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">browser</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$feed_url</span><span class="p">,</span> <span class="nv">$header</span><span class="p">);</span>
 
 
-        <span class="nv">$r</span> <span class="o">=</span> <span class="nx">json_decode</span><span class="p">(</span><span class="nv">$result</span><span class="o">-&gt;</span><span class="na">getContent</span><span class="p">(),</span> <span class="k">true</span><span class="p">);</span>
+        <span class="nv">$r</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$result</span><span class="o">-&gt;</span><span class="na">getContent</span><span class="p">(),</span> <span class="k">true</span><span class="p">);</span>
         <span class="c1">//return $r;</span>
         <span class="nv">$results</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
         <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$r</span><span class="p">[</span><span class="s1">&#39;feed&#39;</span><span class="p">][</span><span class="s1">&#39;entry&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$r</span><span class="p">[</span><span class="s1">&#39;feed&#39;</span><span class="p">][</span><span class="s1">&#39;entry&#39;</span><span class="p">])){</span>
