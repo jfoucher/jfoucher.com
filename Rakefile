@@ -20,29 +20,30 @@ end
 
 desc 'Build and deploy'
 task :deploy do
-  sh 'cd /var/www/jfoucher.github.com/; cp _assets/*.less assets/css/'
+  sh 'cd /Users/jonathan/Sites/jfoucher.com/; cp _assets/*.less assets/css/'
   sh 'cd assets/css/;lessc screen.less > screen.css; rm *.less;cd ../..'
   sh "sed -i'.bkp' -e's/stylesheet.less/stylesheet/' _includes/head.html"
   sh "sed -i'.bkp' -e's/screen.less/screen.css/' _includes/head.html"
 
   jekyll
-  sh 'cp -r _site/* /var/www/jfoucher.github/'
+  sh 'mkdir /Users/jonathan/Sites/jfoucher.github.com'
+  sh 'cp -r _site/* /Users/jonathan/Sites/jfoucher.github.com/'
   #sh 'cd _static/'
-  sh 'cd /var/www/jfoucher.github; git add .; git commit -am"Building and pushing with rake"; git push'
+  sh 'cd /Users/jonathan/Sites/jfoucher.github.com; git add .; git commit -am"Building and pushing with rake"; git push'
   #sh 'git commit -am"Building and pushing with rake"'
   #sh 'git push'
-  sh 'cd /var/www/jfoucher.github.com/; cp _assets/*.less assets/css/'
+  sh 'cd /Users/jonathan/Sites/jfoucher.com/; cp _assets/*.less assets/css/'
 end
 
 desc 'Local deploy'
 task :local do
-  sh 'cd /var/www/jfoucher.github.com/; cp _assets/*.less assets/css/'
+  sh 'cd /Users/jonathan/Sites/jfoucher.com/; cp _assets/*.less assets/css/'
   sh 'cd assets/css/;lessc screen.less > screen.css; rm *.less;cd ../..'
   #sh "sed -i'.bkp' -e's/stylesheet.less/stylesheet/' _includes/head.html"
   #sh "sed -i'.bkp' -e's/screen.less/screen.css/' _includes/head.html"
   jekyll
-  sh 'rm -rf /var/www/jfoucher.github/*'
-  sh 'cp -r _site/* /var/www/jfoucher.github/'
+  sh 'rm -rf /Users/jonathan/Sites/jfoucher.github.com/*'
+  sh 'cp -r _site/* /Users/jonathan/Sites/jfoucher.github.com/'
 end
 
 def jekyll(opts = '')

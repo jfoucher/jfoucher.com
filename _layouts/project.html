@@ -10,16 +10,16 @@ active: projects
                 <div class="hero">
 
                     <p>
-                        {{ page.gitdata['repository']['description'] }}
+                        {{ page.gitdata['description'] }}
                     </p>
                 </div>
                 <!-- <span class="pdf">Download a <a href="{{ page.url }}.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="{{ page.url }}" title="[Permalink] {{ page.title | strip_html }}">permalink to this article</a>.</span>
-                    <span class="date" title="{{ page.gitdata['repository']['created_at'] | date_to_xmlschema }}">
+                    <span class="date" title="{{ page.gitdata['created_at']  }}">
                     <span class="published">Published&thinsp;&bull;</span>
-                    <span class="day">{{ page.gitdata['repository']['created_at'] | date: '%d' }}</span>
-                    <span class="month"><abbr>{{ page.gitdata['repository']['created_at'] | date: '%b' }}</abbr></span>
-                    <span class="year">{{ page.gitdata['repository']['created_at'] | date: '%Y' }}</span>
+                    <span class="day">{{ page.gitdata['created_at'] | date: '%d' }}</span>
+                    <span class="month"><abbr>{{ page.gitdata['created_at'] | date: '%b' }}</abbr></span>
+                    <span class="year">{{ page.gitdata['created_at'] | date: '%Y' }}</span>
                 </span>
             </div> <!-- /.meta -->
             <div class="page-content">

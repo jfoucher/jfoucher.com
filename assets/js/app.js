@@ -32,8 +32,7 @@ $(document).ready(function(){
 
 
     //TODO get from localStorage if available
-    $.getJSON("http://twitter.com/statuses/user_timeline.json?screen_name=jfoucher&count=4&callback=?",
-        
+    $.getJSON("https://twitter.com/1/statuses/user_timeline.json?screen_name=jfoucher&count=4&callback=?",
         function(data){
             //TODO save to local storage if available
             $.each(data, function(i,el){

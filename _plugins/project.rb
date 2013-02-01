@@ -16,8 +16,14 @@ module Jekyll
       print File.join(base, '_projects')
       self.read_yaml(File.join(base, '_projects'), name)
       if self.data['type'] == "open_source"
-          c = Curl::Easy.perform("http://github.com/api/v2/json/repos/show/jfoucher/" + self.data['gitname'])
-          #print c.body_str
+          url = "https://api.github.com/repos/jfoucher/" + self.data['gitname']
+          #print url + "\r\n"
+          c = Curl::Easy.perform(url)
+          print"\r\n\r\n"
+          print"\r\n\r\n"
+          print c.body_str
+          print"\r\n\r\n"
+          print"\r\n\r\n"
           self.data['gitdata'] = JSON.parse(c.body_str)
           #print self.data['gitdata']
       end
