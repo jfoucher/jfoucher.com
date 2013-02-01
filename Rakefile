@@ -26,7 +26,7 @@ task :deploy do
   sh "sed -i'.bkp' -e's/screen.less/screen.css/' _includes/head.html"
 
   jekyll
-  sh 'mkdir /Users/jonathan/Sites/jfoucher.github.com'
+  #sh 'mkdir /Users/jonathan/Sites/jfoucher.github.com'
   sh 'cp -r _site/* /Users/jonathan/Sites/jfoucher.github.com/'
   #sh 'cd _static/'
   sh 'cd /Users/jonathan/Sites/jfoucher.github.com; git add .; git commit -am"Building and pushing with rake"; git push'

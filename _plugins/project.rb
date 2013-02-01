@@ -19,11 +19,6 @@ module Jekyll
           url = "https://api.github.com/repos/jfoucher/" + self.data['gitname']
           #print url + "\r\n"
           c = Curl::Easy.perform(url)
-          print"\r\n\r\n"
-          print"\r\n\r\n"
-          print c.body_str
-          print"\r\n\r\n"
-          print"\r\n\r\n"
           self.data['gitdata'] = JSON.parse(c.body_str)
           #print self.data['gitdata']
       end
