@@ -110,7 +110,7 @@
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2012/04/getting-your-users-gmail-contacts.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2012/04/getting-your-users-gmail-contacts.html" title="[Permalink] Import contacts from Google by entering your email and password">permalink to this article</a>.</span>
-                    <span class="date" title="2012-04-15T09:17:07+02:00">
+                    <span class="date" title="Sun Apr 15 08:17:07 +0100 2012">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">15</span>
                     <span class="month"><abbr>Apr</abbr></span>
@@ -153,8 +153,7 @@
         <span class="k">return</span> <span class="nv">$returns</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>So first we need to get the auth token from google:</p>
@@ -173,8 +172,7 @@
 
 <span class="nv">$returns</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">unserializeGoogleData</span><span class="p">(</span><span class="nv">$output</span><span class="o">-&gt;</span><span class="na">getContent</span><span class="p">());</span>
 <span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Where <code>$data['email']</code> and <code>$data['password']</code> are the user's email and password, respectively.</p>
@@ -217,8 +215,7 @@
     <span class="p">}</span><span class="k">else</span><span class="p">{</span>
         <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
     <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>If the user and password were incorrect, the <code>Auth</code> key will not be present in the array, and so we simply return <code>false</code>. It is recommended to see if Google requires the user to solve a catcha, in which case it should be displayed. But as that was not necessary in this case, it will be left as an exercise for the reader.

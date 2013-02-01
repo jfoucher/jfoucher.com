@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>2012-09-26T12:24:57+02:00</updated>
+	<updated>Fri Feb 01 09:55:59 +0100 2013</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -15,7 +15,7 @@
 	<entry>
 		<title>Installing PHP, Apache2 and nginx for faster websites</title>
 		<link href="http://jfoucher.com/2012/04/installing-apache-php-and-nginx-for-faster-websites.html"/>
-		<updated>2012-04-23T08:17:07+02:00</updated>
+		<updated>Mon Apr 23 07:17:07 +0100 2012</updated>
 		<id>http://jfoucher.com/2012/04/installing-apache-php-and-nginx-for-faster-websites</id>
 		<content type="html">&lt;p&gt;My contract with my previous shared hosting contractor is coming to a close, and as they seem to have all but abandoned their business, I decided it was time to move away. I looked at using Amazon's EC2, but ultimately decided to go with Bhost, with which I'm fairly happy so far. To get some decent performance out of it, I planned to use Nginx as my web server&lt;/p&gt;
 
@@ -73,8 +73,7 @@
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Directory&amp;gt;&lt;/span&gt;
 
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;You'll notice that Apache listens on port 8080. You need to change the port from 80 to 8080 in &lt;code&gt;/etc/apache2/ports.conf&lt;/code&gt; as well, this is what mine looks like after the change :&lt;/p&gt;
@@ -94,8 +93,7 @@
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;IfModule&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mod_gnutls.c&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nb&quot;&gt;Listen&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;443&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/IfModule&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Next up is the template for the default nginx site, which is much simpler and goes in &lt;code&gt;/etc/nginx/sites-available&lt;/code&gt;:&lt;/p&gt;
@@ -117,8 +115,7 @@
                 &lt;span class=&quot;kn&quot;&gt;deny&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;All that does is proxy everything to apache on localhost, port 8080&lt;/p&gt;
@@ -157,8 +154,7 @@ chown -R www-data:www-data /var/www/&lt;span class=&quot;nv&quot;&gt;$1&lt;/span
 
 /etc/init.d/apache2 restart
 /etc/init.d/nginx restart
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Put this say in your home folder and give it executable permission with &lt;code&gt;chmod 755 new_host&lt;/code&gt; or whatever you named the file.&lt;/p&gt;
@@ -230,15 +226,13 @@ So the way to get better performance is to get nginx to cache the results from a
                 &lt;span class=&quot;k&quot;&gt;proxy_cache_valid&lt;/span&gt;       &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;301&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;302&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
                 &lt;span class=&quot;k&quot;&gt;proxy_cache_valid&lt;/span&gt;       &lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
                 &lt;span class=&quot;k&quot;&gt;proxy_cache_valid&lt;/span&gt;       &lt;span class=&quot;s&quot;&gt;any&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;where the &lt;code&gt;proxy_cache&lt;/code&gt; named &lt;code&gt;one&lt;/code&gt; is defined in nginx.conf as such :&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;nginx&quot;&gt;&lt;span class=&quot;k&quot;&gt;proxy_cache_path&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/usr/local/nginx/proxy&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;levels=1:2&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;keys_zone=one:15m&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;inactive=7d&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;max_size=1000m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The &lt;code&gt;proxy_cache_valid&lt;/code&gt; entries above define different cache times for various response codes&lt;/p&gt;
@@ -293,8 +287,7 @@ Transfer rate:          23351.88 [Kbytes/sec] received&lt;/code&gt;&lt;/pre&gt;&
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;nginx&quot;&gt;&lt;span class=&quot;k&quot;&gt;proxy_cache_bypass&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$cookie_session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;proxy_no_cache&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$cookie_session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;where &lt;code&gt;session&lt;/code&gt; is the name of your cookie&lt;/p&gt;
@@ -305,7 +298,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Import contacts from Google by entering your email and password</title>
 		<link href="http://jfoucher.com/2012/04/getting-your-users-gmail-contacts.html"/>
-		<updated>2012-04-15T09:17:07+02:00</updated>
+		<updated>Sun Apr 15 08:17:07 +0100 2012</updated>
 		<id>http://jfoucher.com/2012/04/getting-your-users-gmail-contacts</id>
 		<content type="html">&lt;p&gt;What I wanted to do was something similar to what Dropbox does for their referral program: Allow the user to input their email and password, show them a list of their contacts and allow them to select who to invite. The invited contacts' emails would then be saved directly to database and an email sent to them.&lt;/p&gt;
 
@@ -328,8 +321,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$returns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;So first we need to get the auth token from google:&lt;/p&gt;
@@ -348,8 +340,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;span class=&quot;nv&quot;&gt;$returns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;unserializeGoogleData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$output&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
 &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Where &lt;code&gt;$data['email']&lt;/code&gt; and &lt;code&gt;$data['password']&lt;/code&gt; are the user's email and password, respectively.&lt;/p&gt;
@@ -392,8 +383,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;If the user and password were incorrect, the &lt;code&gt;Auth&lt;/code&gt; key will not be present in the array, and so we simply return &lt;code&gt;false&lt;/code&gt;. It is recommended to see if Google requires the user to solve a catcha, in which case it should be displayed. But as that was not necessary in this case, it will be left as an exercise for the reader.
@@ -407,7 +397,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Git tips from stackoverflow</title>
 		<link href="http://jfoucher.com/2012/04/github-tricks-from-stackoverflow.html"/>
-		<updated>2012-04-09T00:00:00+02:00</updated>
+		<updated>Mon Apr 09 00:00:00 +0100 2012</updated>
 		<id>http://jfoucher.com/2012/04/github-tricks-from-stackoverflow</id>
 		<content type="html">&lt;p&gt;Here are some pretty cool and very useful git tricks I learnt  by searching or reading stackoverflow.
 Most of them are operations that should be pretty easy to do, and seem pointlessly complicated. The second one is an excellent example of both the flexibility and the lack of user friendliness of the git UI&lt;/p&gt;
@@ -417,15 +407,13 @@ Most of them are operations that should be pretty easy to do, and seem pointless
 &lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/a/8485503/210824&quot;&gt;Git: Never Commit Changed Files (But still keep original revisioned.)&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;git update-index --assume-unchanged &amp;lt;file&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;To make it commitable again run&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;git update-index --no-assume-unchanged &amp;lt;file&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;Commits no yet pushed&lt;/h3&gt;
@@ -435,17 +423,13 @@ Most of them are operations that should be pretty easy to do, and seem pointless
 &lt;p&gt;If you want to see all commits on all branches that aren't pushed yet, you might be looking for something like this:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;git log --branches --not --remotes
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And if you only want to see the most recent commit on each branch, and the branch names, this:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;git log --branches --not --remotes --simplify-by-decoration --decorate --oneline
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;a href=&quot;http://jfoucher.com/2012/04/github-tricks-from-stackoverflow.html&quot;&gt;Git tips from stackoverflow&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
@@ -454,7 +438,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>From Titanium to Adobe Air, or, Building Desktop Apps with Javascript</title>
 		<link href="http://jfoucher.com/2012/02/from-titanium-to-air-building-desktop-apps-with-javascript.html"/>
-		<updated>2012-02-13T00:00:00+01:00</updated>
+		<updated>Mon Feb 13 00:00:00 +0100 2012</updated>
 		<id>http://jfoucher.com/2012/02/from-titanium-to-air-building-desktop-apps-with-javascript</id>
 		<content type="html">&lt;p&gt;&lt;a href=&quot;http://vessenger.com&quot;&gt;Vessenger&lt;/a&gt; is an app that allows closed groups such as
 organizations, to chat and send documents to each other or to a central
@@ -538,7 +522,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Implementing BrowserID identification on your website</title>
 		<link href="http://jfoucher.com/2011/12/implementing-browserid-identification.html"/>
-		<updated>2011-12-25T14:05:13+01:00</updated>
+		<updated>Sun Dec 25 14:05:13 +0100 2011</updated>
 		<id>http://jfoucher.com/2011/12/implementing-browserid-identification</id>
 		<content type="html">&lt;p&gt;BrowserID &lt;a href=&quot;http://identity.mozilla.com/post/7616727542/introducing-browserid-a-better-way-to-sign-in&quot;&gt;was released a few months ago&lt;/a&gt; and is a new way to sign in to websites or web applications that doesn't require you to give your password each time you want to login. It doesn't even require you to register as such on each website. In that way, it is very similar to openId, but without the usability issues.&lt;/p&gt;
 
@@ -549,8 +533,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;h4&gt;Include the following javascript snippet in your page&lt;/h4&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;https://browserid.org/include.js&amp;quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/script&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h4&gt;Identify the user&lt;/h4&gt;
@@ -565,8 +548,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
         &lt;span class=&quot;c1&quot;&gt;// something went wrong!  the user isn&amp;#39;t logged in.&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;If the assertion is there, the user authenticated successfully. now you must verify that the assertion really is authentic, and get the relevant data from it. You &lt;em&gt;could&lt;/em&gt; &lt;a href=&quot;https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest&quot;&gt;do it yourself&lt;/a&gt;, but if you don't have any special requirements, I recommend you just use the service provided by &lt;a href=&quot;http://browserid.org&quot;&gt;http://browserid.org&lt;/a&gt;&lt;/p&gt;
@@ -600,8 +582,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This call to the browserID API returns some json_encoded stuff, for example something like this :&lt;/p&gt;
@@ -613,8 +594,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
     &lt;span class=&quot;s2&quot;&gt;&amp;quot;expires&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1308859352261&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;s2&quot;&gt;&amp;quot;issuer&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;browserid.org&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h4&gt;Login or register&lt;/h4&gt;
@@ -635,7 +615,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>A 10 minute script to graph your server load</title>
 		<link href="http://jfoucher.com/2011/09/a-10-minute-script-to-graph-your-server-load.html"/>
-		<updated>2011-09-17T01:09:13+02:00</updated>
+		<updated>Sat Sep 17 00:09:13 +0100 2011</updated>
 		<id>http://jfoucher.com/2011/09/a-10-minute-script-to-graph-your-server-load</id>
 		<content type="html">&lt;p&gt;This is a quick and dirty PHP script that I whipped up in about 10 minutes, used to show the load averages on the server where it is uploaded.&lt;/p&gt;
 
@@ -658,7 +638,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Remote debugging with Xdebug and PhpStorm on Ubuntu</title>
 		<link href="http://jfoucher.com/2011/08/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu.html"/>
-		<updated>2011-08-18T01:09:13+02:00</updated>
+		<updated>Thu Aug 18 00:09:13 +0100 2011</updated>
 		<id>http://jfoucher.com/2011/08/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu</id>
 		<content type="html">&lt;p&gt;Being able to debug your php application right from your IDE is something that you can't fully realise the power of, unless you've tried it. The advantages are immediately obvious: as soon as the connection from Xdebug is successful, you are blinded by variable inspection, code stepping, breakpoints, etc... Debugging heaven!
 It took me... a few months to finally find the time figure out how to set up everything properly, so I hope this post can help someone, somewhere. But don't worry: it retrospect, it's not that difficult at all.&lt;/p&gt;
@@ -670,8 +650,7 @@ It took me... a few months to finally find the time figure out how to set up eve
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo apt-get install
 php5-xdebug
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt; This will also install Apache and PHP if you don't have them already.&lt;/p&gt;
@@ -682,15 +661,13 @@ php5-xdebug
 &lt;p&gt;Done? Right, so this created a config file in /etc/php5/conf.d called xdebug.ini, which is read by php and contains xdebug's configuration options. You'll need to open this file for editing as root, as we need to make a few changes in there. you can copy/paste the command below in the terminal, or do it your own way.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;gksu gedit /etc/apache2/conf.d/xdebug.ini
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Within this file, there will be a single line, referencing the xdebug zend extension, something like this (the path can vary slightly)&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ini&quot;&gt;&lt;span class=&quot;na&quot;&gt;zend_extension&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/usr/lib/php5/20090626/xdebug.so&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This is what we're going to add:&lt;/p&gt;
@@ -698,15 +675,13 @@ php5-xdebug
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ini&quot;&gt;&lt;span class=&quot;na&quot;&gt;xdebug.remote_enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;On #this enables remote debugging&lt;/span&gt;
 &lt;span class=&quot;na&quot;&gt;xdebug.remote_host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;192.168.1.83 #change this IP adress for the one of the computer you are typing on&lt;/span&gt;
 &lt;span class=&quot;na&quot;&gt;xdebug.remote_port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;9000 #this is the default, leave it as is&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now we restart apache so that the new configuration is taken into account:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo /etc/init.d/apache2 restart
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And we that we are &lt;strong&gt;done&lt;/strong&gt; on the server side of things&lt;/p&gt;
@@ -744,7 +719,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>A Phing task to update your Twitter status</title>
 		<link href="http://jfoucher.com/2011/06/phing-task-to-update-twitter-status.html"/>
-		<updated>2011-06-29T14:10:00+02:00</updated>
+		<updated>Wed Jun 29 13:10:00 +0100 2011</updated>
 		<id>http://jfoucher.com/2011/06/phing-task-to-update-twitter-status</id>
 		<content type="html">&lt;h3&gt;Phing and Twitter&lt;/h3&gt;
 
@@ -761,29 +736,25 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;The first step is to &lt;a href=&quot;https://github.com/abraham/twitteroauth/tarball/master&quot;&gt;download the twitteroauth library&lt;/a&gt; from github. Extract it to a temporary folder and copy the subfolder&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;twitteroauth
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt; to the folder where your fing tasks are stored (on my system it is&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;/usr/share/php/phing/tasks/my/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;. Please note you might have to create the&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;my/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt; folder within&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;/usr/share/php/phing/tasks/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;. You will need root privileges for these steps.&lt;/p&gt;
@@ -799,15 +770,13 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;Next up is creating the actual task PHP class. Create an empty file named TwitterUpdateTask.php&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo touch /usr/share/php/phing/tasks/my/TwitterUpdateTask.php
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt; and open it for editing with your favorite editor. We'll use gedit :&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;gksu gedit /usr/share/php/phing/tasks/my/TwitterUpdateTask.php
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The code for this file is as shown below:&lt;/p&gt;
@@ -854,8 +823,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 
@@ -866,8 +834,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;Don't close this file, we still need to add the authentication data to it. You can already place your consumer key and consumer secret in the apropriate&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;define()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt; calls (the first two lines), but if not, we'll do it now.&lt;/p&gt;
@@ -878,8 +845,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;span class=&quot;x&quot;&gt;define(&amp;#39;CONSUMER_SECRET&amp;#39;, &amp;#39;UUazcBfXrWW1jcpiSU564hg654t1EMki8gzptQU&amp;#39;);&lt;/span&gt;
 &lt;span class=&quot;x&quot;&gt;define(&amp;#39;OAUTH_TOKEN&amp;#39;, &amp;#39;325454656-EuCudghg8tTYwKf9yjt5nhqr14i5egHJPeVRGVxQv&amp;#39;);&lt;/span&gt;
 &lt;span class=&quot;x&quot;&gt;define(&amp;#39;OAUTH_TOKEN_SECRET&amp;#39;, &amp;#39;gh6854hg6tyGEvGEiEi15XmUtOmDpaONM&amp;#39;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Copy this code to the corresponding spot in the TwitterUpdateTask.php file, overwriting what's already there.&lt;/p&gt;
@@ -892,8 +858,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;First, we define the custom task:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;taskdef&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;twitterupdate&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;classname=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;phing.tasks.my.TwitterUpdateTask&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Secondly, let's create a custom target that will send a tweet with the message we want.&lt;/p&gt;
@@ -901,8 +866,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xml&quot;&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;target&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tweet&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;twitterupdate&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;message=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;${twitter.status}&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/target&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now we can call this task from another one, but we need to make that the twitter.status is set. Let's we have a &quot;staging&quot; target. Part of it could look like this:&lt;/p&gt;
@@ -913,15 +877,13 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tstamp&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;twitter.status&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Staging build completed at ${build.time}&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;phingcall&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tweet&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This will post the message to twitter, replacing the&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;${build.time}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt; token by the actual build and time.&lt;/p&gt;
@@ -934,13 +896,12 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>CSS minification library for codeigniter</title>
 		<link href="http://jfoucher.com/2011/04/css-minification-library-for-codeigniter.html"/>
-		<updated>2011-04-11T14:10:51+02:00</updated>
+		<updated>Mon Apr 11 13:10:51 +0100 2011</updated>
 		<id>http://jfoucher.com/2011/04/css-minification-library-for-codeigniter</id>
 		<content type="html">&lt;p&gt;For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;css&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/assets/css/fonts.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/assets/css/layout.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;After some searching, I found a css minification library for PHP, &lt;a href=&quot;https://code.google.com/p/minify/&quot;&gt;minify&lt;/a&gt;&lt;/p&gt;
@@ -972,15 +933,13 @@ I modelled the interaction on the image library, as I guess that's what most peo
 &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;css&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;css&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Will output the following stylesheet tag:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/assets/css/css.min.css&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/css&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;media=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;screen&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 
@@ -996,8 +955,7 @@ I modelled the interaction on the image library, as I guess that's what most peo
 &lt;p&gt;I'm not sure the way I've done it, using a&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;$config&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt; array and so on, is the best way. It might be a bit overkill for such a simple library. I'd love to hear your thoughts on the subject.&lt;/p&gt;
@@ -1008,7 +966,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>The making of flickholdr.com, an image placeholder generator</title>
 		<link href="http://jfoucher.com/2011/04/the-making-of-flickholdr-an-image-placeholder-generator.html"/>
-		<updated>2011-04-03T21:42:49+02:00</updated>
+		<updated>Sun Apr 03 20:42:49 +0100 2011</updated>
 		<id>http://jfoucher.com/2011/04/the-making-of-flickholdr-an-image-placeholder-generator</id>
 		<content type="html">&lt;p&gt;There are a few services available to web designer and HTML coders to use dummy images in their html mockups or templates. The one I used to use is &lt;a href=&quot;http://dummyimage.com&quot;&gt;dummyimage&lt;/a&gt; but it is somewhat limited in that the images are completely static: a flat color and some text. I needed the same kind of service, but with actual images or photographs rather than simple placeholders. Something like dynamically generated stock images.&lt;/p&gt;
 
@@ -1034,21 +992,15 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;ol&gt;
     &lt;li&gt;A public method called 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;search()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   that gets images using the &lt;a href=&quot;http://www.flickr.com/services/api/&quot;&gt;flickr API&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;A private method called 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;_get_sizes()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
  that finds the sizes available for that particular image&lt;/li&gt;
     &lt;li&gt;Another private method 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;_get_author()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
  that gets the information for the image and returns the name of the author, to be displayed in the watermark&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -1056,8 +1008,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;The&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;search()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt; method returns as soon as it finds an image of at least the required size.&lt;/p&gt;
@@ -1065,8 +1016,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;The controller private method&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;_get_image()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt; then takes charge of resizing, cropping and watermarking the image, using codeigniter's &lt;a title=&quot;Codeigniter image manipulation class manual&quot; href=&quot;http://codeigniter.com/user_guide/libraries/image_lib.html&quot;&gt;image manipulation library&lt;/a&gt; to keep things quick and simple. I just tweaked the watermarking method of that class to allow for semi-transparent watermarks.&lt;/p&gt;
@@ -1083,7 +1033,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Installing and running APC cache with CodeIgniter</title>
 		<link href="http://jfoucher.com/2011/02/installing-running-apc-cache-codeigniter.html"/>
-		<updated>2011-02-13T23:33:33+01:00</updated>
+		<updated>Sun Feb 13 23:33:33 +0100 2011</updated>
 		<id>http://jfoucher.com/2011/02/installing-running-apc-cache-codeigniter</id>
 		<content type="html">&lt;p&gt;Codeigniter 2 now includes an excellent cache driver, which makes it dead easy to use any one of the great available cache librairies such as &lt;a href=&quot;http://php.net/apc&quot;&gt;APC&lt;/a&gt; o &lt;a href=&quot;http://www.memcached.org/&quot;&gt;memcached&lt;/a&gt;. In this post I will focus on APC, it's installation on an &lt;a href=&quot;/?p=193&quot;&gt;Ubuntu 10.04 server&lt;/a&gt;, and a few benchmarks to compare the various cache systems.  For my testing, I will use an Ubuntu Server installation, on a VirtualBox virtual machine with 256 Mb of RAM and a single processor. This enables me to test things until everything breaks, than just scrap that VM and start with a clean one. However, a description of this setup is a story for another day...&lt;/p&gt;
 
@@ -1093,29 +1043,25 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;On Ubuntu, and on other debian based linuxes, you can install APC by typing&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo apt-get install php-apc
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt; on the command line. Of course, you will have to install Apache and php before that, but that is really easy:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo apt-get install php5
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt; will install &lt;a href=&quot;http://php.net&quot;&gt;PHP&lt;/a&gt; and all needed dependencies, including &lt;a href=&quot;http://apache.org&quot;&gt;apache&lt;/a&gt; So now that APC is installed, just restart apache&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo /etc/init.d/apache2 restart
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt; and you're ready to go.  In codeigniter, you don't need to do anything special. Just turn the cache on by putting the following line somewhere in your controller:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;$this-&amp;gt;output-&amp;gt;cache(n);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt; Where 'n' is the number of minutes to cache that particular content.  The cache library is clever enough to pick the best cache driver from the four available ones (memcached, APC, file and dummy). Forget about the dummy driver: it doesn't do anything&lt;/p&gt;
@@ -1159,7 +1105,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Wordpress 404 notification by email</title>
 		<link href="http://jfoucher.com/2011/01/wordpress-email-404-notification.html"/>
-		<updated>2011-01-22T23:42:45+01:00</updated>
+		<updated>Sat Jan 22 23:42:45 +0100 2011</updated>
 		<id>http://jfoucher.com/2011/01/wordpress-email-404-notification</id>
 		<content type="html">&lt;p&gt;I couldn't find something that did just what I wanted and no more: send me an email when someone gets a 404 error on my blog. It seems pretty simple, and it really is. More than that actually. It's problably the simplest plugin I've ever written.&lt;/p&gt;
 
@@ -1175,8 +1121,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;add_action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;get_header&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;email_error&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This is the main part of the code, the one gets executed everytime the &lt;code&gt;get_header&lt;/code&gt; hook is called. It basically just checks the $wp_query object to see if the current url gives a 404 error and then passes that url to the email_admin function&lt;/p&gt;
@@ -1193,8 +1138,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
     &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This function sets some headers for the email, such as the sender's name and email, and the subject of the message, and then sends the message. No error is shown if the message can't be sent, as this would be displayed on the page.&lt;/p&gt;
@@ -1207,7 +1151,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Spanish characters on Qwerty keyboard for Ubuntu 10.10</title>
 		<link href="http://jfoucher.com/2011/01/spanish-characters-on-qwerty-keyboard-for-ubuntu-10-10.html"/>
-		<updated>2011-01-14T22:06:17+01:00</updated>
+		<updated>Fri Jan 14 22:06:17 +0100 2011</updated>
 		<id>http://jfoucher.com/2011/01/spanish-characters-on-qwerty-keyboard-for-ubuntu-10-10</id>
 		<content type="html">&lt;p&gt;Typing spanish characters on a standard QWERTY (or other) keyboard is near impossible. I have used the Character Palette panel applet to do so, but this method requires clicking on the letter you want, and then paste it where you want it. To much work for my tastes. Yes I'm lazy. I'm a programmer.&lt;/p&gt;
 
@@ -1227,7 +1171,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Python skype notifier for Ubuntu</title>
 		<link href="http://jfoucher.com/2011/01/python-skype-notifier-for-ubuntu.html"/>
-		<updated>2011-01-14T13:21:52+01:00</updated>
+		<updated>Fri Jan 14 13:21:52 +0100 2011</updated>
 		<id>http://jfoucher.com/2011/01/python-skype-notifier-for-ubuntu</id>
 		<content type="html">&lt;p&gt;What's the best way to learn a new programming language ? Well, according to &lt;a href=&quot;http://programmers.stackexchange.com/q/3519/3984&quot;&gt;this question&lt;/a&gt; the best (only ?) way to learn a new language is just to code in that language.&lt;/p&gt;
 
@@ -1271,8 +1215,7 @@ Although it's no quite as hands on as Learn Python the Hard Way, it's a very goo
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Skype4Py&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;urllib&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The first line tell the host system to use python to interpret that file&lt;/p&gt;
@@ -1286,8 +1229,7 @@ Although it's no quite as hands on as Learn Python the Hard Way, it's a very goo
     &lt;span class=&quot;n&quot;&gt;oldcount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;indicator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This is the clas initialization function&lt;/p&gt;
@@ -1302,8 +1244,7 @@ Although it's no quite as hands on as Learn Python the Hard Way, it's a very goo
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;server-display&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;server_display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_indicators&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The first line creates the skype API instance, after which we call the loadSkype() function, which checks if skype is loaded and if not, starts it. We'll look at that function later on.
@@ -1322,8 +1263,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
         &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Skype4Py&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ISkypeAPIError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
             &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Please open skype first&amp;quot;&lt;/span&gt;
             &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;noSkype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This basically tries to start skype if it is not already started and calls noSkype() if it couldn't start it. noSype() shows a notification message to let the user know that they have to start Skype.
@@ -1424,8 +1364,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;oldcount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;
         &lt;span class=&quot;c&quot;&gt;# Loop runs as long as true is returned&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;When a new messages arrives, this is what the messaging menu looks like
@@ -1447,8 +1386,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
             &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;display_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
             &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;display_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unread&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The next two functions are in charge of getting the skype user username as well as the friendliest name available.&lt;/p&gt;
@@ -1464,8 +1402,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
 
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;user_from_handle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;handle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;skype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;handle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Below is the generic function in charge of showing popup notifications.&lt;/p&gt;
@@ -1480,8 +1417,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
         &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This is what it looks like with three new messages
@@ -1498,8 +1434,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
         &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And finally, the indicator events callbacks (what happens when we click on the skype indicator, or on a particular message&lt;/p&gt;
@@ -1511,8 +1446,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
         &lt;span class=&quot;n&quot;&gt;indicator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_property&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;draw-attention&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;false&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
         &lt;span class=&quot;c&quot;&gt;# open the skype chat window for this user&lt;/span&gt;
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;skype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OpenMessageDialog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indicator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_property&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;handle&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;At the end of the file, we start everything :&lt;/p&gt;
@@ -1522,8 +1456,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
     &lt;span class=&quot;c&quot;&gt;# Loop&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;gobject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timeout_add_seconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;skypeind&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_indicators&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And finally, here is the complete source code :&lt;/p&gt;
@@ -1779,8 +1712,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
     &lt;span class=&quot;c&quot;&gt;# Loop&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;gobject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timeout_add_seconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;skypeind&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_indicators&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Download the script, or fork it on the &lt;a href=&quot;https://github.com/jfoucher/ubuntu-skype-indicator&quot;&gt;ubuntu-skype-indicator github repository&lt;/a&gt;&lt;/p&gt;
@@ -1789,8 +1721,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
 On ubuntu, it's as simple as running&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo apt-get install python-skype python-indicate
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 
@@ -1801,7 +1732,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Compile custom kernel on Ubuntu 10.10</title>
 		<link href="http://jfoucher.com/2011/01/compile-custom-kernel-on-ubuntu-10-10.html"/>
-		<updated>2011-01-12T15:06:02+01:00</updated>
+		<updated>Wed Jan 12 15:06:02 +0100 2011</updated>
 		<id>http://jfoucher.com/2011/01/compile-custom-kernel-on-ubuntu-10-10</id>
 		<content type="html">&lt;p&gt;First off, you want to grab the latest kernel source from &lt;a href=&quot;http://kernel.org/&quot;&gt;http://kernel.org/&lt;/a&gt; and save it to a folder on your computer. I used my browser's default : &lt;code&gt;~/Downloads&lt;/code&gt;. Right click on the archive and select &quot;extract here&quot;&lt;/p&gt;
 
@@ -1830,8 +1761,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;make-kpkg clean &lt;span class=&quot;c&quot;&gt;# only needed if you want to do a &amp;quot;clean&amp;quot; build&lt;/span&gt;
 fakeroot make-kpkg --initrd --append-to-version&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;-some-string-here kernel-image kernel-headers
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 
@@ -1859,7 +1789,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>New version of the auto-tag plugin released!</title>
 		<link href="http://jfoucher.com/2010/05/version-autotag-plugin-released.html"/>
-		<updated>2010-05-19T16:45:10+02:00</updated>
+		<updated>Wed May 19 15:45:10 +0100 2010</updated>
 		<id>http://jfoucher.com/2010/05/version-autotag-plugin-released</id>
 		<content type="html">&lt;p&gt;&lt;a href=&quot;http://wordpress.org/extend/plugins/auto-tag/&quot;&gt;Version 0.4 is here!&lt;/a&gt;&lt;/p&gt;
 
@@ -1875,7 +1805,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>One app a month challenge</title>
 		<link href="http://jfoucher.com/2010/01/one-app-a-month-challenge.html"/>
-		<updated>2010-01-02T00:29:39+01:00</updated>
+		<updated>Sat Jan 02 00:29:39 +0100 2010</updated>
 		<id>http://jfoucher.com/2010/01/one-app-a-month-challenge</id>
 		<content type="html">&lt;p&gt;To keep learning and progressing in my line of work, you have to be &lt;strong&gt;learning new things&lt;/strong&gt; everyday. The evolution is so fast that if you don't go forward, you are effectively going backwards.&lt;/p&gt;
 
@@ -1898,7 +1828,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>BlueIce Plugin</title>
 		<link href="http://jfoucher.com/2009/12/blueice-plugin.html"/>
-		<updated>2009-12-14T17:59:32+01:00</updated>
+		<updated>Mon Dec 14 17:59:32 +0100 2009</updated>
 		<id>http://jfoucher.com/2009/12/blueice-plugin</id>
 		<content type="html">&lt;p&gt;I just created a very simple plugin for &lt;a title=&quot;The Anti-CMS&quot; href=&quot;http://blueiceapp.com&quot;&gt;BlueIce&lt;/a&gt;, the anti-CMS. It simply inserts a list containg links to all pages in the web site. The author published it on his &lt;a href=&quot;http://blueiceapp.com/docs/plugins&quot;&gt;3rd party plugins&lt;/a&gt; page, and I highly recommend his anti-CMS for small, semi static sites.&lt;/p&gt;
 
@@ -1913,7 +1843,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Why Google Wave is useless (with invites giveaway)</title>
 		<link href="http://jfoucher.com/2009/11/google-wave-useless.html"/>
-		<updated>2009-11-20T10:00:29+01:00</updated>
+		<updated>Fri Nov 20 10:00:29 +0100 2009</updated>
 		<id>http://jfoucher.com/2009/11/google-wave-useless</id>
 		<content type="html">&lt;div class=&quot;image-with-caption aligncenter&quot; style=&quot;width:300px&quot;&gt;&lt;div class=&quot;caption&quot;&gt;Google Wave&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/uploads/2009/11/Screenshot-1.png&quot;&gt;&lt;img class=&quot;size-medium wp-image-172&quot; title=&quot;Google Wave&quot; src=&quot;http://jfoucher.com/uploads/2009/11/Screenshot-1-300x158.png&quot; alt=&quot;Google Wave&quot; width=&quot;300&quot; height=&quot;158&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 
@@ -1956,7 +1886,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Cafepress SIGG bottles discount and coupon code !</title>
 		<link href="http://jfoucher.com/2009/07/cafepress-sigg-bottles-discount-coupon-code.html"/>
-		<updated>2009-07-27T21:13:36+02:00</updated>
+		<updated>Mon Jul 27 20:13:36 +0100 2009</updated>
 		<id>http://jfoucher.com/2009/07/cafepress-sigg-bottles-discount-coupon-code</id>
 		<content type="html">&lt;p&gt;You've probably seen that cafepress let's you&lt;a href=&quot;http://www.cafepress.com/designer/sigg/&quot;&gt; customize your sigg bottle&lt;/a&gt;, and you also no doubt know that water bottles are bad for the &lt;a href=&quot;http://ecoquotidien.fr&quot;&gt;environment&lt;/a&gt;, as only a small proportion are recycled, and many end up scattered around natural areas, not least of which, due to their rather &lt;em&gt;floating&lt;/em&gt; nature, our beaches. Sigg bottles are a durable, light and trendy alternative, and today we are going to &lt;em&gt;design our own&lt;/em&gt;, but not using &lt;a href=&quot;http://cafepress.com&quot;&gt;cafepress'&lt;/a&gt; flash designer!&lt;/p&gt;
 

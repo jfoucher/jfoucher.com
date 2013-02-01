@@ -110,7 +110,7 @@
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2004/10/avis-aux-utilisateurs-des-extensions-pour-stattraq.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2004/10/avis-aux-utilisateurs-des-extensions-pour-stattraq.html" title="[Permalink] Avis aux utilisateurs des extensions pour StatTraq">permalink to this article</a>.</span>
-                    <span class="date" title="2004-10-14T17:01:58+02:00">
+                    <span class="date" title="Thu Oct 14 16:01:58 +0100 2004">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">14</span>
                     <span class="month"><abbr>Oct</abbr></span>
@@ -133,8 +133,7 @@
 <p>C'est que si vous utilisez une structure des permaliens où l'id du billet n'est pas présente, telle que celle-ci:</p>
 
 <div class="highlight"><pre><code class="php"><span class="x">     /%year%/%monthnum%/%day%/%postname%/</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>L'id du billet n'est pas ajouté à la table de Stat Traq, ce qui fait que mon plugin <a href="http://jfoucher.com/2004/10/popular-posts-wordpress-plugin">Populaires</a> ne comprend plus ce qu'il lui arrive. La solution est en fait très simple</p>
@@ -145,22 +144,19 @@
 
 <div class="highlight"><pre><code class="php"><span class="x">    if (($p != &#39;&#39;)){</span>
 <span class="x">    $p = intval($p);</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Mais la variable</p>
 
 <div class="highlight"><pre><code class="php"><span class="x">$p</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p> n'existe que si le billet est sélectionné par son id. S'il a été selectionné par nom,</p>
 
 <div class="highlight"><pre><code class="php"><span class="x">$p</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p> est nul.</p>
@@ -169,8 +165,7 @@
 
 <div class="highlight"><pre><code class="php"><span class="x">     if (($post-&gt;ID != &#39;&#39;)){</span>
 <span class="x">     $p = intval($post-&gt;ID);</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Et ça a l'air de marcher avec tous les schémas de réécriture.
@@ -179,8 +174,7 @@
 <p>C'est que si vous utilisez une structure des permaliens où l'id du billet n'est pas présente, telle que celle-ci:</p>
 
 <div class="highlight"><pre><code class="php"><span class="x">     /%year%/%monthnum%/%day%/%postname%/</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>L'id du billet n'est pas ajouté à la table de Stat Traq, ce qui fait que mon plugin <a href="http://jfoucher.com/2004/10/popular-posts-wordpress-plugin">Populaires</a> ne comprend plus ce qu'il lui arrive. La solution est en fait très simple</p>
@@ -191,22 +185,19 @@
 
 <div class="highlight"><pre><code class="php"><span class="x">    if (($p != &#39;&#39;)){</span>
 <span class="x">    $p = intval($p);</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Mais la variable</p>
 
 <div class="highlight"><pre><code class="php"><span class="x">$p</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p> n'existe que si le billet est sélectionné par son id. S'il a été selectionné par nom,</p>
 
 <div class="highlight"><pre><code class="php"><span class="x">$p</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p> est nul.</p>
@@ -215,8 +206,7 @@
 
 <div class="highlight"><pre><code class="php"><span class="x">     if (($post-&gt;ID != &#39;&#39;)){</span>
 <span class="x">     $p = intval($post-&gt;ID);</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Et ça a l'air de marcher avec tous les schémas de réécriture.</p>

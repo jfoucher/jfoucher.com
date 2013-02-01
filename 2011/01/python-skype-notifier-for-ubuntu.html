@@ -110,7 +110,7 @@
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2011/01/python-skype-notifier-for-ubuntu.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2011/01/python-skype-notifier-for-ubuntu.html" title="[Permalink] Python skype notifier for Ubuntu">permalink to this article</a>.</span>
-                    <span class="date" title="2011-01-14T13:21:52+01:00">
+                    <span class="date" title="Fri Jan 14 13:21:52 +0100 2011">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">14</span>
                     <span class="month"><abbr>Jan</abbr></span>
@@ -170,8 +170,7 @@ Although it's no quite as hands on as Learn Python the Hard Way, it's a very goo
 <span class="kn">import</span> <span class="nn">Skype4Py</span>
 <span class="kn">import</span> <span class="nn">urllib</span>
 <span class="kn">import</span> <span class="nn">os</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>The first line tell the host system to use python to interpret that file</p>
@@ -185,8 +184,7 @@ Although it's no quite as hands on as Learn Python the Hard Way, it's a very goo
     <span class="n">oldcount</span><span class="o">=</span><span class="p">{}</span>
     <span class="n">count</span><span class="o">=</span><span class="p">{}</span>
     <span class="n">indicator</span><span class="o">=</span><span class="p">{}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>This is the clas initialization function</p>
@@ -201,8 +199,7 @@ Although it's no quite as hands on as Learn Python the Hard Way, it's a very goo
         <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&quot;server-display&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">server_display</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">create_indicators</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>The first line creates the skype API instance, after which we call the loadSkype() function, which checks if skype is loaded and if not, starts it. We'll look at that function later on.
@@ -221,8 +218,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
         <span class="k">except</span> <span class="n">Skype4Py</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">ISkypeAPIError</span><span class="p">:</span>
             <span class="k">print</span> <span class="s">&quot;Please open skype first&quot;</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">noSkype</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>This basically tries to start skype if it is not already started and calls noSkype() if it couldn't start it. noSype() shows a notification message to let the user know that they have to start Skype.
@@ -323,8 +319,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
         <span class="bp">self</span><span class="o">.</span><span class="n">oldcount</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span>
         <span class="c"># Loop runs as long as true is returned</span>
         <span class="k">return</span> <span class="bp">True</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>When a new messages arrives, this is what the messaging menu looks like
@@ -346,8 +341,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
             <span class="bp">self</span><span class="o">.</span><span class="n">unread</span><span class="p">[</span><span class="n">display_name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">[</span><span class="n">display_name</span><span class="p">]</span><span class="o">+=</span><span class="mi">1</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">unread</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>The next two functions are in charge of getting the skype user username as well as the friendliest name available.</p>
@@ -363,8 +357,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
 
     <span class="k">def</span> <span class="nf">user_from_handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">handle</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">skype</span><span class="o">.</span><span class="n">User</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Below is the generic function in charge of showing popup notifications.</p>
@@ -379,8 +372,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
         <span class="n">n</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="n">n</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>This is what it looks like with three new messages
@@ -397,8 +389,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
         <span class="n">n</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="n">n</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>And finally, the indicator events callbacks (what happens when we click on the skype indicator, or on a particular message</p>
@@ -410,8 +401,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
         <span class="n">indicator</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s">&quot;draw-attention&quot;</span><span class="p">,</span> <span class="s">&quot;false&quot;</span><span class="p">)</span>
         <span class="c"># open the skype chat window for this user</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">skype</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">OpenMessageDialog</span><span class="p">(</span><span class="n">indicator</span><span class="o">.</span><span class="n">get_property</span><span class="p">(</span><span class="s">&quot;handle&quot;</span><span class="p">))</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>At the end of the file, we start everything :</p>
@@ -421,8 +411,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
     <span class="c"># Loop</span>
     <span class="n">gobject</span><span class="o">.</span><span class="n">timeout_add_seconds</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">skypeind</span><span class="o">.</span><span class="n">create_indicators</span><span class="p">)</span>
     <span class="n">gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>And finally, here is the complete source code :</p>
@@ -678,8 +667,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
     <span class="c"># Loop</span>
     <span class="n">gobject</span><span class="o">.</span><span class="n">timeout_add_seconds</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">skypeind</span><span class="o">.</span><span class="n">create_indicators</span><span class="p">)</span>
     <span class="n">gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Download the script, or fork it on the <a href="https://github.com/jfoucher/ubuntu-skype-indicator">ubuntu-skype-indicator github repository</a></p>
@@ -688,8 +676,7 @@ Next, we create the notification server instance, choose an icon, connect the fu
 On ubuntu, it's as simple as running</p>
 
 <div class="highlight"><pre><code class="bash">sudo apt-get install python-skype python-indicate
-</code></pre>
-</div>
+</code></pre></div>
 
 
 

@@ -110,7 +110,7 @@
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2011/01/wordpress-email-404-notification.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2011/01/wordpress-email-404-notification.html" title="[Permalink] Wordpress 404 notification by email">permalink to this article</a>.</span>
-                    <span class="date" title="2011-01-22T23:42:45+01:00">
+                    <span class="date" title="Sat Jan 22 23:42:45 +0100 2011">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">22</span>
                     <span class="month"><abbr>Jan</abbr></span>
@@ -142,8 +142,7 @@
 <span class="p">}</span>
 <span class="nx">add_action</span><span class="p">(</span><span class="s1">&#39;get_header&#39;</span><span class="p">,</span> <span class="s1">&#39;email_error&#39;</span><span class="p">);</span>
 <span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>This is the main part of the code, the one gets executed everytime the <code>get_header</code> hook is called. It basically just checks the $wp_query object to see if the current url gives a 404 error and then passes that url to the email_admin function</p>
@@ -160,8 +159,7 @@
     <span class="o">@</span><span class="nb">mail</span><span class="p">(</span><span class="nv">$email</span><span class="p">,</span><span class="nv">$subject</span><span class="p">,</span><span class="nv">$body</span><span class="p">,</span><span class="nv">$headers</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>This function sets some headers for the email, such as the sender's name and email, and the subject of the message, and then sends the message. No error is shown if the message can't be sent, as this would be displayed on the page.</p>

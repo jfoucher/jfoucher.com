@@ -110,7 +110,7 @@
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2011/04/css-minification-library-for-codeigniter.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2011/04/css-minification-library-for-codeigniter.html" title="[Permalink] CSS minification library for codeigniter">permalink to this article</a>.</span>
-                    <span class="date" title="2011-04-11T14:10:51+02:00">
+                    <span class="date" title="Mon Apr 11 13:10:51 +0100 2011">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">11</span>
                     <span class="month"><abbr>Apr</abbr></span>
@@ -131,8 +131,7 @@
                 <p>For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like</p>
 
 <div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">css</span><span class="o">-&gt;</span><span class="na">link</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;/assets/css/fonts.css&#39;</span><span class="p">,</span><span class="s1">&#39;/assets/css/layout.css&#39;</span><span class="p">);</span><span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>After some searching, I found a css minification library for PHP, <a href="https://code.google.com/p/minify/">minify</a></p>
@@ -164,15 +163,13 @@ I modelled the interaction on the image library, as I guess that's what most peo
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">css</span><span class="o">-&gt;</span><span class="na">initialize</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
 <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">css</span><span class="o">-&gt;</span><span class="na">link</span><span class="p">();</span>
 <span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Will output the following stylesheet tag:</p>
 
 <div class="highlight"><pre><code class="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/assets/css/css.min.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span> <span class="nt">/&gt;</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 
@@ -188,8 +185,7 @@ I modelled the interaction on the image library, as I guess that's what most peo
 <p>I'm not sure the way I've done it, using a</p>
 
 <div class="highlight"><pre><code class="php"><span class="x">$config</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p> array and so on, is the best way. It might be a bit overkill for such a simple library. I'd love to hear your thoughts on the subject.</p>

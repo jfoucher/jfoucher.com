@@ -110,7 +110,7 @@
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2011/12/implementing-browserid-identification.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2011/12/implementing-browserid-identification.html" title="[Permalink] Implementing BrowserID identification on your website">permalink to this article</a>.</span>
-                    <span class="date" title="2011-12-25T14:05:13+01:00">
+                    <span class="date" title="Sun Dec 25 14:05:13 +0100 2011">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">25</span>
                     <span class="month"><abbr>Dec</abbr></span>
@@ -137,8 +137,7 @@
 <h4>Include the following javascript snippet in your page</h4>
 
 <div class="highlight"><pre><code class="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://browserid.org/include.js&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <h4>Identify the user</h4>
@@ -153,8 +152,7 @@
         <span class="c1">// something went wrong!  the user isn&#39;t logged in.</span>
     <span class="p">}</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>If the assertion is there, the user authenticated successfully. now you must verify that the assertion really is authentic, and get the relevant data from it. You <em>could</em> <a href="https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest">do it yourself</a>, but if you don't have any special requirements, I recommend you just use the service provided by <a href="http://browserid.org">http://browserid.org</a></p>
@@ -188,8 +186,7 @@
     <span class="p">}</span>
 <span class="p">);</span>
 <span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>This call to the browserID API returns some json_encoded stuff, for example something like this :</p>
@@ -201,8 +198,7 @@
     <span class="s2">&quot;expires&quot;</span><span class="o">:</span> <span class="mi">1308859352261</span><span class="p">,</span>
     <span class="s2">&quot;issuer&quot;</span><span class="o">:</span> <span class="s2">&quot;browserid.org&quot;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <h4>Login or register</h4>

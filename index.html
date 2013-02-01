@@ -164,7 +164,7 @@
             <div class="meta">
                 <!-- <span class="pdf">Download a <a href="/2012/04/installing-apache-php-and-nginx-for-faster-websites.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2012/04/installing-apache-php-and-nginx-for-faster-websites.html" title="[Permalink] Installing PHP, Apache2 and nginx for faster websites">permalink to this article</a>.</span>
-                <span class="date" title="2012-04-23T08:17:07+02:00">
+                <span class="date" title="Mon Apr 23 07:17:07 +0100 2012">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">23</span>
                     <span class="month"><abbr>Apr</abbr></span>
@@ -229,8 +229,7 @@
     <span class="nt">&lt;/Directory&gt;</span>
 
 <span class="nt">&lt;/VirtualHost&gt;</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>You'll notice that Apache listens on port 8080. You need to change the port from 80 to 8080 in <code>/etc/apache2/ports.conf</code> as well, this is what mine looks like after the change :</p>
@@ -250,8 +249,7 @@
 <span class="nt">&lt;IfModule</span> <span class="s">mod_gnutls.c</span><span class="nt">&gt;</span>
     <span class="nb">Listen</span> <span class="m">443</span>
 <span class="nt">&lt;/IfModule&gt;</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Next up is the template for the default nginx site, which is much simpler and goes in <code>/etc/nginx/sites-available</code>:</p>
@@ -273,8 +271,7 @@
                 <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
         <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>All that does is proxy everything to apache on localhost, port 8080</p>
@@ -313,8 +310,7 @@ chown -R www-data:www-data /var/www/<span class="nv">$1</span>
 
 /etc/init.d/apache2 restart
 /etc/init.d/nginx restart
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Put this say in your home folder and give it executable permission with <code>chmod 755 new_host</code> or whatever you named the file.</p>
@@ -386,15 +382,13 @@ So the way to get better performance is to get nginx to cache the results from a
                 <span class="k">proxy_cache_valid</span>       <span class="mi">200</span> <span class="mi">301</span> <span class="mi">302</span> <span class="mi">20m</span><span class="p">;</span>
                 <span class="k">proxy_cache_valid</span>       <span class="mi">404</span> <span class="mi">1m</span><span class="p">;</span>
                 <span class="k">proxy_cache_valid</span>       <span class="s">any</span> <span class="mi">15m</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>where the <code>proxy_cache</code> named <code>one</code> is defined in nginx.conf as such :</p>
 
 <div class="highlight"><pre><code class="nginx"><span class="k">proxy_cache_path</span> <span class="s">/usr/local/nginx/proxy</span> <span class="s">levels=1:2</span> <span class="s">keys_zone=one:15m</span> <span class="s">inactive=7d</span> <span class="s">max_size=1000m</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>The <code>proxy_cache_valid</code> entries above define different cache times for various response codes</p>
@@ -449,8 +443,7 @@ Transfer rate:          23351.88 [Kbytes/sec] received</code></pre></div>
 
 <div class="highlight"><pre><code class="nginx"><span class="k">proxy_cache_bypass</span> <span class="nv">$cookie_session</span><span class="p">;</span>
 <span class="k">proxy_no_cache</span> <span class="nv">$cookie_session</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>where <code>session</code> is the name of your cookie</p>
