@@ -875,6 +875,7 @@ div.hero div.skip a {
 
   width: 38.54166666666667%;
   margin: 0 1.5625%;
+  clear: left;
   margin-left: 0;
   -webkit-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   -moz-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
