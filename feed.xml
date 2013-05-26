@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>Fri Feb 01 12:36:04 +0100 2013</updated>
+	<updated>Sun May 26 20:57:53 +0200 2013</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -15,7 +15,7 @@
 	<entry>
 		<title>Installing PHP, Apache2 and nginx for faster websites</title>
 		<link href="http://jfoucher.com/2012/04/installing-apache-php-and-nginx-for-faster-websites.html"/>
-		<updated>Mon Apr 23 07:17:07 +0100 2012</updated>
+		<updated>Mon Apr 23 08:17:07 +0200 2012</updated>
 		<id>http://jfoucher.com/2012/04/installing-apache-php-and-nginx-for-faster-websites</id>
 		<content type="html">&lt;p&gt;My contract with my previous shared hosting contractor is coming to a close, and as they seem to have all but abandoned their business, I decided it was time to move away. I looked at using Amazon's EC2, but ultimately decided to go with Bhost, with which I'm fairly happy so far. To get some decent performance out of it, I planned to use Nginx as my web server&lt;/p&gt;
 
@@ -298,7 +298,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Import contacts from Google by entering your email and password</title>
 		<link href="http://jfoucher.com/2012/04/getting-your-users-gmail-contacts.html"/>
-		<updated>Sun Apr 15 08:17:07 +0100 2012</updated>
+		<updated>Sun Apr 15 09:17:07 +0200 2012</updated>
 		<id>http://jfoucher.com/2012/04/getting-your-users-gmail-contacts</id>
 		<content type="html">&lt;p&gt;What I wanted to do was something similar to what Dropbox does for their referral program: Allow the user to input their email and password, show them a list of their contacts and allow them to select who to invite. The invited contacts' emails would then be saved directly to database and an email sent to them.&lt;/p&gt;
 
@@ -397,7 +397,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Git tips from stackoverflow</title>
 		<link href="http://jfoucher.com/2012/04/github-tricks-from-stackoverflow.html"/>
-		<updated>Mon Apr 09 00:00:00 +0100 2012</updated>
+		<updated>Mon Apr 09 00:00:00 +0200 2012</updated>
 		<id>http://jfoucher.com/2012/04/github-tricks-from-stackoverflow</id>
 		<content type="html">&lt;p&gt;Here are some pretty cool and very useful git tricks I learnt  by searching or reading stackoverflow.
 Most of them are operations that should be pretty easy to do, and seem pointlessly complicated. The second one is an excellent example of both the flexibility and the lack of user friendliness of the git UI&lt;/p&gt;
@@ -615,7 +615,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>A 10 minute script to graph your server load</title>
 		<link href="http://jfoucher.com/2011/09/a-10-minute-script-to-graph-your-server-load.html"/>
-		<updated>Sat Sep 17 00:09:13 +0100 2011</updated>
+		<updated>Sat Sep 17 01:09:13 +0200 2011</updated>
 		<id>http://jfoucher.com/2011/09/a-10-minute-script-to-graph-your-server-load</id>
 		<content type="html">&lt;p&gt;This is a quick and dirty PHP script that I whipped up in about 10 minutes, used to show the load averages on the server where it is uploaded.&lt;/p&gt;
 
@@ -638,7 +638,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Remote debugging with Xdebug and PhpStorm on Ubuntu</title>
 		<link href="http://jfoucher.com/2011/08/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu.html"/>
-		<updated>Thu Aug 18 00:09:13 +0100 2011</updated>
+		<updated>Thu Aug 18 01:09:13 +0200 2011</updated>
 		<id>http://jfoucher.com/2011/08/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu</id>
 		<content type="html">&lt;p&gt;Being able to debug your php application right from your IDE is something that you can't fully realise the power of, unless you've tried it. The advantages are immediately obvious: as soon as the connection from Xdebug is successful, you are blinded by variable inspection, code stepping, breakpoints, etc... Debugging heaven!
 It took me... a few months to finally find the time figure out how to set up everything properly, so I hope this post can help someone, somewhere. But don't worry: it retrospect, it's not that difficult at all.&lt;/p&gt;
@@ -719,7 +719,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>A Phing task to update your Twitter status</title>
 		<link href="http://jfoucher.com/2011/06/phing-task-to-update-twitter-status.html"/>
-		<updated>Wed Jun 29 13:10:00 +0100 2011</updated>
+		<updated>Wed Jun 29 14:10:00 +0200 2011</updated>
 		<id>http://jfoucher.com/2011/06/phing-task-to-update-twitter-status</id>
 		<content type="html">&lt;h3&gt;Phing and Twitter&lt;/h3&gt;
 
@@ -896,7 +896,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>CSS minification library for codeigniter</title>
 		<link href="http://jfoucher.com/2011/04/css-minification-library-for-codeigniter.html"/>
-		<updated>Mon Apr 11 13:10:51 +0100 2011</updated>
+		<updated>Mon Apr 11 14:10:51 +0200 2011</updated>
 		<id>http://jfoucher.com/2011/04/css-minification-library-for-codeigniter</id>
 		<content type="html">&lt;p&gt;For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like&lt;/p&gt;
 
@@ -966,7 +966,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>The making of flickholdr.com, an image placeholder generator</title>
 		<link href="http://jfoucher.com/2011/04/the-making-of-flickholdr-an-image-placeholder-generator.html"/>
-		<updated>Sun Apr 03 20:42:49 +0100 2011</updated>
+		<updated>Sun Apr 03 21:42:49 +0200 2011</updated>
 		<id>http://jfoucher.com/2011/04/the-making-of-flickholdr-an-image-placeholder-generator</id>
 		<content type="html">&lt;p&gt;There are a few services available to web designer and HTML coders to use dummy images in their html mockups or templates. The one I used to use is &lt;a href=&quot;http://dummyimage.com&quot;&gt;dummyimage&lt;/a&gt; but it is somewhat limited in that the images are completely static: a flat color and some text. I needed the same kind of service, but with actual images or photographs rather than simple placeholders. Something like dynamically generated stock images.&lt;/p&gt;
 
@@ -1789,7 +1789,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>New version of the auto-tag plugin released!</title>
 		<link href="http://jfoucher.com/2010/05/version-autotag-plugin-released.html"/>
-		<updated>Wed May 19 15:45:10 +0100 2010</updated>
+		<updated>Wed May 19 16:45:10 +0200 2010</updated>
 		<id>http://jfoucher.com/2010/05/version-autotag-plugin-released</id>
 		<content type="html">&lt;p&gt;&lt;a href=&quot;http://wordpress.org/extend/plugins/auto-tag/&quot;&gt;Version 0.4 is here!&lt;/a&gt;&lt;/p&gt;
 
@@ -1886,7 +1886,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	<entry>
 		<title>Cafepress SIGG bottles discount and coupon code !</title>
 		<link href="http://jfoucher.com/2009/07/cafepress-sigg-bottles-discount-coupon-code.html"/>
-		<updated>Mon Jul 27 20:13:36 +0100 2009</updated>
+		<updated>Mon Jul 27 21:13:36 +0200 2009</updated>
 		<id>http://jfoucher.com/2009/07/cafepress-sigg-bottles-discount-coupon-code</id>
 		<content type="html">&lt;p&gt;You've probably seen that cafepress let's you&lt;a href=&quot;http://www.cafepress.com/designer/sigg/&quot;&gt; customize your sigg bottle&lt;/a&gt;, and you also no doubt know that water bottles are bad for the &lt;a href=&quot;http://ecoquotidien.fr&quot;&gt;environment&lt;/a&gt;, as only a small proportion are recycled, and many end up scattered around natural areas, not least of which, due to their rather &lt;em&gt;floating&lt;/em&gt; nature, our beaches. Sigg bottles are a durable, light and trendy alternative, and today we are going to &lt;em&gt;design our own&lt;/em&gt;, but not using &lt;a href=&quot;http://cafepress.com&quot;&gt;cafepress'&lt;/a&gt; flash designer!&lt;/p&gt;
 
