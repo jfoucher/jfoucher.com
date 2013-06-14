@@ -1,49 +1,5 @@
 $(document).ready(function(){
 
-    function storageSupport() {
-      try {
-        return 'localStorage' in window && window['localStorage'] !== null;
-      } catch (e) {
-        return false;
-      }
-    }
-
-    function ISODateString(d){
-     function pad(n){return n<10 ? '0'+n : n}
-     return d.getUTCFullYear()+'-'
-          + pad(d.getUTCMonth()+1)+'-'
-          + pad(d.getUTCDate())+'T'
-          + pad(d.getUTCHours())+':'
-          + pad(d.getUTCMinutes())+':'
-          + pad(d.getUTCSeconds())+'Z'}
-
-    
-    function replaceURLWithHTMLLinks(text) {
-      var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-      return text.replace(exp,"<a href='$1'>$1</a>");
-    }
-/*
-    $('.highlight').each(function(i,el){
-        var codeWidth=$(this).find('code').outerWidth();
-        console.log(codeWidth);
-        $(this).width(codeWidth);
-    });
-    */
-
-
-    //TODO get from localStorage if available
-    $.getJSON("https://twitter.com/1/statuses/user_timeline.json?screen_name=jfoucher&count=4&callback=?",
-        function(data){
-            //TODO save to local storage if available
-            $.each(data, function(i,el){
-                var date=new Date(Date.parse(el.created_at));
-                var d=ISODateString(date);
-                $('#tweets').append('<li>'+replaceURLWithHTMLLinks(el.text)+'<span class="timeago" title="'+d+'">'+date.toLocaleDateString()+'</span></li>');
-
-            });
-            $(".timeago").timeago();
-
-        });
     $('a[href*=#]').click(function() {
 
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
@@ -79,7 +35,6 @@ $(document).ready(function(){
         });
 
         excerpt.hide();
-        console.log(1024);
         $('.highlight').hover(
             function(){
 
