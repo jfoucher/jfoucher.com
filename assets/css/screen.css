@@ -1197,6 +1197,9 @@ Utility clases
     width: 97.65625%;
     margin: 0 1.171875%;
   }
+  div.hero img {
+    display: none;
+  }
   #notebook .meta {
     display: inline;
     float: left;
