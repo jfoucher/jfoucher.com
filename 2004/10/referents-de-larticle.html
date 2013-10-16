@@ -16,7 +16,78 @@
 	<meta name="author" content="Jonathan Foucher" />
 	<meta name="designer" content="Jonathan Foucher" />
 	<meta name="developer" content="Jonathan Foucher" />
-	<meta name="description" content="A blog about web development, codeigniter and wordpress, by web developer Jonathan Foucher" />
+	<meta name="description" content="C'est un plugin pour Wordpress Qui montre les derniers sites d'o� sont venus vos visiteurs. Vous aurez besoin du plugin Stattraq.
+
+Installation :
+
+
+    Téléchargez et installez Stattraq.
+    Envoyer le fichier r�sultant � votre dossier /wp-content/plugins
+    Activez le plugin dans votre interface d'administration
+
+
+
+L'utilisation est simple :
+
+Ajouter le code suivant dans votre fichier index.php
+
+post_referrers(8, &quot;&lt;li&gt;&quot;, &quot;&lt;/li&gt;&quot;, &quot;Pas encore...&quot;, &quot;self&quot;);
+
+
+
+o� 8 est le nombre pe pages r�f�rentes   afficher, '&lt;li&gt;' est le texte   afficher avant chaque lien, '&lt;/li&gt;' est le texte   afficher apr�s chaque lien, 'Pas encore...' est le texte   afficher s'il n'y a pas encore de page r�f�rente. La derni�re option sert   exclure certains sites : En mettant 'self' (d�fault), les r�f�rents internes ne seront pas affich�s. Sinon, vous pouvez ecrire une liste de sites � ignorer, comme ceci :
+
+post_referrers(&#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;google.com yahoo.com exemple.com&#39;);
+
+
+
+Pour ne pas afficher les r�f�rents sur une page o� il y a plusieurs articles, utilisez une condition comme ceci:
+
+if ($single) post_referrers();
+
+
+
+Vous pouvez voir une d�monstration en bas des pages de ce blog, et n'h�sitez pas   laisser un commentaire si vous avez des probl�mes.
+
+Version 0.21 : utilisation de la redirection Google pour essayer de diminuer les spams de r�f�rents.
+
+English versionC'est un plugin pour Wordpress Qui montre les derniers sites d'o� sont venus vos visiteurs. Vous aurez besoin du plugin Stattraq.
+
+Installation :
+
+
+    T�l�chargez et installez Stattraq.
+    Envoyer le fichier r�sultant � votre dossier /wp-content/plugins
+    Activez le plugin dans votre interface d'administration
+
+
+
+L'utilisation est simple :
+
+Ajouter le code suivant dans votre fichier index.php
+
+post_referrers(8, &quot;&lt;li&gt;&quot;, &quot;&lt;/li&gt;&quot;, &quot;Pas encore...&quot;, &quot;self&quot;);
+
+
+
+o� 8 est le nombre pe pages r�f�rentes   afficher, '&lt;li&gt;' est le texte   afficher avant chaque lien, '&lt;/li&gt;' est le texte   afficher apr�s chaque lien, 'Pas encore...' est le texte   afficher s'il n'y a pas encore de page r�f�rente. La derni�re option sert   exclure certains sites : En mettant 'self' (d�fault), les r�f�rents internes ne seront pas affich�s. Sinon, vous pouvez ecrire une liste de sites � ignorer, comme ceci :
+
+post_referrers(&#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;google.com yahoo.com exemple.com&#39;);
+
+
+
+Pour ne pas afficher les r�f�rents sur une page o� il y a plusieurs articles, utilisez une condition comme ceci:
+
+if ($single) post_referrers();
+
+
+
+Vous pouvez voir une d�monstration en bas des pages de ce blog, et n'h�sitez pas   laisser un commentaire si vous avez des probl�mes.
+
+Version 0.21 : utilisation de la redirection Google pour essayer de diminuer les spams de r�f�rents.
+
+English version
+" />
 	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
@@ -102,7 +173,78 @@
                 <div class="hero">
 
                     <p>
-                        
+                        <p>C'est un plugin pour <a hreflang="en" href="http://wordpress.org">Wordpress</a> Qui montre les derniers sites d'o� sont venus vos visiteurs. Vous aurez besoin du plugin <a hreflang="en" href="http://randypeterman.com/StatTraq">Stattraq</a>.</p>
+
+<p>Installation :</p>
+
+<ol>
+    <li>Téléchargez et installez <a hreflang="en" href="http://randypeterman.com/StatTraq">Stattraq</a>.</li>
+    <li>Envoyer le fichier r�sultant � votre dossier /wp-content/plugins</li>
+    <li>Activez le plugin dans votre interface d'administration</li>
+</ol>
+
+
+<p>L'utilisation est simple :</p>
+
+<p>Ajouter le code suivant dans votre fichier index.php</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">post_referrers(8, &quot;&lt;li&gt;&quot;, &quot;&lt;/li&gt;&quot;, &quot;Pas encore...&quot;, &quot;self&quot;);</span>
+</code></pre></div>
+
+
+<p>o� 8 est le nombre pe pages r�f�rentes   afficher, '&lt;li&gt;' est le texte   afficher avant chaque lien, '&lt;/li&gt;' est le texte   afficher apr�s chaque lien, 'Pas encore...' est le texte   afficher s'il n'y a pas encore de page r�f�rente. La derni�re option sert   exclure certains sites : En mettant 'self' (d�fault), les r�f�rents internes ne seront pas affich�s. Sinon, vous pouvez ecrire une liste de sites � ignorer, comme ceci :</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">post_referrers(&#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;google.com yahoo.com exemple.com&#39;);</span>
+</code></pre></div>
+
+
+<p>Pour ne pas afficher les r�f�rents sur une page o� il y a plusieurs articles, utilisez une condition comme ceci:</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">if ($single) post_referrers();</span>
+</code></pre></div>
+
+
+<p>Vous pouvez voir une d�monstration en bas des pages de ce blog, et n'h�sitez pas   laisser un commentaire si vous avez des probl�mes.</p>
+
+<p>Version 0.21 : utilisation de la redirection Google pour essayer de diminuer les <a href="/?p=20">spams de r�f�rents</a>.</p>
+
+<p><a hreflang="en" href="/?p=37">English version</a>C'est un plugin pour <a hreflang="en" href="http://wordpress.org">Wordpress</a> Qui montre les derniers sites d'o� sont venus vos visiteurs. Vous aurez besoin du plugin <a hreflang="en" href="http://randypeterman.com/StatTraq">Stattraq</a>.</p>
+
+<p>Installation :</p>
+
+<ol>
+    <li>T�l�chargez et installez <a hreflang="en" href="http://randypeterman.com/StatTraq">Stattraq</a>.</li>
+    <li>Envoyer le fichier r�sultant � votre dossier /wp-content/plugins</li>
+    <li>Activez le plugin dans votre interface d'administration</li>
+</ol>
+
+
+<p>L'utilisation est simple :</p>
+
+<p>Ajouter le code suivant dans votre fichier index.php</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">post_referrers(8, &quot;&lt;li&gt;&quot;, &quot;&lt;/li&gt;&quot;, &quot;Pas encore...&quot;, &quot;self&quot;);</span>
+</code></pre></div>
+
+
+<p>o� 8 est le nombre pe pages r�f�rentes   afficher, '&lt;li&gt;' est le texte   afficher avant chaque lien, '&lt;/li&gt;' est le texte   afficher apr�s chaque lien, 'Pas encore...' est le texte   afficher s'il n'y a pas encore de page r�f�rente. La derni�re option sert   exclure certains sites : En mettant 'self' (d�fault), les r�f�rents internes ne seront pas affich�s. Sinon, vous pouvez ecrire une liste de sites � ignorer, comme ceci :</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">post_referrers(&#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;google.com yahoo.com exemple.com&#39;);</span>
+</code></pre></div>
+
+
+<p>Pour ne pas afficher les r�f�rents sur une page o� il y a plusieurs articles, utilisez une condition comme ceci:</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">if ($single) post_referrers();</span>
+</code></pre></div>
+
+
+<p>Vous pouvez voir une d�monstration en bas des pages de ce blog, et n'h�sitez pas   laisser un commentaire si vous avez des probl�mes.</p>
+
+<p>Version 0.21 : utilisation de la redirection Google pour essayer de diminuer les <a href="/?p=20">spams de r�f�rents</a>.</p>
+
+<p><a hreflang="en" href="/?p=37">English version</a></p>
+
                     </p>
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2004/10/referents-de-larticle.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->

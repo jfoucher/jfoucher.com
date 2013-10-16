@@ -16,7 +16,118 @@
 	<meta name="author" content="Jonathan Foucher" />
 	<meta name="designer" content="Jonathan Foucher" />
 	<meta name="developer" content="Jonathan Foucher" />
-	<meta name="description" content="A blog about web development, codeigniter and wordpress, by web developer Jonathan Foucher" />
+	<meta name="description" content="While looking for posts in the series, this plugin makes two database queries for each post in the series : one to find out if the post is published, and another to get the part number in the series. So if you have 30 posts in the series, you will get 60 queries from this plugin alone on each post belonging to that series. I found this very wasteful, and rewrote one function so that it only uses one database query, no matter what the number of posts in the series. I think the author should be interested...
+
+Basically, in the file series-utility.php, replace the function
+function get_series_order($posts, $postid = 0, $skip = TRUE)
+by the following one :
+
+&lt;?php
+function get_series_order($posts, $postid = 0, $skip = TRUE) {
+  global $wpdb;
+  if (!isset($posts)) return false; //don&#39;t have the posts array so can&#39;t do anything.
+
+  if ( !is_array( $posts )
+  $posts = array($posts);
+
+  $series_posts = array();
+  $key = 0;
+
+  foreach ($posts as $spost) {
+    if (array_key_exists(&#39;object_id&#39;, $posts)) {
+      if ($key!=0){
+        $spost_id .= &quot;,&quot;.$spost[&#39;object_id&#39;];
+      }else{
+        $spost_id .= $spost[&#39;object_id&#39;];
+      }
+    } else {
+      if ($key!=0){
+        $spost_id .= &quot;,&quot;.$spost;
+      }else{
+        $spost_id .= $spost;
+      }
+    }
+    $key++;
+  }
+
+  //Optimized : 1 SQL query instead of 2* number ofposts in series//
+  $results=$wpdb-&gt;get_results(&quot;SELECT $wpdb-&gt;posts.ID, $wpdb-&gt;postmeta.meta_value
+  FROM $wpdb-&gt;posts LEFT JOIN $wpdb-&gt;postmeta
+  ON($wpdb-&gt;posts.ID = $wpdb-&gt;postmeta.post_id)
+  WHERE post_status = &#39;publish&#39; AND $wpdb-&gt;posts.ID
+  IN (&quot;.$spost_id.&quot;) AND ener_postmeta.meta_key=&#39;&quot;.SERIES_PART_KEY.&quot;&#39;&quot;);
+  /* 208 - fix by Matt Porter - to make sure unpublished posts are not made part of a series */
+  foreach ($results as $num=&gt;$result) {
+    //echo &quot;&lt;h1&gt;resultat&quot;.$result-&gt;ID.$result&gt;meta_value.&quot;&lt;/h1&gt;&quot;;
+    $series_posts[$num][&#39;id&#39;] =$result-&gt;ID;
+    $series_posts[$num][&#39;part&#39;] = $result-&gt;meta_value;
+  }
+
+  if (count($series_posts) &gt; 1)
+    usort( $series_posts, &#39;_usort_series_by_part&#39; );
+
+  return $series_posts;
+}
+?&gt;
+
+
+
+And there you go, a faster blog...While looking for posts in the series, this plugin makes two database queries for each post in the series : one to find out if the post is published, and another to get the part number in the series. So if you have 30 posts in the series, you will get 60 queries from this plugin alone on each post belonging to that series. I found this very wasteful, and rewrote one function so that it only uses one database query, no matter what the number of posts in the series. I think the author should be interested...
+
+Basically, in the file series-utility.php, replace the function
+function get_series_order($posts, $postid = 0, $skip = TRUE)
+by the following one :
+
+&lt;?php
+function get_series_order($posts, $postid = 0, $skip = TRUE) {
+global $wpdb;
+if (!isset($posts)) return false; //don't have the posts array so can't do anything.
+
+if ( !is_array( $posts )
+$posts = array($posts);
+
+$series_posts = array();
+$key = 0;
+
+foreach ($posts as $spost) {
+if (array_key_exists('object_id', $posts)) {
+if ($key!=0){
+$spost_id .= ",".$spost['object_id'];
+}else{
+$spost_id .= $spost['object_id'];
+}
+} else {
+if ($key!=0){
+$spost_id .= ",".$spost;
+}else{
+$spost_id .= $spost;
+}
+}
+$key++;
+}
+
+//Optimized : 1 SQL query instead of 2 number ofposts in series//
+$results=$wpdb-&gt;get_results("SELECT $wpdb-&gt;posts.ID, $wpdb-&gt;postmeta.meta_value
+FROM $wpdb-&gt;posts LEFT JOIN $wpdb-&gt;postmeta
+ON($wpdb-&gt;posts.ID = $wpdb-&gt;postmeta.post_id)
+WHERE post_status = 'publish' AND $wpdb-&gt;posts.ID
+IN (".$spost_id.") AND ener_postmeta.meta_key='".SERIES_PART_KEY."'");
+/ 208 - fix by Matt Porter - to make sure unpublished posts are not made part of a series */
+foreach ($results as $num=&gt;$result) {
+//echo "&lt;h1&gt;resultat".$result-&gt;ID.$result-&gt;meta_value."&lt;/h1&gt;";
+$series_posts[$num]['id'] =$result-&gt;ID;
+$series_posts[$num]['part'] = $result-&gt;meta_value;
+}
+
+if (count($series_posts) &gt; 1)
+usort( $series_posts, '_usort_series_by_part' );
+
+return $series_posts;
+}
+?&gt;
+
+And there you go, a faster blog...
+" />
 	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
@@ -102,7 +213,118 @@
                 <div class="hero">
 
                     <p>
-                        
+                        <p>While looking for posts in the series, this plugin makes two database queries for each post in the series : one to find out if the post is published, and another to get the part number in the series. So if you have 30 posts in the series, you will get 60 queries from this plugin alone on each post belonging to that series. I found this very wasteful, and rewrote one function so that it only uses one database query, no matter what the number of posts in the series. I think <a href="http://unfoldingneurons.com">the author</a> should be interested...</p>
+
+<p>Basically, in the file series-utility.php, replace the function
+function get_series_order($posts, $postid = 0, $skip = TRUE)
+by the following one :</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">get_series_order</span><span class="p">(</span><span class="nv">$posts</span><span class="p">,</span> <span class="nv">$postid</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">$skip</span> <span class="o">=</span> <span class="k">TRUE</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">global</span> <span class="nv">$wpdb</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$posts</span><span class="p">))</span> <span class="k">return</span> <span class="k">false</span><span class="p">;</span> <span class="c1">//don&#39;t have the posts array so can&#39;t do anything.</span>
+
+  <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nb">is_array</span><span class="p">(</span> <span class="nv">$posts</span> <span class="p">)</span>
+  <span class="nv">$posts</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$posts</span><span class="p">);</span>
+
+  <span class="nv">$series_posts</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+  <span class="nv">$key</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="k">foreach</span> <span class="p">(</span><span class="nv">$posts</span> <span class="k">as</span> <span class="nv">$spost</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">array_key_exists</span><span class="p">(</span><span class="s1">&#39;object_id&#39;</span><span class="p">,</span> <span class="nv">$posts</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nv">$key</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span>
+        <span class="nv">$spost_id</span> <span class="o">.=</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="nv">$spost</span><span class="p">[</span><span class="s1">&#39;object_id&#39;</span><span class="p">];</span>
+      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nv">$spost_id</span> <span class="o">.=</span> <span class="nv">$spost</span><span class="p">[</span><span class="s1">&#39;object_id&#39;</span><span class="p">];</span>
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nv">$key</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span>
+        <span class="nv">$spost_id</span> <span class="o">.=</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="nv">$spost</span><span class="p">;</span>
+      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nv">$spost_id</span> <span class="o">.=</span> <span class="nv">$spost</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nv">$key</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">//Optimized : 1 SQL query instead of 2* number ofposts in series//</span>
+  <span class="nv">$results</span><span class="o">=</span><span class="nv">$wpdb</span><span class="o">-&gt;</span><span class="na">get_results</span><span class="p">(</span><span class="s2">&quot;SELECT </span><span class="si">$wpdb-&gt;posts</span><span class="s2">.ID, </span><span class="si">$wpdb-&gt;postmeta</span><span class="s2">.meta_value</span>
+<span class="s2">  FROM </span><span class="si">$wpdb-&gt;posts</span><span class="s2"> LEFT JOIN </span><span class="si">$wpdb-&gt;postmeta</span><span class="s2"></span>
+<span class="s2">  ON(</span><span class="si">$wpdb-&gt;posts</span><span class="s2">.ID = </span><span class="si">$wpdb-&gt;postmeta</span><span class="s2">.post_id)</span>
+<span class="s2">  WHERE post_status = &#39;publish&#39; AND </span><span class="si">$wpdb-&gt;posts</span><span class="s2">.ID</span>
+<span class="s2">  IN (&quot;</span><span class="o">.</span><span class="nv">$spost_id</span><span class="o">.</span><span class="s2">&quot;) AND ener_postmeta.meta_key=&#39;&quot;</span><span class="o">.</span><span class="nx">SERIES_PART_KEY</span><span class="o">.</span><span class="s2">&quot;&#39;&quot;</span><span class="p">);</span>
+  <span class="cm">/* 208 - fix by Matt Porter - to make sure unpublished posts are not made part of a series */</span>
+  <span class="k">foreach</span> <span class="p">(</span><span class="nv">$results</span> <span class="k">as</span> <span class="nv">$num</span><span class="o">=&gt;</span><span class="nv">$result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//echo &quot;&lt;h1&gt;resultat&quot;.$result-&gt;ID.$result&gt;meta_value.&quot;&lt;/h1&gt;&quot;;</span>
+    <span class="nv">$series_posts</span><span class="p">[</span><span class="nv">$num</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span><span class="nv">$result</span><span class="o">-&gt;</span><span class="na">ID</span><span class="p">;</span>
+    <span class="nv">$series_posts</span><span class="p">[</span><span class="nv">$num</span><span class="p">][</span><span class="s1">&#39;part&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$result</span><span class="o">-&gt;</span><span class="na">meta_value</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$series_posts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nb">usort</span><span class="p">(</span> <span class="nv">$series_posts</span><span class="p">,</span> <span class="s1">&#39;_usort_series_by_part&#39;</span> <span class="p">);</span>
+
+  <span class="k">return</span> <span class="nv">$series_posts</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p>And there you go, a faster blog...While looking for posts in the series, this plugin makes two database queries for each post in the series : one to find out if the post is published, and another to get the part number in the series. So if you have 30 posts in the series, you will get 60 queries from this plugin alone on each post belonging to that series. I found this very wasteful, and rewrote one function so that it only uses one database query, no matter what the number of posts in the series. I think <a href="http://unfoldingneurons.com">the author</a> should be interested...</p>
+
+<p>Basically, in the file series-utility.php, replace the function
+function get_series_order($posts, $postid = 0, $skip = TRUE)
+by the following one :</p>
+
+<p>&lt;?php
+function get_series_order($posts, $postid = 0, $skip = TRUE) {
+global $wpdb;
+if (!isset($posts)) return false; //don't have the posts array so can't do anything.</p>
+
+<p>if ( !is_array( $posts )
+$posts = array($posts);</p>
+
+<p>$series_posts = array();
+$key = 0;</p>
+
+<p>foreach ($posts as $spost) {
+if (array_key_exists('object_id', $posts)) {
+if ($key!=0){
+$spost_id .= ",".$spost['object_id'];
+}else{
+$spost_id .= $spost['object_id'];
+}
+} else {
+if ($key!=0){
+$spost_id .= ",".$spost;
+}else{
+$spost_id .= $spost;
+}
+}
+$key++;
+}</p>
+
+<p>//Optimized : 1 SQL query instead of 2<em> number ofposts in series//
+$results=$wpdb-&gt;get_results("SELECT $wpdb-&gt;posts.ID, $wpdb-&gt;postmeta.meta_value
+FROM $wpdb-&gt;posts LEFT JOIN $wpdb-&gt;postmeta
+ON($wpdb-&gt;posts.ID = $wpdb-&gt;postmeta.post_id)
+WHERE post_status = 'publish' AND $wpdb-&gt;posts.ID
+IN (".$spost_id.") AND ener_postmeta.meta_key='".SERIES_PART_KEY."'");
+/</em> 208 - fix by Matt Porter - to make sure unpublished posts are not made part of a series */
+foreach ($results as $num=&gt;$result) {
+//echo "&lt;h1&gt;resultat".$result-&gt;ID.$result-&gt;meta_value."&lt;/h1&gt;";
+$series_posts[$num]['id'] =$result-&gt;ID;
+$series_posts[$num]['part'] = $result-&gt;meta_value;
+}</p>
+
+<p>if (count($series_posts) &gt; 1)
+usort( $series_posts, '_usort_series_by_part' );</p>
+
+<p>return $series_posts;
+}
+?&gt;</p>
+
+<p>And there you go, a faster blog...</p>
+
                     </p>
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2009/05/organize-series-plugin-database-optimization.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->

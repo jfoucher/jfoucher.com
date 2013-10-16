@@ -16,7 +16,89 @@
 	<meta name="author" content="Jonathan Foucher" />
 	<meta name="designer" content="Jonathan Foucher" />
 	<meta name="developer" content="Jonathan Foucher" />
-	<meta name="description" content="A blog about web development, codeigniter and wordpress, by web developer Jonathan Foucher" />
+	<meta name="description" content="Le Problème
+
+C'est que si vous utilisez une structure des permaliens où l'id du billet n'est pas présente, telle que celle-ci:
+
+     /%year%/%monthnum%/%day%/%postname%/
+
+
+
+L'id du billet n'est pas ajouté à la table de Stat Traq, ce qui fait que mon plugin Populaires ne comprend plus ce qu'il lui arrive. La solution est en fait très simple
+
+La Solution (j'espère)
+
+Dans le fichier stattraq.php, vous trouverez les lignes suivantes (25 et 26)
+
+    if (($p != &#39;&#39;)){
+    $p = intval($p);
+
+
+
+Mais la variable
+
+$p
+
+
+
+ n'existe que si le billet est sélectionné par son id. S'il a été selectionné par nom,
+
+$p
+
+
+
+ est nul.
+
+Il faut donc remplacer les lignes ci-dessus par celles-la
+
+     if (($post-&gt;ID != &#39;&#39;)){
+     $p = intval($post-&gt;ID);
+
+
+
+Et ça a l'air de marcher avec tous les schémas de réécriture.
+Le Problème
+
+C'est que si vous utilisez une structure des permaliens où l'id du billet n'est pas présente, telle que celle-ci:
+
+     /%year%/%monthnum%/%day%/%postname%/
+
+
+
+L'id du billet n'est pas ajouté à la table de Stat Traq, ce qui fait que mon plugin Populaires ne comprend plus ce qu'il lui arrive. La solution est en fait très simple
+
+La Solution (j'espère)
+
+Dans le fichier stattraq.php, vous trouverez les lignes suivantes (25 et 26)
+
+    if (($p != &#39;&#39;)){
+    $p = intval($p);
+
+
+
+Mais la variable
+
+$p
+
+
+
+ n'existe que si le billet est sélectionné par son id. S'il a été selectionné par nom,
+
+$p
+
+
+
+ est nul.
+
+Il faut donc remplacer les lignes ci-dessus par celles-la
+
+     if (($post-&gt;ID != &#39;&#39;)){
+     $p = intval($post-&gt;ID);
+
+
+
+Et ça a l'air de marcher avec tous les schémas de réécriture.
+" />
 	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
@@ -102,7 +184,89 @@
                 <div class="hero">
 
                     <p>
-                        
+                        <p><strong>Le Problème</strong></p>
+
+<p>C'est que si vous utilisez une structure des permaliens où l'id du billet n'est pas présente, telle que celle-ci:</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">     /%year%/%monthnum%/%day%/%postname%/</span>
+</code></pre></div>
+
+
+<p>L'id du billet n'est pas ajouté à la table de Stat Traq, ce qui fait que mon plugin <a href="http://jfoucher.com/2004/10/popular-posts-wordpress-plugin">Populaires</a> ne comprend plus ce qu'il lui arrive. La solution est en fait très simple</p>
+
+<p><strong>La Solution</strong> (j'espère)</p>
+
+<p>Dans le fichier stattraq.php, vous trouverez les lignes suivantes (25 et 26)</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">    if (($p != &#39;&#39;)){</span>
+<span class="x">    $p = intval($p);</span>
+</code></pre></div>
+
+
+<p>Mais la variable</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">$p</span>
+</code></pre></div>
+
+
+<p> n'existe que si le billet est sélectionné par son id. S'il a été selectionné par nom,</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">$p</span>
+</code></pre></div>
+
+
+<p> est nul.</p>
+
+<p>Il faut donc remplacer les lignes ci-dessus par celles-la</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">     if (($post-&gt;ID != &#39;&#39;)){</span>
+<span class="x">     $p = intval($post-&gt;ID);</span>
+</code></pre></div>
+
+
+<p>Et ça a l'air de marcher avec tous les schémas de réécriture.
+<strong>Le Problème</strong></p>
+
+<p>C'est que si vous utilisez une structure des permaliens où l'id du billet n'est pas présente, telle que celle-ci:</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">     /%year%/%monthnum%/%day%/%postname%/</span>
+</code></pre></div>
+
+
+<p>L'id du billet n'est pas ajouté à la table de Stat Traq, ce qui fait que mon plugin <a href="http://jfoucher.com/2004/10/popular-posts-wordpress-plugin">Populaires</a> ne comprend plus ce qu'il lui arrive. La solution est en fait très simple</p>
+
+<p><strong>La Solution</strong> (j'espère)</p>
+
+<p>Dans le fichier stattraq.php, vous trouverez les lignes suivantes (25 et 26)</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">    if (($p != &#39;&#39;)){</span>
+<span class="x">    $p = intval($p);</span>
+</code></pre></div>
+
+
+<p>Mais la variable</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">$p</span>
+</code></pre></div>
+
+
+<p> n'existe que si le billet est sélectionné par son id. S'il a été selectionné par nom,</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">$p</span>
+</code></pre></div>
+
+
+<p> est nul.</p>
+
+<p>Il faut donc remplacer les lignes ci-dessus par celles-la</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">     if (($post-&gt;ID != &#39;&#39;)){</span>
+<span class="x">     $p = intval($post-&gt;ID);</span>
+</code></pre></div>
+
+
+<p>Et ça a l'air de marcher avec tous les schémas de réécriture.</p>
+
                     </p>
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2004/10/avis-aux-utilisateurs-des-extensions-pour-stattraq.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
