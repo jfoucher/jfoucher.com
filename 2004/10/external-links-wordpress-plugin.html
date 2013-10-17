@@ -16,9 +16,7 @@
 	<meta name="author" content="Jonathan Foucher" />
 	<meta name="designer" content="Jonathan Foucher" />
 	<meta name="developer" content="Jonathan Foucher" />
-	<meta name="description" content="External links:
-The little images that appear after an external link on this site used to be created by pure CSS, using the following rules:
-" />
+	<meta name="description" content="External links:" />
 	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
@@ -104,9 +102,7 @@ The little images that appear after an external link on this site used to be cre
                 <div class="hero">
 
                     <p>
-                        <p><strong>External links:</strong><br />
-The little images that appear after an external link on this site used to be created by pure CSS, using the following rules:</p>
-
+                        <h3 id='external_links'>External links:</h3>
                     </p>
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2004/10/external-links-wordpress-plugin.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
@@ -129,49 +125,51 @@ The little images that appear after an external link on this site used to be cre
             </div> <!-- /.meta -->
             <div id="entry-content">
 
-                <p><strong>External links:</strong><br />
-The little images that appear after an external link on this site used to be created by pure CSS, using the following rules:</p>
+                <h3 id='external_links'>External links:</h3>
 
-<pre><code>.commentlist a[href*="http"], .storycontent a[href*="http"]
+<p>The little images that appear after an external link on this site used to be created by pure CSS, using the following rules:</p>
+
+<pre><code>.commentlist a[href*=&quot;http&quot;], .storycontent a[href*=&quot;http&quot;]
 {
     padding-right: 12px;
-    background: url('/wp-images/ext-link.gif') right top no-repeat;
+    background: url(&#39;/wp-images/ext-link.gif&#39;) right top no-repeat;
 }
-.commentlist a[href*="jfoucher.info"], .storycontent a[href*="jfoucher.info"]
+.commentlist a[href*=&quot;jfoucher.info&quot;], .storycontent a[href*=&quot;jfoucher.info&quot;]
 {
     padding-right: 0;
     background-image: none;
-}
-</code></pre>
+}</code></pre>
 
 <p>But, as you may know, this does not work in Internet Explorer. So I decided to write a little plugin that would give a specific class attribute to all external links, so that they can be styled in a manner recognizable to IE.</p>
 
-<p><strong>Languages</strong><br />
-Additionally, as this is a bilingual blog, I like to show an language text after each link, like <a href="http://daniel.glazman.free.fr/weblog/archived/2002_09_15_glazblogarc.html#81664011" hreflang="en">this</a>. I used to do it in pure CSS, like so:</p>
+<h3 id='languages'>Languages</h3>
+
+<p>Additionally, as this is a bilingual blog, I like to show an language text after each link, like <a hreflang='en' href='http://daniel.glazman.free.fr/weblog/archived/2002_09_15_glazblogarc.html#81664011'>this</a>. I used to do it in pure CSS, like so:</p>
 
 <pre><code> a[hreflang]:after {
-      content:"000a0[" attr(hreflang) "]";
+      content:&quot;000a0[&quot; attr(hreflang) &quot;]&quot;;
       color:#999;
       background:transparent;
       font-size:0.8em
- }
-</code></pre>
+ }</code></pre>
 
-<p>but you guessed it, it doesn't work in IE, so this little plugin takes care of that as well... All you need to do is add an hreflang="whatever" attribute to your links.</p>
+<p>but you guessed it, it doesn&#8217;t work in IE, so this little plugin takes care of that as well&#8230; All you need to do is add an hreflang=&#8221;whatever&#8221; attribute to your links.</p>
 
-<p><strong>Installation:</strong><br /></p>
+<h3 id='installation'>Installation:</h3>
 
-<ol>
-<li>Download the <a href="http://jfoucher.com/source/external_links.gz>gzip file</a></li>
+<ul>
+<li>Download the <a href='http://jfoucher.com/source/external_links.gz'>gzip file</a></li>
+
 <li>Extract it</li>
+
 <li>Upload the resulting file to your wp-content/plugins directory</li>
+
 <li>Activate through the admin interface</li>
-</ol>
+</ul>
 
+<p>That&#8217;s it ! Now you can define styles:</p>
 
-<p>That's it ! Now you can define styles:</p>
-
-<p><strong>For example:</strong><br /></p>
+<h3 id='for_example'>For example:</h3>
 
 <pre><code> /* External links style */
  a.external-link, a.external-link:visited
@@ -191,9 +189,7 @@ Additionally, as this is a bilingual blog, I like to show an language text after
  .hreflang {
       font-size:0.8em;
       color:#bbb
- }
-</code></pre>
-
+ }</code></pre>
 
 
 
