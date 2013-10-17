@@ -127,7 +127,7 @@
 
                 <p>What&#8217;s the best way to learn a new programming language ? Well, according to <a href='http://programmers.stackexchange.com/q/3519/3984'>this question</a> the best (only ?) way to learn a new language is just to code in that language. <h3>Why Python ?</h3> Because it&#8217;s <a href='http://en.wikipedia.org/wiki/Python_(programming_language)#Name_and_neologisms'>named after the Monty Python</a></p>
 
-<p>No, seriously, that&#8217;s why :<a href='http://xkcd.com/353/'><img height='300' title='python' class='aligncenter size-medium wp-image-201' src='http://jfoucher.com/uploads/2011/01/python-264x300.png' width='264' alt='I wrote 20 short programs in Python yesterday.  It was wonderful.  Perl, I&apos;m leaving you.' /></a>No, not this &#8220;that&#8217;s why&#8221;! <a href='http://programmers.stackexchange.com/questions/10675/ideal-programming-language-learning-sequence#answer-10748'>That one</a></p>
+<p>No, seriously, that&#8217;s why :<a href='http://xkcd.com/353/'><img width='264' height='300' class='aligncenter size-medium wp-image-201' title='python' alt='I wrote 20 short programs in Python yesterday.  It was wonderful.  Perl, I&apos;m leaving you.' src='http://jfoucher.com/uploads/2011/01/python-264x300.png' /></a>No, not this &#8220;that&#8217;s why&#8221;! <a href='http://programmers.stackexchange.com/questions/10675/ideal-programming-language-learning-sequence#answer-10748'>That one</a></p>
 
 <p>If you are just starting out as a programmer, I cannot recommend <a href='http://learnpythonthehardway.org/'>Learn Python The Hard Way</a> highly enough. It is an excellent introduction to the ideas and skills you will need as a programmer, starting from the very basics, like you&#8217;ve never seen a for loop in your life. Actually the first 10 or so lessons do not include ANY control structures!</p>
 
@@ -183,7 +183,7 @@
 			<span class='k'>print</span> <span class='s'>&quot;Please open skype first&quot;</span>
 			<span class='bp'>self</span><span class='o'>.</span><span class='n'>noSkype</span><span class='p'>()</span>
 </code></pre></div>
-<p>This basically tries to start skype if it is not already started and calls noSkype() if it couldn&#8217;t start it. noSype() shows a notification message to let the user know that they have to start Skype. <a href='http://jfoucher.com/uploads/2011/01/skype-not-started.png'><img height='213' title='skype-not-started' class='aligncenter size-full wp-image-256' src='http://jfoucher.com/uploads/2011/01/skype-not-started.png' width='428' alt='Error shown if Skype is not running' /></a></p>
+<p>This basically tries to start skype if it is not already started and calls noSkype() if it couldn&#8217;t start it. noSype() shows a notification message to let the user know that they have to start Skype. <a href='http://jfoucher.com/uploads/2011/01/skype-not-started.png'><img width='428' height='213' class='aligncenter size-full wp-image-256' title='skype-not-started' alt='Error shown if Skype is not running' src='http://jfoucher.com/uploads/2011/01/skype-not-started.png' /></a></p>
 
 <p>This next function is where the meat of the process takes place. Please read the inline comments to understand how it works, and ask for clarification by <a href='#respond'>posting a comment</a>.</p>
 <div class='highlight'><pre><code class='python'>	<span class='k'>def</span> <span class='nf'>create_indicators</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
@@ -280,7 +280,7 @@
 		<span class='c'># Loop runs as long as true is returned</span>
 		<span class='k'>return</span> <span class='bp'>True</span>
 </code></pre></div>
-<p>When a new messages arrives, this is what the messaging menu looks like <a href='http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png'><img height='256' title='skype-indicator-menu' class='aligncenter size-full wp-image-258' src='http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png' width='376' alt='Messaging menu open qith unread messages' /></a></p>
+<p>When a new messages arrives, this is what the messaging menu looks like <a href='http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png'><img width='376' height='256' class='aligncenter size-full wp-image-258' title='skype-indicator-menu' alt='Messaging menu open qith unread messages' src='http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png' /></a></p>
 
 <p>The function that gets unread skype messages is as follows For each message, we add it to a list containg the messages from a particular user in the self.unread dictionary.</p>
 <div class='highlight'><pre><code class='python'>	<span class='k'>def</span> <span class='nf'>get_messages</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
@@ -323,7 +323,7 @@
 
 		<span class='k'>return</span> <span class='n'>n</span>
 </code></pre></div>
-<p>This is what it looks like with three new messages <a href='http://jfoucher.com/uploads/2011/01/skype-indicator.png'><img height='232' title='skype-indicator' class='aligncenter size-full wp-image-253' src='http://jfoucher.com/uploads/2011/01/skype-indicator.png' width='428' alt='The Ubuntu skype indicator with three new messages' /></a></p>
+<p>This is what it looks like with three new messages <a href='http://jfoucher.com/uploads/2011/01/skype-indicator.png'><img width='428' height='232' class='aligncenter size-full wp-image-253' title='skype-indicator' alt='The Ubuntu skype indicator with three new messages' src='http://jfoucher.com/uploads/2011/01/skype-indicator.png' /></a></p>
 
 <p>The next one shows the popup notification that skype is not loaded :</p>
 <div class='highlight'><pre><code class='python'>	<span class='k'>def</span> <span class='nf'>noSkype</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>

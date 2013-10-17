@@ -385,14 +385,14 @@
 					</li>
                     
 					<li>
-						<a href="/2009/06/wpfeedly-theme-download.html#notebook" title="<p><img src='http://jfoucher.com/uploads/2009/06/screenshot1.png' alt='WP-Feedly Screenshot' /></p>">
+						<a href="/2009/06/wpfeedly-theme-download.html#notebook" title="<p><img alt='WP-Feedly Screenshot' src='http://jfoucher.com/uploads/2009/06/screenshot1.png' /></p>">
 							<span class="date">
 								<span class="day">27</span>
 								<span class="month"><abbr>Jun</abbr></span>
 								<span class="year">2009</span>
 							</span>
 							<span class="title">WP-Feedly theme available for download</span>
-                            <span class="excerpt"><p><img src='http://jfoucher.com/uploads/2009/06/screenshot1.png' alt='WP-Feedly Screenshot' /></p></span>
+                            <span class="excerpt"><p><img alt='WP-Feedly Screenshot' src='http://jfoucher.com/uploads/2009/06/screenshot1.png' /></p></span>
 						</a>
 					</li>
                     
@@ -409,26 +409,26 @@
 					</li>
                     
 					<li>
-						<a href="/2009/06/post-sorting-plugin.html#notebook" title="<p><img src='http://www.flickr.com/photos/storm-crypt/326228715/' alt='Sorting' /></p>">
+						<a href="/2009/06/post-sorting-plugin.html#notebook" title="<p><img alt='Sorting' src='http://www.flickr.com/photos/storm-crypt/326228715/' /></p>">
 							<span class="date">
 								<span class="day">16</span>
 								<span class="month"><abbr>Jun</abbr></span>
 								<span class="year">2009</span>
 							</span>
 							<span class="title">Post sorting plugin</span>
-                            <span class="excerpt"><p><img src='http://www.flickr.com/photos/storm-crypt/326228715/' alt='Sorting' /></p></span>
+                            <span class="excerpt"><p><img alt='Sorting' src='http://www.flickr.com/photos/storm-crypt/326228715/' /></p></span>
 						</a>
 					</li>
                     
 					<li>
-						<a href="/2009/06/beta-testers-wanted.html#notebook" title="<p><img src='http://jfoucher.com/uploads/2009/06/crashtestzombie.jpg' alt='Beta Testing: me too, me too!' /></p>">
+						<a href="/2009/06/beta-testers-wanted.html#notebook" title="<p><img alt='Beta Testing: me too, me too!' src='http://jfoucher.com/uploads/2009/06/crashtestzombie.jpg' /></p>">
 							<span class="date">
 								<span class="day">13</span>
 								<span class="month"><abbr>Jun</abbr></span>
 								<span class="year">2009</span>
 							</span>
 							<span class="title">Beta testers wanted</span>
-                            <span class="excerpt"><p><img src='http://jfoucher.com/uploads/2009/06/crashtestzombie.jpg' alt='Beta Testing: me too, me too!' /></p></span>
+                            <span class="excerpt"><p><img alt='Beta Testing: me too, me too!' src='http://jfoucher.com/uploads/2009/06/crashtestzombie.jpg' /></p></span>
 						</a>
 					</li>
                     
@@ -469,354 +469,110 @@
 					</li>
                     
 					<li>
-						<a href="/2009/05/organize-series-plugin-database-optimization.html#notebook" title="<p>While looking for posts in the series, this plugin makes two database queries for each post in the series : one to find out if the post is published, and another to get the part number in the series. So if you have 30 posts in the series, you will get 60 queries from this plugin alone on each post belonging to that series. I found this very wasteful, and rewrote one function so that it only uses one database query, no matter what the number of posts in the series. I think <a href='http://unfoldingneurons.com'>the author</a> should be interested&#8230;</p>
-
-<p>Basically, in the file series-utility.php, replace the function function get_series_order($posts, $postid = 0, $skip = TRUE) by the following one :</p>
-<div class='highlight'><pre><code class='php'><span class='x'>    </span><span class='cp'>&lt;?php</span>
-      <span class='k'>function</span> <span class='nf'>get_series_order</span><span class='p'>(</span><span class='nv'>$posts</span><span class='p'>,</span> <span class='nv'>$postid</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>,</span> <span class='nv'>$skip</span> <span class='o'>=</span> <span class='k'>TRUE</span><span class='p'>)</span> <span class='p'>{</span>
-      <span class='k'>global</span> <span class='nv'>$wpdb</span><span class='p'>;</span>
-      <span class='k'>if</span> <span class='p'>(</span><span class='o'>!</span><span class='nb'>isset</span><span class='p'>(</span><span class='nv'>$posts</span><span class='p'>))</span> <span class='k'>return</span> <span class='k'>false</span><span class='p'>;</span> <span class='c1'>//don&#39;t have the posts array so can&#39;t do anything.</span>
-
-      <span class='k'>if</span> <span class='p'>(</span> <span class='o'>!</span><span class='nb'>is_array</span><span class='p'>(</span> <span class='nv'>$posts</span> <span class='p'>)</span>
-      <span class='nv'>$posts</span> <span class='o'>=</span> <span class='k'>array</span><span class='p'>(</span><span class='nv'>$posts</span><span class='p'>);</span>
-
-      <span class='nv'>$series_posts</span> <span class='o'>=</span> <span class='k'>array</span><span class='p'>();</span>
-      <span class='nv'>$key</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span>
-
-      <span class='k'>foreach</span> <span class='p'>(</span><span class='nv'>$posts</span> <span class='k'>as</span> <span class='nv'>$spost</span><span class='p'>)</span> <span class='p'>{</span>
-        <span class='k'>if</span> <span class='p'>(</span><span class='nb'>array_key_exists</span><span class='p'>(</span><span class='s1'>&#39;object_id&#39;</span><span class='p'>,</span> <span class='nv'>$posts</span><span class='p'>))</span> <span class='p'>{</span>
-          <span class='k'>if</span> <span class='p'>(</span><span class='nv'>$key</span><span class='o'>!=</span><span class='mi'>0</span><span class='p'>){</span>
-            <span class='nv'>$spost_id</span> <span class='o'>.=</span> <span class='s2'>&quot;,&quot;</span><span class='o'>.</span><span class='nv'>$spost</span><span class='p'>[</span><span class='s1'>&#39;object_id&#39;</span><span class='p'>];</span>
-          <span class='p'>}</span><span class='k'>else</span><span class='p'>{</span>
-            <span class='nv'>$spost_id</span> <span class='o'>.=</span> <span class='nv'>$spost</span><span class='p'>[</span><span class='s1'>&#39;object_id&#39;</span><span class='p'>];</span>
-          <span class='p'>}</span>
-        <span class='p'>}</span> <span class='k'>else</span> <span class='p'>{</span>
-          <span class='k'>if</span> <span class='p'>(</span><span class='nv'>$key</span><span class='o'>!=</span><span class='mi'>0</span><span class='p'>){</span>
-            <span class='nv'>$spost_id</span> <span class='o'>.=</span> <span class='s2'>&quot;,&quot;</span><span class='o'>.</span><span class='nv'>$spost</span><span class='p'>;</span>
-          <span class='p'>}</span><span class='k'>else</span><span class='p'>{</span>
-            <span class='nv'>$spost_id</span> <span class='o'>.=</span> <span class='nv'>$spost</span><span class='p'>;</span>
-          <span class='p'>}</span>
-        <span class='p'>}</span>
-        <span class='nv'>$key</span><span class='o'>++</span><span class='p'>;</span>
-      <span class='p'>}</span>
-
-      <span class='c1'>//Optimized : 1 SQL query instead of 2* number ofposts in series//</span>
-      <span class='nv'>$results</span><span class='o'>=</span><span class='nv'>$wpdb</span><span class='o'>-&gt;</span><span class='na'>get_results</span><span class='p'>(</span><span class='s2'>&quot;SELECT </span><span class='si'>$wpdb-&gt;posts</span><span class='s2'>.ID, </span><span class='si'>$wpdb-&gt;postmeta</span><span class='s2'>.meta_value</span>
-<span class='s2'>      FROM </span><span class='si'>$wpdb-&gt;posts</span><span class='s2'> LEFT JOIN </span><span class='si'>$wpdb-&gt;postmeta</span><span class='s2' />
-<span class='s2'>      ON(</span><span class='si'>$wpdb-&gt;posts</span><span class='s2'>.ID = </span><span class='si'>$wpdb-&gt;postmeta</span><span class='s2'>.post_id)</span>
-<span class='s2'>      WHERE post_status = &#39;publish&#39; AND </span><span class='si'>$wpdb-&gt;posts</span><span class='s2'>.ID</span>
-<span class='s2'>      IN (&quot;</span><span class='o'>.</span><span class='nv'>$spost_id</span><span class='o'>.</span><span class='s2'>&quot;) AND ener_postmeta.meta_key=&#39;&quot;</span><span class='o'>.</span><span class='nx'>SERIES_PART_KEY</span><span class='o'>.</span><span class='s2'>&quot;&#39;&quot;</span><span class='p'>);</span>
-      <span class='cm'>/* 208 - fix by Matt Porter - to make sure unpublished posts are not made part of a series */</span>
-      <span class='k'>foreach</span> <span class='p'>(</span><span class='nv'>$results</span> <span class='k'>as</span> <span class='nv'>$num</span><span class='o'>=&gt;</span><span class='nv'>$result</span><span class='p'>)</span> <span class='p'>{</span>
-        <span class='c1'>//echo &quot;&lt;h1&gt;resultat&quot;.$result-&gt;ID.$result&gt;meta_value.&quot;&lt;/h1&gt;&quot;;</span>
-        <span class='nv'>$series_posts</span><span class='p'>[</span><span class='nv'>$num</span><span class='p'>][</span><span class='s1'>&#39;id&#39;</span><span class='p'>]</span> <span class='o'>=</span><span class='nv'>$result</span><span class='o'>-&gt;</span><span class='na'>ID</span><span class='p'>;</span>
-        <span class='nv'>$series_posts</span><span class='p'>[</span><span class='nv'>$num</span><span class='p'>][</span><span class='s1'>&#39;part&#39;</span><span class='p'>]</span> <span class='o'>=</span> <span class='nv'>$result</span><span class='o'>-&gt;</span><span class='na'>meta_value</span><span class='p'>;</span>
-      <span class='p'>}</span>
-
-      <span class='k'>if</span> <span class='p'>(</span><span class='nb'>count</span><span class='p'>(</span><span class='nv'>$series_posts</span><span class='p'>)</span> <span class='o'>&gt;</span> <span class='mi'>1</span><span class='p'>)</span>
-        <span class='nb'>usort</span><span class='p'>(</span> <span class='nv'>$series_posts</span><span class='p'>,</span> <span class='s1'>&#39;_usort_series_by_part&#39;</span> <span class='p'>);</span>
-
-      <span class='k'>return</span> <span class='nv'>$series_posts</span><span class='p'>;</span>
-    <span class='p'>}</span>
-    <span class='cp'>?&gt;</span><span class='x' />
-</code></pre></div>
-<p>And there you go, a faster blog&#8230;While looking for posts in the series, this plugin makes two database queries for each post in the series : one to find out if the post is published, and another to get the part number in the series. So if you have 30 posts in the series, you will get 60 queries from this plugin alone on each post belonging to that series. I found this very wasteful, and rewrote one function so that it only uses one database query, no matter what the number of posts in the series. I think <a href='http://unfoldingneurons.com'>the author</a> should be interested&#8230;</p>
-
-<p>Basically, in the file series-utility.php, replace the function function get_series_order($posts, $postid = 0, $skip = TRUE) by the following one :</p>
-
-<pre><code>&lt;?php
-function get_series_order($posts, $postid = 0, $skip = TRUE) {
-    global $wpdb;
-    if (!isset($posts)) return false; //don&#39;t have the posts array so can&#39;t do anything.
-
-    if ( !is_array( $posts )
-        $posts = array($posts);
-
-    $series_posts = array();
-    $key = 0;
-
-    foreach ($posts as $spost) {
-        if (array_key_exists(&#39;object_id&#39;, $posts)) {
-            if ($key!=0){
-                $spost_id .= &quot;,&quot;.$spost[&#39;object_id&#39;];
-            }else{
-                $spost_id .= $spost[&#39;object_id&#39;];
-            }
-        } else {
-            if ($key!=0){
-                $spost_id .= &quot;,&quot;.$spost;
-            }else{
-                $spost_id .= $spost;
-            }
-        }
-        $key++;
-    }
-
-    //Optimized : 1 SQL query instead of 2* number ofposts in series//
-    $results=$wpdb-&amp;gt;get_results(&quot;SELECT $wpdb-&amp;gt;posts.ID, $wpdb-&amp;gt;postmeta.meta_value
-    FROM $wpdb-&amp;gt;posts LEFT JOIN $wpdb-&amp;gt;postmeta
-    ON($wpdb-&amp;gt;posts.ID = $wpdb-&amp;gt;postmeta.post_id)
-    WHERE post_status = &#39;publish&#39; AND $wpdb-&amp;gt;posts.ID
-    IN (&quot;.$spost_id.&quot;) AND ener_postmeta.meta_key=&#39;&quot;.SERIES_PART_KEY.&quot;&#39;&quot;);
-    /* 208 - fix by Matt Porter - to make sure unpublished posts are not made part of a series */
-    foreach ($results as $num=&amp;gt;$result) {
-        //echo &quot;&amp;lt;h1&amp;gt;resultat&quot;.$result-&amp;gt;ID.$result-&amp;gt;meta_value.&quot;&amp;lt;/h1&amp;gt;&quot;;
-        $series_posts[$num][&#39;id&#39;] =$result-&amp;gt;ID;
-        $series_posts[$num][&#39;part&#39;] = $result-&amp;gt;meta_value;
-    }
-
-    if (count($series_posts) &amp;gt; 1)
-        usort( $series_posts, &#39;_usort_series_by_part&#39; );
-
-    return $series_posts;
-}
-?&gt;</code></pre>
-
-<p>And there you go, a faster blog&#8230;</p>">
+						<a href="/2009/05/organize-series-plugin-database-optimization.html#notebook" title="Organize post series">
 							<span class="date">
 								<span class="day">19</span>
 								<span class="month"><abbr>May</abbr></span>
 								<span class="year">2009</span>
 							</span>
 							<span class="title">Organize Series plugin database optimization</span>
-                            <span class="excerpt"><p>While looking for posts in the series, this plugin makes two database queries for each post in the series : one to find out if the post is published, and another to get the part number in the series. So if you have 30 posts in the series, you will get 60 queries from this plugin alone on each post belonging to that series. I found this very wasteful, and rewrote one function so that it only uses one database query, no matter what the number of posts in the series. I think <a href='http://unfoldingneurons.com'>the author</a> should be interested&#8230;</p>
-
-<p>Basically, in the file series-utility.php, replace the function function get_series_order($posts, $postid = 0, $skip = TRUE) by the following one :</p>
-<div class='highlight'><pre><code class='php'><span class='x'>    </span><span class='cp'>&lt;?php</span>
-      <span class='k'>function</span> <span class='nf'>get_series_order</span><span class='p'>(</span><span class='nv'>$posts</span><span class='p'>,</span> <span class='nv'>$postid</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>,</span> <span class='nv'>$skip</span> <span class='o'>=</span> <span class='k'>TRUE</span><span class='p'>)</span> <span class='p'>{</span>
-      <span class='k'>global</span> <span class='nv'>$wpdb</span><span class='p'>;</span>
-      <span class='k'>if</span> <span class='p'>(</span><span class='o'>!</span><span class='nb'>isset</span><span class='p'>(</span><span class='nv'>$posts</span><span class='p'>))</span> <span class='k'>return</span> <span class='k'>false</span><span class='p'>;</span> <span class='c1'>//don&#39;t have the posts array so can&#39;t do anything.</span>
-
-      <span class='k'>if</span> <span class='p'>(</span> <span class='o'>!</span><span class='nb'>is_array</span><span class='p'>(</span> <span class='nv'>$posts</span> <span class='p'>)</span>
-      <span class='nv'>$posts</span> <span class='o'>=</span> <span class='k'>array</span><span class='p'>(</span><span class='nv'>$posts</span><span class='p'>);</span>
-
-      <span class='nv'>$series_posts</span> <span class='o'>=</span> <span class='k'>array</span><span class='p'>();</span>
-      <span class='nv'>$key</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span>
-
-      <span class='k'>foreach</span> <span class='p'>(</span><span class='nv'>$posts</span> <span class='k'>as</span> <span class='nv'>$spost</span><span class='p'>)</span> <span class='p'>{</span>
-        <span class='k'>if</span> <span class='p'>(</span><span class='nb'>array_key_exists</span><span class='p'>(</span><span class='s1'>&#39;object_id&#39;</span><span class='p'>,</span> <span class='nv'>$posts</span><span class='p'>))</span> <span class='p'>{</span>
-          <span class='k'>if</span> <span class='p'>(</span><span class='nv'>$key</span><span class='o'>!=</span><span class='mi'>0</span><span class='p'>){</span>
-            <span class='nv'>$spost_id</span> <span class='o'>.=</span> <span class='s2'>&quot;,&quot;</span><span class='o'>.</span><span class='nv'>$spost</span><span class='p'>[</span><span class='s1'>&#39;object_id&#39;</span><span class='p'>];</span>
-          <span class='p'>}</span><span class='k'>else</span><span class='p'>{</span>
-            <span class='nv'>$spost_id</span> <span class='o'>.=</span> <span class='nv'>$spost</span><span class='p'>[</span><span class='s1'>&#39;object_id&#39;</span><span class='p'>];</span>
-          <span class='p'>}</span>
-        <span class='p'>}</span> <span class='k'>else</span> <span class='p'>{</span>
-          <span class='k'>if</span> <span class='p'>(</span><span class='nv'>$key</span><span class='o'>!=</span><span class='mi'>0</span><span class='p'>){</span>
-            <span class='nv'>$spost_id</span> <span class='o'>.=</span> <span class='s2'>&quot;,&quot;</span><span class='o'>.</span><span class='nv'>$spost</span><span class='p'>;</span>
-          <span class='p'>}</span><span class='k'>else</span><span class='p'>{</span>
-            <span class='nv'>$spost_id</span> <span class='o'>.=</span> <span class='nv'>$spost</span><span class='p'>;</span>
-          <span class='p'>}</span>
-        <span class='p'>}</span>
-        <span class='nv'>$key</span><span class='o'>++</span><span class='p'>;</span>
-      <span class='p'>}</span>
-
-      <span class='c1'>//Optimized : 1 SQL query instead of 2* number ofposts in series//</span>
-      <span class='nv'>$results</span><span class='o'>=</span><span class='nv'>$wpdb</span><span class='o'>-&gt;</span><span class='na'>get_results</span><span class='p'>(</span><span class='s2'>&quot;SELECT </span><span class='si'>$wpdb-&gt;posts</span><span class='s2'>.ID, </span><span class='si'>$wpdb-&gt;postmeta</span><span class='s2'>.meta_value</span>
-<span class='s2'>      FROM </span><span class='si'>$wpdb-&gt;posts</span><span class='s2'> LEFT JOIN </span><span class='si'>$wpdb-&gt;postmeta</span><span class='s2' />
-<span class='s2'>      ON(</span><span class='si'>$wpdb-&gt;posts</span><span class='s2'>.ID = </span><span class='si'>$wpdb-&gt;postmeta</span><span class='s2'>.post_id)</span>
-<span class='s2'>      WHERE post_status = &#39;publish&#39; AND </span><span class='si'>$wpdb-&gt;posts</span><span class='s2'>.ID</span>
-<span class='s2'>      IN (&quot;</span><span class='o'>.</span><span class='nv'>$spost_id</span><span class='o'>.</span><span class='s2'>&quot;) AND ener_postmeta.meta_key=&#39;&quot;</span><span class='o'>.</span><span class='nx'>SERIES_PART_KEY</span><span class='o'>.</span><span class='s2'>&quot;&#39;&quot;</span><span class='p'>);</span>
-      <span class='cm'>/* 208 - fix by Matt Porter - to make sure unpublished posts are not made part of a series */</span>
-      <span class='k'>foreach</span> <span class='p'>(</span><span class='nv'>$results</span> <span class='k'>as</span> <span class='nv'>$num</span><span class='o'>=&gt;</span><span class='nv'>$result</span><span class='p'>)</span> <span class='p'>{</span>
-        <span class='c1'>//echo &quot;&lt;h1&gt;resultat&quot;.$result-&gt;ID.$result&gt;meta_value.&quot;&lt;/h1&gt;&quot;;</span>
-        <span class='nv'>$series_posts</span><span class='p'>[</span><span class='nv'>$num</span><span class='p'>][</span><span class='s1'>&#39;id&#39;</span><span class='p'>]</span> <span class='o'>=</span><span class='nv'>$result</span><span class='o'>-&gt;</span><span class='na'>ID</span><span class='p'>;</span>
-        <span class='nv'>$series_posts</span><span class='p'>[</span><span class='nv'>$num</span><span class='p'>][</span><span class='s1'>&#39;part&#39;</span><span class='p'>]</span> <span class='o'>=</span> <span class='nv'>$result</span><span class='o'>-&gt;</span><span class='na'>meta_value</span><span class='p'>;</span>
-      <span class='p'>}</span>
-
-      <span class='k'>if</span> <span class='p'>(</span><span class='nb'>count</span><span class='p'>(</span><span class='nv'>$series_posts</span><span class='p'>)</span> <span class='o'>&gt;</span> <span class='mi'>1</span><span class='p'>)</span>
-        <span class='nb'>usort</span><span class='p'>(</span> <span class='nv'>$series_posts</span><span class='p'>,</span> <span class='s1'>&#39;_usort_series_by_part&#39;</span> <span class='p'>);</span>
-
-      <span class='k'>return</span> <span class='nv'>$series_posts</span><span class='p'>;</span>
-    <span class='p'>}</span>
-    <span class='cp'>?&gt;</span><span class='x' />
-</code></pre></div>
-<p>And there you go, a faster blog&#8230;While looking for posts in the series, this plugin makes two database queries for each post in the series : one to find out if the post is published, and another to get the part number in the series. So if you have 30 posts in the series, you will get 60 queries from this plugin alone on each post belonging to that series. I found this very wasteful, and rewrote one function so that it only uses one database query, no matter what the number of posts in the series. I think <a href='http://unfoldingneurons.com'>the author</a> should be interested&#8230;</p>
-
-<p>Basically, in the file series-utility.php, replace the function function get_series_order($posts, $postid = 0, $skip = TRUE) by the following one :</p>
-
-<pre><code>&lt;?php
-function get_series_order($posts, $postid = 0, $skip = TRUE) {
-    global $wpdb;
-    if (!isset($posts)) return false; //don&#39;t have the posts array so can&#39;t do anything.
-
-    if ( !is_array( $posts )
-        $posts = array($posts);
-
-    $series_posts = array();
-    $key = 0;
-
-    foreach ($posts as $spost) {
-        if (array_key_exists(&#39;object_id&#39;, $posts)) {
-            if ($key!=0){
-                $spost_id .= &quot;,&quot;.$spost[&#39;object_id&#39;];
-            }else{
-                $spost_id .= $spost[&#39;object_id&#39;];
-            }
-        } else {
-            if ($key!=0){
-                $spost_id .= &quot;,&quot;.$spost;
-            }else{
-                $spost_id .= $spost;
-            }
-        }
-        $key++;
-    }
-
-    //Optimized : 1 SQL query instead of 2* number ofposts in series//
-    $results=$wpdb-&amp;gt;get_results(&quot;SELECT $wpdb-&amp;gt;posts.ID, $wpdb-&amp;gt;postmeta.meta_value
-    FROM $wpdb-&amp;gt;posts LEFT JOIN $wpdb-&amp;gt;postmeta
-    ON($wpdb-&amp;gt;posts.ID = $wpdb-&amp;gt;postmeta.post_id)
-    WHERE post_status = &#39;publish&#39; AND $wpdb-&amp;gt;posts.ID
-    IN (&quot;.$spost_id.&quot;) AND ener_postmeta.meta_key=&#39;&quot;.SERIES_PART_KEY.&quot;&#39;&quot;);
-    /* 208 - fix by Matt Porter - to make sure unpublished posts are not made part of a series */
-    foreach ($results as $num=&amp;gt;$result) {
-        //echo &quot;&amp;lt;h1&amp;gt;resultat&quot;.$result-&amp;gt;ID.$result-&amp;gt;meta_value.&quot;&amp;lt;/h1&amp;gt;&quot;;
-        $series_posts[$num][&#39;id&#39;] =$result-&amp;gt;ID;
-        $series_posts[$num][&#39;part&#39;] = $result-&amp;gt;meta_value;
-    }
-
-    if (count($series_posts) &amp;gt; 1)
-        usort( $series_posts, &#39;_usort_series_by_part&#39; );
-
-    return $series_posts;
-}
-?&gt;</code></pre>
-
-<p>And there you go, a faster blog&#8230;</p></span>
+                            <span class="excerpt">Organize post series</span>
 						</a>
 					</li>
                     
 					<li>
-						<a href="/2009/05/amazon-wishlist-plugin-for-wordpress-27.html#notebook" title="<p>After quite a few years out of the wordpress world, I&#8217;m back using this great CMS, and of course, I had to rewrite one of my old plugins to work with the widget interface.</p>
-
-<p>Well, the Amazon wishlist plugin was the one I like best, and found really useful, although no-one ever bought me a book ;( (hint hint !)</p>
-
-<p>It does not work through the normal API, but just pulls the wishlist page with curl and parses it. I did that because the amazon API does not allow priority sorting, which I find more than useful. You will need curl for that, though&#8230;</p>
-
-<p>The widget is configurable, as you can see from the image on the right. You can see it in action on this site about <a href='http://energies-vertes.org'>renewable energy</a></p>
-<a title='Download the Sortable Amazon Wishlist widget' href='http://downloads.wordpress.org/plugin/sortable-amazon-wishlist.zip'>Download it!</a>">
+						<a href="/2009/05/amazon-wishlist-plugin-for-wordpress-27.html#notebook" title="Sortable wishlist plugin">
 							<span class="date">
 								<span class="day">19</span>
 								<span class="month"><abbr>May</abbr></span>
 								<span class="year">2009</span>
 							</span>
 							<span class="title">Amazon Wishlist plugin for wordpress 2.7</span>
-                            <span class="excerpt"><p>After quite a few years out of the wordpress world, I&#8217;m back using this great CMS, and of course, I had to rewrite one of my old plugins to work with the widget interface.</p>
-
-<p>Well, the Amazon wishlist plugin was the one I like best, and found really useful, although no-one ever bought me a book ;( (hint hint !)</p>
-
-<p>It does not work through the normal API, but just pulls the wishlist page with curl and parses it. I did that because the amazon API does not allow priority sorting, which I find more than useful. You will need curl for that, though&#8230;</p>
-
-<p>The widget is configurable, as you can see from the image on the right. You can see it in action on this site about <a href='http://energies-vertes.org'>renewable energy</a></p>
-<a title='Download the Sortable Amazon Wishlist widget' href='http://downloads.wordpress.org/plugin/sortable-amazon-wishlist.zip'>Download it!</a></span>
+                            <span class="excerpt">Sortable wishlist plugin</span>
 						</a>
 					</li>
                     
 					<li>
-						<a href="/2009/05/ma-vie-sur-le-web.html#notebook" title="<p>Grâce aux <a title='Mes pipes sur Yahoo' href='http://pipes.yahoo.com/pipes/person.info?eyuid=qMOQrPY5p20GuwxREKHYhmmG6_wvIuA-'>pipes de yahoo</a>, vous pouvez suivre <a title='La vie de Jonathan Foucher sur le web' href='http://feeds2.feedburner.com/JonathanFoucher'>toutes mes interventions publiques sur le web</a>. Il s&#8217;agit en fait d&#8217;une aggrégation de tous les flux RSS que je produit en un seul, classé par date. J&#8217;en ai sûrement oubliés, mais je peux toujours les rajouter par la suite. Liste provisoire :</p>
-
-<ul>
-<li />
-
-<li />
-
-<li />
-
-<li />
-
-<li>et <a title='Mes favoris sur del.icio.us' href='http://delicious.com/jfoucher'>del.icio.us</a>&lt;</li>
-</ul>">
+						<a href="/2009/05/ma-vie-sur-le-web.html#notebook" title="Ma vie sur le web">
 							<span class="date">
 								<span class="day">07</span>
 								<span class="month"><abbr>May</abbr></span>
 								<span class="year">2009</span>
 							</span>
-							<span class="title">My life on the webMa vie sur le web</span>
-                            <span class="excerpt"><p>Grâce aux <a title='Mes pipes sur Yahoo' href='http://pipes.yahoo.com/pipes/person.info?eyuid=qMOQrPY5p20GuwxREKHYhmmG6_wvIuA-'>pipes de yahoo</a>, vous pouvez suivre <a title='La vie de Jonathan Foucher sur le web' href='http://feeds2.feedburner.com/JonathanFoucher'>toutes mes interventions publiques sur le web</a>. Il s&#8217;agit en fait d&#8217;une aggrégation de tous les flux RSS que je produit en un seul, classé par date. J&#8217;en ai sûrement oubliés, mais je peux toujours les rajouter par la suite. Liste provisoire :</p>
-
-<ul>
-<li />
-
-<li />
-
-<li />
-
-<li />
-
-<li>et <a title='Mes favoris sur del.icio.us' href='http://delicious.com/jfoucher'>del.icio.us</a>&lt;</li>
-</ul></span>
+							<span class="title">Ma vie sur le web</span>
+                            <span class="excerpt">Ma vie sur le web</span>
 						</a>
 					</li>
                     
 					<li>
-						<a href="/2009/04/et-ben-quoi.html#notebook" title="<p>Ben quoi alors? C&#8217;est pas parce que ça fait trois ans que j&#8217;ai pas écrit dans ce blog que j&#8217;ai plus le droit de le faire quand même ! Je voulais juste écrire que je viens de mettre Wordpress 2.7 sur un site à propos d&#8217;<a href='http://energies-vertes.org'>énergies renouvelables</a>, qu&#8217;on appelle aussi des énergies vertes, et qu&#8217;il n&#8217;y a pas de doutes, il est infinimment supérieur au système de blog que j&#8217;utilise ici&#8230; Comme comparer une 2cv et une C5, je suppose. M&#8217;enfin bon, même s&#8217;il est plein de bugs et tout simple, c&#8217;est mon bébé.</p>">
+						<a href="/2009/04/et-ben-quoi.html#notebook" title="">
 							<span class="date">
 								<span class="day">17</span>
 								<span class="month"><abbr>Apr</abbr></span>
 								<span class="year">2009</span>
 							</span>
 							<span class="title">Et ben quoi ?</span>
-                            <span class="excerpt"><p>Ben quoi alors? C&#8217;est pas parce que ça fait trois ans que j&#8217;ai pas écrit dans ce blog que j&#8217;ai plus le droit de le faire quand même ! Je voulais juste écrire que je viens de mettre Wordpress 2.7 sur un site à propos d&#8217;<a href='http://energies-vertes.org'>énergies renouvelables</a>, qu&#8217;on appelle aussi des énergies vertes, et qu&#8217;il n&#8217;y a pas de doutes, il est infinimment supérieur au système de blog que j&#8217;utilise ici&#8230; Comme comparer une 2cv et une C5, je suppose. M&#8217;enfin bon, même s&#8217;il est plein de bugs et tout simple, c&#8217;est mon bébé.</p></span>
+                            <span class="excerpt"></span>
 						</a>
 					</li>
                     
 					<li>
-						<a href="/2009/04/hmmm.html#notebook" title="<p>I recently installed the latest Wordpress on another website I designed, about <a href='http://energies-vertes.org'>renewable energy</a> and it&#8217;s really powerful when I compare it to the ridiculous simplicity of this blog I&#8217;m using here&#8230; If anyone would like to try it, I&#8217;ll gladly pass on the source code, though I&#8217;m sure I will be so ashamed of showing my poor coding skills to the world&#8230; Anyway, leave a comment if you want to take a look at it.</p>">
+						<a href="/2009/04/hmmm.html#notebook" title="">
 							<span class="date">
 								<span class="day">17</span>
 								<span class="month"><abbr>Apr</abbr></span>
 								<span class="year">2009</span>
 							</span>
 							<span class="title">Hmmm...</span>
-                            <span class="excerpt"><p>I recently installed the latest Wordpress on another website I designed, about <a href='http://energies-vertes.org'>renewable energy</a> and it&#8217;s really powerful when I compare it to the ridiculous simplicity of this blog I&#8217;m using here&#8230; If anyone would like to try it, I&#8217;ll gladly pass on the source code, though I&#8217;m sure I will be so ashamed of showing my poor coding skills to the world&#8230; Anyway, leave a comment if you want to take a look at it.</p></span>
+                            <span class="excerpt"></span>
 						</a>
 					</li>
                     
 					<li>
-						<a href="/2006/03/back-online.html#notebook" title="<p>Ok, my blog is back online after about a year in the meanders of my hard drive. Most of the stuff here is probably out of date, such as the Worpdress plugins, most of them written for pre-1.5 versions. As I don&#8217;t use WP anymore, I&#8217;m unlikely to come up with more stuff, unless I decide to come back to it at some stage.</p>">
+						<a href="/2006/03/back-online.html#notebook" title="">
 							<span class="date">
 								<span class="day">07</span>
 								<span class="month"><abbr>Mar</abbr></span>
 								<span class="year">2006</span>
 							</span>
 							<span class="title">Back online</span>
-                            <span class="excerpt"><p>Ok, my blog is back online after about a year in the meanders of my hard drive. Most of the stuff here is probably out of date, such as the Worpdress plugins, most of them written for pre-1.5 versions. As I don&#8217;t use WP anymore, I&#8217;m unlikely to come up with more stuff, unless I decide to come back to it at some stage.</p></span>
+                            <span class="excerpt"></span>
 						</a>
 					</li>
                     
 					<li>
-						<a href="/2005/04/wordpress-15.html#notebook" title="<p>J&#8217;ai finalement mis a jour mon autre site, <a title='Salamba' href='http://salamba.info'>salamba.info</a>, avec Wordpress 1.5, et pas doute, il est bien, très bien même. Un des meilleurs ajouts est selon moi la possibilité de configurer les plugins. Ca manquait vraiment dans les anciennes versions.</p>">
+						<a href="/2005/04/wordpress-15.html#notebook" title="">
 							<span class="date">
 								<span class="day">11</span>
 								<span class="month"><abbr>Apr</abbr></span>
 								<span class="year">2005</span>
 							</span>
 							<span class="title">Wordpress 1.5</span>
-                            <span class="excerpt"><p>J&#8217;ai finalement mis a jour mon autre site, <a title='Salamba' href='http://salamba.info'>salamba.info</a>, avec Wordpress 1.5, et pas doute, il est bien, très bien même. Un des meilleurs ajouts est selon moi la possibilité de configurer les plugins. Ca manquait vraiment dans les anciennes versions.</p></span>
+                            <span class="excerpt"></span>
 						</a>
 					</li>
                     
 					<li>
-						<a href="/2005/03/nouveau-projet.html#notebook" title="<img style='float:right' src='http://jfoucher.com/img/plans.jpg' alt='Plans' />">
+						<a href="/2005/03/nouveau-projet.html#notebook" title="<img alt='Plans' src='http://jfoucher.com/img/plans.jpg' style='float:right' />">
 							<span class="date">
 								<span class="day">17</span>
 								<span class="month"><abbr>Mar</abbr></span>
 								<span class="year">2005</span>
 							</span>
 							<span class="title">Nouveau projet</span>
-                            <span class="excerpt"><img style='float:right' src='http://jfoucher.com/img/plans.jpg' alt='Plans' /></span>
+                            <span class="excerpt"><img alt='Plans' src='http://jfoucher.com/img/plans.jpg' style='float:right' /></span>
 						</a>
 					</li>
                     
 					<li>
-						<a href="/2005/03/feeds.html#notebook" title="<p>In case you&#8217;re using a syndication software that can read RSS2.0 feeds, and if you don&#8217;t like the layout of this blog <img src='http://jfoucher.com/img/gear_wink.gif' alt=';)' /> I offer syndication feeds for its content as well as the comments posted on the posts. You can get feeds for the comments on individual posts from the link at the top of the comments section:</p>">
+						<a href="/2005/03/feeds.html#notebook" title="<p>In case you&#8217;re using a syndication software that can read RSS2.0 feeds, and if you don&#8217;t like the layout of this blog <img alt=';)' src='http://jfoucher.com/img/gear_wink.gif' /> I offer syndication feeds for its content as well as the comments posted on the posts. You can get feeds for the comments on individual posts from the link at the top of the comments section:</p>">
 							<span class="date">
 								<span class="day">14</span>
 								<span class="month"><abbr>Mar</abbr></span>
 								<span class="year">2005</span>
 							</span>
 							<span class="title">Feeds</span>
-                            <span class="excerpt"><p>In case you&#8217;re using a syndication software that can read RSS2.0 feeds, and if you don&#8217;t like the layout of this blog <img src='http://jfoucher.com/img/gear_wink.gif' alt=';)' /> I offer syndication feeds for its content as well as the comments posted on the posts. You can get feeds for the comments on individual posts from the link at the top of the comments section:</p></span>
+                            <span class="excerpt"><p>In case you&#8217;re using a syndication software that can read RSS2.0 feeds, and if you don&#8217;t like the layout of this blog <img alt=';)' src='http://jfoucher.com/img/gear_wink.gif' /> I offer syndication feeds for its content as well as the comments posted on the posts. You can get feeds for the comments on individual posts from the link at the top of the comments section:</p></span>
 						</a>
 					</li>
                     
@@ -995,10 +751,10 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 					</li>
                     
 					<li>
-						<a href="/2004/10/referents-de-larticle.html#notebook" title="<p>C&#8217;est un plugin pour <a href='http://wordpress.org' hreflang='en'>Wordpress</a> Qui montre les derniers sites d&#8217;où sont venus vos visiteurs. Vous aurez besoin du plugin <a href='http://randypeterman.com/StatTraq' hreflang='en'>Stattraq</a>.</p>
+						<a href="/2004/10/referents-de-larticle.html#notebook" title="<p>C&#8217;est un plugin pour <a hreflang='en' href='http://wordpress.org'>Wordpress</a> Qui montre les derniers sites d&#8217;où sont venus vos visiteurs. Vous aurez besoin du plugin <a hreflang='en' href='http://randypeterman.com/StatTraq'>Stattraq</a>.</p>
 
 <p>Installation : <ol>
-	<li>Téléchargez et installez <a href='http://randypeterman.com/StatTraq' hreflang='en'>Stattraq</a>.</li>
+	<li>Téléchargez et installez <a hreflang='en' href='http://randypeterman.com/StatTraq'>Stattraq</a>.</li>
 	<li>Envoyer le fichier résultant à votre dossier /wp-content/plugins</li>
 	<li>Activez le plugin dans votre interface d'administration</li>
 </ol> L&#8217;utilisation est simple :</p>
@@ -1015,17 +771,17 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 <p>Vous pouvez voir une démonstration en bas des pages de ce blog, et n&#8217;hésitez pas laisser un commentaire si vous avez des problèmes.</p>
 
 <p>Version 0.21 : utilisation de la redirection Google pour essayer de diminuer les <a href='/?p=20'>spams de référents</a>.</p>
-<a href='/?p=37' hreflang='en'>English version</a>">
+<a hreflang='en' href='/?p=37'>English version</a>">
 							<span class="date">
 								<span class="day">06</span>
 								<span class="month"><abbr>Oct</abbr></span>
 								<span class="year">2004</span>
 							</span>
 							<span class="title">Rérents de l'article</span>
-                            <span class="excerpt"><p>C&#8217;est un plugin pour <a href='http://wordpress.org' hreflang='en'>Wordpress</a> Qui montre les derniers sites d&#8217;où sont venus vos visiteurs. Vous aurez besoin du plugin <a href='http://randypeterman.com/StatTraq' hreflang='en'>Stattraq</a>.</p>
+                            <span class="excerpt"><p>C&#8217;est un plugin pour <a hreflang='en' href='http://wordpress.org'>Wordpress</a> Qui montre les derniers sites d&#8217;où sont venus vos visiteurs. Vous aurez besoin du plugin <a hreflang='en' href='http://randypeterman.com/StatTraq'>Stattraq</a>.</p>
 
 <p>Installation : <ol>
-	<li>Téléchargez et installez <a href='http://randypeterman.com/StatTraq' hreflang='en'>Stattraq</a>.</li>
+	<li>Téléchargez et installez <a hreflang='en' href='http://randypeterman.com/StatTraq'>Stattraq</a>.</li>
 	<li>Envoyer le fichier résultant à votre dossier /wp-content/plugins</li>
 	<li>Activez le plugin dans votre interface d'administration</li>
 </ol> L&#8217;utilisation est simple :</p>
@@ -1042,7 +798,7 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 <p>Vous pouvez voir une démonstration en bas des pages de ce blog, et n&#8217;hésitez pas laisser un commentaire si vous avez des problèmes.</p>
 
 <p>Version 0.21 : utilisation de la redirection Google pour essayer de diminuer les <a href='/?p=20'>spams de référents</a>.</p>
-<a href='/?p=37' hreflang='en'>English version</a></span>
+<a hreflang='en' href='/?p=37'>English version</a></span>
 						</a>
 					</li>
                     
@@ -1127,26 +883,26 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 					</li>
                     
 					<li>
-						<a href="/2004/10/mise-jour-de-securite-pour-firefox-10pr.html#notebook" title="<p>Disponible sur <a href='http://www.mozillazine-fr.org/article.phtml?article=5346f' hreflang='fr'>Mozillazine</a></p>">
+						<a href="/2004/10/mise-jour-de-securite-pour-firefox-10pr.html#notebook" title="<p>Disponible sur <a hreflang='fr' href='http://www.mozillazine-fr.org/article.phtml?article=5346f'>Mozillazine</a></p>">
 							<span class="date">
 								<span class="day">03</span>
 								<span class="month"><abbr>Oct</abbr></span>
 								<span class="year">2004</span>
 							</span>
 							<span class="title">Mise à jour de sécurité pour Firefox 1.0PR</span>
-                            <span class="excerpt"><p>Disponible sur <a href='http://www.mozillazine-fr.org/article.phtml?article=5346f' hreflang='fr'>Mozillazine</a></p></span>
+                            <span class="excerpt"><p>Disponible sur <a hreflang='fr' href='http://www.mozillazine-fr.org/article.phtml?article=5346f'>Mozillazine</a></p></span>
 						</a>
 					</li>
                     
 					<li>
-						<a href="/2004/10/parts-de-marche-de-firefox-sur-ce-blog.html#notebook" title="<a title='' href='http://jfoucher.info/wp-content/ua_graph.png'><img src='http://jfoucher.info/wp-content/thumb-ua_graph.png' alt='' /></a>">
+						<a href="/2004/10/parts-de-marche-de-firefox-sur-ce-blog.html#notebook" title="<a title='' href='http://jfoucher.info/wp-content/ua_graph.png'><img alt='' src='http://jfoucher.info/wp-content/thumb-ua_graph.png' /></a>">
 							<span class="date">
 								<span class="day">02</span>
 								<span class="month"><abbr>Oct</abbr></span>
 								<span class="year">2004</span>
 							</span>
 							<span class="title">Parts de marché de Firefox (sur ce blog)</span>
-                            <span class="excerpt"><a title='' href='http://jfoucher.info/wp-content/ua_graph.png'><img src='http://jfoucher.info/wp-content/thumb-ua_graph.png' alt='' /></a></span>
+                            <span class="excerpt"><a title='' href='http://jfoucher.info/wp-content/ua_graph.png'><img alt='' src='http://jfoucher.info/wp-content/thumb-ua_graph.png' /></a></span>
 						</a>
 					</li>
                     
@@ -1199,26 +955,26 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 					</li>
                     
 					<li>
-						<a href="/2004/09/firefox-et-gmail.html#notebook" title="<p>Il y deux bonnes mani?res d&#8217;aider Firefox se distribuer plus largement : mettre un lien vers <a href='http://spreadfirefox.com' hreflang='en'>spreadfirefox.com</a> sur votre page web, et donner des invitations <a href='http://gmail.google.com' hreflang='en'>GMail</a> qui seront redistribu?es aux personnes ayant mis un lien sur leur site. Une bonne initiative qui l&#8217;air de prendre comme de la poudre&#8230;</p>">
+						<a href="/2004/09/firefox-et-gmail.html#notebook" title="<p>Il y deux bonnes mani?res d&#8217;aider Firefox se distribuer plus largement : mettre un lien vers <a hreflang='en' href='http://spreadfirefox.com'>spreadfirefox.com</a> sur votre page web, et donner des invitations <a hreflang='en' href='http://gmail.google.com'>GMail</a> qui seront redistribu?es aux personnes ayant mis un lien sur leur site. Une bonne initiative qui l&#8217;air de prendre comme de la poudre&#8230;</p>">
 							<span class="date">
 								<span class="day">24</span>
 								<span class="month"><abbr>Sep</abbr></span>
 								<span class="year">2004</span>
 							</span>
 							<span class="title">Firefox et GMail</span>
-                            <span class="excerpt"><p>Il y deux bonnes mani?res d&#8217;aider Firefox se distribuer plus largement : mettre un lien vers <a href='http://spreadfirefox.com' hreflang='en'>spreadfirefox.com</a> sur votre page web, et donner des invitations <a href='http://gmail.google.com' hreflang='en'>GMail</a> qui seront redistribu?es aux personnes ayant mis un lien sur leur site. Une bonne initiative qui l&#8217;air de prendre comme de la poudre&#8230;</p></span>
+                            <span class="excerpt"><p>Il y deux bonnes mani?res d&#8217;aider Firefox se distribuer plus largement : mettre un lien vers <a hreflang='en' href='http://spreadfirefox.com'>spreadfirefox.com</a> sur votre page web, et donner des invitations <a hreflang='en' href='http://gmail.google.com'>GMail</a> qui seront redistribu?es aux personnes ayant mis un lien sur leur site. Une bonne initiative qui l&#8217;air de prendre comme de la poudre&#8230;</p></span>
 						</a>
 					</li>
                     
 					<li>
-						<a href="/2004/09/referrer-wordpress-plugin.html#notebook" title="<p>Referrers is a plugin I coded to show the most recent referring urls to a particular post. I had seen the <a href='http://noprerequisite.com/wp-refer/' hreflang='en'>wp-refer plugin</a> from <a href='http://noprerequisite.com' hreflang='en'>NoPrerequisite</a> but couldn&#8217;t put it on my blog without hacking because it uses the meta fields to store its data, and as I display the metadata for other purposes in each post, it would get fairly cluttered.</p>">
+						<a href="/2004/09/referrer-wordpress-plugin.html#notebook" title="<p>Referrers is a plugin I coded to show the most recent referring urls to a particular post. I had seen the <a hreflang='en' href='http://noprerequisite.com/wp-refer/'>wp-refer plugin</a> from <a hreflang='en' href='http://noprerequisite.com'>NoPrerequisite</a> but couldn&#8217;t put it on my blog without hacking because it uses the meta fields to store its data, and as I display the metadata for other purposes in each post, it would get fairly cluttered.</p>">
 							<span class="date">
 								<span class="day">24</span>
 								<span class="month"><abbr>Sep</abbr></span>
 								<span class="year">2004</span>
 							</span>
 							<span class="title">Referrer Wordpress Plugin</span>
-                            <span class="excerpt"><p>Referrers is a plugin I coded to show the most recent referring urls to a particular post. I had seen the <a href='http://noprerequisite.com/wp-refer/' hreflang='en'>wp-refer plugin</a> from <a href='http://noprerequisite.com' hreflang='en'>NoPrerequisite</a> but couldn&#8217;t put it on my blog without hacking because it uses the meta fields to store its data, and as I display the metadata for other purposes in each post, it would get fairly cluttered.</p></span>
+                            <span class="excerpt"><p>Referrers is a plugin I coded to show the most recent referring urls to a particular post. I had seen the <a hreflang='en' href='http://noprerequisite.com/wp-refer/'>wp-refer plugin</a> from <a hreflang='en' href='http://noprerequisite.com'>NoPrerequisite</a> but couldn&#8217;t put it on my blog without hacking because it uses the meta fields to store its data, and as I display the metadata for other purposes in each post, it would get fairly cluttered.</p></span>
 						</a>
 					</li>
                     
@@ -1239,7 +995,7 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 
 <p>Aoicncdrg to an Enligsh utsinvriey stduy the oedrr of lettres in a wrod desnot mttaer the only tnhig ttahs iatomnrpt is that the fisrt and lsat leettr of evrey wrod is in the crrcoet piotoisn the rest can be jbmeuld and one is siltl albe to read the txet whuoitt dflfciituy. <p>You've pbarloby raed taht txet smerwheoe alaerdy :</p> <p>Aoicncdrg to an Enligsh utsinvriey stduy the oedrr of lettres in a wrod desnot mttaer the only tnhig ttahs iatomnrpt is that the fisrt and lsat leettr of evrey wrod is in the crrcoet piotoisn the rest can be jbmeuld and one is siltl albe to read the txet whuoitt dflfciituy.</p> <!--more--></p>
 
-<p>This is what the &#8216;Jumble Up!&#8217; plugin will do to the commenters which you consider as spammers or trolls, based on their IP address. I took some inspiration from the <a title='View this plugin' href='http://wiki.wordpress.org/Disemvoweler' hreflang='en'>Disemvoweler plugin</a> for the spam targeting.</p>
+<p>This is what the &#8216;Jumble Up!&#8217; plugin will do to the commenters which you consider as spammers or trolls, based on their IP address. I took some inspiration from the <a hreflang='en' title='View this plugin' href='http://wiki.wordpress.org/Disemvoweler'>Disemvoweler plugin</a> for the spam targeting.</p>
 
 <p>Install is not difficult : <a href='/jumble.php.txt'>Download</a>, rename to jumble.php, upload it to your wp-contents/plugins directory and activate it from the admin interface.</p>
 
@@ -1249,7 +1005,7 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 <p>and add spammer IPs as such :</p>
 <div class='highlight'><pre><code class='php'><span class='x'>$jumbleIPs = array(&quot;10.1.12.13&quot;,&quot;34.123.45.3&quot;);</span>
 </code></pre></div>
-<p>This is what the &#8216;Jumble Up!&#8217; plugin will do to the commenters which you consider as spammers or trolls, based on their IP address. I took some inspiration from the <a title='View this plugin' href='http://wiki.wordpress.org/Disemvoweler' hreflang='en'>Disemvoweler plugin</a> for the spam targeting.</p>
+<p>This is what the &#8216;Jumble Up!&#8217; plugin will do to the commenters which you consider as spammers or trolls, based on their IP address. I took some inspiration from the <a hreflang='en' title='View this plugin' href='http://wiki.wordpress.org/Disemvoweler'>Disemvoweler plugin</a> for the spam targeting.</p>
 
 <p>Install is not difficult : <a href='http://www.jfoucher.marinetechs.com/jumble.php.txt'>Download</a>, rename to jumble.php, upload it to your wp-contents/plugins directory and activate it from the admin interface.</p>
 
@@ -1269,7 +1025,7 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 
 <p>Aoicncdrg to an Enligsh utsinvriey stduy the oedrr of lettres in a wrod desnot mttaer the only tnhig ttahs iatomnrpt is that the fisrt and lsat leettr of evrey wrod is in the crrcoet piotoisn the rest can be jbmeuld and one is siltl albe to read the txet whuoitt dflfciituy. <p>You've pbarloby raed taht txet smerwheoe alaerdy :</p> <p>Aoicncdrg to an Enligsh utsinvriey stduy the oedrr of lettres in a wrod desnot mttaer the only tnhig ttahs iatomnrpt is that the fisrt and lsat leettr of evrey wrod is in the crrcoet piotoisn the rest can be jbmeuld and one is siltl albe to read the txet whuoitt dflfciituy.</p> <!--more--></p>
 
-<p>This is what the &#8216;Jumble Up!&#8217; plugin will do to the commenters which you consider as spammers or trolls, based on their IP address. I took some inspiration from the <a title='View this plugin' href='http://wiki.wordpress.org/Disemvoweler' hreflang='en'>Disemvoweler plugin</a> for the spam targeting.</p>
+<p>This is what the &#8216;Jumble Up!&#8217; plugin will do to the commenters which you consider as spammers or trolls, based on their IP address. I took some inspiration from the <a hreflang='en' title='View this plugin' href='http://wiki.wordpress.org/Disemvoweler'>Disemvoweler plugin</a> for the spam targeting.</p>
 
 <p>Install is not difficult : <a href='/jumble.php.txt'>Download</a>, rename to jumble.php, upload it to your wp-contents/plugins directory and activate it from the admin interface.</p>
 
@@ -1279,7 +1035,7 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 <p>and add spammer IPs as such :</p>
 <div class='highlight'><pre><code class='php'><span class='x'>$jumbleIPs = array(&quot;10.1.12.13&quot;,&quot;34.123.45.3&quot;);</span>
 </code></pre></div>
-<p>This is what the &#8216;Jumble Up!&#8217; plugin will do to the commenters which you consider as spammers or trolls, based on their IP address. I took some inspiration from the <a title='View this plugin' href='http://wiki.wordpress.org/Disemvoweler' hreflang='en'>Disemvoweler plugin</a> for the spam targeting.</p>
+<p>This is what the &#8216;Jumble Up!&#8217; plugin will do to the commenters which you consider as spammers or trolls, based on their IP address. I took some inspiration from the <a hreflang='en' title='View this plugin' href='http://wiki.wordpress.org/Disemvoweler'>Disemvoweler plugin</a> for the spam targeting.</p>
 
 <p>Install is not difficult : <a href='http://www.jfoucher.marinetechs.com/jumble.php.txt'>Download</a>, rename to jumble.php, upload it to your wp-contents/plugins directory and activate it from the admin interface.</p>
 
@@ -1382,11 +1138,11 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
                     
 					<li>
 						<a href="/2004/08/mise-leau.html#notebook" title="<a title='Mise à l&apos;eau' href='http://jfoucher.com/wp-images/misealeau.jpg'>
-    <img style='float:right' src='http://jfoucher.com/wp-images/thumb-misealeau.jpg' alt='Mise à l&apos;eau' />
+    <img alt='Mise à l&apos;eau' src='http://jfoucher.com/wp-images/thumb-misealeau.jpg' style='float:right' />
 </a><a title='Mise à l&apos;eau' href='http://jfoucher.com/wp-images/misealeau2.jpg'>
-    <img style='float:right;clear:right' src='http://jfoucher.com/wp-images/thumb-misealeau2.jpg' alt='Mise àl&apos;eau' />
+    <img alt='Mise àl&apos;eau' src='http://jfoucher.com/wp-images/thumb-misealeau2.jpg' style='float:right;clear:right' />
 </a><a title='Mise à l&apos;eau' href='http://jfoucher.com/wp-images/misealeau3.jpg'>
-    <img style='float:right;clear:right' src='http://jfoucher.com/wp-images/thumb-misealeau3.jpg' alt='Mise à l&apos;eau' />
+    <img alt='Mise à l&apos;eau' src='http://jfoucher.com/wp-images/thumb-misealeau3.jpg' style='float:right;clear:right' />
 </a>">
 							<span class="date">
 								<span class="day">11</span>
@@ -1395,11 +1151,11 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 							</span>
 							<span class="title">Mise   l'eau</span>
                             <span class="excerpt"><a title='Mise à l&apos;eau' href='http://jfoucher.com/wp-images/misealeau.jpg'>
-    <img style='float:right' src='http://jfoucher.com/wp-images/thumb-misealeau.jpg' alt='Mise à l&apos;eau' />
+    <img alt='Mise à l&apos;eau' src='http://jfoucher.com/wp-images/thumb-misealeau.jpg' style='float:right' />
 </a><a title='Mise à l&apos;eau' href='http://jfoucher.com/wp-images/misealeau2.jpg'>
-    <img style='float:right;clear:right' src='http://jfoucher.com/wp-images/thumb-misealeau2.jpg' alt='Mise àl&apos;eau' />
+    <img alt='Mise àl&apos;eau' src='http://jfoucher.com/wp-images/thumb-misealeau2.jpg' style='float:right;clear:right' />
 </a><a title='Mise à l&apos;eau' href='http://jfoucher.com/wp-images/misealeau3.jpg'>
-    <img style='float:right;clear:right' src='http://jfoucher.com/wp-images/thumb-misealeau3.jpg' alt='Mise à l&apos;eau' />
+    <img alt='Mise à l&apos;eau' src='http://jfoucher.com/wp-images/thumb-misealeau3.jpg' style='float:right;clear:right' />
 </a></span>
 						</a>
 					</li>
@@ -1445,7 +1201,7 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 					</li>
                     
 					<li>
-						<a href="/2004/03/a-propos.html#notebook" title="<img style='float:right; margin:9px' src='http://jfoucher.com/img/jon.gif' />
+						<a href="/2004/03/a-propos.html#notebook" title="<img src='http://jfoucher.com/img/jon.gif' style='float:right; margin:9px' />
 <p>Email : <a href='mailto:jfoucher@gmail.com'>jfoucher@gmail.com</a></p>">
 							<span class="date">
 								<span class="day">09</span>
@@ -1453,7 +1209,7 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 								<span class="year">2004</span>
 							</span>
 							<span class="title">A propos</span>
-                            <span class="excerpt"><img style='float:right; margin:9px' src='http://jfoucher.com/img/jon.gif' />
+                            <span class="excerpt"><img src='http://jfoucher.com/img/jon.gif' style='float:right; margin:9px' />
 <p>Email : <a href='mailto:jfoucher@gmail.com'>jfoucher@gmail.com</a></p></span>
 						</a>
 					</li>
