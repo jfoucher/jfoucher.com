@@ -26,7 +26,7 @@ Once you're happy with the configuration, save and close the editor, and run `ma
 
 That's the regular debian method, in which you have to run mkinitrd afterwards. I ended up doing it <a href="https://help.ubuntu.com/community/Kernel/Compile">the ubuntu way</a>, where you create .deb packages you can later install with your preferred package manager.
 
-If you re-used the existing configuration, note that Ubuntu kernels build with debugging information on, which makes the resulting kernel modules (\*.ko files) much larger than they would otherwise be. To turn this off, go into the config's "Kernel hacking" and turn OFF "Compile the kernel with debug info".
+If you re-used the existing configuration, note that Ubuntu kernels build with debugging information on, which makes the resulting kernel modules (*.ko files) much larger than they would otherwise be. To turn this off, go into the config's "Kernel hacking" and turn OFF "Compile the kernel with debug info".
 
 ###Now you can compile the kernel and create the packages:
 

@@ -39,7 +39,6 @@ I created one bash script that creates the necessary virtual hosts files for Apa
                 Order allow,deny
                 allow from all
         </Directory>
-
         ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
         <Directory "/usr/lib/cgi-bin">
                 AllowOverride None
@@ -47,15 +46,11 @@ I created one bash script that creates the necessary virtual hosts files for Apa
                 Order allow,deny
                 Allow from all
         </Directory>
-
         ErrorLog ${APACHE_LOG_DIR}/error.log
-
         # Possible values include: debug, info, notice, warn, error, crit,
         # alert, emerg.
         LogLevel warn
-
         CustomLog ${APACHE_LOG_DIR}/access.log combined
-
         Alias /doc/ "/usr/share/doc/"
         <Directory "/usr/share/doc/">
             Options Indexes MultiViews FollowSymLinks
@@ -64,7 +59,6 @@ I created one bash script that creates the necessary virtual hosts files for Apa
             Deny from all
             Allow from 127.0.0.0/255.0.0.0 ::1/128
         </Directory>
-
     </VirtualHost>
 {% endhighlight %}
 
@@ -73,7 +67,6 @@ You'll notice that Apache listens on port 8080. You need to change the port from
 {% highlight apache %}
     NameVirtualHost *:8080
     Listen 8080
-
     <IfModule mod_ssl.c>
         # If you add NameVirtualHost *:443 here, you will also have to change
         # the VirtualHost statement in /etc/apache2/sites-available/default-ssl
@@ -82,11 +75,9 @@ You'll notice that Apache listens on port 8080. You need to change the port from
         # supported by MSIE on Windows XP.
         Listen 443
     </IfModule>
-
     <IfModule mod_gnutls.c>
         Listen 443
     </IfModule>
-
 {% endhighlight %}
 
 Next up is the template for the default nginx site, which is much simpler and goes in `/etc/nginx/sites-available`:
@@ -116,22 +107,17 @@ All that does is proxy everything to apache on localhost, port 8080
 So, our virtual host templates are ready, and if you only have one or two sites you could copy the contents to a new file by hand and change the word `template` for your actual domain name / folder, but as I had quite a few sites to convert, I created a small bash script that takes car of it for me, by just calling it with the hostname:
 
 {% highlight bash %}
-
     #!/bin/bash
-
     CMDLN_ARGS="$@" # Command line arguments for this script
     export CMDLN_ARGS
-
     # Run this script as root if not already.
     chk_root () {
-
      if [ ! $( id -u ) -eq 0 ]; then
        echo "Please enter your password."
        exec sudo su -c "${0} ${CMDLN_ARGS}" # Call this prog as root
        exit ${?}  # since we're 'execing' above, we wont reach this exit
                   # unless something goes wrong.
      fi
-
     }
     chk_root
     cat /etc/apache2/sites-available/template | sed "s/template/$1/g" |cat > /etc/apache2/sites-available/$1
@@ -146,10 +132,8 @@ So, our virtual host templates are ready, and if you only have one or two sites 
       mkdir "/var/www/$1"
     fi
     chown -R www-data:www-data /var/www/$1
-
     /etc/init.d/apache2 restart
     /etc/init.d/nginx restart
-
 {% endhighlight %}
 
 Put this say in your home folder and give it executable permission with `chmod 755 new_host` or whatever you named the file.
@@ -226,7 +210,7 @@ So the way to get better performance is to get nginx to cache the results from a
 where the `proxy_cache` named `one` is defined in nginx.conf as such :
 
 {% highlight nginx %}
-proxy_cache_path /usr/local/nginx/proxy levels=1:2 keys_zone=one:15m inactive=7d max_size=1000m;
+    proxy_cache_path /usr/local/nginx/proxy levels=1:2 keys_zone=one:15m inactive=7d max_size=1000m;
 {% endhighlight %}
 
 The `proxy_cache_valid` entries above define different cache times for various response codes
@@ -279,10 +263,8 @@ Just, wow...
 Careful though as this will wreak havoc on your sessions, at the minimum you can disable caching for logged-in users with
 
 {% highlight nginx %}
-
     proxy_cache_bypass $cookie_session;
     proxy_no_cache $cookie_session;
-
 {% endhighlight %}
 
 where `session` is the name of your cookie
