@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>Thu Oct 17 11:23:49 +0200 2013</updated>
+	<updated>Thu Oct 17 11:27:22 +0200 2013</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -31,13 +31,13 @@
 
 &lt;p&gt;Now the real work begins. We will need to hack at that tire, and it truly is tiresome work. I had some tin snips on hand which I thought would be perfect for the job. They are in fact totally useless. I did the job with a hacksaw to cut through the metal ring where the tire meets the wheel, and then one of my trusty &lt;a href='https://en.wikipedia.org/wiki/Opinel'&gt;Opinels&lt;/a&gt; to cut through the reinforced rubber outwall. If the knife is kept sharp, this is actually fairly easy work.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='http://jfoucher.com/uploads/2013/05/cutting-tire.jpg' alt='Cutting the tire' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='Cutting the tire' src='http://jfoucher.com/uploads/2013/05/cutting-tire.jpg' /&gt;&lt;/p&gt;
 
 &lt;p&gt;I cut some rough pieces from the outerwall, one from each side of the tire to match the curvature of the outerwall to the natural curve of each foot.&lt;/p&gt;
 
 &lt;p&gt;You then trace the outline of your paper pattern on the pieces you just cut, enabling you to have perfect tire soles for your huarache sandals.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='http://jfoucher.com/uploads/2013/05/cutting-soles.jpg' alt='Matching sole to template' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='Matching sole to template' src='http://jfoucher.com/uploads/2013/05/cutting-soles.jpg' /&gt;&lt;/p&gt;
 
 &lt;p&gt;I then used a small drill bit, around 5mm to drill the holes.&lt;/p&gt;
 
@@ -47,11 +47,11 @@
 
 &lt;p&gt;To pull the string through the holes, I used a piece of bent wire as a threader, and pliers to pull on it if need be. A &lt;a href='http://en.wikipedia.org/wiki/Figure-eight_knot'&gt;figure of 8 knot&lt;/a&gt; locks the string in the toe hole. the string then goes throught the outer hole, around the heel, through the inner whole, and ties around the front part of the lace&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='http://jfoucher.com/uploads/2013/05/threading-cord.jpg' alt='Threading the cord' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='Threading the cord' src='http://jfoucher.com/uploads/2013/05/threading-cord.jpg' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Here is the result: my son&amp;#8217;s sandals. He complained that they were not very comfortable though, so I changed the cord (which was too thin) and used a thicker braided one I had around, which is much more comfortable.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='http://jfoucher.com/uploads/2013/05/huarache-running-sandal-kid.jpg' alt='Huarache running sandal complete' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='Huarache running sandal complete' src='http://jfoucher.com/uploads/2013/05/huarache-running-sandal-kid.jpg' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Once everyone had their sandals ready, I decided to go for a short run to try them out&lt;/p&gt;
 
@@ -558,11 +558,11 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<content type="html">&lt;p&gt;This is a quick and dirty PHP script that I whipped up in about 10 minutes, used to show the load averages on the server where it is uploaded.&lt;/p&gt;
 
 &lt;p&gt;Here are the load curves for the server that hosts most of my websites at the moment. It is an overworked shared server, which explains why all the curves are through the roof&amp;#8230;&lt;/p&gt;
-&lt;iframe src='http://xiilo.com/uptime.php' height='450' width='650' /&gt;
+&lt;iframe height='450' src='http://xiilo.com/uptime.php' width='650' /&gt;
 &lt;p&gt;The load is updated every minute with a crontab that calls this same script.&lt;/p&gt;
 
 &lt;p&gt;The visualization is done using the Google chart API, which does require javascript but offers some great chart options, the &amp;#8220;annotatedtimeline&amp;#8221; being especially suitable to my purpose.&lt;/p&gt;
-&lt;a target='_blank' href='https://github.com/jfoucher/Server-load-graph' title='server load graph on github'&gt;Get the source on github&lt;/a&gt;
+&lt;a href='https://github.com/jfoucher/Server-load-graph' title='server load graph on github' target='_blank'&gt;Get the source on github&lt;/a&gt;
 &lt;p&gt;&lt;a href='http://jfoucher.com/projects/serverload.html'&gt;installation and project details&lt;/a&gt;&lt;/p&gt;&lt;a href=&quot;http://jfoucher.com/2011/09/a-10-minute-script-to-graph-your-server-load.html&quot;&gt;A 10 minute script to graph your server load&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
@@ -593,12 +593,12 @@ php5-xdebug
 	&lt;li&gt;&lt;a href='https://chrome.google.com/extensions/detail/eadndfjplgieldjbigjakmdgkmoaaaoc'&gt;Chrome&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href='http://benmatselby.posterous.com/xdebug-toggler-for-safari'&gt;Safari&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href='https://addons.opera.com/addons/extensions/details/xdebug-launcher/?display=en'&gt;Opera&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt; Use your preferred extension to activate Xdebug for the page you&amp;#8217;re on. Go back to PhpStorm, and instruct it to listen to incoming debug connections by clicking on the &amp;#8220;Listen PHP debug connections&amp;#8221; button &lt;img src='http://i.imgur.com/uMBOg.png' title='accept connection button' height='26' width='28' class='alignnone' alt='' /&gt;&lt;/p&gt;
+&lt;/ul&gt; Use your preferred extension to activate Xdebug for the page you&amp;#8217;re on. Go back to PhpStorm, and instruct it to listen to incoming debug connections by clicking on the &amp;#8220;Listen PHP debug connections&amp;#8221; button &lt;img alt='' class='alignnone' height='26' src='http://i.imgur.com/uMBOg.png' title='accept connection button' width='28' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Now all you have to is set a breakpoint and reload your page.&lt;/p&gt;
-&lt;div style='width:319px' class='image-with-caption aligncenter'&gt;&lt;div class='caption'&gt;Setting a breakpoint in PhpStorm&lt;/div&gt;&lt;img src='http://i.imgur.com/9AuKc.png' title='Setting breakpoint' height='173' width='319' alt='Setting breakpoint' /&gt;&lt;/div&gt;
+&lt;div style='width:319px' class='image-with-caption aligncenter'&gt;&lt;div class='caption'&gt;Setting a breakpoint in PhpStorm&lt;/div&gt;&lt;img alt='Setting breakpoint' height='173' src='http://i.imgur.com/9AuKc.png' title='Setting breakpoint' width='319' /&gt;&lt;/div&gt;
 &lt;p&gt;A window will popup asking you if PhpStorm should accept the connection from Xdebug&lt;/p&gt;
-&lt;div style='width:331px' class='image-with-caption aligncenter'&gt;&lt;div class='caption'&gt;Accepting connection from Xdebug on PhpStorm&lt;/div&gt;&lt;img src='http://i.imgur.com/2fZKq.png' title='Accepting connection from Xdebug' height='398' width='331' alt='Accepting connection from Xdebug' /&gt;&lt;/div&gt;
+&lt;div style='width:331px' class='image-with-caption aligncenter'&gt;&lt;div class='caption'&gt;Accepting connection from Xdebug on PhpStorm&lt;/div&gt;&lt;img alt='Accepting connection from Xdebug' height='398' src='http://i.imgur.com/2fZKq.png' title='Accepting connection from Xdebug' width='331' /&gt;&lt;/div&gt;
 &lt;p&gt;Just click debug and happy bug squishing!&lt;/p&gt;&lt;a href=&quot;http://jfoucher.com/2011/08/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu.html&quot;&gt;Remote debugging with Xdebug and PhpStorm on Ubuntu&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
@@ -718,7 +718,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;After some searching, I found a css minification library for PHP, &lt;a href='https://code.google.com/p/minify/'&gt;minify&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;It was very easy to modify it so that It could be used in our CodeIgniter applications like any other libraries. All I did was wrap the main minification function in Codeigniter specific code. I modelled the interaction on the image library, as I guess that&amp;#8217;s what most people are used to.&lt;/p&gt;
-&lt;div style='width:300px' class='image-with-caption aligncenter'&gt;&lt;div class='caption'&gt;css minification library for codeigniter&lt;/div&gt;&lt;a href='http://jfoucher.com/uploads/2011/04/Screenshot.png'&gt;&lt;img src='http://jfoucher.com/uploads/2011/04/Screenshot-300x162.png' title='css minification for codeigniter' height='162' width='300' class='size-medium wp-image-450' alt='css minification for codeigniter' /&gt;&lt;/a&gt;&lt;/div&gt;&lt;h3&gt;How to use&lt;/h3&gt;
+&lt;div style='width:300px' class='image-with-caption aligncenter'&gt;&lt;div class='caption'&gt;css minification library for codeigniter&lt;/div&gt;&lt;a href='http://jfoucher.com/uploads/2011/04/Screenshot.png'&gt;&lt;img alt='css minification for codeigniter' class='size-medium wp-image-450' height='162' src='http://jfoucher.com/uploads/2011/04/Screenshot-300x162.png' title='css minification for codeigniter' width='300' /&gt;&lt;/a&gt;&lt;/div&gt;&lt;h3&gt;How to use&lt;/h3&gt;
 &lt;p&gt;Using the library involves loading it, setting up an array with some configuration values, such as the source css file(s), the destination file (optional) or the time that the generated file should be cached, and finally initializing the library with the configuration array() .&lt;/p&gt;
 
 &lt;p&gt;The following code, which should go in your controller, will look very familiar to Codeigniter users.&lt;/p&gt;
@@ -752,7 +752,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;h3 id='the_idea'&gt;The idea&lt;/h3&gt;
 
 &lt;p&gt;And then the idea dawned on me: why not use &lt;a href='http://flickr.com'&gt;flickr&lt;/a&gt;&amp;#8217;s &lt;a href='http://creativecommons.org/'&gt;creative commons&lt;/a&gt; licensed images? The quality is often very good, especially for &amp;#8220;interesting&amp;#8221; images, a lot of sizes are available, and users often use tags to classify their images, making it rather easy to get placeholder images about a particular subject.&lt;/p&gt;
-&lt;a href='http://jfoucher.com/uploads/2011/03/FlickHoldr1.png'&gt;&lt;img src='http://jfoucher.com/uploads/2011/03/FlickHoldr1.png' title='FlickHoldr' height='417' width='600' class='size-full wp-image-413' alt='screenshot of flickholdr.com' /&gt;&lt;/a&gt;
+&lt;a href='http://jfoucher.com/uploads/2011/03/FlickHoldr1.png'&gt;&lt;img alt='screenshot of flickholdr.com' class='size-full wp-image-413' height='417' src='http://jfoucher.com/uploads/2011/03/FlickHoldr1.png' title='FlickHoldr' width='600' /&gt;&lt;/a&gt;
 &lt;h3 id='the_execution'&gt;The execution&lt;/h3&gt;
 
 &lt;p&gt;So I proceeded to develop a little webapp to do just that, using &lt;a href='http://codeigniter.com'&gt;codeigniter&lt;/a&gt;, my framework of choice for rapid application development&lt;/p&gt;
@@ -791,7 +791,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; on the command line. Of course, you will have to install Apache and php before that, but that is really easy: &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;sudo apt-get install php5
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; will install &lt;a href='http://php.net'&gt;PHP&lt;/a&gt; and all needed dependencies, including &lt;a href='http://apache.org'&gt;apache&lt;/a&gt; So now that APC is installed, just restart apache &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;sudo /etc/init.d/apache2 restart
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; and you&amp;#8217;re ready to go. In codeigniter, you don&amp;#8217;t need to do anything special. Just turn the cache on by putting the following line somewhere in your controller:&lt;br /&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;span class='x'&gt;$this-&amp;gt;output-&amp;gt;cache(n);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; Where &amp;#8216;n&amp;#8217; is the number of minutes to cache that particular content. The cache library is clever enough to pick the best cache driver from the four available ones (memcached, APC, file and dummy). Forget about the dummy driver: it doesn&amp;#8217;t do anything &lt;h3&gt;Benchmarks&lt;/h3&gt; These are the results for 50 concurrent connections : For APC we get about 43 requests/s, with the file caching mecanism around 25, requests/s, and with no cache at all we are below 18 requests/s &lt;p style='text-align: center;'&gt;&lt;a href='http://jfoucher.com/uploads/2011/02/chart22.png'&gt;&lt;img src='http://jfoucher.com/uploads/2011/02/chart22.png' title='Codeigniter APC cache benchmark' height='260' width='560' class='aligncenter size-full wp-image-387' alt='APC: 43, File: 25, None: 18 ' /&gt;&lt;/a&gt;&lt;/p&gt; &lt;p style='text-align: left;'&gt;For low concurency (2) the improvement when using APC is similar: in this case the number of requests per second nearly doubled, from 19 to 47 between the case without any caching system and the APC case&lt;/p&gt; &lt;p style='text-align: left;'&gt;&lt;a href='http://jfoucher.com/uploads/2011/02/chart2.png'&gt;&lt;img src='http://jfoucher.com/uploads/2011/02/chart2.png' title='Codeigniter cache benchmark: low concurency' height='260' width='560' class='aligncenter size-full wp-image-383' alt='APC: 46.37 rps, File: 27.23 rps, None: 18.99 rps' /&gt;&lt;/a&gt;&lt;/p&gt; &lt;p style='text-align: left;'&gt;So just turning the default codeigniter cache on gives us a significant speed improvement, going all the way and installing APC can nearly double the speed of your application. Not too shabby I should think.&lt;/p&gt; &lt;p style='text-align: left;'&gt;It is &lt;strong&gt;so&lt;/strong&gt; easy to take advantage of this caching mechasism on Codeigniter 2 that it would really be a pity not to do so!&lt;/p&gt; &lt;p style='text-align: left;'&gt;The only caching library missing here is memcached. Have you tried any of these caching libraries with codeigniter 2?&lt;/p&gt; &lt;p style='text-align: left;' /&gt;&lt;p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; Where &amp;#8216;n&amp;#8217; is the number of minutes to cache that particular content. The cache library is clever enough to pick the best cache driver from the four available ones (memcached, APC, file and dummy). Forget about the dummy driver: it doesn&amp;#8217;t do anything &lt;h3&gt;Benchmarks&lt;/h3&gt; These are the results for 50 concurrent connections : For APC we get about 43 requests/s, with the file caching mecanism around 25, requests/s, and with no cache at all we are below 18 requests/s &lt;p style='text-align: center;'&gt;&lt;a href='http://jfoucher.com/uploads/2011/02/chart22.png'&gt;&lt;img alt='APC: 43, File: 25, None: 18 ' class='aligncenter size-full wp-image-387' height='260' src='http://jfoucher.com/uploads/2011/02/chart22.png' title='Codeigniter APC cache benchmark' width='560' /&gt;&lt;/a&gt;&lt;/p&gt; &lt;p style='text-align: left;'&gt;For low concurency (2) the improvement when using APC is similar: in this case the number of requests per second nearly doubled, from 19 to 47 between the case without any caching system and the APC case&lt;/p&gt; &lt;p style='text-align: left;'&gt;&lt;a href='http://jfoucher.com/uploads/2011/02/chart2.png'&gt;&lt;img alt='APC: 46.37 rps, File: 27.23 rps, None: 18.99 rps' class='aligncenter size-full wp-image-383' height='260' src='http://jfoucher.com/uploads/2011/02/chart2.png' title='Codeigniter cache benchmark: low concurency' width='560' /&gt;&lt;/a&gt;&lt;/p&gt; &lt;p style='text-align: left;'&gt;So just turning the default codeigniter cache on gives us a significant speed improvement, going all the way and installing APC can nearly double the speed of your application. Not too shabby I should think.&lt;/p&gt; &lt;p style='text-align: left;'&gt;It is &lt;strong&gt;so&lt;/strong&gt; easy to take advantage of this caching mechasism on Codeigniter 2 that it would really be a pity not to do so!&lt;/p&gt; &lt;p style='text-align: left;'&gt;The only caching library missing here is memcached. Have you tried any of these caching libraries with codeigniter 2?&lt;/p&gt; &lt;p style='text-align: left;' /&gt;&lt;p&gt;
 &lt;/p&gt; &lt;p /&gt;&lt;/p&gt;&lt;a href=&quot;http://jfoucher.com/2011/02/installing-running-apc-cache-codeigniter.html&quot;&gt;Installing and running APC cache with CodeIgniter&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
@@ -846,7 +846,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;p&gt;To choose the compose key, open &lt;code&gt;Preferences &amp;gt; Keyboard&lt;/code&gt;, &lt;code&gt;Layouts&lt;/code&gt; tab and click on &lt;code&gt;Options&lt;/code&gt;. Open the &lt;code&gt;Compose key position&lt;/code&gt; submenu, and choose whichever one you like best. I think the Win key is a good choice as it&amp;#8217;s not used for anything much&amp;#8230; Except remind us of our freedom&amp;#8230;&lt;/p&gt;
 &lt;a href='http://jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1.png'&gt;
-&lt;img src='http://jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1-300x218.png' title='Keyboard Layout Options' height='218' width='300' alt='Keyboard Layout Options' class='aligncenter size-medium wp-image-264' /&gt;
+&lt;img alt='Keyboard Layout Options' class='aligncenter size-medium wp-image-264' height='218' src='http://jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1-300x218.png' title='Keyboard Layout Options' width='300' /&gt;
 &lt;/a&gt;
 &lt;p&gt;And yay! Writing Spanish is cool again!&lt;/p&gt;&lt;a href=&quot;http://jfoucher.com/2011/01/spanish-characters-on-qwerty-keyboard-for-ubuntu-10-10.html&quot;&gt;Spanish characters on Qwerty keyboard for Ubuntu 10.10&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
@@ -859,7 +859,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<id>http://jfoucher.com/2011/01/python-skype-notifier-for-ubuntu</id>
 		<content type="html">&lt;p&gt;What&amp;#8217;s the best way to learn a new programming language ? Well, according to &lt;a href='http://programmers.stackexchange.com/q/3519/3984'&gt;this question&lt;/a&gt; the best (only ?) way to learn a new language is just to code in that language. &lt;h3&gt;Why Python ?&lt;/h3&gt; Because it&amp;#8217;s &lt;a href='http://en.wikipedia.org/wiki/Python_(programming_language)#Name_and_neologisms'&gt;named after the Monty Python&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;No, seriously, that&amp;#8217;s why :&lt;a href='http://xkcd.com/353/'&gt;&lt;img src='http://jfoucher.com/uploads/2011/01/python-264x300.png' title='python' height='300' width='264' class='aligncenter size-medium wp-image-201' alt='I wrote 20 short programs in Python yesterday.  It was wonderful.  Perl, I&amp;apos;m leaving you.' /&gt;&lt;/a&gt;No, not this &amp;#8220;that&amp;#8217;s why&amp;#8221;! &lt;a href='http://programmers.stackexchange.com/questions/10675/ideal-programming-language-learning-sequence#answer-10748'&gt;That one&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;No, seriously, that&amp;#8217;s why :&lt;a href='http://xkcd.com/353/'&gt;&lt;img alt='I wrote 20 short programs in Python yesterday.  It was wonderful.  Perl, I&amp;apos;m leaving you.' class='aligncenter size-medium wp-image-201' height='300' src='http://jfoucher.com/uploads/2011/01/python-264x300.png' title='python' width='264' /&gt;&lt;/a&gt;No, not this &amp;#8220;that&amp;#8217;s why&amp;#8221;! &lt;a href='http://programmers.stackexchange.com/questions/10675/ideal-programming-language-learning-sequence#answer-10748'&gt;That one&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;If you are just starting out as a programmer, I cannot recommend &lt;a href='http://learnpythonthehardway.org/'&gt;Learn Python The Hard Way&lt;/a&gt; highly enough. It is an excellent introduction to the ideas and skills you will need as a programmer, starting from the very basics, like you&amp;#8217;ve never seen a for loop in your life. Actually the first 10 or so lessons do not include ANY control structures!&lt;/p&gt;
 
@@ -915,7 +915,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 			&lt;span class='k'&gt;print&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;Please open skype first&amp;quot;&lt;/span&gt;
 			&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;noSkype&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This basically tries to start skype if it is not already started and calls noSkype() if it couldn&amp;#8217;t start it. noSype() shows a notification message to let the user know that they have to start Skype. &lt;a href='http://jfoucher.com/uploads/2011/01/skype-not-started.png'&gt;&lt;img src='http://jfoucher.com/uploads/2011/01/skype-not-started.png' title='skype-not-started' height='213' width='428' alt='Error shown if Skype is not running' class='aligncenter size-full wp-image-256' /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This basically tries to start skype if it is not already started and calls noSkype() if it couldn&amp;#8217;t start it. noSype() shows a notification message to let the user know that they have to start Skype. &lt;a href='http://jfoucher.com/uploads/2011/01/skype-not-started.png'&gt;&lt;img alt='Error shown if Skype is not running' class='aligncenter size-full wp-image-256' height='213' src='http://jfoucher.com/uploads/2011/01/skype-not-started.png' title='skype-not-started' width='428' /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;This next function is where the meat of the process takes place. Please read the inline comments to understand how it works, and ask for clarification by &lt;a href='#respond'&gt;posting a comment&lt;/a&gt;.&lt;/p&gt;
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;	&lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;create_indicators&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
@@ -1012,7 +1012,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		&lt;span class='c'&gt;# Loop runs as long as true is returned&lt;/span&gt;
 		&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='bp'&gt;True&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;When a new messages arrives, this is what the messaging menu looks like &lt;a href='http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png'&gt;&lt;img src='http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png' title='skype-indicator-menu' height='256' width='376' alt='Messaging menu open qith unread messages' class='aligncenter size-full wp-image-258' /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;When a new messages arrives, this is what the messaging menu looks like &lt;a href='http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png'&gt;&lt;img alt='Messaging menu open qith unread messages' class='aligncenter size-full wp-image-258' height='256' src='http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png' title='skype-indicator-menu' width='376' /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The function that gets unread skype messages is as follows For each message, we add it to a list containg the messages from a particular user in the self.unread dictionary.&lt;/p&gt;
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;	&lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;get_messages&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
@@ -1055,7 +1055,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 		&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This is what it looks like with three new messages &lt;a href='http://jfoucher.com/uploads/2011/01/skype-indicator.png'&gt;&lt;img src='http://jfoucher.com/uploads/2011/01/skype-indicator.png' title='skype-indicator' height='232' width='428' alt='The Ubuntu skype indicator with three new messages' class='aligncenter size-full wp-image-253' /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is what it looks like with three new messages &lt;a href='http://jfoucher.com/uploads/2011/01/skype-indicator.png'&gt;&lt;img alt='The Ubuntu skype indicator with three new messages' class='aligncenter size-full wp-image-253' height='232' src='http://jfoucher.com/uploads/2011/01/skype-indicator.png' title='skype-indicator' width='428' /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The next one shows the popup notification that skype is not loaded :&lt;/p&gt;
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;	&lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;noSkype&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
@@ -1374,7 +1374,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;h3 id='now_you_can_compile_the_kernel_and_create_the_packages'&gt;Now you can compile the kernel and create the packages:&lt;/h3&gt;
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    make-kpkg clean &lt;span class='c'&gt;# only needed if you want to do a &amp;quot;clean&amp;quot; build&lt;/span&gt;
     fakeroot make-kpkg --initrd --append-to-version&lt;span class='o'&gt;=&lt;/span&gt;-some-string-here kernel-image kernel-headers
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;img src='http://media.tumblr.com/tumblr_let0e9SCP01qzbvjd.png' height='338' width='500' class='aligncenter' alt='' /&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;img alt='' class='aligncenter' height='338' src='http://media.tumblr.com/tumblr_let0e9SCP01qzbvjd.png' width='500' /&gt;
 &lt;p&gt;Much easier&amp;#8230;&lt;/p&gt;
 
 &lt;h3 id='drivers'&gt;Drivers&lt;/h3&gt;
@@ -1440,7 +1440,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<link href="http://jfoucher.com/2009/11/google-wave-useless.html"/>
 		<updated>Fri Nov 20 10:00:29 +0100 2009</updated>
 		<id>http://jfoucher.com/2009/11/google-wave-useless</id>
-		<content type="html">&lt;p&gt;&lt;img src='http://jfoucher.com/uploads/2009/11/Screenshot-1.png' alt='Google Wave' /&gt;&lt;/p&gt;
+		<content type="html">&lt;p&gt;&lt;img alt='Google Wave' src='http://jfoucher.com/uploads/2009/11/Screenshot-1.png' /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;You need to have it open in your browser to appear online&lt;/li&gt;
