@@ -184,31 +184,31 @@
 <pre><code>&lt;?php
 require_once ("phing/Task.php");
 require_once ("phing/tasks/my/twitteroauth/twitteroauth.php");
-/\* get the lines below from http://twittertokens.6px.eu/ \*/
+/* get the lines below from http://twittertokens.6px.eu/ */
 define('CONSUMER_KEY', 'Your Consumer Key Here');
 define('CONSUMER_SECRET', 'Your Consumer Secret Here');
 define('OAUTH_TOKEN', 'Your OAuth Token Here');
 define('OAUTH_TOKEN_SECRET', 'Your Oauth Token Secret Here');
 class TwitterUpdateTask extends Task {
     private $message;
-    /\*
-     \* The setter for the status message
-     \*/
+    /*
+     * The setter for the status message
+     */
     public function setMessage($str){
         $this-&gt;message=$str;
     }
     public function main(){
-        /\* Connect to twitter */
+        /* Connect to twitter */
         $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET);
-        /\* Pass the status message as a parameter \*/
+        /* Pass the status message as a parameter */
         $parameters = array('status' =&gt; $this-&gt;message);
-        /\* Post the data to the API endpoint \*/
+        /* Post the data to the API endpoint */
         $status = $connection-&gt;post('statuses/update', $parameters);
         if (isset($status-&gt;error)){
-            /\* if there is an error, fail the build \*/
+            /* if there is an error, fail the build */
             throw new BuildException($status-&gt;error);
         }else{
-            /\* if there is no error, show a success message \*/
+            /* if there is no error, show a success message */
             $this-&gt;log ("Status posted to twitter");
         }
     }

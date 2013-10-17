@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>Thu Oct 17 11:58:03 +0200 2013</updated>
+	<updated>Thu Oct 17 12:00:37 +0200 2013</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -443,13 +443,13 @@ Most of them are operations that should be pretty easy to do, and seem pointless
 
 &lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/a/8485503/210824&quot;&gt;Git: Never Commit Changed Files (But still keep original revisioned.)&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;    git update-index --assume-unchanged &amp;amp;lt;file&amp;amp;gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;    git update-index --assume-unchanged &amp;lt;file&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;To make it commitable again run&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;    git update-index --no-assume-unchanged &amp;amp;lt;file&amp;amp;gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;    git update-index --no-assume-unchanged &amp;lt;file&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -813,31 +813,31 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 require_once (&quot;phing/Task.php&quot;);
 require_once (&quot;phing/tasks/my/twitteroauth/twitteroauth.php&quot;);
-/\* get the lines below from http://twittertokens.6px.eu/ \*/
+/* get the lines below from http://twittertokens.6px.eu/ */
 define('CONSUMER_KEY', 'Your Consumer Key Here');
 define('CONSUMER_SECRET', 'Your Consumer Secret Here');
 define('OAUTH_TOKEN', 'Your OAuth Token Here');
 define('OAUTH_TOKEN_SECRET', 'Your Oauth Token Secret Here');
 class TwitterUpdateTask extends Task {
     private $message;
-    /\*
-     \* The setter for the status message
-     \*/
+    /*
+     * The setter for the status message
+     */
     public function setMessage($str){
         $this-&amp;gt;message=$str;
     }
     public function main(){
-        /\* Connect to twitter */
+        /* Connect to twitter */
         $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET);
-        /\* Pass the status message as a parameter \*/
+        /* Pass the status message as a parameter */
         $parameters = array('status' =&amp;gt; $this-&amp;gt;message);
-        /\* Post the data to the API endpoint \*/
+        /* Post the data to the API endpoint */
         $status = $connection-&amp;gt;post('statuses/update', $parameters);
         if (isset($status-&amp;gt;error)){
-            /\* if there is an error, fail the build \*/
+            /* if there is an error, fail the build */
             throw new BuildException($status-&amp;gt;error);
         }else{
-            /\* if there is no error, show a success message \*/
+            /* if there is no error, show a success message */
             $this-&amp;gt;log (&quot;Status posted to twitter&quot;);
         }
     }
