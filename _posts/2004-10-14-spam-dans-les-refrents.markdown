@@ -1,11 +1,10 @@
 --- 
 layout: post
-title: "Referrer SpamSpam dans les r\xE9f\xE9rents"
+title: "Spam dans les rÃ©fÃ©rents"
 tags: []
-
+excerpt:
 date: Thu Oct 14 11:34:55 +0200 2004
 ---
-Comme vous avez pu le voir si vous êtes venu sur ce blog récemment, j'ai été sujet à une attaque de spam dans les référents. Je pense avoir réglé le problème en empêchant certains mots d'apparaître dans les logs de StatTraq, mais n'hésitez pas à me contacter si cela devait se reproduire.
+Comme vous avez pu le voir si vous Ãªtes venu sur ce blog rÃ©cemment, j'ai Ã©tÃ© sujet Ã  une attaque de spam dans les rÃ©fÃ©rents. Je pense avoir rÃ©glÃ© le problÃ¨me en empÃªchant certains mots d'apparaÃ®tre dans les logs de StatTraq, mais n'hÃ©sitez pas Ã  me contacter si cela devait se reproduire.
 
-Une autre méthode que j'ai utilisée pour essayer de réduire ce problème est d'utiliser une redirection Google pour les liens vers les référents, dans le plugin <a href="http://jfoucher.com/?p=24">Référents</a>, ce qui évite aux spammers de profiter de mon pagerank, et donc rendre cette méthode moins attractive. Ou suis-je trop optimiste ?<p>Comme vous avez pu le voir si vous êtes venu sur ce blog récemment, j'ai été sujet à une attaque de spam dans les référents. Je pense avoir réglé le problème en empêchant certains mots d'apparaître dans les logs de StatTraq, mais n'hésitez pas à me contacter si cela devait se reproduire.</p>
-<p>Une autre méthode que j'ai utilisée pour essayer de réduire ce problème est d'utiliser une redirection Google pour les liens vers les référents, dans le plugin <a href="http://jfoucher.com/?p=24">Référents</a>, ce qui évite aux spammers de profiter de mon pagerank, et donc rendre cette méthode moins attractive. Ou suis-je trop optimiste ?</p>
+Une autre mÃ©thode que j'ai utilisÃ©e pour essayer de rÃ©duire ce problÃ¨me est d'utiliser une redirection Google pour les liens vers les rÃ©fÃ©rents, dans le plugin <a href="http://jfoucher.com/?p=24">RÃ©fÃ©rents</a>, ce qui Ã©vite aux spammers de profiter de mon pagerank, et donc rendre cette mÃ©thode moins attractive. Ou suis-je trop optimiste ?

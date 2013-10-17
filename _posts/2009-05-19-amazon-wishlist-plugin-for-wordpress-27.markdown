@@ -2,10 +2,10 @@
 layout: post
 title: Amazon Wishlist plugin for wordpress 2.7
 tags: []
-
+excerpt: Sortable wishlist plugin
 date: Tue May 19 07:19:55 +0200 2009
 ---
-<a style="float: right; width: 150px;" href="http://jfoucher.com/img/amazonwidget.png&gt;&lt;img src="></a>Hello all,
+
 After quite a few years out of the wordpress world, I'm back using this great CMS, and of course, I had to rewrite one of my old plugins to work with the widget interface.
 
 Well, the Amazon wishlist plugin was the one I like best, and found really useful, although no-one ever bought me a book ;( (hint hint !)

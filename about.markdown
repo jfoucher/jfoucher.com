@@ -4,7 +4,7 @@ active: about
 meta_title: About Geeky Nuggets and Jonathan Foucher
 meta_keywords: web development, php, wordpress, codeigniter, six pixels, jekyll, github
 title: About <span class="amp">&amp;</span> Contact
-excerpt: The blog of Jonathan Foucher, a web developer, founder of <a href="http://6px.eu">Six Pixels</a> and general <a href="/projects#notebook">tinkerer</a>
+excerpt: <img src="http://Gravatar.com/avatar/6343c1ff1b56af54c621adbf2c1638a1?s=350" width="175" /> The blog of Jonathan Foucher, a web developer, founder of <a href="http://6px.eu">Six Pixels</a> and general <a href="/projects#notebook">tinkerer</a>
 ---
 
 
@@ -17,9 +17,13 @@ Some of my clients include global companies like Bosch and Coca Cola, and spanis
 
 I love working with PHP and Javascript to develop an engaging user experience. I also really enjoy learning new skills. For example, at the moment, I am simultaneously writing an iOs app, an Android app, a Java enterprise web application, moving my blog from [Wordpress](http://jfoucher.com/wordpress/ "My Wordpress plugins and themes") to [Jekyll](https://github.com/mojombo/jekyll/wiki/), developping desktop apps with [appcelerator Titanium](http://appcelerator.com) and working on a few PHP webapps.
 
+###GPG Key
+
+Get my [GPG key](http://jfoucher.com/jfoucher-6px.eu.asc) to contact me by email
+
 ###About this blog
 
-This blog is hosted on [github](http://guthub.com). It's a static website, generated with [Jekyll](http://jekyllrb.com/). You can read my writeup about my [move from Wordpress to Jekyll]
+This blog is hosted on [github](http://github.com). It's a static website, generated with [Jekyll](http://jekyllrb.com/).
 
 
 

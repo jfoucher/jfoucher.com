@@ -7,7 +7,9 @@ tags: []
 date: Wed Jan 12 15:06:02 +0100 2011
 ---
 First off, you want to grab the latest kernel source from <a href="http://kernel.org/">http://kernel.org/</a> and save it to a folder on your computer. I used my browser's default : `~/Downloads`. Right click on the archive and select "extract here"
-<h3>Configuration</h3>
+
+###Configuration
+
 Open a terminal, "cd" to your source directory, in my case `cd ~/Downloads/linux-2.6.37` and run `make gconfig` if using Ubuntu or `make kconfig` if running Kubuntu. At that point, you'll need to know a fair bit about your system's hardware, to select only the options that are applicable. I like to reuse my current config as a starting point, so if you are using the default ubuntu kernel, the configuration used is stored in the `boot` directory, with names like `config-2.6.35-24-generic`
 
  Copy the latest one to your linux source directory. When the configuration editor is loaded, choose `File >> Load` and select the file you just copied over. Now the Ubuntu default configuration is loaded. If you were to compile your kernel you would get the same kind of system you have now : functional but suboptimal.
@@ -24,16 +26,17 @@ Once you're happy with the configuration, save and close the editor, and run `ma
 
 That's the regular debian method, in which you have to run mkinitrd afterwards. I ended up doing it <a href="https://help.ubuntu.com/community/Kernel/Compile">the ubuntu way</a>, where you create .deb packages you can later install with your preferred package manager.
 
-If you re-used the existing configuration, note that Ubuntu kernels build with debugging information on, which makes the resulting kernel modules (*.ko files) much larger than they would otherwise be. To turn this off, go into the config's "Kernel hacking"&lt;!-- ; then, under "Kernel debugging", --&gt; and turn OFF "Compile the kernel with debug info".
+If you re-used the existing configuration, note that Ubuntu kernels build with debugging information on, which makes the resulting kernel modules (\*.ko files) much larger than they would otherwise be. To turn this off, go into the config's "Kernel hacking" and turn OFF "Compile the kernel with debug info".
 
 ###Now you can compile the kernel and create the packages:
 
 {% highlight bash %}
-make-kpkg clean # only needed if you want to do a "clean" build
-fakeroot make-kpkg --initrd --append-to-version=-some-string-here kernel-image kernel-headers
+    make-kpkg clean # only needed if you want to do a "clean" build
+    fakeroot make-kpkg --initrd --append-to-version=-some-string-here kernel-image kernel-headers
 {% endhighlight %}
 
-<p style="text-align: center;"><img class="aligncenter" src="http://media.tumblr.com/tumblr_let0e9SCP01qzbvjd.png" alt="" width="500" height="338" /></p>
+<img class="aligncenter" src="http://media.tumblr.com/tumblr_let0e9SCP01qzbvjd.png" alt="" width="500" height="338" />
+
 Much easier...
 
 ###Drivers

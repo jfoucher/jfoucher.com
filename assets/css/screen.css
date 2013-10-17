@@ -850,6 +850,10 @@ div.hero div.skip a {
 #notebook .page-content #contactForm {
   margin-left: -6px;
 }
+#notebook #entry-content img,
+#notebook .page-content img {
+  max-width: 100%;
+}
 #notebook #entry-content blockquote,
 #notebook .page-content blockquote {
   font-size: 1.2em;
@@ -1196,6 +1200,9 @@ Utility clases
   
     width: 97.65625%;
     margin: 0 1.171875%;
+  }
+  div.hero img {
+    display: none;
   }
   #notebook .meta {
     display: inline;

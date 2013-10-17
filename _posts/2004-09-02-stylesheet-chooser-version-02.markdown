@@ -2,7 +2,7 @@
 layout: post
 title: Stylesheet Chooser Version 0.2
 tags: []
-
+excerpt:
 date: Thu Sep 02 20:28:10 +0200 2004
 ---
 This plugin is deprecated. 

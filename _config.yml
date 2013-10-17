@@ -1,4 +1,4 @@
-markdown: rdiscount
+markdown: maruku
 pygments: true
 permalink: /:year/:month/:title.html
 description: Jonathan Foucher's blog <span class="amp">&amp;</span> web development notebook

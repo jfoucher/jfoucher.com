@@ -2,7 +2,7 @@
 layout: post
 title: Author page wordpress plugin
 tags: []
-
+excerpt:
 date: Sun Oct 03 17:30:49 +0200 2004
 ---
 This plugin shows a specific page for each author, showing the number of posts published and some of the data entered in the Wordpress admin section, i.e. URL, AIM ICQ number, etc... except email! But it can provide a contact form that will send an email to the author's address. 
@@ -10,7 +10,7 @@ This plugin shows a specific page for each author, showing the number of posts p
 You can use it as an <a href="http://binarybonsai.com/about/">'About' page</a> for a personnal weblog or to give each author their own page in a collaborative blog.
 
 
-To install it, download the <a href="http://jfoucher.com/source/author/>source code</a> and save it in a php file or get the <a href="http://jfoucher.com/source/author.gz>gzip file</a> and unpack it.
+To install it, download the <a href="http://jfoucher.com/source/author/">source code</a> and save it in a php file or get the <a href="http://jfoucher.com/source/author.gz">gzip file</a> and unpack it.
 
 Upload the resulting file to your wp-content/plugins directory and activate it from the admin interface.
 
@@ -48,7 +48,7 @@ On this site, I use the following rewrite rule:
 
 With a link to the 'About' page simply like this :
 
-     <a href="http://jfoucher.com/about/>About</a>
+     <a href="http://jfoucher.com/about/">About</a>
 
 On a multiuser blog, you could do this:
 
@@ -61,4 +61,4 @@ and so the link to the page is like this:
 
 Version 0.3+ use native Wordpress functions to display the author data, making it more compatible (I hope) with future versions of Wordpress.
 
-<a href=http://jfoucher.info/2004/10/08/plugin-wordpress-page-auteur/" hreflang="fr">En Fran?ais</a>
+<a href="http://jfoucher.com/2004/10/08/plugin-wordpress-page-auteur/" hreflang="fr">En Français</a>

@@ -2,7 +2,7 @@
 layout: post
 title: Auto Tag Wordpress plugin
 tags: []
-
+excerpt: A Wordpress plugin to tag your posts automatically
 date: Thu Jun 04 22:45:48 +0200 2009
 ---
 I just wrote a simple plugin to auto tag new posts. It sends the content to tagthe.net and yahoo and gets back related tags. I must say these

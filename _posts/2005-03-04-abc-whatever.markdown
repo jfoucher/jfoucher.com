@@ -2,7 +2,7 @@
 layout: post
 title: ABC... Whatever
 tags: []
-
+excerpt:
 date: Fri Mar 04 16:26:31 +0100 2005
 ---
 I just got myself one of the longest email addresses of the world, over at <a href="http://www.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijk.com/">ABC... Whatever</a>(<a href="http://cnul.blogspot.com/">via</a>)!

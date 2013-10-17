@@ -2,7 +2,7 @@
 layout: post
 title: Referrer Wordpress Plugin
 tags: []
-
+excerpt:
 date: Fri Sep 24 09:32:50 +0200 2004
 ---
 Referrers is a plugin I coded to show the most recent referring urls to a particular post. I had seen the <a href="http://noprerequisite.com/wp-refer/" hreflang="en">wp-refer plugin</a> from <a href="http://noprerequisite.com" hreflang="en">NoPrerequisite</a> but couldn't put it on my blog without hacking because it uses the meta fields to store its data, and as I display the metadata for other purposes in each post, it would get fairly cluttered. 
@@ -12,24 +12,13 @@ Also, I am using the very good <a href="http://randypeterman.com/StatTraq/index.
 
 
 To install :
-<ol>
-<li>
-Download and install <a href="http://randypeterman.com/StatTraq/index.php?p=14" hreflang="en">Stattraq</a>.
-</li>
-<li>
-Download <a href="http://jfoucher.com/post_referrers.php.txt>post_referrers.php.txt</a>
-</li>
-<li>
-Rename to post_referrers.php
-</li>
-<li><strong>Or</strong> get the <a href="http://jfoucher.com/source/post_referrers.gz>gzip file</a> and uncompress it.
-<li>
-Upload the resulting file to /wp-content/plugins
-</li>
-<li>
-Activate it in your admin interface
-</li>
-</ol>
+
+* Download and install <a href="http://randypeterman.com/StatTraq/index.php?p=14" hreflang="en">Stattraq</a>.
+* Download <a href="http://jfoucher.com/post_referrers.php.txt">post_referrers.php.txt</a>
+* Rename to post_referrers.php
+* **Or** get the [gzip file](http://jfoucher.com/source/post_referrers.gz) and uncompress it.
+* Upload the resulting file to /wp-content/plugins
+* Activate it in your admin interface
 
 Using it is simple:
 

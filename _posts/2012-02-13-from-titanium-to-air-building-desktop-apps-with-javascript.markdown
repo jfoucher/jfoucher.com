@@ -3,6 +3,7 @@ layout: post
 title: From Titanium to Adobe Air, or, Building Desktop Apps with Javascript
 date: 2012-02-13
 tags: javascript, titanium, adobe-air
+excerpt: My experience using Titanium to build a desktop app
 ---
 
 [Vessenger](http://vessenger.com) is an app that allows closed groups such as

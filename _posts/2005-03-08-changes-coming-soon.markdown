@@ -2,7 +2,7 @@
 layout: post
 title: Changes coming soon
 tags: []
-
+excerpt:
 date: Tue Mar 08 00:40:34 +0100 2005
 ---
 Since the <a href="http://wordpress.org/development/2005/02/strayhorn/">release of Wordpress 1.5</a>, I've been wondering what to do with this blog. 

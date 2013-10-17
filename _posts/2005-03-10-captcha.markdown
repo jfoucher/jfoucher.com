@@ -2,7 +2,7 @@
 layout: post
 title: Captcha
 tags: []
-
+excerpt:
 date: Thu Mar 10 14:47:08 +0100 2005
 ---
 Ok, I finally got the <a href="http://www.wikipedia.org/wiki/captcha" title="read about captcha on Wikipedia">captcha</a> working. Wasn't that hard, but it was more the concept that was kind of eluding me... Where to send the data from the image and from the text box, how to compare them and so on.
