@@ -1218,6 +1218,10 @@ Utility clases
     margin: 0 1.171875%;
     margin-left: 7.421875%;
   }
+  #notebook #entry-content img,
+  #notebook .page-content img {
+    max-width: 100%;
+  }
   #notebook .page-content.projects {
     display: inline;
     float: left;
