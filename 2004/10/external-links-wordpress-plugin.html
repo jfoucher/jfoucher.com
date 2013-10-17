@@ -125,51 +125,51 @@
             </div> <!-- /.meta -->
             <div id="entry-content">
 
-                <h3 id='external_links'>External links:</h3>
+                <h3>External links:</h3>
 
 <p>The little images that appear after an external link on this site used to be created by pure CSS, using the following rules:</p>
 
-<pre><code>.commentlist a[href*=&quot;http&quot;], .storycontent a[href*=&quot;http&quot;]
+<pre><code>.commentlist a[href*="http"], .storycontent a[href*="http"]
 {
     padding-right: 12px;
-    background: url(&#39;/wp-images/ext-link.gif&#39;) right top no-repeat;
+    background: url('/wp-images/ext-link.gif') right top no-repeat;
 }
-.commentlist a[href*=&quot;jfoucher.info&quot;], .storycontent a[href*=&quot;jfoucher.info&quot;]
+.commentlist a[href*="jfoucher.info"], .storycontent a[href*="jfoucher.info"]
 {
     padding-right: 0;
     background-image: none;
-}</code></pre>
+}
+</code></pre>
 
 <p>But, as you may know, this does not work in Internet Explorer. So I decided to write a little plugin that would give a specific class attribute to all external links, so that they can be styled in a manner recognizable to IE.</p>
 
-<h3 id='languages'>Languages</h3>
+<h3>Languages</h3>
 
-<p>Additionally, as this is a bilingual blog, I like to show an language text after each link, like <a href='http://daniel.glazman.free.fr/weblog/archived/2002_09_15_glazblogarc.html#81664011' hreflang='en'>this</a>. I used to do it in pure CSS, like so:</p>
+<p>Additionally, as this is a bilingual blog, I like to show an language text after each link, like <a href="http://daniel.glazman.free.fr/weblog/archived/2002_09_15_glazblogarc.html#81664011" hreflang="en">this</a>. I used to do it in pure CSS, like so:</p>
 
 <pre><code> a[hreflang]:after {
-      content:&quot;000a0[&quot; attr(hreflang) &quot;]&quot;;
+      content:"000a0[" attr(hreflang) "]";
       color:#999;
       background:transparent;
       font-size:0.8em
- }</code></pre>
+ }
+</code></pre>
 
-<p>but you guessed it, it doesn&#8217;t work in IE, so this little plugin takes care of that as well&#8230; All you need to do is add an hreflang=&#8221;whatever&#8221; attribute to your links.</p>
+<p>but you guessed it, it doesn't work in IE, so this little plugin takes care of that as well... All you need to do is add an hreflang="whatever" attribute to your links.</p>
 
-<h3 id='installation'>Installation:</h3>
+<h3>Installation:</h3>
 
 <ul>
-<li>Download the <a href='http://jfoucher.com/source/external_links.gz'>gzip file</a></li>
-
+<li>Download the <a href="http://jfoucher.com/source/external_links.gz">gzip file</a></li>
 <li>Extract it</li>
-
 <li>Upload the resulting file to your wp-content/plugins directory</li>
-
 <li>Activate through the admin interface</li>
 </ul>
 
-<p>That&#8217;s it ! Now you can define styles:</p>
 
-<h3 id='for_example'>For example:</h3>
+<p>That's it ! Now you can define styles:</p>
+
+<h3>For example:</h3>
 
 <pre><code> /* External links style */
  a.external-link, a.external-link:visited
@@ -189,7 +189,9 @@
  .hreflang {
       font-size:0.8em;
       color:#bbb
- }</code></pre>
+ }
+</code></pre>
+
 
 
 

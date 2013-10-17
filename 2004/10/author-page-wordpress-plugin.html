@@ -125,58 +125,70 @@
             </div> <!-- /.meta -->
             <div id="entry-content">
 
-                <p>This plugin shows a specific page for each author, showing the number of posts published and some of the data entered in the Wordpress admin section, i.e. URL, AIM ICQ number, etc&#8230; except email! But it can provide a contact form that will send an email to the author&#8217;s address.</p>
+                <p>This plugin shows a specific page for each author, showing the number of posts published and some of the data entered in the Wordpress admin section, i.e. URL, AIM ICQ number, etc... except email! But it can provide a contact form that will send an email to the author's address.</p>
 
-<p>You can use it as an <a href='http://binarybonsai.com/about/'>'About' page</a> for a personnal weblog or to give each author their own page in a collaborative blog.</p>
+<p>You can use it as an <a href="http://binarybonsai.com/about/">'About' page</a> for a personnal weblog or to give each author their own page in a collaborative blog.</p>
 
-<p>To install it, download the <a href='http://jfoucher.com/source/author/'>source code</a> and save it in a php file or get the <a href='http://jfoucher.com/source/author.gz'>gzip file</a> and unpack it.</p>
+<p>To install it, download the <a href="http://jfoucher.com/source/author/">source code</a> and save it in a php file or get the <a href="http://jfoucher.com/source/author.gz">gzip file</a> and unpack it.</p>
 
 <p>Upload the resulting file to your wp-content/plugins directory and activate it from the admin interface.</p>
 
-<p>To use it put the author() function in you index.php template, where it normally shows the message that there are no posts.</p>
+<p>To use it put the author() function in you index.php template,
+where it normally shows the message that there are no posts.</p>
 
 <p>In the default template, it looks like this:</p>
 
 <pre><code> &lt;?php endforeach; else: ?&gt;
- &lt;p&gt;&lt;?php _e(&#39;Sorry, no posts matched your criteria.&#39;); ?&gt;&lt;/p&gt;
- &lt;?php endif; ?&gt;</code></pre>
+ &lt;p&gt;&lt;?php _e('Sorry, no posts matched your criteria.'); ?&gt;&lt;/p&gt;
+ &lt;?php endif; ?&gt;
+</code></pre>
 
 <p>Replace this by :</p>
 
 <pre><code> &lt;?php endforeach; else: ?&gt;
  &lt;?php author(true, 5); ?&gt;
- &lt;?php endif; ?&gt;</code></pre>
+ &lt;?php endif; ?&gt;
+</code></pre>
 
-<p>The first optionnal boolean parameter gives you the opportunity to show or hide a contact form for the author. Defaults to &#8216;true&#8217; (show the form).</p>
+<p>The first optionnal boolean parameter gives you the opportunity to show or hide
+a contact form for the author. Defaults to 'true' (show the form).</p>
 
-<p>In version 0.2+, the second parameter is an integer an defines the number of latest posts to show. The default is &#8216;0&#8217;. You may want to change some of the text in the plugin file to your own language.</p>
+<p>In version 0.2+, the second parameter is an integer an defines the number of latest posts to show. The default is '0'.
+You may want to change some of the text in the plugin file to your own language.</p>
 
 <p>To do a link to the author page, you have to do something like this:</p>
 
-<pre><code> &lt;a href=&quot;index.php?author_name=&lt;?php the_author_login(); ?&gt;&quot;&gt;
- &lt;?php the_author(); ?&gt;&lt;/a&gt;</code></pre>
+<pre><code> &lt;a href="index.php?author_name=&lt;?php the_author_login(); ?&gt;"&gt;
+ &lt;?php the_author(); ?&gt;&lt;/a&gt;
+</code></pre>
 
-<p>if you do not wish to or can&#8217;t use rewrite rules.</p>
+<p>if you do not wish to or can't use rewrite rules.</p>
 
 <p>On this site, I use the following rewrite rule:</p>
 
-<pre><code> RewriteRule ^about/? /index.php?author_name=jonathan [QSA]</code></pre>
+<pre><code> RewriteRule ^about/? /index.php?author_name=jonathan [QSA]
+</code></pre>
 
-<p>With a link to the &#8216;About&#8217; page simply like this :</p>
+<p>With a link to the 'About' page simply like this :</p>
 
-<pre><code> &lt;a href=&quot;http://jfoucher.com/about/&quot;&gt;About&lt;/a&gt;</code></pre>
+<pre><code> &lt;a href="http://jfoucher.com/about/"&gt;About&lt;/a&gt;
+</code></pre>
 
 <p>On a multiuser blog, you could do this:</p>
 
-<pre><code>RewriteRule ^author/?(.*)/? /index.php?author_name=$1 [QSA]</code></pre>
+<pre><code>RewriteRule ^author/?(.*)/? /index.php?author_name=$1 [QSA]
+</code></pre>
 
 <p>and so the link to the page is like this:</p>
 
-<pre><code> &lt;a href=&quot;http://jfoucher.com/author/&lt;?php the_author_login(); ?&gt;
- &lt;?php the_author(); ?&gt;&lt;/a&gt;</code></pre>
+<pre><code> &lt;a href="http://jfoucher.com/author/&lt;?php the_author_login(); ?&gt;
+ &lt;?php the_author(); ?&gt;&lt;/a&gt;
+</code></pre>
 
 <p>Version 0.3+ use native Wordpress functions to display the author data, making it more compatible (I hope) with future versions of Wordpress.</p>
-<a href='http://jfoucher.com/2004/10/08/plugin-wordpress-page-auteur/' hreflang='fr'>En Français</a>
+
+<p><a href="http://jfoucher.com/2004/10/08/plugin-wordpress-page-auteur/" hreflang="fr">En Français</a></p>
+
 
 
 

@@ -125,28 +125,48 @@
             </div> <!-- /.meta -->
             <div id="entry-content">
 
-                <h3 id='le_problme'>Le Problème</h3>
+                <h3>Le Problème</h3>
 
-<p>C&#8217;est que si vous utilisez une structure des permaliens où l&#8217;id du billet n&#8217;est pas présente, telle que celle-ci:</p>
-<div class='highlight'><pre><code class='php'><span class='x'>     /%year%/%monthnum%/%day%/%postname%/</span>
+<p>C'est que si vous utilisez une structure des permaliens où l'id du billet n'est pas présente, telle que celle-ci:</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">     /%year%/%monthnum%/%day%/%postname%/</span>
 </code></pre></div>
-<p>L&#8217;id du billet n&#8217;est pas ajouté à la table de Stat Traq, ce qui fait que mon plugin <a href='http://jfoucher.com/2004/10/popular-posts-wordpress-plugin'>Populaires</a> ne comprend plus ce qu&#8217;il lui arrive. La solution est en fait très simple</p>
 
-<h3 id='la_solution_jespre'>La Solution (j&#8217;espère)</h3>
+
+<p>L'id du billet n'est pas ajouté à la table de Stat Traq, ce qui fait que mon plugin <a href="http://jfoucher.com/2004/10/popular-posts-wordpress-plugin">Populaires</a> ne comprend plus ce qu'il lui arrive. La solution est en fait très simple</p>
+
+<h3>La Solution (j'espère)</h3>
 
 <p>Dans le fichier stattraq.php, vous trouverez les lignes suivantes (25 et 26)</p>
-<div class='highlight'><pre><code class='php'><span class='x'>    if (($p != &#39;&#39;)){</span>
-<span class='x'>    $p = intval($p);</span>
+
+<div class="highlight"><pre><code class="php"><span class="x">    if (($p != &#39;&#39;)){</span>
+<span class="x">    $p = intval($p);</span>
 </code></pre></div>
-<p>Mais la variable <div class='highlight'><pre><code class='php'><span class='x'>$p</span>
-</code></pre></div> n&#8217;existe que si le billet est sélectionné par son id. S&#8217;il a été selectionné par nom, <div class='highlight'><pre><code class='php'><span class='x'>$p</span>
-</code></pre></div> est nul.</p>
+
+
+<p>Mais la variable</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">$p</span>
+</code></pre></div>
+
+
+<p> n'existe que si le billet est sélectionné par son id. S'il a été selectionné par nom,</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">$p</span>
+</code></pre></div>
+
+
+<p> est nul.</p>
 
 <p>Il faut donc remplacer les lignes ci-dessus par celles-la</p>
-<div class='highlight'><pre><code class='php'><span class='x'>     if (($post-&gt;ID != &#39;&#39;)){</span>
-<span class='x'>     $p = intval($post-&gt;ID);</span>
+
+<div class="highlight"><pre><code class="php"><span class="x">     if (($post-&gt;ID != &#39;&#39;)){</span>
+<span class="x">     $p = intval($post-&gt;ID);</span>
 </code></pre></div>
-<p>Et ça a l&#8217;air de marcher avec tous les schémas de réécriture.</p>
+
+
+<p>Et ça a l'air de marcher avec tous les schémas de réécriture.</p>
+
 
 
 

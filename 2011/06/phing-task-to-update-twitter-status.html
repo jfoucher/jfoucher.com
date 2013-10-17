@@ -125,42 +125,70 @@
             </div> <!-- /.meta -->
             <div id="entry-content">
 
-                <h3 id='phing_and_twitter'>Phing and Twitter</h3>
+                <h3>Phing and Twitter</h3>
 
-<p>I recently starting working with <a href='http://www.phing.info' title='PHP build and deployment tool'>phing</a> to automate the build and deployement process for the web apps I&#8217;m building. I use it to compile my LESS files to CSS and minimize then, to compress and concatenate the javascript files, to optimize images using <a href='http://www.smushit.com/'>smushit</a>, etc&#8230;</p>
+<p>I recently starting working with <a title="PHP build and deployment tool" href="http://www.phing.info">phing</a> to automate the build and deployement process for the web apps I'm building. I use it to compile my LESS files to CSS and minimize then, to compress and concatenate the javascript files, to optimize images using <a href="http://www.smushit.com/">smushit</a>, etc...</p>
 
-<p>I like to be able to comunicate exactly what I&#8217;m doing, and thankfully Phing has a built in task to email a message to a list of recipients, which is good, but slightly old school. I wanted something that would be able to integrate readily with twitter, i.e. update my status when a build was completed. I saw <a href='http://codeinthehole.com/archives/14-Phing-task-to-update-Twitter-status.html'>this post</a>, which unfortunately uses Basic Auth. As you doubtless know, <a href='http://dev.twitter.com/pages/basic_auth_shutdown'>Twitter deprecated this form of authentication</a>, and now asks all users to authenticate using <a href='http://dev.twitter.com/pages/basic_to_oauth'>OAuth</a>.</p>
+<p>I like to be able to comunicate exactly what I'm doing, and thankfully Phing has a built in task to email a message to a list of recipients, which is good, but slightly old school. I wanted something that would be able to integrate readily with twitter, i.e. update my status when a build was completed. I saw <a href="http://codeinthehole.com/archives/14-Phing-task-to-update-Twitter-status.html">this post</a>, which unfortunately uses Basic Auth. As you doubtless know, <a href="http://dev.twitter.com/pages/basic_auth_shutdown">Twitter deprecated this form of authentication</a>, and now asks all users to authenticate using <a href="http://dev.twitter.com/pages/basic_to_oauth">OAuth</a>.</p>
 
-<h3 id='download_twitteroauth_library'>Download twitterOAuth library</h3>
+<h3>Download twitterOAuth library</h3>
 
-<p>That meant I had to roll my own phing task&#8230; However, thanks to great work by cleverer people, doing it was quite simple. Using <a href='http://abrah.am/'>Abraham Williams'</a> <a href='https://github.com/abraham/twitteroauth'>twitteroauth</a> library means that the coding I&#8217;d have to do was greatly reduced. Awesome, because <a href='http://www.codinghorror.com/blog/2005/08/how-to-be-lazy-dumb-and-successful.html'>I aim to be lazy</a>.</p>
+<p>That meant I had to roll my own phing task... However, thanks to great work by cleverer people, doing it was quite simple. Using <a href="http://abrah.am/">Abraham Williams'</a> <a href="https://github.com/abraham/twitteroauth">twitteroauth</a> library means that the coding I'd have to do was greatly reduced. Awesome, because <a href="http://www.codinghorror.com/blog/2005/08/how-to-be-lazy-dumb-and-successful.html">I aim to be lazy</a>.</p>
 
-<p>The first step is to <a href='https://github.com/abraham/twitteroauth/tarball/master'>download the twitteroauth library</a> from github. Extract it to a temporary folder and copy the subfolder <div class='highlight'><pre><code class='bash'>twitteroauth
-</code></pre></div> to the folder where your fing tasks are stored (on my system it is <div class='highlight'><pre><code class='bash'>/usr/share/php/phing/tasks/my/
-</code></pre></div> . Please note you might have to create the <div class='highlight'><pre><code class='bash'>my/
-</code></pre></div> folder within <div class='highlight'><pre><code class='bash'>/usr/share/php/phing/tasks/
-</code></pre></div> . You will need root privileges for these steps.</p>
+<p>The first step is to <a href="https://github.com/abraham/twitteroauth/tarball/master">download the twitteroauth library</a> from github. Extract it to a temporary folder and copy the subfolder</p>
 
-<h3 id='register_application_with_twitter'>Register application with Twitter</h3>
+<div class="highlight"><pre><code class="bash">twitteroauth
+</code></pre></div>
 
-<p>Secondly, you need to <a href='https://dev.twitter.com/apps/new'>register an application with twitter</a>, as you will need a consumer key and consumer secret later on. Please <a href='https://dev.twitter.com/apps/new'>do so now</a>, and come back once you have your app data available.</p>
 
-<h3 id='create_the_custom_phing_task'>Create the custom phing task</h3>
+<p> to the folder where your fing tasks are stored (on my system it is</p>
 
-<p>Next up is creating the actual task PHP class. Create an empty file named TwitterUpdateTask.php <div class='highlight'><pre><code class='bash'>sudo touch /usr/share/php/phing/tasks/my/TwitterUpdateTask.php
-</code></pre></div> and open it for editing with your favorite editor. We&#8217;ll use gedit : <div class='highlight'><pre><code class='bash'>gksu gedit /usr/share/php/phing/tasks/my/TwitterUpdateTask.php
-</code></pre></div></p>
+<div class="highlight"><pre><code class="bash">/usr/share/php/phing/tasks/my/
+</code></pre></div>
+
+
+<p>. Please note you might have to create the</p>
+
+<div class="highlight"><pre><code class="bash">my/
+</code></pre></div>
+
+
+<p> folder within</p>
+
+<div class="highlight"><pre><code class="bash">/usr/share/php/phing/tasks/
+</code></pre></div>
+
+
+<p>. You will need root privileges for these steps.</p>
+
+<h3>Register application with Twitter</h3>
+
+<p>Secondly, you need to <a href="https://dev.twitter.com/apps/new">register an application with twitter</a>, as you will need a consumer key and consumer secret later on. Please <a href="https://dev.twitter.com/apps/new">do so now</a>, and come back once you have your app data available.</p>
+
+<h3>Create the custom phing task</h3>
+
+<p>Next up is creating the actual task PHP class. Create an empty file named TwitterUpdateTask.php</p>
+
+<div class="highlight"><pre><code class="bash">sudo touch /usr/share/php/phing/tasks/my/TwitterUpdateTask.php
+</code></pre></div>
+
+
+<p> and open it for editing with your favorite editor. We'll use gedit :</p>
+
+<div class="highlight"><pre><code class="bash">gksu gedit /usr/share/php/phing/tasks/my/TwitterUpdateTask.php
+</code></pre></div>
+
 
 <p>The code for this file is as shown below:</p>
 
 <pre><code>&lt;?php
-require_once (&quot;phing/Task.php&quot;);
-require_once (&quot;phing/tasks/my/twitteroauth/twitteroauth.php&quot;);
+require_once ("phing/Task.php");
+require_once ("phing/tasks/my/twitteroauth/twitteroauth.php");
 /\* get the lines below from http://twittertokens.6px.eu/ \*/
-define(&#39;CONSUMER_KEY&#39;, &#39;Your Consumer Key Here&#39;);
-define(&#39;CONSUMER_SECRET&#39;, &#39;Your Consumer Secret Here&#39;);
-define(&#39;OAUTH_TOKEN&#39;, &#39;Your OAuth Token Here&#39;);
-define(&#39;OAUTH_TOKEN_SECRET&#39;, &#39;Your Oauth Token Secret Here&#39;);
+define('CONSUMER_KEY', 'Your Consumer Key Here');
+define('CONSUMER_SECRET', 'Your Consumer Secret Here');
+define('OAUTH_TOKEN', 'Your OAuth Token Here');
+define('OAUTH_TOKEN_SECRET', 'Your Oauth Token Secret Here');
 class TwitterUpdateTask extends Task {
     private $message;
     /\*
@@ -173,56 +201,80 @@ class TwitterUpdateTask extends Task {
         /\* Connect to twitter */
         $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET);
         /\* Pass the status message as a parameter \*/
-        $parameters = array(&#39;status&#39; =&gt; $this-&gt;message);
+        $parameters = array('status' =&gt; $this-&gt;message);
         /\* Post the data to the API endpoint \*/
-        $status = $connection-&gt;post(&#39;statuses/update&#39;, $parameters);
+        $status = $connection-&gt;post('statuses/update', $parameters);
         if (isset($status-&gt;error)){
             /\* if there is an error, fail the build \*/
             throw new BuildException($status-&gt;error);
         }else{
             /\* if there is no error, show a success message \*/
-            $this-&gt;log (&quot;Status posted to twitter&quot;);
+            $this-&gt;log ("Status posted to twitter");
         }
     }
-}</code></pre>
+}
+</code></pre>
 
-<h3 id='get_the_oauth_token_and_secret'>Get the OAuth token and secret</h3>
+<h3>Get the OAuth token and secret</h3>
 
-<p>Don&#8217;t close this file, we still need to add the authentication data to it. You can already place your consumer key and consumer secret in the apropriate <div class='highlight'><pre><code class='php'><span class='x'>define()</span>
-</code></pre></div> calls (the first two lines), but if not, we&#8217;ll do it now.</p>
+<p>Don't close this file, we still need to add the authentication data to it. You can already place your consumer key and consumer secret in the apropriate</p>
 
-<p>Navigate to <a href='http://twittertokens.6px.eu'>http://twittertokens.6px.eu</a>, put your consumer data and consumer secret in the apropriate fields and click on &#8220;Sign in with Twitter&#8221;. A twitter page will open asking for your confirmation. Click &#8220;Sign in&#8221; and you are redirected to http://twittertokens.6px.eu/. You should see 4 lines of code appear, that look like this:</p>
-<div class='highlight'><pre><code class='php'><span class='x'>    define(&#39;CONSUMER_KEY&#39;, &#39;V1UsnZJrgfhgKJFoqsQ&#39;);</span>
-<span class='x'>    define(&#39;CONSUMER_SECRET&#39;, &#39;UUazcBfXrWW1jcpiSU564hg654t1EMki8gzptQU&#39;);</span>
-<span class='x'>    define(&#39;OAUTH_TOKEN&#39;, &#39;325454656-EuCudghg8tTYwKf9yjt5nhqr14i5egHJPeVRGVxQv&#39;);</span>
-<span class='x'>    define(&#39;OAUTH_TOKEN_SECRET&#39;, &#39;gh6854hg6tyGEvGEiEi15XmUtOmDpaONM&#39;);</span>
+<div class="highlight"><pre><code class="php"><span class="x">define()</span>
 </code></pre></div>
-<p>Copy this code to the corresponding spot in the TwitterUpdateTask.php file, overwriting what&#8217;s already there.</p>
 
-<p>Please note though that I&#8217;m not making any claims as to how secure this is or whatever. I don&#8217;t store any of your data anywhere, but if sending your application consumer token and secret worries you, find another way to get the Oauth tokens.</p>
 
-<h3 id='create_the_build_file'>Create the build file</h3>
+<p> calls (the first two lines), but if not, we'll do it now.</p>
+
+<p>Navigate to <a href="http://twittertokens.6px.eu">http://twittertokens.6px.eu</a>, put your consumer data and consumer secret in the apropriate fields and click on "Sign in with Twitter". A twitter page will open asking for your confirmation. Click "Sign in" and you are redirected to http://twittertokens.6px.eu/. You should see 4 lines of code appear, that look like this:</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">    define(&#39;CONSUMER_KEY&#39;, &#39;V1UsnZJrgfhgKJFoqsQ&#39;);</span>
+<span class="x">    define(&#39;CONSUMER_SECRET&#39;, &#39;UUazcBfXrWW1jcpiSU564hg654t1EMki8gzptQU&#39;);</span>
+<span class="x">    define(&#39;OAUTH_TOKEN&#39;, &#39;325454656-EuCudghg8tTYwKf9yjt5nhqr14i5egHJPeVRGVxQv&#39;);</span>
+<span class="x">    define(&#39;OAUTH_TOKEN_SECRET&#39;, &#39;gh6854hg6tyGEvGEiEi15XmUtOmDpaONM&#39;);</span>
+</code></pre></div>
+
+
+<p>Copy this code to the corresponding spot in the TwitterUpdateTask.php file, overwriting what's already there.</p>
+
+<p>Please note though that I'm not making any claims as to how secure this is or whatever. I don't store any of your data anywhere, but if sending your application consumer token and secret worries you, find another way to get the Oauth tokens.</p>
+
+<h3>Create the build file</h3>
 
 <p>First, we define the custom task:</p>
-<div class='highlight'><pre><code class='xml'><span class='nt'>&lt;taskdef</span> <span class='na'>name=</span><span class='s'>&quot;twitterupdate&quot;</span> <span class='na'>classname=</span><span class='s'>&quot;phing.tasks.my.TwitterUpdateTask&quot;</span> <span class='nt'>/&gt;</span>
+
+<div class="highlight"><pre><code class="xml"><span class="nt">&lt;taskdef</span> <span class="na">name=</span><span class="s">&quot;twitterupdate&quot;</span> <span class="na">classname=</span><span class="s">&quot;phing.tasks.my.TwitterUpdateTask&quot;</span> <span class="nt">/&gt;</span>
 </code></pre></div>
-<p>Secondly, let&#8217;s create a custom target that will send a tweet with the message we want.</p>
-<div class='highlight'><pre><code class='xml'>    <span class='nt'>&lt;target</span> <span class='na'>name=</span><span class='s'>&quot;tweet&quot;</span><span class='nt'>&gt;</span>
-        <span class='nt'>&lt;twitterupdate</span> <span class='na'>message=</span><span class='s'>&quot;${twitter.status}&quot;</span> <span class='nt'>/&gt;</span>
-    <span class='nt'>&lt;/target&gt;</span>
+
+
+<p>Secondly, let's create a custom target that will send a tweet with the message we want.</p>
+
+<div class="highlight"><pre><code class="xml">    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;tweet&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;twitterupdate</span> <span class="na">message=</span><span class="s">&quot;${twitter.status}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
 </code></pre></div>
-<p>Now we can call this task from another one, but we need to make that the twitter.status is set. Let&#8217;s we have a &#8220;staging&#8221; target. Part of it could look like this:</p>
-<div class='highlight'><pre><code class='xml'>    <span class='c'>&lt;!-- Set the timestamp to be used in the twitter update --&gt;</span>
-    <span class='nt'>&lt;tstamp&gt;</span>
-        <span class='nt'>&lt;format</span> <span class='na'>property=</span><span class='s'>&quot;build.time&quot;</span> <span class='na'>pattern=</span><span class='s'>&quot;%Y-%m-%d %H:%I&quot;</span> <span class='nt'>/&gt;</span>
-    <span class='nt'>&lt;/tstamp&gt;</span>
-    <span class='nt'>&lt;property</span> <span class='na'>name=</span><span class='s'>&quot;twitter.status&quot;</span> <span class='na'>value=</span><span class='s'>&quot;Staging build completed at ${build.time}&quot;</span> <span class='nt'>/&gt;</span>
-    <span class='nt'>&lt;phingcall</span> <span class='na'>target=</span><span class='s'>&quot;tweet&quot;</span> <span class='nt'>/&gt;</span>
+
+
+<p>Now we can call this task from another one, but we need to make that the twitter.status is set. Let's we have a "staging" target. Part of it could look like this:</p>
+
+<div class="highlight"><pre><code class="xml">    <span class="c">&lt;!-- Set the timestamp to be used in the twitter update --&gt;</span>
+    <span class="nt">&lt;tstamp&gt;</span>
+        <span class="nt">&lt;format</span> <span class="na">property=</span><span class="s">&quot;build.time&quot;</span> <span class="na">pattern=</span><span class="s">&quot;%Y-%m-%d %H:%I&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/tstamp&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;twitter.status&quot;</span> <span class="na">value=</span><span class="s">&quot;Staging build completed at ${build.time}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;phingcall</span> <span class="na">target=</span><span class="s">&quot;tweet&quot;</span> <span class="nt">/&gt;</span>
 </code></pre></div>
-<p>This will post the message to twitter, replacing the <div class='highlight'><pre><code class='php'><span class='x'>${build.time}</span>
-</code></pre></div> token by the actual build and time.</p>
+
+
+<p>This will post the message to twitter, replacing the</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">${build.time}</span>
+</code></pre></div>
+
+
+<p> token by the actual build and time.</p>
 
 <p>Do you use Phing for your webapp build and deployment? If so, please share any custom tasks you might have created.</p>
+
 
 
 

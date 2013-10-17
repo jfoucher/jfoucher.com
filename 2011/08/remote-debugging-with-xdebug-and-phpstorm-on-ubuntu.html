@@ -125,34 +125,79 @@
             </div> <!-- /.meta -->
             <div id="entry-content">
 
-                <p>Being able to debug your php application right from your IDE is something that you can&#8217;t fully realise the power of, unless you&#8217;ve tried it. The advantages are immediately obvious: as soon as the connection from Xdebug is successful, you are blinded by variable inspection, code stepping, breakpoints, etc&#8230; Debugging heaven! It took me&#8230; a few months to finally find the time figure out how to set up everything properly, so I hope this post can help someone, somewhere. But don&#8217;t worry: it retrospect, it&#8217;s not that difficult at all. <h3>First things first : install xdebug</h3> On Ubuntu and Debian, it couldn&#8217;t be easier: just open a terminal and type <div class='highlight'><pre><code class='bash'>sudo apt-get install
+                <p>Being able to debug your php application right from your IDE is something that you can't fully realise the power of, unless you've tried it. The advantages are immediately obvious: as soon as the connection from Xdebug is successful, you are blinded by variable inspection, code stepping, breakpoints, etc... Debugging heaven!
+It took me... a few months to finally find the time figure out how to set up everything properly, so I hope this post can help someone, somewhere. But don't worry: it retrospect, it's not that difficult at all.</p>
+
+<h3>First things first : install xdebug</h3>
+
+
+<p>On Ubuntu and Debian, it couldn't be easier: just open a terminal and type</p>
+
+<div class="highlight"><pre><code class="bash">sudo apt-get install
 php5-xdebug
-</code></pre></div> This will also install Apache and PHP if you don&#8217;t have them already. <h3>Setup Xdebug on server</h3> Done? Right, so this created a config file in /etc/php5/conf.d called xdebug.ini, which is read by php and contains xdebug&#8217;s configuration options. You&#8217;ll need to open this file for editing as root, as we need to make a few changes in there. you can copy/paste the command below in the terminal, or do it your own way.</p>
-<div class='highlight'><pre><code class='bash'>gksu gedit /etc/apache2/conf.d/xdebug.ini
 </code></pre></div>
+
+
+<p> This will also install Apache and PHP if you don't have them already.</p>
+
+<h3>Setup Xdebug on server</h3>
+
+
+<p>Done? Right, so this created a config file in /etc/php5/conf.d called xdebug.ini, which is read by php and contains xdebug's configuration options. You'll need to open this file for editing as root, as we need to make a few changes in there. you can copy/paste the command below in the terminal, or do it your own way.</p>
+
+<div class="highlight"><pre><code class="bash">gksu gedit /etc/apache2/conf.d/xdebug.ini
+</code></pre></div>
+
+
 <p>Within this file, there will be a single line, referencing the xdebug zend extension, something like this (the path can vary slightly)</p>
-<div class='highlight'><pre><code class='ini'><span class='na'>zend_extension</span><span class='o'>=</span><span class='s'>/usr/lib/php5/20090626/xdebug.so</span>
+
+<div class="highlight"><pre><code class="ini"><span class="na">zend_extension</span><span class="o">=</span><span class="s">/usr/lib/php5/20090626/xdebug.so</span>
 </code></pre></div>
-<p>This is what we&#8217;re going to add:</p>
-<div class='highlight'><pre><code class='ini'><span class='na'>xdebug.remote_enable</span><span class='o'>=</span><span class='s'>On #this enables remote debugging</span>
-<span class='na'>xdebug.remote_host</span><span class='o'>=</span><span class='s'>192.168.1.83 #change this IP adress for the one of the computer you are typing on</span>
-<span class='na'>xdebug.remote_port</span><span class='o'>=</span><span class='s'>9000 #this is the default, leave it as is</span>
+
+
+<p>This is what we're going to add:</p>
+
+<div class="highlight"><pre><code class="ini"><span class="na">xdebug.remote_enable</span><span class="o">=</span><span class="s">On #this enables remote debugging</span>
+<span class="na">xdebug.remote_host</span><span class="o">=</span><span class="s">192.168.1.83 #change this IP adress for the one of the computer you are typing on</span>
+<span class="na">xdebug.remote_port</span><span class="o">=</span><span class="s">9000 #this is the default, leave it as is</span>
 </code></pre></div>
+
+
 <p>Now we restart apache so that the new configuration is taken into account:</p>
-<div class='highlight'><pre><code class='bash'>sudo /etc/init.d/apache2 restart
+
+<div class="highlight"><pre><code class="bash">sudo /etc/init.d/apache2 restart
 </code></pre></div>
-<p>And we that we are <strong>done</strong> on the server side of things <h3>Prepare PhpStorm</h3> Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the &#8220;Accept debug connections&#8221; button, and activate Xdebug by using a browser extension. Here are four extensions to do this: <ul>
-	<li><a href='https://addons.mozilla.org/en-US/firefox/addon/58688'>Firefox</a></li>
-	<li><a href='https://chrome.google.com/extensions/detail/eadndfjplgieldjbigjakmdgkmoaaaoc'>Chrome</a></li>
-	<li><a href='http://benmatselby.posterous.com/xdebug-toggler-for-safari'>Safari</a></li>
-	<li><a href='https://addons.opera.com/addons/extensions/details/xdebug-launcher/?display=en'>Opera</a></li>
-</ul> Use your preferred extension to activate Xdebug for the page you&#8217;re on. Go back to PhpStorm, and instruct it to listen to incoming debug connections by clicking on the &#8220;Listen PHP debug connections&#8221; button <img height='26' alt='' src='http://i.imgur.com/uMBOg.png' title='accept connection button' width='28' class='alignnone' /></p>
+
+
+<p>And we that we are <strong>done</strong> on the server side of things</p>
+
+<h3>Prepare PhpStorm</h3>
+
+
+<p>Switch to the computer where PhpStorm is installed, and open your project. All you have to do is click on the "Accept debug connections" button, and activate Xdebug by using a browser extension. Here are four extensions to do this:</p>
+
+<ul>
+    <li><a href="https://addons.mozilla.org/en-US/firefox/addon/58688">Firefox</a></li>
+    <li><a href="https://chrome.google.com/extensions/detail/eadndfjplgieldjbigjakmdgkmoaaaoc">Chrome</a></li>
+    <li><a href="http://benmatselby.posterous.com/xdebug-toggler-for-safari">Safari</a></li>
+    <li><a href="https://addons.opera.com/addons/extensions/details/xdebug-launcher/?display=en">Opera</a></li>
+</ul>
+
+
+<p>Use your preferred extension to activate Xdebug for the page you're on. Go back to PhpStorm, and instruct it to listen to incoming debug connections by clicking on the "Listen PHP debug connections" button <img class="alignnone" title="accept connection button" src="http://i.imgur.com/uMBOg.png" alt="" width="28" height="26" /></p>
 
 <p>Now all you have to is set a breakpoint and reload your page.</p>
-<div style='width:319px' class='image-with-caption aligncenter'><div class='caption'>Setting a breakpoint in PhpStorm</div><img height='173' alt='Setting breakpoint' src='http://i.imgur.com/9AuKc.png' title='Setting breakpoint' width='319' /></div>
+
+<div class="image-with-caption aligncenter" style="width:319px"><div class="caption">Setting a breakpoint in PhpStorm</div><img title="Setting breakpoint" src="http://i.imgur.com/9AuKc.png" alt="Setting breakpoint" width="319" height="173" /></div>
+
+
 <p>A window will popup asking you if PhpStorm should accept the connection from Xdebug</p>
-<div style='width:331px' class='image-with-caption aligncenter'><div class='caption'>Accepting connection from Xdebug on PhpStorm</div><img height='398' alt='Accepting connection from Xdebug' src='http://i.imgur.com/2fZKq.png' title='Accepting connection from Xdebug' width='331' /></div>
+
+<div class="image-with-caption aligncenter" style="width:331px"><div class="caption">Accepting connection from Xdebug on PhpStorm</div><img title="Accepting connection from Xdebug" src="http://i.imgur.com/2fZKq.png" alt="Accepting connection from Xdebug" width="331" height="398" /></div>
+
+
 <p>Just click debug and happy bug squishing!</p>
+
 
 
 

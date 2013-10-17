@@ -125,59 +125,67 @@
             </div> <!-- /.meta -->
             <div id="entry-content">
 
-                <p>Cette extension de Wordpress créé une page spécifique pour chaque auteur, qui montre le nombre d&#8217;articles publiés, et les données du compte wordpress de cet utilisateur, tels que biographie, addresse du site web, etc&#8230; et optionellement l&#8217;adresse email (si vous n&#8217;avez pas peur du spam&#8230;) Il est aussi possible d&#8217;afficher un formulaire qui enverra un message à l&#8217;auteur par email, mais sans que l&#8217;adresse soit visible.</p>
+                <p>Cette extension de Wordpress créé une page spécifique pour chaque auteur, qui montre le nombre d'articles publiés, et les données du compte wordpress de cet utilisateur, tels que biographie, addresse du site web, etc... et optionellement l'adresse email (si vous n'avez pas peur du spam...) Il est aussi possible d'afficher un formulaire qui enverra un message à l'auteur par email, mais sans que l'adresse soit visible.</p>
 
-<p>Vous pouvez vous en servir comme d&#8217;une page &#8216;à propos&#8217; dans un blog personnel ou pour donner une présentation de chaque auteur dans un site collaboratif.</p>
+<p>Vous pouvez vous en servir comme d'une page 'à propos' dans un blog personnel ou pour donner une présentation de chaque auteur dans un site collaboratif.</p>
 
-<p>Pour l&#8217;installer, téléchargez le fichier <a href='http://jfoucher.com/source/author.gz'>gzip</a> et décompressez-le</p>
+<p>Pour l'installer, téléchargez le fichier <a href="http://jfoucher.com/source/author.gz">gzip</a> et décompressez-le</p>
 
-<p>Envoyez le fichier résultant dans votre dossier wp-content/plugins et activez le depuis l&#8217;interface d&#8217;administration.</p>
+<p>Envoyez  le fichier résultant dans votre dossier wp-content/plugins et activez le depuis l'interface d'administration.</p>
 
-<p>Pour l&#8217;utiliser, écrivez &#8216;author()&#8217; dans votre fichier index.php, là où normalement apparaît le message signalant l&#8217;absence d&#8217;article.</p>
+<p>Pour l'utiliser, écrivez 'author()' dans votre fichier index.php, là où normalement apparaît le message signalant l'absence d'article.</p>
 
 <p>Dans le fichier index.php par défaut, ça ressemble à ça :</p>
 
 <pre><code> &lt;?php endforeach; else: ?&gt;
- &lt;p&gt;&lt;?php _e(&#39;Sorry, no posts matched your criteria.&#39;); ?&gt;&lt;/p&gt;
- &lt;?php endif; ?&gt;</code></pre>
+ &lt;p&gt;&lt;?php _e('Sorry, no posts matched your criteria.'); ?&gt;&lt;/p&gt;
+ &lt;?php endif; ?&gt;
+</code></pre>
 
 <p>Remplacez le par :</p>
 
 <pre><code> &lt;?php endforeach; else:
  author(true, 5,false);
- endif; ?&gt;</code></pre>
+ endif; ?&gt;
+</code></pre>
 
-<p>Le premier param?tre bool?en (optionel) vous permet de choisir si vous souhaitez afficher un formulaire de contact ou pas. &#8216;true&#8217; est le param?tre par d?fault (affiche le formulaire).</p>
+<p>Le premier param?tre bool?en (optionel) vous permet de choisir si vous souhaitez afficher un formulaire de contact ou pas. 'true' est le param?tre par d?fault (affiche le formulaire).</p>
 
 <p>Dans les versions 0.2+, le deuxième paramètre permet de définir le nombre de derniers articles à afficher. Etabli à 0 par d?fault (ne pas afficher les derniers articles publiés).</p>
 
-<p>Pour les versions 0.22+, le troisième paramètre booléen permet d&#8217;afficher ou pas l&#8217;adresse email de l&#8217;auteur. Cette option est à &#8216;false&#8217; par d?faut (ne pas afficher l&#8217;adresse email).</p>
+<p>Pour les versions 0.22+, le troisième paramètre booléen permet d'afficher ou pas l'adresse email de l'auteur. Cette option est à 'false' par d?faut (ne pas afficher l'adresse email).</p>
 
 <p>Les textes dans le plugin sont en Français, mais vous souhaiterez paut être les changer. Ne vous gênez pas ;)</p>
 
-<p>Pour faire un lien vers la page de l&#8217;auteur, vous devez faire quelque chose comme ?a :</p>
+<p>Pour faire un lien vers la page de l'auteur, vous devez faire quelque chose comme ?a :</p>
 
-<pre><code> &lt;a href=&quot;index.php?author_name=&lt;?php the_author_login(); ?&gt;&quot;&gt;
- &lt;?php the_author(); ?&gt;&lt;/a&gt;</code></pre>
+<pre><code> &lt;a href="index.php?author_name=&lt;?php the_author_login(); ?&gt;"&gt;
+ &lt;?php the_author(); ?&gt;&lt;/a&gt;
+</code></pre>
 
-<p>Si vous ne pouvez ou ne voulez pas utiliser les <a href='http://httpd.apache.org/docs/misc/rewriteguide.html'>RewriteRules</a> (règles de réécriture d&#8217;url <a href='http://httpd.apache.org'>Apache</a>).</p>
+<p>Si vous ne pouvez ou ne voulez pas utiliser les <a href="http://httpd.apache.org/docs/misc/rewriteguide.html">RewriteRules</a> (règles de réécriture d'url <a href="http://httpd.apache.org">Apache</a>).</p>
 
-<p>Sur ce site, j&#8217;utilise la règle de réécriture suivante :</p>
+<p>Sur ce site, j'utilise la règle de réécriture suivante :</p>
 
-<pre><code>RewriteRule ^author/?(.*)/? /index.php?author_name=$1 [QSA]</code></pre>
+<pre><code>RewriteRule ^author/?(.*)/? /index.php?author_name=$1 [QSA]
+</code></pre>
 
 <p>Donc le lien vers la page auteur est comme ceci :</p>
 
-<pre><code> &lt;a href=&quot;http://jfoucher.com/author/&lt;?php the_author_login(); ?&gt;&quot;&gt;
- &lt;?php the_author(); ?&gt;&lt;/a&gt;</code></pre>
+<pre><code> &lt;a href="http://jfoucher.com/author/&lt;?php the_author_login(); ?&gt;"&gt;
+ &lt;?php the_author(); ?&gt;&lt;/a&gt;
+</code></pre>
 
 <p>Mais vous pourriez tout aussi bien utliser le règle suivante :</p>
 
-<pre><code>RewriteRule ^a-propos/? /index.php?author_name=login [QSA]</code></pre>
+<pre><code>RewriteRule ^a-propos/? /index.php?author_name=login [QSA]
+</code></pre>
 
-<p>en remplacant &#8216;login&#8217; par votre propre identifiant, et créér un lien vers cette page comme ceci :</p>
+<p>en remplacant 'login' par votre propre identifiant, et créér un lien vers cette page comme ceci :</p>
 
-<pre><code> &lt;a href=&quot;http://jfoucher.com/a-propos/&quot;&gt;A propos&lt;/a&gt;</code></pre>
+<pre><code> &lt;a href="http://jfoucher.com/a-propos/"&gt;A propos&lt;/a&gt;
+</code></pre>
+
 
 
 
