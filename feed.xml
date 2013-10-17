@@ -4,7 +4,7 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>Thu Oct 17 11:27:22 +0200 2013</updated>
+	<updated>Thu Oct 17 11:54:55 +0200 2013</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
@@ -87,65 +87,57 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;h3 id='configure_apache_and_nginx'&gt;Configure Apache and Nginx&lt;/h3&gt;
 
 &lt;p&gt;I created one bash script that creates the necessary virtual hosts files for Apache and Nginx, by taking a template a doing a search/replace with sed. Here is the apache virtual host template that goes into &lt;code&gt;/etc/apache2/sites-available&lt;/code&gt;:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='apache'&gt;    &lt;span class='nt'&gt;&amp;lt;VirtualHost&lt;/span&gt; &lt;span class='s'&gt;*:8080&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='apache'&gt;    &lt;span class='err'&gt;&amp;amp;lt;&lt;/span&gt;&lt;span class='nb'&gt;VirtualHost&lt;/span&gt; \*:8080&amp;amp;gt;
         &lt;span class='nb'&gt;ServerAdmin&lt;/span&gt; webmaster@localhost
         &lt;span class='nb'&gt;ServerName&lt;/span&gt; template
         &lt;span class='nb'&gt;ServerAlias&lt;/span&gt; template www.template cdn.template cdn2.template
         &lt;span class='nb'&gt;DocumentRoot&lt;/span&gt; &lt;span class='sx'&gt;/var/www/template&lt;/span&gt;
-        &lt;span class='nt'&gt;&amp;lt;Directory&lt;/span&gt; &lt;span class='s'&gt;/&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class='err'&gt;&amp;amp;lt;&lt;/span&gt;&lt;span class='nb'&gt;Directory&lt;/span&gt; /&amp;amp;gt;
                 &lt;span class='nb'&gt;Options&lt;/span&gt; FollowSymLinks
                 &lt;span class='nb'&gt;AllowOverride&lt;/span&gt; &lt;span class='k'&gt;None&lt;/span&gt;
-        &lt;span class='nt'&gt;&amp;lt;/Directory&amp;gt;&lt;/span&gt;
-        &lt;span class='nt'&gt;&amp;lt;Directory&lt;/span&gt; &lt;span class='s'&gt;/var/www/template/&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class='err'&gt;&amp;amp;lt;/Directory&amp;amp;gt;&lt;/span&gt;
+        &lt;span class='err'&gt;&amp;amp;lt;&lt;/span&gt;&lt;span class='nb'&gt;Directory&lt;/span&gt; &lt;span class='sx'&gt;/var/www/template/&lt;/span&gt;&amp;amp;gt;
                 &lt;span class='nb'&gt;Options&lt;/span&gt; Indexes FollowSymLinks MultiViews
                 &lt;span class='nb'&gt;AllowOverride&lt;/span&gt; &lt;span class='k'&gt;All&lt;/span&gt;
                 &lt;span class='nb'&gt;Order&lt;/span&gt; allow,deny
                 &lt;span class='nb'&gt;allow&lt;/span&gt; from &lt;span class='k'&gt;all&lt;/span&gt;
-        &lt;span class='nt'&gt;&amp;lt;/Directory&amp;gt;&lt;/span&gt;
-
+        &lt;span class='err'&gt;&amp;amp;lt;/Directory&amp;amp;gt;&lt;/span&gt;
         &lt;span class='nb'&gt;ScriptAlias&lt;/span&gt; &lt;span class='sx'&gt;/cgi-bin/&lt;/span&gt; &lt;span class='sx'&gt;/usr/lib/cgi-bin/&lt;/span&gt;
-        &lt;span class='nt'&gt;&amp;lt;Directory&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;/usr/lib/cgi-bin&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class='err'&gt;&amp;amp;lt;&lt;/span&gt;&lt;span class='nb'&gt;Directory&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;/usr/lib/cgi-bin&amp;quot;&lt;/span&gt;&amp;amp;gt;
                 &lt;span class='nb'&gt;AllowOverride&lt;/span&gt; &lt;span class='k'&gt;None&lt;/span&gt;
                 &lt;span class='nb'&gt;Options&lt;/span&gt; +ExecCGI -MultiViews +SymLinksIfOwnerMatch
                 &lt;span class='nb'&gt;Order&lt;/span&gt; allow,deny
                 &lt;span class='nb'&gt;Allow&lt;/span&gt; from &lt;span class='k'&gt;all&lt;/span&gt;
-        &lt;span class='nt'&gt;&amp;lt;/Directory&amp;gt;&lt;/span&gt;
-
+        &lt;span class='err'&gt;&amp;amp;lt;/Directory&amp;amp;gt;&lt;/span&gt;
         &lt;span class='nb'&gt;ErrorLog&lt;/span&gt; ${APACHE_LOG_DIR}/error.log
-
         &lt;span class='c'&gt;# Possible values include: debug, info, notice, warn, error, crit,&lt;/span&gt;
         &lt;span class='c'&gt;# alert, emerg.&lt;/span&gt;
         &lt;span class='nb'&gt;LogLevel&lt;/span&gt; &lt;span class='k'&gt;warn&lt;/span&gt;
-
         &lt;span class='nb'&gt;CustomLog&lt;/span&gt; ${APACHE_LOG_DIR}/access.log combined
-
         &lt;span class='nb'&gt;Alias&lt;/span&gt; &lt;span class='sx'&gt;/doc/&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;/usr/share/doc/&amp;quot;&lt;/span&gt;
-        &lt;span class='nt'&gt;&amp;lt;Directory&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;/usr/share/doc/&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class='err'&gt;&amp;amp;lt;&lt;/span&gt;&lt;span class='nb'&gt;Directory&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;/usr/share/doc/&amp;quot;&lt;/span&gt;&amp;amp;gt;
             &lt;span class='nb'&gt;Options&lt;/span&gt; Indexes MultiViews FollowSymLinks
             &lt;span class='nb'&gt;AllowOverride&lt;/span&gt; &lt;span class='k'&gt;None&lt;/span&gt;
             &lt;span class='nb'&gt;Order&lt;/span&gt; deny,allow
             &lt;span class='nb'&gt;Deny&lt;/span&gt; from &lt;span class='k'&gt;all&lt;/span&gt;
             &lt;span class='nb'&gt;Allow&lt;/span&gt; from &lt;span class='m'&gt;127.0.0.0/255&lt;/span&gt;.0.0.0 ::1/128
-        &lt;span class='nt'&gt;&amp;lt;/Directory&amp;gt;&lt;/span&gt;
-
-    &lt;span class='nt'&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/span&gt;
+        &lt;span class='err'&gt;&amp;amp;lt;/Directory&amp;amp;gt;&lt;/span&gt;
+    &lt;span class='err'&gt;&amp;amp;lt;/VirtualHost&amp;amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You&amp;#8217;ll notice that Apache listens on port 8080. You need to change the port from 80 to 8080 in &lt;code&gt;/etc/apache2/ports.conf&lt;/code&gt; as well, this is what mine looks like after the change :&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='apache'&gt;    &lt;span class='nb'&gt;NameVirtualHost&lt;/span&gt; *:8080
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='apache'&gt;    &lt;span class='nb'&gt;NameVirtualHost&lt;/span&gt; \*:8080
     &lt;span class='nb'&gt;Listen&lt;/span&gt; &lt;span class='m'&gt;8080&lt;/span&gt;
-
-    &lt;span class='nt'&gt;&amp;lt;IfModule&lt;/span&gt; &lt;span class='s'&gt;mod_ssl.c&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class='c'&gt;# If you add NameVirtualHost *:443 here, you will also have to change&lt;/span&gt;
+    &lt;span class='err'&gt;&amp;amp;lt;&lt;/span&gt;&lt;span class='nb'&gt;IfModule&lt;/span&gt; mod_ssl.c&amp;amp;gt;
+        &lt;span class='c'&gt;# If you add NameVirtualHost \*:443 here, you will also have to change&lt;/span&gt;
         &lt;span class='c'&gt;# the VirtualHost statement in /etc/apache2/sites-available/default-ssl&lt;/span&gt;
-        &lt;span class='c'&gt;# to &amp;lt;VirtualHost *:443&amp;gt;&lt;/span&gt;
+        &lt;span class='c'&gt;# to &amp;amp;lt;VirtualHost \*:443&amp;amp;gt;&lt;/span&gt;
         &lt;span class='c'&gt;# Server Name Indication for SSL named virtual hosts is currently not&lt;/span&gt;
         &lt;span class='c'&gt;# supported by MSIE on Windows XP.&lt;/span&gt;
         &lt;span class='nb'&gt;Listen&lt;/span&gt; &lt;span class='m'&gt;443&lt;/span&gt;
-    &lt;span class='nt'&gt;&amp;lt;/IfModule&amp;gt;&lt;/span&gt;
-
-    &lt;span class='nt'&gt;&amp;lt;IfModule&lt;/span&gt; &lt;span class='s'&gt;mod_gnutls.c&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class='err'&gt;&amp;amp;lt;/IfModule&amp;amp;gt;&lt;/span&gt;
+    &lt;span class='err'&gt;&amp;amp;lt;&lt;/span&gt;&lt;span class='nb'&gt;IfModule&lt;/span&gt; mod_gnutls.c&amp;amp;gt;
         &lt;span class='nb'&gt;Listen&lt;/span&gt; &lt;span class='m'&gt;443&lt;/span&gt;
-    &lt;span class='nt'&gt;&amp;lt;/IfModule&amp;gt;&lt;/span&gt;
+    &lt;span class='err'&gt;&amp;amp;lt;/IfModule&amp;amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Next up is the template for the default nginx site, which is much simpler and goes in &lt;code&gt;/etc/nginx/sites-available&lt;/code&gt;:&lt;/p&gt;
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='nginx'&gt;    &lt;span class='k'&gt;server&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
@@ -154,7 +146,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
         &lt;span class='kn'&gt;error_log&lt;/span&gt; &lt;span class='s'&gt;/var/log/nginx.error.log&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
         &lt;span class='kn'&gt;root&lt;/span&gt; &lt;span class='s'&gt;/var/www/template&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
         &lt;span class='kn'&gt;index&lt;/span&gt; &lt;span class='s'&gt;index.php&lt;/span&gt; &lt;span class='s'&gt;index.html&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
-        &lt;span class='kn'&gt;server_name&lt;/span&gt; &lt;span class='s'&gt;template&lt;/span&gt; &lt;span class='s'&gt;*.template&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+        &lt;span class='kn'&gt;server_name&lt;/span&gt; &lt;span class='s'&gt;template&lt;/span&gt; &lt;span class='s'&gt;\*.template&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
         &lt;span class='kn'&gt;location&lt;/span&gt; &lt;span class='s'&gt;/&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
                 &lt;span class='kn'&gt;proxy_set_header&lt;/span&gt; &lt;span class='s'&gt;X-Real-IP&lt;/span&gt; &lt;span class='nv'&gt;$remote_addr&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
                 &lt;span class='kn'&gt;proxy_set_header&lt;/span&gt; &lt;span class='s'&gt;X-Forwarded-For&lt;/span&gt; &lt;span class='nv'&gt;$proxy_add_x_forwarded_for&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
@@ -170,25 +162,21 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;p&gt;So, our virtual host templates are ready, and if you only have one or two sites you could copy the contents to a new file by hand and change the word &lt;code&gt;template&lt;/code&gt; for your actual domain name / folder, but as I had quite a few sites to convert, I created a small bash script that takes car of it for me, by just calling it with the hostname:&lt;/p&gt;
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    &lt;span class='c'&gt;#!/bin/bash&lt;/span&gt;
-
     &lt;span class='nv'&gt;CMDLN_ARGS&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;$@&amp;quot;&lt;/span&gt; &lt;span class='c'&gt;# Command line arguments for this script&lt;/span&gt;
     &lt;span class='nb'&gt;export &lt;/span&gt;CMDLN_ARGS
-
     &lt;span class='c'&gt;# Run this script as root if not already.&lt;/span&gt;
     chk_root &lt;span class='o'&gt;()&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
-
      &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='o'&gt;[&lt;/span&gt; ! &lt;span class='k'&gt;$(&lt;/span&gt; id -u &lt;span class='k'&gt;)&lt;/span&gt; -eq 0 &lt;span class='o'&gt;]&lt;/span&gt;; &lt;span class='k'&gt;then&lt;/span&gt;
 &lt;span class='k'&gt;       &lt;/span&gt;&lt;span class='nb'&gt;echo&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;Please enter your password.&amp;quot;&lt;/span&gt;
        &lt;span class='nb'&gt;exec &lt;/span&gt;sudo su -c &lt;span class='s2'&gt;&amp;quot;${0} ${CMDLN_ARGS}&amp;quot;&lt;/span&gt; &lt;span class='c'&gt;# Call this prog as root&lt;/span&gt;
        &lt;span class='nb'&gt;exit&lt;/span&gt; &lt;span class='k'&gt;${&lt;/span&gt;&lt;span class='p'&gt;?&lt;/span&gt;&lt;span class='k'&gt;}&lt;/span&gt;  &lt;span class='c'&gt;# since we&amp;#39;re &amp;#39;execing&amp;#39; above, we wont reach this exit&lt;/span&gt;
                   &lt;span class='c'&gt;# unless something goes wrong.&lt;/span&gt;
      &lt;span class='k'&gt;fi&lt;/span&gt;
-
     &lt;span class='o'&gt;}&lt;/span&gt;
     chk_root
-    cat /etc/apache2/sites-available/template | sed &lt;span class='s2'&gt;&amp;quot;s/template/$1/g&amp;quot;&lt;/span&gt; |cat &amp;gt; /etc/apache2/sites-available/&lt;span class='nv'&gt;$1&lt;/span&gt;
+    cat /etc/apache2/sites-available/template | sed &lt;span class='s2'&gt;&amp;quot;s/template/$1/g&amp;quot;&lt;/span&gt; |cat &amp;amp;gt; /etc/apache2/sites-available/&lt;span class='nv'&gt;$1&lt;/span&gt;
     ln -s /etc/apache2/sites-available/&lt;span class='nv'&gt;$1&lt;/span&gt; /etc/apache2/sites-enabled/&lt;span class='nv'&gt;$1&lt;/span&gt;
-    cat /etc/nginx/sites-available/template | sed &lt;span class='s2'&gt;&amp;quot;s/template/$1/g&amp;quot;&lt;/span&gt; |cat &amp;gt; /etc/nginx/sites-available/&lt;span class='nv'&gt;$1&lt;/span&gt;
+    cat /etc/nginx/sites-available/template | sed &lt;span class='s2'&gt;&amp;quot;s/template/$1/g&amp;quot;&lt;/span&gt; |cat &amp;amp;gt; /etc/nginx/sites-available/&lt;span class='nv'&gt;$1&lt;/span&gt;
     ln -s /etc/nginx/sites-available/&lt;span class='nv'&gt;$1&lt;/span&gt; /etc/nginx/sites-enabled/&lt;span class='nv'&gt;$1&lt;/span&gt;
     &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='o'&gt;[&lt;/span&gt; -d /var/www/&lt;span class='nv'&gt;$1&lt;/span&gt; &lt;span class='o'&gt;]&lt;/span&gt;;
     &lt;span class='k'&gt;then&lt;/span&gt;
@@ -198,7 +186,6 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
       mkdir &lt;span class='s2'&gt;&amp;quot;/var/www/$1&amp;quot;&lt;/span&gt;
     &lt;span class='k'&gt;fi&lt;/span&gt;
 &lt;span class='k'&gt;    &lt;/span&gt;chown -R www-data:www-data /var/www/&lt;span class='nv'&gt;$1&lt;/span&gt;
-
     /etc/init.d/apache2 restart
     /etc/init.d/nginx restart
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -267,7 +254,7 @@ Transfer rate:          59.69 [Kbytes/sec] received&lt;/code&gt;&lt;/pre&gt;
     &lt;span class='k'&gt;proxy_cache_valid&lt;/span&gt;       &lt;span class='s'&gt;any&lt;/span&gt; &lt;span class='mi'&gt;15m&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;where the &lt;code&gt;proxy_cache&lt;/code&gt; named &lt;code&gt;one&lt;/code&gt; is defined in nginx.conf as such :&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='nginx'&gt;&lt;span class='k'&gt;proxy_cache_path&lt;/span&gt; &lt;span class='s'&gt;/usr/local/nginx/proxy&lt;/span&gt; &lt;span class='s'&gt;levels=1:2&lt;/span&gt; &lt;span class='s'&gt;keys_zone=one:15m&lt;/span&gt; &lt;span class='s'&gt;inactive=7d&lt;/span&gt; &lt;span class='s'&gt;max_size=1000m&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='nginx'&gt;    &lt;span class='k'&gt;proxy_cache_path&lt;/span&gt; &lt;span class='s'&gt;/usr/local/nginx/proxy&lt;/span&gt; &lt;span class='s'&gt;levels=1:2&lt;/span&gt; &lt;span class='s'&gt;keys_zone=one:15m&lt;/span&gt; &lt;span class='s'&gt;inactive=7d&lt;/span&gt; &lt;span class='s'&gt;max_size=1000m&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The &lt;code&gt;proxy_cache_valid&lt;/code&gt; entries above define different cache times for various response codes&lt;/p&gt;
 
@@ -333,54 +320,47 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;The way to do that is pretty easy, first we have to make a POST request to google to get an authentification token for the subsequent authenticated requests. I chose to use the &lt;a href='https://github.com/kriswallsmith/Buzz'&gt;Buzz PHP library&lt;/a&gt; as my HTTP client. It makes everything easy and removes the necessity of countless &lt;code&gt;curl_set_opts()&lt;/code&gt;. Buzz requires PHP 5.3, but I&amp;#8217;m using Symfony2 which also does, so that&amp;#8217;s not a problem, actually more of a boon as I find PHP5.3 code generally cleaner.&lt;/p&gt;
 
 &lt;p&gt;I created a class &lt;code&gt;Importer&lt;/code&gt; with a protected variable &lt;code&gt;$browser&lt;/code&gt; which is the Buzz\Browser instance we&amp;#8217;ll be using to connect to google. Google returns the data in a line based format, so I used a little helper function to convert it to a PHP array:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;span class='cp'&gt;&amp;lt;?php&lt;/span&gt;
-    &lt;span class='k'&gt;protected&lt;/span&gt; &lt;span class='k'&gt;function&lt;/span&gt; &lt;span class='nf'&gt;unserializeGoogleData&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$data&lt;/span&gt;&lt;span class='p'&gt;){&lt;/span&gt;
-        &lt;span class='nv'&gt;$returns&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;array&lt;/span&gt;&lt;span class='p'&gt;();&lt;/span&gt;
-        &lt;span class='k'&gt;foreach&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;explode&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;&lt;/span&gt;&lt;span class='se'&gt;\n&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='nv'&gt;$data&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='k'&gt;as&lt;/span&gt; &lt;span class='nv'&gt;$line&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-        &lt;span class='p'&gt;{&lt;/span&gt;
-            &lt;span class='nv'&gt;$line&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nx'&gt;trim&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$line&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-            &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='o'&gt;!&lt;/span&gt;&lt;span class='nv'&gt;$line&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='k'&gt;continue&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
-            &lt;span class='k'&gt;list&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$k&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='nv'&gt;$v&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nb'&gt;explode&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;=&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='nv'&gt;$line&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-            &lt;span class='nv'&gt;$returns&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='nv'&gt;$k&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nv'&gt;$v&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;span class='x'&gt;    &lt;/span&gt;&lt;span class='cp'&gt;&amp;lt;?php&lt;/span&gt;
+        &lt;span class='k'&gt;protected&lt;/span&gt; &lt;span class='k'&gt;function&lt;/span&gt; &lt;span class='nf'&gt;unserializeGoogleData&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$data&lt;/span&gt;&lt;span class='p'&gt;){&lt;/span&gt;
+            &lt;span class='nv'&gt;$returns&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;array&lt;/span&gt;&lt;span class='p'&gt;();&lt;/span&gt;
+            &lt;span class='k'&gt;foreach&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;explode&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;&lt;/span&gt;&lt;span class='se'&gt;\n&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='nv'&gt;$data&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='k'&gt;as&lt;/span&gt; &lt;span class='nv'&gt;$line&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='p'&gt;{&lt;/span&gt;
+                &lt;span class='nv'&gt;$line&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nx'&gt;trim&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$line&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+                &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='o'&gt;!&lt;/span&gt;&lt;span class='nv'&gt;$line&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='k'&gt;continue&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+                &lt;span class='k'&gt;list&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$k&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='nv'&gt;$v&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nb'&gt;explode&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;=&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='nv'&gt;$line&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+                &lt;span class='nv'&gt;$returns&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='nv'&gt;$k&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nv'&gt;$v&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+            &lt;span class='p'&gt;}&lt;/span&gt;
+            &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='nv'&gt;$returns&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
         &lt;span class='p'&gt;}&lt;/span&gt;
-        &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='nv'&gt;$returns&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
-    &lt;span class='p'&gt;}&lt;/span&gt;
-&lt;span class='cp'&gt;?&amp;gt;&lt;/span&gt;&lt;span class='x' /&gt;
+    &lt;span class='cp'&gt;?&amp;gt;&lt;/span&gt;&lt;span class='x' /&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;So first we need to get the auth token from google:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;span class='cp'&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class='nv'&gt;$params&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;array&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;
-    &lt;span class='s1'&gt;&amp;#39;accountType&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;HOSTED_OR_GOOGLE&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
-    &lt;span class='s1'&gt;&amp;#39;Email&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='nv'&gt;$data&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;email&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;],&lt;/span&gt;
-    &lt;span class='s1'&gt;&amp;#39;Passwd&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='nv'&gt;$data&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;],&lt;/span&gt;
-    &lt;span class='s1'&gt;&amp;#39;service&amp;#39;&lt;/span&gt;&lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;cp&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
-    &lt;span class='s1'&gt;&amp;#39;source&amp;#39;&lt;/span&gt;&lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;mention-web-1.0&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
-&lt;span class='p'&gt;);&lt;/span&gt;
-&lt;span class='nv'&gt;$output&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nv'&gt;$this&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;browser&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;post&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;https://www.google.com/accounts/ClientLogin&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
-    &lt;span class='k'&gt;array&lt;/span&gt;&lt;span class='p'&gt;(),&lt;/span&gt;
-    &lt;span class='nb'&gt;http_build_query&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$params&lt;/span&gt;&lt;span class='p'&gt;));&lt;/span&gt;
-
-&lt;span class='nv'&gt;$returns&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nv'&gt;$this&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;unserializeGoogleData&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$output&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;getContent&lt;/span&gt;&lt;span class='p'&gt;());&lt;/span&gt;
-&lt;span class='cp'&gt;?&amp;gt;&lt;/span&gt;&lt;span class='x' /&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;span class='x'&gt;    &lt;/span&gt;&lt;span class='cp'&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class='nv'&gt;$params&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;array&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;
+        &lt;span class='s1'&gt;&amp;#39;accountType&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;HOSTED_OR_GOOGLE&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+        &lt;span class='s1'&gt;&amp;#39;Email&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='nv'&gt;$data&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;email&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;],&lt;/span&gt;
+        &lt;span class='s1'&gt;&amp;#39;Passwd&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='nv'&gt;$data&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;],&lt;/span&gt;
+        &lt;span class='s1'&gt;&amp;#39;service&amp;#39;&lt;/span&gt;&lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;cp&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+        &lt;span class='s1'&gt;&amp;#39;source&amp;#39;&lt;/span&gt;&lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;mention-web-1.0&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+    &lt;span class='p'&gt;);&lt;/span&gt;
+    &lt;span class='nv'&gt;$output&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nv'&gt;$this&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;browser&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;post&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;https://www.google.com/accounts/ClientLogin&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+        &lt;span class='k'&gt;array&lt;/span&gt;&lt;span class='p'&gt;(),&lt;/span&gt;
+        &lt;span class='nb'&gt;http_build_query&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$params&lt;/span&gt;&lt;span class='p'&gt;));&lt;/span&gt;
+    &lt;span class='nv'&gt;$returns&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nv'&gt;$this&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;unserializeGoogleData&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$output&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;getContent&lt;/span&gt;&lt;span class='p'&gt;());&lt;/span&gt;
+    &lt;span class='cp'&gt;?&amp;gt;&lt;/span&gt;&lt;span class='x' /&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Where &lt;code&gt;$data[&amp;#39;email&amp;#39;]&lt;/code&gt; and &lt;code&gt;$data[&amp;#39;password&amp;#39;]&lt;/code&gt; are the user&amp;#8217;s email and password, respectively.&lt;/p&gt;
 
 &lt;p&gt;If everything went fine, the &lt;code&gt;$returns&lt;/code&gt; variable now contains an associative array with a key &lt;code&gt;Auth&lt;/code&gt;, so we can proceed with the next step, actually getting the contacts:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;span class='cp'&gt;&amp;lt;?php&lt;/span&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;span class='x'&gt;    &lt;/span&gt;&lt;span class='cp'&gt;&amp;lt;?php&lt;/span&gt;
     &lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;isset&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$returns&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;Auth&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;]))&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-
         &lt;span class='nv'&gt;$feed_url&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;https://www.google.com/m8/feeds/contacts/&amp;quot;&lt;/span&gt; &lt;span class='o'&gt;.&lt;/span&gt;
             &lt;span class='nb'&gt;urlencode&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$data&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;email&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;])&lt;/span&gt; &lt;span class='o'&gt;.&lt;/span&gt;
             &lt;span class='s2'&gt;&amp;quot;/full?alt=json&amp;amp;max-results=500&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
-
-
         &lt;span class='nv'&gt;$header&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;array&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;
             &lt;span class='s1'&gt;&amp;#39;Authorization: GoogleLogin auth=&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;.&lt;/span&gt; &lt;span class='nv'&gt;$returns&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;Auth&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;],&lt;/span&gt;
         &lt;span class='p'&gt;);&lt;/span&gt;
-
         &lt;span class='nv'&gt;$result&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nv'&gt;$this&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;browser&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;get&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$feed_url&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='nv'&gt;$header&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-
-
         &lt;span class='nv'&gt;$r&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nb'&gt;json_decode&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$result&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;getContent&lt;/span&gt;&lt;span class='p'&gt;(),&lt;/span&gt; &lt;span class='k'&gt;true&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
         &lt;span class='c1'&gt;//return $r;&lt;/span&gt;
         &lt;span class='nv'&gt;$results&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;array&lt;/span&gt;&lt;span class='p'&gt;();&lt;/span&gt;
@@ -393,15 +373,14 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
                         &lt;span class='nv'&gt;$r&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nv'&gt;$el&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;$t&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;];&lt;/span&gt;
                     &lt;span class='p'&gt;}&lt;/span&gt;
                 &lt;span class='p'&gt;}&lt;/span&gt;
-
                 &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='nv'&gt;$r&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
             &lt;span class='p'&gt;},&lt;/span&gt; &lt;span class='nv'&gt;$r&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;feed&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;entry&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;]);&lt;/span&gt;
         &lt;span class='p'&gt;}&lt;/span&gt;
         &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='nv'&gt;$results&lt;/span&gt;
-
     &lt;span class='p'&gt;}&lt;/span&gt;&lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;{&lt;/span&gt;
         &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='k'&gt;false&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
     &lt;span class='p'&gt;}&lt;/span&gt;
+    &lt;span class='cp'&gt;?&amp;gt;&lt;/span&gt;&lt;span class='x' /&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;If the user and password were incorrect, the &lt;code&gt;Auth&lt;/code&gt; key will not be present in the array, and so we simply return &lt;code&gt;false&lt;/code&gt;. It is recommended to see if Google requires the user to solve a catcha, in which case it should be displayed. But as that was not necessary in this case, it will be left as an exercise for the reader. On the other hand, if everything was ok, the &lt;code&gt;$results&lt;/code&gt; array is now populated with the user&amp;#8217;s contacts, so the next step is to walk over the array extracting the data we need, in this case only the main email and the full name of the contact. We populate an array with the required data and simply return it for the caller to use.&lt;/p&gt;
 
@@ -419,20 +398,20 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;h3 id='prevent_a_file_from_being_commited_ever'&gt;Prevent a file from being commited, ever&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href='http://stackoverflow.com/a/8485503/210824'&gt;Git: Never Commit Changed Files (But still keep original revisioned.)&lt;/a&gt;&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;git update-index --assume-unchanged &amp;lt;file&amp;gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    git update-index --assume-unchanged &amp;amp;lt;file&amp;amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;To make it commitable again run&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;git update-index --no-assume-unchanged &amp;lt;file&amp;gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    git update-index --no-assume-unchanged &amp;amp;lt;file&amp;amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id='commits_no_yet_pushed'&gt;Commits no yet pushed&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href='http://stackoverflow.com/a/3338774/210824'&gt;Viewing Unpushed Git Commits&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;If you want to see all commits on all branches that aren&amp;#8217;t pushed yet, you might be looking for something like this:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;git log --branches --not --remotes
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    git log --branches --not --remotes
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;And if you only want to see the most recent commit on each branch, and the branch names, this:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;git log --branches --not --remotes --simplify-by-decoration --decorate --oneline
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    git log --branches --not --remotes --simplify-by-decoration --decorate --oneline
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;a href=&quot;http://jfoucher.com/2012/04/github-tricks-from-stackoverflow.html&quot;&gt;Git tips from stackoverflow&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
@@ -482,59 +461,55 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;h3 id='implementing_browserid_on_your_site_or_app_is_easy'&gt;&lt;a href='https://github.com/mozilla/browserid/wiki/How-to-Use-BrowserID-on-Your-Site'&gt;Implementing BrowserID&lt;/a&gt; on your site or app is easy&lt;/h3&gt;
 
 &lt;h4 id='include_the_following_javascript_snippet_in_your_page'&gt;Include the following javascript snippet in your page&lt;/h4&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;&lt;span class='o'&gt;&amp;lt;&lt;/span&gt;&lt;span class='nx'&gt;script&lt;/span&gt; &lt;span class='nx'&gt;src&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;https://browserid.org/include.js&amp;quot;&lt;/span&gt; &lt;span class='nx'&gt;type&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class='o'&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class='err'&gt;/script&amp;gt;&lt;/span&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;    &lt;span class='o'&gt;&amp;lt;&lt;/span&gt;&lt;span class='nx'&gt;script&lt;/span&gt; &lt;span class='nx'&gt;src&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;https://browserid.org/include.js&amp;quot;&lt;/span&gt; &lt;span class='nx'&gt;type&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class='o'&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class='err'&gt;/script&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h4 id='identify_the_user'&gt;Identify the user&lt;/h4&gt;
 
 &lt;p&gt;When the user clicks on your &amp;#8220;Login&amp;#8221; button, a window pops up asking them to confirm that they want to login, or asking them to create a browserID account if they haven&amp;#8217;t done it yet. Once they decide that they want to login, they are redirected to your site, and the following function is called, with the assertion being passed to the callback if the login was successful&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;&lt;span class='nx'&gt;navigator&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;id&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;getVerifiedEmail&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='kd'&gt;function&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;assertion&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-    &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;assertion&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-        &lt;span class='c1'&gt;// This code will be invoked once the user has successfully&lt;/span&gt;
-        &lt;span class='c1'&gt;// selected an email address they control to sign in with.&lt;/span&gt;
-    &lt;span class='p'&gt;}&lt;/span&gt; &lt;span class='k'&gt;else&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-        &lt;span class='c1'&gt;// something went wrong!  the user isn&amp;#39;t logged in.&lt;/span&gt;
-    &lt;span class='p'&gt;}&lt;/span&gt;
-&lt;span class='p'&gt;});&lt;/span&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;    &lt;span class='nx'&gt;navigator&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;id&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;getVerifiedEmail&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='kd'&gt;function&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;assertion&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;assertion&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+            &lt;span class='c1'&gt;// This code will be invoked once the user has successfully&lt;/span&gt;
+            &lt;span class='c1'&gt;// selected an email address they control to sign in with.&lt;/span&gt;
+        &lt;span class='p'&gt;}&lt;/span&gt; &lt;span class='k'&gt;else&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+            &lt;span class='c1'&gt;// something went wrong!  the user isn&amp;#39;t logged in.&lt;/span&gt;
+        &lt;span class='p'&gt;}&lt;/span&gt;
+    &lt;span class='p'&gt;});&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;If the assertion is there, the user authenticated successfully. now you must verify that the assertion really is authentic, and get the relevant data from it. You &lt;em&gt;could&lt;/em&gt; &lt;a href='https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest'&gt;do it yourself&lt;/a&gt;, but if you don&amp;#8217;t have any special requirements, I recommend you just use the service provided by &lt;a href='http://browserid.org'&gt;http://browserid.org&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4 id='verify_the_assertion'&gt;Verify the assertion&lt;/h4&gt;
 
 &lt;p&gt;To do so, and once you have the &lt;code&gt;assertion&lt;/code&gt;, you have to make a POST request to &lt;a href='http://browserid.org/verify'&gt;http://browserid.org/verify&lt;/a&gt;, with two parameters: the assertion and the audience, which is simply the hostname of your site. This has to be done from your server. For security reasons, it won&amp;#8217;t work if you do it as an ajax request from the user&amp;#8217;s browser. What I suggest is that you call a url on your server from the javascript callback which will be in charge of itself making the request to browserid.org. Do it as a POST request as that assertion is a &lt;em&gt;long&lt;/em&gt; string. This an example implementation for the &lt;a href='http://www.slimframework.com/'&gt;Slim framework&lt;/a&gt;:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;span class='cp'&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class='nv'&gt;$app&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;post&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;/browserid&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='k'&gt;function&lt;/span&gt; &lt;span class='p'&gt;()&lt;/span&gt; &lt;span class='k'&gt;use&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$app&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-
-        &lt;span class='nv'&gt;$assertion&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='nv'&gt;$app&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;request&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;post&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;assertion&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-        &lt;span class='c1'&gt;//get the POSTed assertion&lt;/span&gt;
-        &lt;span class='nv'&gt;$post_data&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;array&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;assertion&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='nv'&gt;$assertion&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;audience&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='nx'&gt;SERVER&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-        &lt;span class='c1'&gt;//SERVER is my site&amp;#39;s hostname&lt;/span&gt;
-        &lt;span class='nv'&gt;$r&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nx'&gt;Http&lt;/span&gt;&lt;span class='o'&gt;::&lt;/span&gt;&lt;span class='na'&gt;post&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;https://browserid.org/verify&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='nv'&gt;$post_data&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-        &lt;span class='c1'&gt;//This makes a post request to browserid.org&lt;/span&gt;
-        &lt;span class='nv'&gt;$result&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='nb'&gt;json_decode&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$r&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='k'&gt;true&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-
-        &lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$result&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;status&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt;&lt;span class='o'&gt;==&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;okay&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;){&lt;/span&gt;
-            &lt;span class='nx'&gt;handle_users&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$app&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='nv'&gt;$result&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-            &lt;span class='c1'&gt;//This logs the user in if we have an account for that email address,&lt;/span&gt;
-            &lt;span class='c1'&gt;//or creates it otherwise&lt;/span&gt;
-        &lt;span class='p'&gt;}&lt;/span&gt;&lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;{&lt;/span&gt;
-            &lt;span class='nv'&gt;$msg&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;Could not log you in&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
-            &lt;span class='nv'&gt;$status&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='k'&gt;false&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
-            &lt;span class='k'&gt;echo&lt;/span&gt; &lt;span class='nb'&gt;json_encode&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;array&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;message&amp;#39;&lt;/span&gt;&lt;span class='o'&gt;=&amp;gt;&lt;/span&gt;&lt;span class='nv'&gt;$msg&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;status&amp;#39;&lt;/span&gt;&lt;span class='o'&gt;=&amp;gt;&lt;/span&gt;&lt;span class='nv'&gt;$status&lt;/span&gt;&lt;span class='p'&gt;));&lt;/span&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;span class='x'&gt;    &lt;/span&gt;&lt;span class='cp'&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class='nv'&gt;$app&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;post&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;/browserid&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='k'&gt;function&lt;/span&gt; &lt;span class='p'&gt;()&lt;/span&gt; &lt;span class='k'&gt;use&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$app&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+            &lt;span class='nv'&gt;$assertion&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='nv'&gt;$app&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;request&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;post&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;assertion&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+            &lt;span class='c1'&gt;//get the POSTed assertion&lt;/span&gt;
+            &lt;span class='nv'&gt;$post_data&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;array&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;assertion&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='nv'&gt;$assertion&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;audience&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='nx'&gt;SERVER&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+            &lt;span class='c1'&gt;//SERVER is my site&amp;#39;s hostname&lt;/span&gt;
+            &lt;span class='nv'&gt;$r&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nx'&gt;Http&lt;/span&gt;&lt;span class='o'&gt;::&lt;/span&gt;&lt;span class='na'&gt;post&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;https://browserid.org/verify&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='nv'&gt;$post_data&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+            &lt;span class='c1'&gt;//This makes a post request to browserid.org&lt;/span&gt;
+            &lt;span class='nv'&gt;$result&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='nb'&gt;json_decode&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$r&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='k'&gt;true&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+            &lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$result&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;status&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt;&lt;span class='o'&gt;==&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;okay&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;){&lt;/span&gt;
+                &lt;span class='nx'&gt;handle_users&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$app&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='nv'&gt;$result&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+                &lt;span class='c1'&gt;//This logs the user in if we have an account for that email address,&lt;/span&gt;
+                &lt;span class='c1'&gt;//or creates it otherwise&lt;/span&gt;
+            &lt;span class='p'&gt;}&lt;/span&gt;&lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;{&lt;/span&gt;
+                &lt;span class='nv'&gt;$msg&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;Could not log you in&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+                &lt;span class='nv'&gt;$status&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='k'&gt;false&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+                &lt;span class='k'&gt;echo&lt;/span&gt; &lt;span class='nb'&gt;json_encode&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;array&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;message&amp;#39;&lt;/span&gt;&lt;span class='o'&gt;=&amp;gt;&lt;/span&gt;&lt;span class='nv'&gt;$msg&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;status&amp;#39;&lt;/span&gt;&lt;span class='o'&gt;=&amp;gt;&lt;/span&gt;&lt;span class='nv'&gt;$status&lt;/span&gt;&lt;span class='p'&gt;));&lt;/span&gt;
+            &lt;span class='p'&gt;}&lt;/span&gt;
         &lt;span class='p'&gt;}&lt;/span&gt;
-
-
-    &lt;span class='p'&gt;}&lt;/span&gt;
-&lt;span class='p'&gt;);&lt;/span&gt;
-&lt;span class='cp'&gt;?&amp;gt;&lt;/span&gt;&lt;span class='x' /&gt;
+    &lt;span class='p'&gt;);&lt;/span&gt;
+    &lt;span class='cp'&gt;?&amp;gt;&lt;/span&gt;&lt;span class='x' /&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This call to the browserID API returns some json_encoded stuff, for example something like this :&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;&lt;span class='p'&gt;{&lt;/span&gt;
-    &lt;span class='s2'&gt;&amp;quot;status&amp;quot;&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;okay&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
-    &lt;span class='s2'&gt;&amp;quot;email&amp;quot;&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;lloyd@example.com&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
-    &lt;span class='s2'&gt;&amp;quot;audience&amp;quot;&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;https://mysite.com&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
-    &lt;span class='s2'&gt;&amp;quot;expires&amp;quot;&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='mi'&gt;1308859352261&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
-    &lt;span class='s2'&gt;&amp;quot;issuer&amp;quot;&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;browserid.org&amp;quot;&lt;/span&gt;
-&lt;span class='p'&gt;}&lt;/span&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;    &lt;span class='p'&gt;{&lt;/span&gt;
+        &lt;span class='s2'&gt;&amp;quot;status&amp;quot;&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;okay&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+        &lt;span class='s2'&gt;&amp;quot;email&amp;quot;&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;lloyd@example.com&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+        &lt;span class='s2'&gt;&amp;quot;audience&amp;quot;&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;https://mysite.com&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+        &lt;span class='s2'&gt;&amp;quot;expires&amp;quot;&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='mi'&gt;1308859352261&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+        &lt;span class='s2'&gt;&amp;quot;issuer&amp;quot;&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;browserid.org&amp;quot;&lt;/span&gt;
+    &lt;span class='p'&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h4 id='login_or_register'&gt;Login or register&lt;/h4&gt;
 
@@ -558,11 +533,11 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<content type="html">&lt;p&gt;This is a quick and dirty PHP script that I whipped up in about 10 minutes, used to show the load averages on the server where it is uploaded.&lt;/p&gt;
 
 &lt;p&gt;Here are the load curves for the server that hosts most of my websites at the moment. It is an overworked shared server, which explains why all the curves are through the roof&amp;#8230;&lt;/p&gt;
-&lt;iframe height='450' src='http://xiilo.com/uptime.php' width='650' /&gt;
+&lt;iframe width='650' src='http://xiilo.com/uptime.php' height='450' /&gt;
 &lt;p&gt;The load is updated every minute with a crontab that calls this same script.&lt;/p&gt;
 
 &lt;p&gt;The visualization is done using the Google chart API, which does require javascript but offers some great chart options, the &amp;#8220;annotatedtimeline&amp;#8221; being especially suitable to my purpose.&lt;/p&gt;
-&lt;a href='https://github.com/jfoucher/Server-load-graph' title='server load graph on github' target='_blank'&gt;Get the source on github&lt;/a&gt;
+&lt;a target='_blank' href='https://github.com/jfoucher/Server-load-graph' title='server load graph on github'&gt;Get the source on github&lt;/a&gt;
 &lt;p&gt;&lt;a href='http://jfoucher.com/projects/serverload.html'&gt;installation and project details&lt;/a&gt;&lt;/p&gt;&lt;a href=&quot;http://jfoucher.com/2011/09/a-10-minute-script-to-graph-your-server-load.html&quot;&gt;A 10 minute script to graph your server load&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
@@ -593,12 +568,12 @@ php5-xdebug
 	&lt;li&gt;&lt;a href='https://chrome.google.com/extensions/detail/eadndfjplgieldjbigjakmdgkmoaaaoc'&gt;Chrome&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href='http://benmatselby.posterous.com/xdebug-toggler-for-safari'&gt;Safari&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href='https://addons.opera.com/addons/extensions/details/xdebug-launcher/?display=en'&gt;Opera&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt; Use your preferred extension to activate Xdebug for the page you&amp;#8217;re on. Go back to PhpStorm, and instruct it to listen to incoming debug connections by clicking on the &amp;#8220;Listen PHP debug connections&amp;#8221; button &lt;img alt='' class='alignnone' height='26' src='http://i.imgur.com/uMBOg.png' title='accept connection button' width='28' /&gt;&lt;/p&gt;
+&lt;/ul&gt; Use your preferred extension to activate Xdebug for the page you&amp;#8217;re on. Go back to PhpStorm, and instruct it to listen to incoming debug connections by clicking on the &amp;#8220;Listen PHP debug connections&amp;#8221; button &lt;img alt='' class='alignnone' width='28' src='http://i.imgur.com/uMBOg.png' title='accept connection button' height='26' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Now all you have to is set a breakpoint and reload your page.&lt;/p&gt;
-&lt;div style='width:319px' class='image-with-caption aligncenter'&gt;&lt;div class='caption'&gt;Setting a breakpoint in PhpStorm&lt;/div&gt;&lt;img alt='Setting breakpoint' height='173' src='http://i.imgur.com/9AuKc.png' title='Setting breakpoint' width='319' /&gt;&lt;/div&gt;
+&lt;div class='image-with-caption aligncenter' style='width:319px'&gt;&lt;div class='caption'&gt;Setting a breakpoint in PhpStorm&lt;/div&gt;&lt;img alt='Setting breakpoint' width='319' src='http://i.imgur.com/9AuKc.png' title='Setting breakpoint' height='173' /&gt;&lt;/div&gt;
 &lt;p&gt;A window will popup asking you if PhpStorm should accept the connection from Xdebug&lt;/p&gt;
-&lt;div style='width:331px' class='image-with-caption aligncenter'&gt;&lt;div class='caption'&gt;Accepting connection from Xdebug on PhpStorm&lt;/div&gt;&lt;img alt='Accepting connection from Xdebug' height='398' src='http://i.imgur.com/2fZKq.png' title='Accepting connection from Xdebug' width='331' /&gt;&lt;/div&gt;
+&lt;div class='image-with-caption aligncenter' style='width:331px'&gt;&lt;div class='caption'&gt;Accepting connection from Xdebug on PhpStorm&lt;/div&gt;&lt;img alt='Accepting connection from Xdebug' width='331' src='http://i.imgur.com/2fZKq.png' title='Accepting connection from Xdebug' height='398' /&gt;&lt;/div&gt;
 &lt;p&gt;Just click debug and happy bug squishing!&lt;/p&gt;&lt;a href=&quot;http://jfoucher.com/2011/08/remote-debugging-with-xdebug-and-phpstorm-on-ubuntu.html&quot;&gt;Remote debugging with Xdebug and PhpStorm on Ubuntu&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
@@ -608,11 +583,14 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<link href="http://jfoucher.com/2011/06/phing-task-to-update-twitter-status.html"/>
 		<updated>Wed Jun 29 14:10:00 +0200 2011</updated>
 		<id>http://jfoucher.com/2011/06/phing-task-to-update-twitter-status</id>
-		<content type="html">&lt;h3&gt;Phing and Twitter&lt;/h3&gt;
+		<content type="html">&lt;h3 id='phing_and_twitter'&gt;Phing and Twitter&lt;/h3&gt;
+
 &lt;p&gt;I recently starting working with &lt;a href='http://www.phing.info' title='PHP build and deployment tool'&gt;phing&lt;/a&gt; to automate the build and deployement process for the web apps I&amp;#8217;m building. I use it to compile my LESS files to CSS and minimize then, to compress and concatenate the javascript files, to optimize images using &lt;a href='http://www.smushit.com/'&gt;smushit&lt;/a&gt;, etc&amp;#8230;&lt;/p&gt;
 
 &lt;p&gt;I like to be able to comunicate exactly what I&amp;#8217;m doing, and thankfully Phing has a built in task to email a message to a list of recipients, which is good, but slightly old school. I wanted something that would be able to integrate readily with twitter, i.e. update my status when a build was completed. I saw &lt;a href='http://codeinthehole.com/archives/14-Phing-task-to-update-Twitter-status.html'&gt;this post&lt;/a&gt;, which unfortunately uses Basic Auth. As you doubtless know, &lt;a href='http://dev.twitter.com/pages/basic_auth_shutdown'&gt;Twitter deprecated this form of authentication&lt;/a&gt;, and now asks all users to authenticate using &lt;a href='http://dev.twitter.com/pages/basic_to_oauth'&gt;OAuth&lt;/a&gt;.&lt;/p&gt;
-&lt;h3&gt;Download twitterOAuth library&lt;/h3&gt;
+
+&lt;h3 id='download_twitteroauth_library'&gt;Download twitterOAuth library&lt;/h3&gt;
+
 &lt;p&gt;That meant I had to roll my own phing task&amp;#8230; However, thanks to great work by cleverer people, doing it was quite simple. Using &lt;a href='http://abrah.am/'&gt;Abraham Williams'&lt;/a&gt; &lt;a href='https://github.com/abraham/twitteroauth'&gt;twitteroauth&lt;/a&gt; library means that the coding I&amp;#8217;d have to do was greatly reduced. Awesome, because &lt;a href='http://www.codinghorror.com/blog/2005/08/how-to-be-lazy-dumb-and-successful.html'&gt;I aim to be lazy&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The first step is to &lt;a href='https://github.com/abraham/twitteroauth/tarball/master'&gt;download the twitteroauth library&lt;/a&gt; from github. Extract it to a temporary folder and copy the subfolder &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;twitteroauth
@@ -620,70 +598,69 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; . Please note you might have to create the &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;my/
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; folder within &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;/usr/share/php/phing/tasks/
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; . You will need root privileges for these steps.&lt;/p&gt;
-&lt;h3&gt;Register application with Twitter&lt;/h3&gt;
+
+&lt;h3 id='register_application_with_twitter'&gt;Register application with Twitter&lt;/h3&gt;
+
 &lt;p&gt;Secondly, you need to &lt;a href='https://dev.twitter.com/apps/new'&gt;register an application with twitter&lt;/a&gt;, as you will need a consumer key and consumer secret later on. Please &lt;a href='https://dev.twitter.com/apps/new'&gt;do so now&lt;/a&gt;, and come back once you have your app data available.&lt;/p&gt;
-&lt;h3&gt;Create the custom phing task&lt;/h3&gt;
+
+&lt;h3 id='create_the_custom_phing_task'&gt;Create the custom phing task&lt;/h3&gt;
+
 &lt;p&gt;Next up is creating the actual task PHP class. Create an empty file named TwitterUpdateTask.php &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;sudo touch /usr/share/php/phing/tasks/my/TwitterUpdateTask.php
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; and open it for editing with your favorite editor. We&amp;#8217;ll use gedit : &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;gksu gedit /usr/share/php/phing/tasks/my/TwitterUpdateTask.php
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
 
 &lt;p&gt;The code for this file is as shown below:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;span class='cp'&gt;&amp;lt;?php&lt;/span&gt;
 
-&lt;span class='k'&gt;require_once&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;phing/Task.php&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-&lt;span class='k'&gt;require_once&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;phing/tasks/my/twitteroauth/twitteroauth.php&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+require_once (&amp;quot;phing/Task.php&amp;quot;);
+require_once (&amp;quot;phing/tasks/my/twitteroauth/twitteroauth.php&amp;quot;);
+/\* get the lines below from http://twittertokens.6px.eu/ \*/
+define(&amp;#39;CONSUMER_KEY&amp;#39;, &amp;#39;Your Consumer Key Here&amp;#39;);
+define(&amp;#39;CONSUMER_SECRET&amp;#39;, &amp;#39;Your Consumer Secret Here&amp;#39;);
+define(&amp;#39;OAUTH_TOKEN&amp;#39;, &amp;#39;Your OAuth Token Here&amp;#39;);
+define(&amp;#39;OAUTH_TOKEN_SECRET&amp;#39;, &amp;#39;Your Oauth Token Secret Here&amp;#39;);
+class TwitterUpdateTask extends Task {
+    private $message;
+    /\*
+     \* The setter for the status message
+     \*/
+    public function setMessage($str){
+        $this-&amp;gt;message=$str;
+    }
+    public function main(){
+        /\* Connect to twitter */
+        $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET);
+        /\* Pass the status message as a parameter \*/
+        $parameters = array(&amp;#39;status&amp;#39; =&amp;gt; $this-&amp;gt;message);
+        /\* Post the data to the API endpoint \*/
+        $status = $connection-&amp;gt;post(&amp;#39;statuses/update&amp;#39;, $parameters);
+        if (isset($status-&amp;gt;error)){
+            /\* if there is an error, fail the build \*/
+            throw new BuildException($status-&amp;gt;error);
+        }else{
+            /\* if there is no error, show a success message \*/
+            $this-&amp;gt;log (&amp;quot;Status posted to twitter&amp;quot;);
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
 
+&lt;h3 id='get_the_oauth_token_and_secret'&gt;Get the OAuth token and secret&lt;/h3&gt;
 
-&lt;span class='cm'&gt;/* get the lines below from http://twittertokens.6px.eu/ */&lt;/span&gt;
-
-&lt;span class='nb'&gt;define&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;CONSUMER_KEY&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;Your Consumer Key Here&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-&lt;span class='nb'&gt;define&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;CONSUMER_SECRET&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;Your Consumer Secret Here&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-&lt;span class='nb'&gt;define&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;OAUTH_TOKEN&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;Your OAuth Token Here&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-&lt;span class='nb'&gt;define&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;OAUTH_TOKEN_SECRET&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;Your Oauth Token Secret Here&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-
-&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;TwitterUpdateTask&lt;/span&gt; &lt;span class='k'&gt;extends&lt;/span&gt; &lt;span class='nx'&gt;Task&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-
-    &lt;span class='k'&gt;private&lt;/span&gt; &lt;span class='nv'&gt;$message&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
-
-    &lt;span class='cm'&gt;/*&lt;/span&gt;
-&lt;span class='cm'&gt;     * The setter for the status message&lt;/span&gt;
-&lt;span class='cm'&gt;     */&lt;/span&gt;
-    &lt;span class='k'&gt;public&lt;/span&gt; &lt;span class='k'&gt;function&lt;/span&gt; &lt;span class='nf'&gt;setMessage&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$str&lt;/span&gt;&lt;span class='p'&gt;){&lt;/span&gt;
-        &lt;span class='nv'&gt;$this&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;message&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='nv'&gt;$str&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
-    &lt;span class='p'&gt;}&lt;/span&gt;
-
-
-    &lt;span class='k'&gt;public&lt;/span&gt; &lt;span class='k'&gt;function&lt;/span&gt; &lt;span class='nf'&gt;main&lt;/span&gt;&lt;span class='p'&gt;(){&lt;/span&gt;
-        &lt;span class='cm'&gt;/* Connect to twitter */&lt;/span&gt;
-        &lt;span class='nv'&gt;$connection&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;new&lt;/span&gt; &lt;span class='nx'&gt;TwitterOAuth&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;CONSUMER_KEY&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='nx'&gt;CONSUMER_SECRET&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='nx'&gt;OAUTH_TOKEN&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='nx'&gt;OAUTH_TOKEN_SECRET&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-        &lt;span class='cm'&gt;/* Pass the status message as a parameter */&lt;/span&gt;
-        &lt;span class='nv'&gt;$parameters&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;array&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;status&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='nv'&gt;$this&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;message&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-        &lt;span class='cm'&gt;/* Post the data to the API endpoint */&lt;/span&gt;
-        &lt;span class='nv'&gt;$status&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nv'&gt;$connection&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;post&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;statuses/update&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='nv'&gt;$parameters&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-
-        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;isset&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$status&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;error&lt;/span&gt;&lt;span class='p'&gt;)){&lt;/span&gt;
-            &lt;span class='cm'&gt;/* if there is an error, fail the build */&lt;/span&gt;
-            &lt;span class='k'&gt;throw&lt;/span&gt; &lt;span class='k'&gt;new&lt;/span&gt; &lt;span class='nx'&gt;BuildException&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;$status&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;error&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-        &lt;span class='p'&gt;}&lt;/span&gt;&lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;{&lt;/span&gt;
-            &lt;span class='cm'&gt;/* if there is no error, show a success message */&lt;/span&gt;
-            &lt;span class='nv'&gt;$this&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='na'&gt;log&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;Status posted to twitter&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-        &lt;span class='p'&gt;}&lt;/span&gt;
-    &lt;span class='p'&gt;}&lt;/span&gt;
-&lt;span class='p'&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3&gt;Get the OAuth token and secret&lt;/h3&gt;
 &lt;p&gt;Don&amp;#8217;t close this file, we still need to add the authentication data to it. You can already place your consumer key and consumer secret in the apropriate &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;span class='x'&gt;define()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; calls (the first two lines), but if not, we&amp;#8217;ll do it now.&lt;/p&gt;
 
 &lt;p&gt;Navigate to &lt;a href='http://twittertokens.6px.eu'&gt;http://twittertokens.6px.eu&lt;/a&gt;, put your consumer data and consumer secret in the apropriate fields and click on &amp;#8220;Sign in with Twitter&amp;#8221;. A twitter page will open asking for your confirmation. Click &amp;#8220;Sign in&amp;#8221; and you are redirected to http://twittertokens.6px.eu/. You should see 4 lines of code appear, that look like this:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;span class='x'&gt;define(&amp;#39;CONSUMER_KEY&amp;#39;, &amp;#39;V1UsnZJrgfhgKJFoqsQ&amp;#39;);&lt;/span&gt;
-&lt;span class='x'&gt;define(&amp;#39;CONSUMER_SECRET&amp;#39;, &amp;#39;UUazcBfXrWW1jcpiSU564hg654t1EMki8gzptQU&amp;#39;);&lt;/span&gt;
-&lt;span class='x'&gt;define(&amp;#39;OAUTH_TOKEN&amp;#39;, &amp;#39;325454656-EuCudghg8tTYwKf9yjt5nhqr14i5egHJPeVRGVxQv&amp;#39;);&lt;/span&gt;
-&lt;span class='x'&gt;define(&amp;#39;OAUTH_TOKEN_SECRET&amp;#39;, &amp;#39;gh6854hg6tyGEvGEiEi15XmUtOmDpaONM&amp;#39;);&lt;/span&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;span class='x'&gt;    define(&amp;#39;CONSUMER_KEY&amp;#39;, &amp;#39;V1UsnZJrgfhgKJFoqsQ&amp;#39;);&lt;/span&gt;
+&lt;span class='x'&gt;    define(&amp;#39;CONSUMER_SECRET&amp;#39;, &amp;#39;UUazcBfXrWW1jcpiSU564hg654t1EMki8gzptQU&amp;#39;);&lt;/span&gt;
+&lt;span class='x'&gt;    define(&amp;#39;OAUTH_TOKEN&amp;#39;, &amp;#39;325454656-EuCudghg8tTYwKf9yjt5nhqr14i5egHJPeVRGVxQv&amp;#39;);&lt;/span&gt;
+&lt;span class='x'&gt;    define(&amp;#39;OAUTH_TOKEN_SECRET&amp;#39;, &amp;#39;gh6854hg6tyGEvGEiEi15XmUtOmDpaONM&amp;#39;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Copy this code to the corresponding spot in the TwitterUpdateTask.php file, overwriting what&amp;#8217;s already there.&lt;/p&gt;
 
 &lt;p&gt;Please note though that I&amp;#8217;m not making any claims as to how secure this is or whatever. I don&amp;#8217;t store any of your data anywhere, but if sending your application consumer token and secret worries you, find another way to get the Oauth tokens.&lt;/p&gt;
-&lt;h3&gt;Create the build file&lt;/h3&gt;
+
+&lt;h3 id='create_the_build_file'&gt;Create the build file&lt;/h3&gt;
+
 &lt;p&gt;First, we define the custom task:&lt;/p&gt;
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='xml'&gt;&lt;span class='nt'&gt;&amp;lt;taskdef&lt;/span&gt; &lt;span class='na'&gt;name=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;twitterupdate&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;classname=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;phing.tasks.my.TwitterUpdateTask&amp;quot;&lt;/span&gt; &lt;span class='nt'&gt;/&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -718,7 +695,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;After some searching, I found a css minification library for PHP, &lt;a href='https://code.google.com/p/minify/'&gt;minify&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;It was very easy to modify it so that It could be used in our CodeIgniter applications like any other libraries. All I did was wrap the main minification function in Codeigniter specific code. I modelled the interaction on the image library, as I guess that&amp;#8217;s what most people are used to.&lt;/p&gt;
-&lt;div style='width:300px' class='image-with-caption aligncenter'&gt;&lt;div class='caption'&gt;css minification library for codeigniter&lt;/div&gt;&lt;a href='http://jfoucher.com/uploads/2011/04/Screenshot.png'&gt;&lt;img alt='css minification for codeigniter' class='size-medium wp-image-450' height='162' src='http://jfoucher.com/uploads/2011/04/Screenshot-300x162.png' title='css minification for codeigniter' width='300' /&gt;&lt;/a&gt;&lt;/div&gt;&lt;h3&gt;How to use&lt;/h3&gt;
+&lt;div class='image-with-caption aligncenter' style='width:300px'&gt;&lt;div class='caption'&gt;css minification library for codeigniter&lt;/div&gt;&lt;a href='http://jfoucher.com/uploads/2011/04/Screenshot.png'&gt;&lt;img alt='css minification for codeigniter' class='size-medium wp-image-450' width='300' src='http://jfoucher.com/uploads/2011/04/Screenshot-300x162.png' title='css minification for codeigniter' height='162' /&gt;&lt;/a&gt;&lt;/div&gt;&lt;h3&gt;How to use&lt;/h3&gt;
 &lt;p&gt;Using the library involves loading it, setting up an array with some configuration values, such as the source css file(s), the destination file (optional) or the time that the generated file should be cached, and finally initializing the library with the configuration array() .&lt;/p&gt;
 
 &lt;p&gt;The following code, which should go in your controller, will look very familiar to Codeigniter users.&lt;/p&gt;
@@ -752,7 +729,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;h3 id='the_idea'&gt;The idea&lt;/h3&gt;
 
 &lt;p&gt;And then the idea dawned on me: why not use &lt;a href='http://flickr.com'&gt;flickr&lt;/a&gt;&amp;#8217;s &lt;a href='http://creativecommons.org/'&gt;creative commons&lt;/a&gt; licensed images? The quality is often very good, especially for &amp;#8220;interesting&amp;#8221; images, a lot of sizes are available, and users often use tags to classify their images, making it rather easy to get placeholder images about a particular subject.&lt;/p&gt;
-&lt;a href='http://jfoucher.com/uploads/2011/03/FlickHoldr1.png'&gt;&lt;img alt='screenshot of flickholdr.com' class='size-full wp-image-413' height='417' src='http://jfoucher.com/uploads/2011/03/FlickHoldr1.png' title='FlickHoldr' width='600' /&gt;&lt;/a&gt;
+&lt;a href='http://jfoucher.com/uploads/2011/03/FlickHoldr1.png'&gt;&lt;img alt='screenshot of flickholdr.com' class='size-full wp-image-413' width='600' src='http://jfoucher.com/uploads/2011/03/FlickHoldr1.png' title='FlickHoldr' height='417' /&gt;&lt;/a&gt;
 &lt;h3 id='the_execution'&gt;The execution&lt;/h3&gt;
 
 &lt;p&gt;So I proceeded to develop a little webapp to do just that, using &lt;a href='http://codeigniter.com'&gt;codeigniter&lt;/a&gt;, my framework of choice for rapid application development&lt;/p&gt;
@@ -791,7 +768,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; on the command line. Of course, you will have to install Apache and php before that, but that is really easy: &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;sudo apt-get install php5
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; will install &lt;a href='http://php.net'&gt;PHP&lt;/a&gt; and all needed dependencies, including &lt;a href='http://apache.org'&gt;apache&lt;/a&gt; So now that APC is installed, just restart apache &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;sudo /etc/init.d/apache2 restart
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; and you&amp;#8217;re ready to go. In codeigniter, you don&amp;#8217;t need to do anything special. Just turn the cache on by putting the following line somewhere in your controller:&lt;br /&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='php'&gt;&lt;span class='x'&gt;$this-&amp;gt;output-&amp;gt;cache(n);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; Where &amp;#8216;n&amp;#8217; is the number of minutes to cache that particular content. The cache library is clever enough to pick the best cache driver from the four available ones (memcached, APC, file and dummy). Forget about the dummy driver: it doesn&amp;#8217;t do anything &lt;h3&gt;Benchmarks&lt;/h3&gt; These are the results for 50 concurrent connections : For APC we get about 43 requests/s, with the file caching mecanism around 25, requests/s, and with no cache at all we are below 18 requests/s &lt;p style='text-align: center;'&gt;&lt;a href='http://jfoucher.com/uploads/2011/02/chart22.png'&gt;&lt;img alt='APC: 43, File: 25, None: 18 ' class='aligncenter size-full wp-image-387' height='260' src='http://jfoucher.com/uploads/2011/02/chart22.png' title='Codeigniter APC cache benchmark' width='560' /&gt;&lt;/a&gt;&lt;/p&gt; &lt;p style='text-align: left;'&gt;For low concurency (2) the improvement when using APC is similar: in this case the number of requests per second nearly doubled, from 19 to 47 between the case without any caching system and the APC case&lt;/p&gt; &lt;p style='text-align: left;'&gt;&lt;a href='http://jfoucher.com/uploads/2011/02/chart2.png'&gt;&lt;img alt='APC: 46.37 rps, File: 27.23 rps, None: 18.99 rps' class='aligncenter size-full wp-image-383' height='260' src='http://jfoucher.com/uploads/2011/02/chart2.png' title='Codeigniter cache benchmark: low concurency' width='560' /&gt;&lt;/a&gt;&lt;/p&gt; &lt;p style='text-align: left;'&gt;So just turning the default codeigniter cache on gives us a significant speed improvement, going all the way and installing APC can nearly double the speed of your application. Not too shabby I should think.&lt;/p&gt; &lt;p style='text-align: left;'&gt;It is &lt;strong&gt;so&lt;/strong&gt; easy to take advantage of this caching mechasism on Codeigniter 2 that it would really be a pity not to do so!&lt;/p&gt; &lt;p style='text-align: left;'&gt;The only caching library missing here is memcached. Have you tried any of these caching libraries with codeigniter 2?&lt;/p&gt; &lt;p style='text-align: left;' /&gt;&lt;p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; Where &amp;#8216;n&amp;#8217; is the number of minutes to cache that particular content. The cache library is clever enough to pick the best cache driver from the four available ones (memcached, APC, file and dummy). Forget about the dummy driver: it doesn&amp;#8217;t do anything &lt;h3&gt;Benchmarks&lt;/h3&gt; These are the results for 50 concurrent connections : For APC we get about 43 requests/s, with the file caching mecanism around 25, requests/s, and with no cache at all we are below 18 requests/s &lt;p style='text-align: center;'&gt;&lt;a href='http://jfoucher.com/uploads/2011/02/chart22.png'&gt;&lt;img alt='APC: 43, File: 25, None: 18 ' class='aligncenter size-full wp-image-387' width='560' src='http://jfoucher.com/uploads/2011/02/chart22.png' title='Codeigniter APC cache benchmark' height='260' /&gt;&lt;/a&gt;&lt;/p&gt; &lt;p style='text-align: left;'&gt;For low concurency (2) the improvement when using APC is similar: in this case the number of requests per second nearly doubled, from 19 to 47 between the case without any caching system and the APC case&lt;/p&gt; &lt;p style='text-align: left;'&gt;&lt;a href='http://jfoucher.com/uploads/2011/02/chart2.png'&gt;&lt;img alt='APC: 46.37 rps, File: 27.23 rps, None: 18.99 rps' class='aligncenter size-full wp-image-383' width='560' src='http://jfoucher.com/uploads/2011/02/chart2.png' title='Codeigniter cache benchmark: low concurency' height='260' /&gt;&lt;/a&gt;&lt;/p&gt; &lt;p style='text-align: left;'&gt;So just turning the default codeigniter cache on gives us a significant speed improvement, going all the way and installing APC can nearly double the speed of your application. Not too shabby I should think.&lt;/p&gt; &lt;p style='text-align: left;'&gt;It is &lt;strong&gt;so&lt;/strong&gt; easy to take advantage of this caching mechasism on Codeigniter 2 that it would really be a pity not to do so!&lt;/p&gt; &lt;p style='text-align: left;'&gt;The only caching library missing here is memcached. Have you tried any of these caching libraries with codeigniter 2?&lt;/p&gt; &lt;p style='text-align: left;' /&gt;&lt;p&gt;
 &lt;/p&gt; &lt;p /&gt;&lt;/p&gt;&lt;a href=&quot;http://jfoucher.com/2011/02/installing-running-apc-cache-codeigniter.html&quot;&gt;Installing and running APC cache with CodeIgniter&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
@@ -846,7 +823,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 &lt;p&gt;To choose the compose key, open &lt;code&gt;Preferences &amp;gt; Keyboard&lt;/code&gt;, &lt;code&gt;Layouts&lt;/code&gt; tab and click on &lt;code&gt;Options&lt;/code&gt;. Open the &lt;code&gt;Compose key position&lt;/code&gt; submenu, and choose whichever one you like best. I think the Win key is a good choice as it&amp;#8217;s not used for anything much&amp;#8230; Except remind us of our freedom&amp;#8230;&lt;/p&gt;
 &lt;a href='http://jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1.png'&gt;
-&lt;img alt='Keyboard Layout Options' class='aligncenter size-medium wp-image-264' height='218' src='http://jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1-300x218.png' title='Keyboard Layout Options' width='300' /&gt;
+&lt;img alt='Keyboard Layout Options' width='300' class='aligncenter size-medium wp-image-264' src='http://jfoucher.com/uploads/2011/01/Screenshot-Keyboard-Layout-Options-1-300x218.png' title='Keyboard Layout Options' height='218' /&gt;
 &lt;/a&gt;
 &lt;p&gt;And yay! Writing Spanish is cool again!&lt;/p&gt;&lt;a href=&quot;http://jfoucher.com/2011/01/spanish-characters-on-qwerty-keyboard-for-ubuntu-10-10.html&quot;&gt;Spanish characters on Qwerty keyboard for Ubuntu 10.10&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
@@ -859,7 +836,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		<id>http://jfoucher.com/2011/01/python-skype-notifier-for-ubuntu</id>
 		<content type="html">&lt;p&gt;What&amp;#8217;s the best way to learn a new programming language ? Well, according to &lt;a href='http://programmers.stackexchange.com/q/3519/3984'&gt;this question&lt;/a&gt; the best (only ?) way to learn a new language is just to code in that language. &lt;h3&gt;Why Python ?&lt;/h3&gt; Because it&amp;#8217;s &lt;a href='http://en.wikipedia.org/wiki/Python_(programming_language)#Name_and_neologisms'&gt;named after the Monty Python&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;No, seriously, that&amp;#8217;s why :&lt;a href='http://xkcd.com/353/'&gt;&lt;img alt='I wrote 20 short programs in Python yesterday.  It was wonderful.  Perl, I&amp;apos;m leaving you.' class='aligncenter size-medium wp-image-201' height='300' src='http://jfoucher.com/uploads/2011/01/python-264x300.png' title='python' width='264' /&gt;&lt;/a&gt;No, not this &amp;#8220;that&amp;#8217;s why&amp;#8221;! &lt;a href='http://programmers.stackexchange.com/questions/10675/ideal-programming-language-learning-sequence#answer-10748'&gt;That one&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;No, seriously, that&amp;#8217;s why :&lt;a href='http://xkcd.com/353/'&gt;&lt;img alt='I wrote 20 short programs in Python yesterday.  It was wonderful.  Perl, I&amp;apos;m leaving you.' class='aligncenter size-medium wp-image-201' width='264' src='http://jfoucher.com/uploads/2011/01/python-264x300.png' title='python' height='300' /&gt;&lt;/a&gt;No, not this &amp;#8220;that&amp;#8217;s why&amp;#8221;! &lt;a href='http://programmers.stackexchange.com/questions/10675/ideal-programming-language-learning-sequence#answer-10748'&gt;That one&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;If you are just starting out as a programmer, I cannot recommend &lt;a href='http://learnpythonthehardway.org/'&gt;Learn Python The Hard Way&lt;/a&gt; highly enough. It is an excellent introduction to the ideas and skills you will need as a programmer, starting from the very basics, like you&amp;#8217;ve never seen a for loop in your life. Actually the first 10 or so lessons do not include ANY control structures!&lt;/p&gt;
 
@@ -915,7 +892,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 			&lt;span class='k'&gt;print&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;Please open skype first&amp;quot;&lt;/span&gt;
 			&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;noSkype&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This basically tries to start skype if it is not already started and calls noSkype() if it couldn&amp;#8217;t start it. noSype() shows a notification message to let the user know that they have to start Skype. &lt;a href='http://jfoucher.com/uploads/2011/01/skype-not-started.png'&gt;&lt;img alt='Error shown if Skype is not running' class='aligncenter size-full wp-image-256' height='213' src='http://jfoucher.com/uploads/2011/01/skype-not-started.png' title='skype-not-started' width='428' /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This basically tries to start skype if it is not already started and calls noSkype() if it couldn&amp;#8217;t start it. noSype() shows a notification message to let the user know that they have to start Skype. &lt;a href='http://jfoucher.com/uploads/2011/01/skype-not-started.png'&gt;&lt;img alt='Error shown if Skype is not running' width='428' class='aligncenter size-full wp-image-256' src='http://jfoucher.com/uploads/2011/01/skype-not-started.png' title='skype-not-started' height='213' /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;This next function is where the meat of the process takes place. Please read the inline comments to understand how it works, and ask for clarification by &lt;a href='#respond'&gt;posting a comment&lt;/a&gt;.&lt;/p&gt;
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;	&lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;create_indicators&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
@@ -1012,7 +989,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 		&lt;span class='c'&gt;# Loop runs as long as true is returned&lt;/span&gt;
 		&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='bp'&gt;True&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;When a new messages arrives, this is what the messaging menu looks like &lt;a href='http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png'&gt;&lt;img alt='Messaging menu open qith unread messages' class='aligncenter size-full wp-image-258' height='256' src='http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png' title='skype-indicator-menu' width='376' /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;When a new messages arrives, this is what the messaging menu looks like &lt;a href='http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png'&gt;&lt;img alt='Messaging menu open qith unread messages' width='376' class='aligncenter size-full wp-image-258' src='http://jfoucher.com/uploads/2011/01/skype-indicator-menu.png' title='skype-indicator-menu' height='256' /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The function that gets unread skype messages is as follows For each message, we add it to a list containg the messages from a particular user in the self.unread dictionary.&lt;/p&gt;
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;	&lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;get_messages&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
@@ -1055,7 +1032,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 
 		&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This is what it looks like with three new messages &lt;a href='http://jfoucher.com/uploads/2011/01/skype-indicator.png'&gt;&lt;img alt='The Ubuntu skype indicator with three new messages' class='aligncenter size-full wp-image-253' height='232' src='http://jfoucher.com/uploads/2011/01/skype-indicator.png' title='skype-indicator' width='428' /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is what it looks like with three new messages &lt;a href='http://jfoucher.com/uploads/2011/01/skype-indicator.png'&gt;&lt;img alt='The Ubuntu skype indicator with three new messages' width='428' class='aligncenter size-full wp-image-253' src='http://jfoucher.com/uploads/2011/01/skype-indicator.png' title='skype-indicator' height='232' /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The next one shows the popup notification that skype is not loaded :&lt;/p&gt;
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;	&lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;noSkype&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
@@ -1374,7 +1351,7 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;h3 id='now_you_can_compile_the_kernel_and_create_the_packages'&gt;Now you can compile the kernel and create the packages:&lt;/h3&gt;
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    make-kpkg clean &lt;span class='c'&gt;# only needed if you want to do a &amp;quot;clean&amp;quot; build&lt;/span&gt;
     fakeroot make-kpkg --initrd --append-to-version&lt;span class='o'&gt;=&lt;/span&gt;-some-string-here kernel-image kernel-headers
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;img alt='' class='aligncenter' height='338' src='http://media.tumblr.com/tumblr_let0e9SCP01qzbvjd.png' width='500' /&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;img alt='' class='aligncenter' width='500' src='http://media.tumblr.com/tumblr_let0e9SCP01qzbvjd.png' height='338' /&gt;
 &lt;p&gt;Much easier&amp;#8230;&lt;/p&gt;
 
 &lt;h3 id='drivers'&gt;Drivers&lt;/h3&gt;

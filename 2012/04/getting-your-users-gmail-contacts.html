@@ -134,54 +134,47 @@
 <p>The way to do that is pretty easy, first we have to make a POST request to google to get an authentification token for the subsequent authenticated requests. I chose to use the <a href='https://github.com/kriswallsmith/Buzz'>Buzz PHP library</a> as my HTTP client. It makes everything easy and removes the necessity of countless <code>curl_set_opts()</code>. Buzz requires PHP 5.3, but I&#8217;m using Symfony2 which also does, so that&#8217;s not a problem, actually more of a boon as I find PHP5.3 code generally cleaner.</p>
 
 <p>I created a class <code>Importer</code> with a protected variable <code>$browser</code> which is the Buzz\Browser instance we&#8217;ll be using to connect to google. Google returns the data in a line based format, so I used a little helper function to convert it to a PHP array:</p>
-<div class='highlight'><pre><code class='php'><span class='cp'>&lt;?php</span>
-    <span class='k'>protected</span> <span class='k'>function</span> <span class='nf'>unserializeGoogleData</span><span class='p'>(</span><span class='nv'>$data</span><span class='p'>){</span>
-        <span class='nv'>$returns</span> <span class='o'>=</span> <span class='k'>array</span><span class='p'>();</span>
-        <span class='k'>foreach</span> <span class='p'>(</span><span class='nb'>explode</span><span class='p'>(</span><span class='s2'>&quot;</span><span class='se'>\n</span><span class='s2'>&quot;</span><span class='p'>,</span><span class='nv'>$data</span><span class='p'>)</span> <span class='k'>as</span> <span class='nv'>$line</span><span class='p'>)</span>
-        <span class='p'>{</span>
-            <span class='nv'>$line</span> <span class='o'>=</span> <span class='nx'>trim</span><span class='p'>(</span><span class='nv'>$line</span><span class='p'>);</span>
-            <span class='k'>if</span> <span class='p'>(</span><span class='o'>!</span><span class='nv'>$line</span><span class='p'>)</span> <span class='k'>continue</span><span class='p'>;</span>
-            <span class='k'>list</span><span class='p'>(</span><span class='nv'>$k</span><span class='p'>,</span><span class='nv'>$v</span><span class='p'>)</span> <span class='o'>=</span> <span class='nb'>explode</span><span class='p'>(</span><span class='s2'>&quot;=&quot;</span><span class='p'>,</span><span class='nv'>$line</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>);</span>
-            <span class='nv'>$returns</span><span class='p'>[</span><span class='nv'>$k</span><span class='p'>]</span> <span class='o'>=</span> <span class='nv'>$v</span><span class='p'>;</span>
+<div class='highlight'><pre><code class='php'><span class='x'>    </span><span class='cp'>&lt;?php</span>
+        <span class='k'>protected</span> <span class='k'>function</span> <span class='nf'>unserializeGoogleData</span><span class='p'>(</span><span class='nv'>$data</span><span class='p'>){</span>
+            <span class='nv'>$returns</span> <span class='o'>=</span> <span class='k'>array</span><span class='p'>();</span>
+            <span class='k'>foreach</span> <span class='p'>(</span><span class='nb'>explode</span><span class='p'>(</span><span class='s2'>&quot;</span><span class='se'>\n</span><span class='s2'>&quot;</span><span class='p'>,</span><span class='nv'>$data</span><span class='p'>)</span> <span class='k'>as</span> <span class='nv'>$line</span><span class='p'>)</span>
+            <span class='p'>{</span>
+                <span class='nv'>$line</span> <span class='o'>=</span> <span class='nx'>trim</span><span class='p'>(</span><span class='nv'>$line</span><span class='p'>);</span>
+                <span class='k'>if</span> <span class='p'>(</span><span class='o'>!</span><span class='nv'>$line</span><span class='p'>)</span> <span class='k'>continue</span><span class='p'>;</span>
+                <span class='k'>list</span><span class='p'>(</span><span class='nv'>$k</span><span class='p'>,</span><span class='nv'>$v</span><span class='p'>)</span> <span class='o'>=</span> <span class='nb'>explode</span><span class='p'>(</span><span class='s2'>&quot;=&quot;</span><span class='p'>,</span><span class='nv'>$line</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>);</span>
+                <span class='nv'>$returns</span><span class='p'>[</span><span class='nv'>$k</span><span class='p'>]</span> <span class='o'>=</span> <span class='nv'>$v</span><span class='p'>;</span>
+            <span class='p'>}</span>
+            <span class='k'>return</span> <span class='nv'>$returns</span><span class='p'>;</span>
         <span class='p'>}</span>
-        <span class='k'>return</span> <span class='nv'>$returns</span><span class='p'>;</span>
-    <span class='p'>}</span>
-<span class='cp'>?&gt;</span><span class='x' />
+    <span class='cp'>?&gt;</span><span class='x' />
 </code></pre></div>
 <p>So first we need to get the auth token from google:</p>
-<div class='highlight'><pre><code class='php'><span class='cp'>&lt;?php</span>
-<span class='nv'>$params</span> <span class='o'>=</span> <span class='k'>array</span><span class='p'>(</span>
-    <span class='s1'>&#39;accountType&#39;</span> <span class='o'>=&gt;</span> <span class='s1'>&#39;HOSTED_OR_GOOGLE&#39;</span><span class='p'>,</span>
-    <span class='s1'>&#39;Email&#39;</span> <span class='o'>=&gt;</span> <span class='nv'>$data</span><span class='p'>[</span><span class='s1'>&#39;email&#39;</span><span class='p'>],</span>
-    <span class='s1'>&#39;Passwd&#39;</span> <span class='o'>=&gt;</span> <span class='nv'>$data</span><span class='p'>[</span><span class='s1'>&#39;password&#39;</span><span class='p'>],</span>
-    <span class='s1'>&#39;service&#39;</span><span class='o'>=&gt;</span> <span class='s1'>&#39;cp&#39;</span><span class='p'>,</span>
-    <span class='s1'>&#39;source&#39;</span><span class='o'>=&gt;</span> <span class='s1'>&#39;mention-web-1.0&#39;</span><span class='p'>,</span>
-<span class='p'>);</span>
-<span class='nv'>$output</span> <span class='o'>=</span> <span class='nv'>$this</span><span class='o'>-&gt;</span><span class='na'>browser</span><span class='o'>-&gt;</span><span class='na'>post</span><span class='p'>(</span><span class='s1'>&#39;https://www.google.com/accounts/ClientLogin&#39;</span><span class='p'>,</span>
-    <span class='k'>array</span><span class='p'>(),</span>
-    <span class='nb'>http_build_query</span><span class='p'>(</span><span class='nv'>$params</span><span class='p'>));</span>
-
-<span class='nv'>$returns</span> <span class='o'>=</span> <span class='nv'>$this</span><span class='o'>-&gt;</span><span class='na'>unserializeGoogleData</span><span class='p'>(</span><span class='nv'>$output</span><span class='o'>-&gt;</span><span class='na'>getContent</span><span class='p'>());</span>
-<span class='cp'>?&gt;</span><span class='x' />
+<div class='highlight'><pre><code class='php'><span class='x'>    </span><span class='cp'>&lt;?php</span>
+    <span class='nv'>$params</span> <span class='o'>=</span> <span class='k'>array</span><span class='p'>(</span>
+        <span class='s1'>&#39;accountType&#39;</span> <span class='o'>=&gt;</span> <span class='s1'>&#39;HOSTED_OR_GOOGLE&#39;</span><span class='p'>,</span>
+        <span class='s1'>&#39;Email&#39;</span> <span class='o'>=&gt;</span> <span class='nv'>$data</span><span class='p'>[</span><span class='s1'>&#39;email&#39;</span><span class='p'>],</span>
+        <span class='s1'>&#39;Passwd&#39;</span> <span class='o'>=&gt;</span> <span class='nv'>$data</span><span class='p'>[</span><span class='s1'>&#39;password&#39;</span><span class='p'>],</span>
+        <span class='s1'>&#39;service&#39;</span><span class='o'>=&gt;</span> <span class='s1'>&#39;cp&#39;</span><span class='p'>,</span>
+        <span class='s1'>&#39;source&#39;</span><span class='o'>=&gt;</span> <span class='s1'>&#39;mention-web-1.0&#39;</span><span class='p'>,</span>
+    <span class='p'>);</span>
+    <span class='nv'>$output</span> <span class='o'>=</span> <span class='nv'>$this</span><span class='o'>-&gt;</span><span class='na'>browser</span><span class='o'>-&gt;</span><span class='na'>post</span><span class='p'>(</span><span class='s1'>&#39;https://www.google.com/accounts/ClientLogin&#39;</span><span class='p'>,</span>
+        <span class='k'>array</span><span class='p'>(),</span>
+        <span class='nb'>http_build_query</span><span class='p'>(</span><span class='nv'>$params</span><span class='p'>));</span>
+    <span class='nv'>$returns</span> <span class='o'>=</span> <span class='nv'>$this</span><span class='o'>-&gt;</span><span class='na'>unserializeGoogleData</span><span class='p'>(</span><span class='nv'>$output</span><span class='o'>-&gt;</span><span class='na'>getContent</span><span class='p'>());</span>
+    <span class='cp'>?&gt;</span><span class='x' />
 </code></pre></div>
 <p>Where <code>$data[&#39;email&#39;]</code> and <code>$data[&#39;password&#39;]</code> are the user&#8217;s email and password, respectively.</p>
 
 <p>If everything went fine, the <code>$returns</code> variable now contains an associative array with a key <code>Auth</code>, so we can proceed with the next step, actually getting the contacts:</p>
-<div class='highlight'><pre><code class='php'><span class='cp'>&lt;?php</span>
+<div class='highlight'><pre><code class='php'><span class='x'>    </span><span class='cp'>&lt;?php</span>
     <span class='k'>if</span><span class='p'>(</span><span class='nb'>isset</span><span class='p'>(</span><span class='nv'>$returns</span><span class='p'>[</span><span class='s1'>&#39;Auth&#39;</span><span class='p'>]))</span> <span class='p'>{</span>
-
         <span class='nv'>$feed_url</span> <span class='o'>=</span> <span class='s2'>&quot;https://www.google.com/m8/feeds/contacts/&quot;</span> <span class='o'>.</span>
             <span class='nb'>urlencode</span><span class='p'>(</span><span class='nv'>$data</span><span class='p'>[</span><span class='s1'>&#39;email&#39;</span><span class='p'>])</span> <span class='o'>.</span>
             <span class='s2'>&quot;/full?alt=json&amp;max-results=500&quot;</span><span class='p'>;</span>
-
-
         <span class='nv'>$header</span> <span class='o'>=</span> <span class='k'>array</span><span class='p'>(</span>
             <span class='s1'>&#39;Authorization: GoogleLogin auth=&#39;</span> <span class='o'>.</span> <span class='nv'>$returns</span><span class='p'>[</span><span class='s1'>&#39;Auth&#39;</span><span class='p'>],</span>
         <span class='p'>);</span>
-
         <span class='nv'>$result</span> <span class='o'>=</span> <span class='nv'>$this</span><span class='o'>-&gt;</span><span class='na'>browser</span><span class='o'>-&gt;</span><span class='na'>get</span><span class='p'>(</span><span class='nv'>$feed_url</span><span class='p'>,</span> <span class='nv'>$header</span><span class='p'>);</span>
-
-
         <span class='nv'>$r</span> <span class='o'>=</span> <span class='nb'>json_decode</span><span class='p'>(</span><span class='nv'>$result</span><span class='o'>-&gt;</span><span class='na'>getContent</span><span class='p'>(),</span> <span class='k'>true</span><span class='p'>);</span>
         <span class='c1'>//return $r;</span>
         <span class='nv'>$results</span> <span class='o'>=</span> <span class='k'>array</span><span class='p'>();</span>
@@ -194,15 +187,14 @@
                         <span class='nv'>$r</span><span class='p'>[</span><span class='s1'>&#39;name&#39;</span><span class='p'>]</span> <span class='o'>=</span> <span class='nv'>$el</span><span class='p'>[</span><span class='s1'>&#39;title&#39;</span><span class='p'>][</span><span class='s1'>&#39;$t&#39;</span><span class='p'>];</span>
                     <span class='p'>}</span>
                 <span class='p'>}</span>
-
                 <span class='k'>return</span> <span class='nv'>$r</span><span class='p'>;</span>
             <span class='p'>},</span> <span class='nv'>$r</span><span class='p'>[</span><span class='s1'>&#39;feed&#39;</span><span class='p'>][</span><span class='s1'>&#39;entry&#39;</span><span class='p'>]);</span>
         <span class='p'>}</span>
         <span class='k'>return</span> <span class='nv'>$results</span>
-
     <span class='p'>}</span><span class='k'>else</span><span class='p'>{</span>
         <span class='k'>return</span> <span class='k'>false</span><span class='p'>;</span>
     <span class='p'>}</span>
+    <span class='cp'>?&gt;</span><span class='x' />
 </code></pre></div>
 <p>If the user and password were incorrect, the <code>Auth</code> key will not be present in the array, and so we simply return <code>false</code>. It is recommended to see if Google requires the user to solve a catcha, in which case it should be displayed. But as that was not necessary in this case, it will be left as an exercise for the reader. On the other hand, if everything was ok, the <code>$results</code> array is now populated with the user&#8217;s contacts, so the next step is to walk over the array extracting the data we need, in this case only the main email and the full name of the contact. We populate an array with the required data and simply return it for the caller to use.</p>
 
