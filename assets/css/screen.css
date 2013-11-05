@@ -794,6 +794,9 @@ div.hero div.skip a {
   width: 100%;
   padding: 0;
 }
+#notebook .meta .hero small {
+  font-size: 0.7em;
+}
 #notebook #entry-content,
 #notebook .page-content {
   display: inline;
