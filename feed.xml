@@ -4,13 +4,35 @@
 	<title type="text" xml:lang="en"></title>
 	<link type="application/atom+xml" href="http://jfoucher.com/feed.xml" rel="self"/>
  	<link type="text" href="http://jfoucher.com" rel="alternate"/>
-	<updated>2016-12-20 13:05:02 +0100</updated>
+	<updated>2016-12-20 13:06:47 +0100</updated>
 	<id>http://jfoucher.com</id>
 	<author>
 		<name>Jonathan Foucher</name>
 	</author>
 	<rights>Copyright (c) 2004-2011,Jonathan Foucher; Some rights reserved.</rights>
 
+	
+	<entry>
+		<title>Building a webGL and webworkers boat hydrostatics app</title>
+		<link href="http://jfoucher.com/2016/12/webGL-webworkers-boat-calculations.html"/>
+		<updated>2016-12-20 09:17:07 +0100</updated>
+		<id>http://jfoucher.com/2016/12/webGL-webworkers-boat-calculations</id>
+		<content type="html">&lt;p&gt;I&#39;ve recently felt the urge to start designing boats again, as I have had some ideas I wanted to explore, specifically for boats of the &lt;a href=&quot;http://classemini.org&quot;&gt;Mini 650 class&lt;/a&gt;. The software I use has basic hydrostatics capabilities, but only for an upright boat. It cannot calculate the GZ curve, or get the righting moment at specific heel angles, which is a crucial data for the kind of craft I wanted to design.&lt;/p&gt;
+
+&lt;p&gt;Existing solutions are extremely powerful and extremely expensive, so I decided i&#39;d spend a few days rolling my own, with only the features I needed for the time being. I have all the technical background for this type of calculations, so I figured it shouldn&#39;t be too hard. I really wanted to display a 3D view of the model, and not have it only output data in table format, and since I had never used web GL and was curious about, I figured it was the perfect time to try it out. Pro tip : if you&#39;re not used to openGL or working in 3D programatically, use &lt;a href=&quot;https://threejs.org/&quot;&gt;three.js&lt;/a&gt;. Thank me later.&lt;/p&gt;
+
+&lt;p&gt;So at first I built something very basic that just displayed the model in threejs and did some static calculations, in the UI thread. At first it worked ok, but as soon as I added functionality to solve for trim (to align longitudinal center of gravity with the longitudinal center of buoyancy) it started to get very slow. The 3D view could not even be moved around anymore because the UI thread was doing all the calculations in the foreground. Basically to do this kind of calculations, you have to move the model up and down to adjust for the correct displacement, and then pitch it forwards or aft until the center of buoyancy aligns with the center of gravity. This loop is computationally intensive and made everything grind to a halt.&lt;/p&gt;
+
+&lt;p&gt;So webworkers to the rescue. I had never really used them either, but they promised to make it easy to send most of the work to a background thread that would not slow down my UI. I refactored my code to put all the heavy lifting into separate files that could then be called as a web worker. I also had to add messaging to pass data to and from the UI javascript. That was fairly easy to do, as they are simple calls to postMessage, and a callback function in the UI and the worker to receive sent messages. Very easy and obvious, so great !&lt;/p&gt;
+
+&lt;p&gt;The calculations are accurate, I&#39;ve had them checked in many cases against an old Hydromax version, which is an established solution in the field, and the results match within about a percentage point. The only difficulty I&#39;m still struggling with is to properly draw the underwater stations and the waterline, but this is only a display bug and does not affect the results. What happens is that there are many edge cases that have to be accounted for, depending on the type and quality of the input file. I&#39;m still working on that.&lt;/p&gt;
+
+&lt;p&gt;If you like designing boats and currently do these kinds of calculations by hand or in a spreadsheet, or if your current software does not solve for trim, you will definitely want to &lt;a href=&quot;https://hydro.marinetechs.com&quot;&gt;give this tool a try&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If you do, and you like it, or you hate it, or it doesn&#39;t work, or anything, your feedback would be invaluable. Contact me &lt;a href=&quot;mailto:j_foucher@marinetechs.com&quot;&gt;by email&lt;/a&gt; or through &lt;a href=&quot;http://jfoucher.com/about.html#contactForm&quot;&gt;this blog&#39;s contact form&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&quot;http://jfoucher.com/2016/12/webGL-webworkers-boat-calculations.html&quot;&gt;Building a webGL and webworkers boat hydrostatics app&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
+href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
+	</entry>
 	
 	<entry>
 		<title>How I built running shoes for my whole family in one sunday afternoon (Huarache sandals)</title>
@@ -1787,33 +1809,6 @@ href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 &lt;p&gt;&lt;em&gt;UPDATE 2011:&lt;/em&gt;
 Blueice seems to be dead, and so so is this plugin, i guess...&lt;/p&gt;
 &lt;a href=&quot;http://jfoucher.com/2009/12/blueice-plugin.html&quot;&gt;BlueIce Plugin&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
-href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
-	</entry>
-	
-	<entry>
-		<title>Why Google Wave is useless (with invites giveaway)</title>
-		<link href="http://jfoucher.com/2009/11/google-wave-useless.html"/>
-		<updated>2009-11-20 10:00:29 +0100</updated>
-		<id>http://jfoucher.com/2009/11/google-wave-useless</id>
-		<content type="html">&lt;p&gt;&lt;img src=&quot;http://jfoucher.com/uploads/2009/11/Screenshot-1.png&quot; alt=&quot;&amp;quot;Google Wave&amp;quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;You need to have it open in your browser to appear online&lt;/li&gt;
-&lt;li&gt;Nobody is ever online for that exact reason&lt;/li&gt;
-&lt;li&gt;All my contacts disappeared: For no apparent reason, none of my contacts are showing in wave right now... Kind of reduces the usability.&lt;/li&gt;
-&lt;li&gt;Too many ads in independently developped &quot;gadgets&quot;&lt;/li&gt;
-&lt;li&gt;Counter intuitive interface.&lt;/li&gt;
-&lt;li&gt;&quot;pinging&quot; someone just opens a new wave with that contact : I could have done that myself... Do something more, like, I don&#39;t know, send an email&lt;/li&gt;
-&lt;li&gt;can&#39;t search trough a list to add contacts that are on wave&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3&gt;And now (oh the irony) to the Wave invite giveaway.&lt;/h3&gt;
-
-&lt;p&gt;Very easy : leave a comment on this post with your real email address, and on Monday at 12 GMT I&#39;ll pick ten winners. (yes I have that many unused invites...)&lt;/p&gt;
-
-&lt;p&gt;Have a good weekend&lt;/p&gt;
-&lt;a href=&quot;http://jfoucher.com/2009/11/google-wave-useless.html&quot;&gt;Why Google Wave is useless (with invites giveaway)&lt;/a&gt; is a post by Jonathan Foucher at &lt;a
 href=&quot;http://jfoucher.com&quot;&gt;Geeky Nuggets&lt;/a&gt;</content>
 	</entry>
 	

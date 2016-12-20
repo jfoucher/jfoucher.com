@@ -9,15 +9,15 @@
 -->
 <head>
     <title>
-        Geeky Nuggets&thinsp;&mdash;&thinsp;Jonathan Foucher's web development experiments
+        Building a webGL and webworkers boat hydrostatics app
         
     </title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta name="author" content="Jonathan Foucher" />
 	<meta name="designer" content="Jonathan Foucher" />
 	<meta name="developer" content="Jonathan Foucher" />
-	<meta name="description" content="A blog about web development, codeigniter and wordpress, by web developer Jonathan Foucher" />
-	<meta name="keywords" content="php, wordpress, codeigniter, France, Spain" />
+	<meta name="description" content="I had a need for a simple to do some calculations for a boat design I'm studying, so I built it from scratch with webGL and webworkers" />
+	<meta name="keywords" content="Web development, france, wordpress, codeigniter, linux, ubuntu, debian, system administration" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/en/" />
     <link href="http://tent.jfoucher.com/profile" rel="https://tent.io/rels/profile" />
@@ -44,12 +44,10 @@
 	<div id="container" class="clearfix">
 		                <header id="header" class="center">
             <div class="logo">
-                <h1>
-                    <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
-                        Geeky Nuggets
-                    </a>
-                </h1>
-			</div>
+                <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
+                    Geeky Nuggets
+                </a>
+            </div>
             <div class="siteDesc"><a href="/about.html" title="About Jonathan Foucher
                 &amp; contact details" tabindex="0" accesskey="A">Jonathan Foucher</a>&rsquo;s blog <span
                 class="amp">&amp;</span> web development
@@ -58,7 +56,7 @@
                     <nav id="nav" class="clear">
             <ul class="nav nav-header caps">
 				<li><a href="/about.html" title="About &amp; contact information" tabindex="0">About <span class="amp">&amp;</span> Contact</a></li>
-				<li><a href="/archives.html" title="View the blog archives" tabindex="0">Archives</a></li>
+				<li class="active"><a href="/archives.html" title="View the blog archives" tabindex="0">Archives</a></li>
 
 				<li><a href="http://feeds.feedburner.com/GeekyNuggets" title="Subscribe to my posts, by email or in your feed reader" tabindex="0">Feed</a></li>
             </ul>
@@ -80,26 +78,25 @@
         </nav> <!-- /#nav.clear -->
 
 
-
-
+            
 		</header> <!-- /#header.center -->
 
-        
+
 		<div id="notebook" class="center clear">
 			<div class="page-nav-top">
                 
-				    <span class="page-nav-item floatLeft"><a class="internal" rel="prev"  href="/2013/05/building-and-using-minimalist-running-shoes.html" title="Read How I built running shoes for my whole family in one sunday afternoon (Huarache sandals)">&larr; Read previous article</a></span>
+				    <span class="page-nav-item page-prev"><a class="internal" rel="prev"  href="/2013/05/building-and-using-minimalist-running-shoes.html" title="Read How I built running shoes for my whole family in one sunday afternoon (Huarache sandals)">&larr; Read previous article</a></span>
 				
 				
             </div> <!-- /.page-nav-top -->
 
-            <h2 class="post-title">
+             <h2 class="post-title">
                 <a href="/2016/12/webGL-webworkers-boat-calculations.html" title="Permanent link to Building a webGL and webworkers boat hydrostatics app">
                     Building a webGL and webworkers boat hydrostatics app
                 </a>
             </h2>
+
             <div class="meta">
-                <!-- <span class="pdf">Download a <a href="/2016/12/webGL-webworkers-boat-calculations.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <div class="hero">
 
                     <p>
@@ -107,13 +104,27 @@
                         <br /><small>by <a href="https://plus.google.com/+JonathanFoucher?rel=author">Jonathan Foucher</a></small>
                     </p>
                 </div>
+                <!-- <span class="pdf">Download a <a href="/2016/12/webGL-webworkers-boat-calculations.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2016/12/webGL-webworkers-boat-calculations.html" title="[Permalink] Building a webGL and webworkers boat hydrostatics app">permalink to this article</a>.</span>
-                <span class="date" title="2016-12-20 09:17:07 +0100">
+                    <span class="date" title="2016-12-20 09:17:07 +0100">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">20</span>
                     <span class="month"><abbr>Dec</abbr></span>
                     <span class="year">2016</span>
                 </span>
+                <div class="share">
+                    <div class="iframes">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-via="jfoucher">Tweet</a>
+                        
+<iframe scrolling="no" height="28px" width="115px" src="http://hnlike.com/upvote.php?link=http%3A%2F%2Fjfoucher.com/2016/12/webGL-webworkers-boat-calculations.html&amp;title=Building a webGL and webworkers boat hydrostatics app">
+    <a href="http://hnlike.com/upvote.php?link=http%3A%2F%2Fjfoucher.com/2016/12/webGL-webworkers-boat-calculations.html&amp;title=Building a webGL and webworkers boat hydrostatics app">upvote on HN</a>
+</iframe>
+
+
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+                    </div>
+                </div>
             </div> <!-- /.meta -->
             <div id="entry-content">
 
@@ -132,16 +143,30 @@
 <p>If you do, and you like it, or you hate it, or it doesn't work, or anything, your feedback would be invaluable. Contact me <a href="mailto:j_foucher@marinetechs.com">by email</a> or through <a href="http://jfoucher.com/about.html#contactForm">this blog's contact form</a>.</p>
 
 
+
+
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'geekynuggets'; // required: replace example with your forum shortname
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
             </div> <!-- /.entry-content.colEight -->
             <div class="page-nav-bottom">
                 
-				    <span class="page-nav-item floatLeft"><a class="internal" rel="prev"  href="/2013/05/building-and-using-minimalist-running-shoes.html" title="Read How I built running shoes for my whole family in one sunday afternoon (Huarache sandals)">&larr; View previous article</a></span>
+				    <span class="page-nav-item page-prev"><a class="internal" rel="prev"  href="/2013/05/building-and-using-minimalist-running-shoes.html#notebook" title="Read How I built running shoes for my whole family in one sunday afternoon (Huarache sandals)">&larr; View previous article</a></span>
 				
 				
             </div> <!-- /.page-nav-bottom -->
         </div> <!-- /#notebook.center.clear -->
-        
-
             <footer id="footer" class="clear">
         <span class="backtop"><a class="internal" href="#header" title="Return to the top of this page">Back to top &uarr;</a></span>
         <nav>
