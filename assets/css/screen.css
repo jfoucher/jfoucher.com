@@ -1,9 +1,6 @@
 @import '/assets/fonts/colaborate/stylesheet.css';
-
 @import '/assets/fonts/bodoni/stylesheet.css';
-
 @import '/assets/fonts/tex/stylesheet.css';
-
 @import '/assets/fonts/cardo/stylesheet.css';
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -396,7 +393,8 @@ body {
 .highlight .il {
   color: #ae81ff;
 }
-/* Literal.Number.Integer.Long *//*
+/* Literal.Number.Integer.Long */
+/*
 Color palette
 */
 /*
@@ -454,7 +452,6 @@ code {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 47.65625%;
   margin: 0 1.171875%;
 }
@@ -483,7 +480,6 @@ code {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 47.65625%;
   margin: 0 1.171875%;
   font-size: 1.2em;
@@ -503,7 +499,6 @@ code {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 97.65625%;
   margin: 0 1.171875%;
   position: absolute;
@@ -519,7 +514,6 @@ code {
         }
     }
     */
-
 }
 #nav ul {
   overflow: hidden;
@@ -553,7 +547,6 @@ div.hero {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 22.65625%;
   margin: 0 1.171875%;
   line-height: 1.8em;
@@ -584,7 +577,6 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 72.65625%;
   margin: 0 1.171875%;
 }
@@ -608,8 +600,7 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
-  width: 38.54166666666667%;
+  width: 38.54166667%;
   margin: 0 1.5625%;
   float: right;
 }
@@ -620,7 +611,6 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 46.875%;
   margin: 0 1.5625%;
 }
@@ -648,8 +638,7 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
-  width: 27.083333333333332%;
+  width: 27.08333333%;
   margin: 0 3.125%;
 }
 #aside .blog-latest li a .day,
@@ -661,7 +650,6 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 31.25%;
   margin: 0 9.375%;
   margin-left: 0px;
@@ -675,8 +663,7 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
-  width: 60.416666666666664%;
+  width: 60.41666667%;
   margin: 0 3.125%;
 }
 #aside .blog-latest li a:hover {
@@ -716,7 +703,6 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 97.65625%;
   margin: 0 1.171875%;
   padding-top: 2em;
@@ -759,7 +745,6 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 16.40625%;
   margin: 0 1.171875%;
   color: #555555;
@@ -794,12 +779,14 @@ div.hero div.skip a {
   width: 100%;
   padding: 0;
 }
+#notebook .meta .hero small {
+  font-size: 0.7em;
+}
 #notebook #entry-content,
 #notebook .page-content {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 47.65625%;
   margin: 0 1.171875%;
   margin-left: 7.421875%;
@@ -865,7 +852,6 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 72.65625%;
   margin: 0 1.171875%;
   margin-left: 7.421875%;
@@ -876,8 +862,7 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
-  width: 38.54166666666667%;
+  width: 38.54166667%;
   margin: 0 1.5625%;
   height: 220px;
   margin-left: 0;
@@ -930,19 +915,17 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
-  width: 88.54166666666666%;
+  width: 88.54166667%;
   margin: 0 1.5625%;
   display: inline-block;
   overflow: hidden;
-  width: 103.40909090909092%;
-  margin: 0 -1.7045454545454544%;
+  width: 103.40909091%;
+  margin: 0 -1.70454545%;
 }
 #notebook .page-content.projects li.project.client .project-thumb {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 46.25%;
   margin: 0 1.875%;
   max-width: 320px;
@@ -953,7 +936,6 @@ div.hero div.skip a {
   z-index: 2;
   background: #fff;
   /* TODO put spinner in background? */
-
   border: 1px solid #d2d2d2;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -987,7 +969,6 @@ div.hero div.skip a {
   border-bottom-right-radius: 50% 50%;
   border-bottom-left-radius: 50% 50%;
   /*border:1px solid #666;*/
-
   -webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
   -moz-box-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
   -o-box-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
@@ -1005,9 +986,8 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
-  width: 51.13636363636363%;
-  margin: 0 1.7045454545454544%;
+  width: 51.13636364%;
+  margin: 0 1.70454545%;
 }
 #notebook .page-content.projects .more {
   clear: both;
@@ -1022,7 +1002,6 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 60.15625%;
   margin: 0 1.171875%;
   margin-left: 7.421875%;
@@ -1031,7 +1010,7 @@ div.hero div.skip a {
   margin: 0;
   display: inline-block;
   overflow: hidden;
-  width: 103.75000000000001%;
+  width: 103.75%;
   margin: 0 -1.875%;
   display: block;
 }
@@ -1051,7 +1030,6 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 26.25%;
   margin: 0 1.875%;
 }
@@ -1065,8 +1043,7 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
-  width: 20.833333333333336%;
+  width: 20.83333333%;
   margin: 0 6.25%;
   margin-left: 0;
 }
@@ -1075,12 +1052,11 @@ div.hero div.skip a {
   color: #555555;
 }
 #notebook.archives #entry-content li a span.title {
-  line-height: 1.9500000000000002em;
+  line-height: 1.95em;
   font-size: 1.3em;
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 66.25%;
   margin: 0 1.875%;
 }
@@ -1090,7 +1066,6 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 66.25%;
   margin: 0 1.875%;
   margin-left: 32.421875%;
@@ -1108,7 +1083,6 @@ div.hero div.skip a {
   display: inline;
   float: left;
   /*overflow: hidden;*/
-
   width: 97.65625%;
   margin: 0 1.171875%;
   margin: 2em auto 0 auto;
@@ -1177,7 +1151,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 66.40625%;
     margin: 0 1.171875%;
   }
@@ -1185,7 +1158,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 28.90625%;
     margin: 0 1.171875%;
     line-height: 1.7em;
@@ -1197,7 +1169,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 97.65625%;
     margin: 0 1.171875%;
   }
@@ -1208,7 +1179,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 22.65625%;
     margin: 0 1.171875%;
   }
@@ -1217,7 +1187,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 66.40625%;
     margin: 0 1.171875%;
     margin-left: 7.421875%;
@@ -1226,7 +1195,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 91.40625%;
     margin: 0 1.171875%;
     margin-left: 7.421875%;
@@ -1237,7 +1205,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 37.5%;
     margin: 0 1.25%;
   }
@@ -1246,30 +1213,27 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
-    width: 90.83333333333333%;
+    width: 90.83333333%;
     margin: 0 1.25%;
     display: inline-block;
     overflow: hidden;
-    width: 102.67857142857142%;
-    margin: 0 -1.3392857142857142%;
+    width: 102.67857143%;
+    margin: 0 -1.33928571%;
   }
   #notebook .page-content.projects li.project.client .project-thumb {
     min-width: 320px;
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
-    width: 40.17857142857143%;
-    margin: 0 1.3392857142857142%;
+    width: 40.17857143%;
+    margin: 0 1.33928571%;
   }
   #notebook .page-content.projects li.project.client .project-description {
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
-    width: 47.32142857142857%;
-    margin: 0 1.3392857142857142%;
+    width: 47.32142857%;
+    margin: 0 1.33928571%;
   }
   #notebook.archives #entry-content li a span.date .day,
   #notebook.archives #entry-content li a span.date .month,
@@ -1295,7 +1259,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 53.90625%;
     margin: 0 1.171875%;
     font-size: 0.7em;
@@ -1304,7 +1267,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 41.40625%;
     margin: 0 1.171875%;
   }
@@ -1321,7 +1283,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 97.65625%;
     margin: 0 1.171875%;
     margin-left: 1.171875%;
@@ -1346,7 +1307,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 12.5%;
     margin: 0 3.75%;
   }
@@ -1355,7 +1315,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 32.5%;
     margin: 0 3.75%;
   }
@@ -1363,7 +1322,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 66.40625%;
     margin: 0 1.171875%;
     font-size: 1.2em;
@@ -1372,7 +1330,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 66.40625%;
     margin: 0 1.171875%;
     margin-left: 32.421875%;
@@ -1382,7 +1339,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 97.65625%;
     margin: 0 1.171875%;
     margin-left: 1.171875%;
@@ -1409,7 +1365,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 97.65625%;
     margin: 0 1.171875%;
     font-size: 0.7em;
@@ -1419,7 +1374,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 97.65625%;
     margin: 0 1.171875%;
     text-align: center;
@@ -1451,7 +1405,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 97.65625%;
     margin: 0 1.171875%;
     margin-bottom: 1em;
@@ -1468,7 +1421,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 97.65625%;
     margin: 0 1.171875%;
   }
@@ -1481,7 +1433,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 97.65625%;
     margin: 0 1.171875%;
   }
@@ -1490,7 +1441,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 91.40625%;
     margin: 0 1.171875%;
   }
@@ -1501,7 +1451,6 @@ Utility clases
     display: inline;
     float: left;
     /*overflow: hidden;*/
-  
     width: 91.40625%;
     margin: 0 1.171875%;
   }

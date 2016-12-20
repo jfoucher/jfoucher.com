@@ -9,10 +9,10 @@ meta_keywords: php, wordpress, codeigniter, France, Spain
 		<div id="notebook" class="center clear">
 			<div class="page-nav-top">
                 {% if post.previous %}
-				    <span class="page-nav-item floatLeft"><a class="internal" rel="prev"  href="{{ post.previous.url }}" title="View {{ post.previous.title }}">&larr; View previous article</a></span>
+				    <span class="page-nav-item floatLeft"><a class="internal" rel="prev"  href="{{ post.previous.url }}" title="Read {{ post.previous.title }}">&larr; Read previous article</a></span>
 				{% endif %}
 				{% if post.next %}
-				    <span class="page-nav-item floatRight"><a class="internal" rel="next"  href="{{ post.next.url }}#notebook" title="View {{ post.next.title }}">View next article &rarr;</a></span>
+				    <span class="page-nav-item floatRight"><a class="internal" rel="next"  href="{{ post.next.url }}#notebook" title="Read {{ post.next.title }}">Read next article &rarr;</a></span>
                 {% endif %}
             </div> <!-- /.page-nav-top -->
 
@@ -23,6 +23,13 @@ meta_keywords: php, wordpress, codeigniter, France, Spain
             </h2>
             <div class="meta">
                 <!-- <span class="pdf">Download a <a href="{{ post.url }}.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
+                <div class="hero">
+
+                    <p>
+                        {{post.excerpt}}
+                        <br /><small>by <a href="https://plus.google.com/+JonathanFoucher?rel=author">Jonathan Foucher</a></small>
+                    </p>
+                </div>
                 <span class="permalink">For referencing: <a href="{{ post.url }}" title="[Permalink] {{ post.title }}">permalink to this article</a>.</span>
                 <span class="date" title="{{ post.date }}">
                     <span class="published">Published&thinsp;&bull;</span>
