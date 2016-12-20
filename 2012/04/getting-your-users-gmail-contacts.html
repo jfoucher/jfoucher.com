@@ -108,7 +108,7 @@
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2012/04/getting-your-users-gmail-contacts.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2012/04/getting-your-users-gmail-contacts.html" title="[Permalink] Import contacts from Google by entering your email and password">permalink to this article</a>.</span>
-                    <span class="date" title="Sun Apr 15 09:17:07 +0200 2012">
+                    <span class="date" title="2012-04-15 09:17:07 +0200">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">15</span>
                     <span class="month"><abbr>Apr</abbr></span>
@@ -138,25 +138,24 @@
 
 <p>I created a class <code>Importer</code> with a protected variable <code>$browser</code> which is the Buzz\Browser instance we'll be using to connect to google. Google returns the data in a line based format, so I used a little helper function to convert it to a PHP array:</p>
 
-<div class="highlight"><pre><code class="php"><span class="x">    </span><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
         <span class="k">protected</span> <span class="k">function</span> <span class="nf">unserializeGoogleData</span><span class="p">(</span><span class="nv">$data</span><span class="p">){</span>
             <span class="nv">$returns</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
             <span class="k">foreach</span> <span class="p">(</span><span class="nb">explode</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="nv">$data</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$line</span><span class="p">)</span>
             <span class="p">{</span>
-                <span class="nv">$line</span> <span class="o">=</span> <span class="nx">trim</span><span class="p">(</span><span class="nv">$line</span><span class="p">);</span>
+                <span class="nv">$line</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="nv">$line</span><span class="p">);</span>
                 <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$line</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
                 <span class="k">list</span><span class="p">(</span><span class="nv">$k</span><span class="p">,</span><span class="nv">$v</span><span class="p">)</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="nv">$line</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
                 <span class="nv">$returns</span><span class="p">[</span><span class="nv">$k</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$v</span><span class="p">;</span>
             <span class="p">}</span>
             <span class="k">return</span> <span class="nv">$returns</span><span class="p">;</span>
         <span class="p">}</span>
-    <span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+    <span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
 <p>So first we need to get the auth token from google:</p>
 
-<div class="highlight"><pre><code class="php"><span class="x">    </span><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
     <span class="nv">$params</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">&#39;accountType&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;HOSTED_OR_GOOGLE&#39;</span><span class="p">,</span>
         <span class="s1">&#39;Email&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">],</span>
@@ -168,15 +167,14 @@
         <span class="k">array</span><span class="p">(),</span>
         <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$params</span><span class="p">));</span>
     <span class="nv">$returns</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">unserializeGoogleData</span><span class="p">(</span><span class="nv">$output</span><span class="o">-&gt;</span><span class="na">getContent</span><span class="p">());</span>
-    <span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+    <span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
 <p>Where <code>$data['email']</code> and <code>$data['password']</code> are the user's email and password, respectively.</p>
 
 <p>If everything went fine, the <code>$returns</code> variable now contains an associative array with a key <code>Auth</code>, so we can proceed with the next step, actually getting the contacts:</p>
 
-<div class="highlight"><pre><code class="php"><span class="x">    </span><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
     <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$returns</span><span class="p">[</span><span class="s1">&#39;Auth&#39;</span><span class="p">]))</span> <span class="p">{</span>
         <span class="nv">$feed_url</span> <span class="o">=</span> <span class="s2">&quot;https://www.google.com/m8/feeds/contacts/&quot;</span> <span class="o">.</span>
             <span class="nb">urlencode</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">])</span> <span class="o">.</span>
@@ -204,8 +202,7 @@
     <span class="p">}</span><span class="k">else</span><span class="p">{</span>
         <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+    <span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
 <p>If the user and password were incorrect, the <code>Auth</code> key will not be present in the array, and so we simply return <code>false</code>. It is recommended to see if Google requires the user to solve a catcha, in which case it should be displayed. But as that was not necessary in this case, it will be left as an exercise for the reader.

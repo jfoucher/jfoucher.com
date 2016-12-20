@@ -108,7 +108,7 @@
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2009/05/organize-series-plugin-database-optimization.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2009/05/organize-series-plugin-database-optimization.html" title="[Permalink] Organize Series plugin database optimization">permalink to this article</a>.</span>
-                    <span class="date" title="Tue May 19 09:56:50 +0200 2009">
+                    <span class="date" title="2009-05-19 09:56:50 +0200">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">19</span>
                     <span class="month"><abbr>May</abbr></span>
@@ -132,7 +132,7 @@
     function get_series_order($posts, $postid = 0, $skip = TRUE)
 by the following one :</p>
 
-<div class="highlight"><pre><code class="php"><span class="x">    </span><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
       <span class="k">function</span> <span class="nf">get_series_order</span><span class="p">(</span><span class="nv">$posts</span><span class="p">,</span> <span class="nv">$postid</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">$skip</span> <span class="o">=</span> <span class="k">TRUE</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">global</span> <span class="nv">$wpdb</span><span class="p">;</span>
       <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$posts</span><span class="p">))</span> <span class="k">return</span> <span class="k">false</span><span class="p">;</span> <span class="c1">//don&#39;t have the posts array so can&#39;t do anything</span>
@@ -172,8 +172,7 @@ by the following one :</p>
         <span class="nb">usort</span><span class="p">(</span> <span class="nv">$series_posts</span><span class="p">,</span> <span class="s1">&#39;_usort_series_by_part&#39;</span> <span class="p">);</span>
       <span class="k">return</span> <span class="nv">$series_posts</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+    <span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
 <p>And there you go, a faster blog...</p>

@@ -108,7 +108,7 @@
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2011/06/phing-task-to-update-twitter-status.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2011/06/phing-task-to-update-twitter-status.html" title="[Permalink] A Phing task to update your Twitter status">permalink to this article</a>.</span>
-                    <span class="date" title="Wed Jun 29 14:10:00 +0200 2011">
+                    <span class="date" title="2011-06-29 14:10:00 +0200">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">29</span>
                     <span class="month"><abbr>Jun</abbr></span>
@@ -138,26 +138,22 @@
 
 <p>The first step is to <a href="https://github.com/abraham/twitteroauth/tarball/master">download the twitteroauth library</a> from github. Extract it to a temporary folder and copy the subfolder</p>
 
-<div class="highlight"><pre><code class="bash">twitteroauth
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">twitteroauth</code></pre></div>
 
 
 <p> to the folder where your fing tasks are stored (on my system it is</p>
 
-<div class="highlight"><pre><code class="bash">/usr/share/php/phing/tasks/my/
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">/usr/share/php/phing/tasks/my/</code></pre></div>
 
 
 <p>. Please note you might have to create the</p>
 
-<div class="highlight"><pre><code class="bash">my/
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">my/</code></pre></div>
 
 
 <p> folder within</p>
 
-<div class="highlight"><pre><code class="bash">/usr/share/php/phing/tasks/
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">/usr/share/php/phing/tasks/</code></pre></div>
 
 
 <p>. You will need root privileges for these steps.</p>
@@ -170,14 +166,12 @@
 
 <p>Next up is creating the actual task PHP class. Create an empty file named TwitterUpdateTask.php</p>
 
-<div class="highlight"><pre><code class="bash">sudo touch /usr/share/php/phing/tasks/my/TwitterUpdateTask.php
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo touch /usr/share/php/phing/tasks/my/TwitterUpdateTask.php</code></pre></div>
 
 
 <p> and open it for editing with your favorite editor. We'll use gedit :</p>
 
-<div class="highlight"><pre><code class="bash">gksu gedit /usr/share/php/phing/tasks/my/TwitterUpdateTask.php
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">gksu gedit /usr/share/php/phing/tasks/my/TwitterUpdateTask.php</code></pre></div>
 
 
 <p>The code for this file is as shown below:</p>
@@ -220,19 +214,17 @@ class TwitterUpdateTask extends Task {
 
 <p>Don't close this file, we still need to add the authentication data to it. You can already place your consumer key and consumer secret in the apropriate</p>
 
-<div class="highlight"><pre><code class="php"><span class="x">define()</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">define()</span></code></pre></div>
 
 
 <p> calls (the first two lines), but if not, we'll do it now.</p>
 
 <p>Navigate to <a href="http://twittertokens.6px.eu">http://twittertokens.6px.eu</a>, put your consumer data and consumer secret in the apropriate fields and click on "Sign in with Twitter". A twitter page will open asking for your confirmation. Click "Sign in" and you are redirected to http://twittertokens.6px.eu/. You should see 4 lines of code appear, that look like this:</p>
 
-<div class="highlight"><pre><code class="php"><span class="x">    define(&#39;CONSUMER_KEY&#39;, &#39;V1UsnZJrgfhgKJFoqsQ&#39;);</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">define(&#39;CONSUMER_KEY&#39;, &#39;V1UsnZJrgfhgKJFoqsQ&#39;);</span>
 <span class="x">    define(&#39;CONSUMER_SECRET&#39;, &#39;UUazcBfXrWW1jcpiSU564hg654t1EMki8gzptQU&#39;);</span>
 <span class="x">    define(&#39;OAUTH_TOKEN&#39;, &#39;325454656-EuCudghg8tTYwKf9yjt5nhqr14i5egHJPeVRGVxQv&#39;);</span>
-<span class="x">    define(&#39;OAUTH_TOKEN_SECRET&#39;, &#39;gh6854hg6tyGEvGEiEi15XmUtOmDpaONM&#39;);</span>
-</code></pre></div>
+<span class="x">    define(&#39;OAUTH_TOKEN_SECRET&#39;, &#39;gh6854hg6tyGEvGEiEi15XmUtOmDpaONM&#39;);</span></code></pre></div>
 
 
 <p>Copy this code to the corresponding spot in the TwitterUpdateTask.php file, overwriting what's already there.</p>
@@ -243,33 +235,29 @@ class TwitterUpdateTask extends Task {
 
 <p>First, we define the custom task:</p>
 
-<div class="highlight"><pre><code class="xml"><span class="nt">&lt;taskdef</span> <span class="na">name=</span><span class="s">&quot;twitterupdate&quot;</span> <span class="na">classname=</span><span class="s">&quot;phing.tasks.my.TwitterUpdateTask&quot;</span> <span class="nt">/&gt;</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;taskdef</span> <span class="na">name=</span><span class="s">&quot;twitterupdate&quot;</span> <span class="na">classname=</span><span class="s">&quot;phing.tasks.my.TwitterUpdateTask&quot;</span> <span class="nt">/&gt;</span></code></pre></div>
 
 
 <p>Secondly, let's create a custom target that will send a tweet with the message we want.</p>
 
-<div class="highlight"><pre><code class="xml">    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;tweet&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;tweet&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;twitterupdate</span> <span class="na">message=</span><span class="s">&quot;${twitter.status}&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/target&gt;</span>
-</code></pre></div>
+    <span class="nt">&lt;/target&gt;</span></code></pre></div>
 
 
 <p>Now we can call this task from another one, but we need to make that the twitter.status is set. Let's we have a "staging" target. Part of it could look like this:</p>
 
-<div class="highlight"><pre><code class="xml">    <span class="c">&lt;!-- Set the timestamp to be used in the twitter update --&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- Set the timestamp to be used in the twitter update --&gt;</span>
     <span class="nt">&lt;tstamp&gt;</span>
         <span class="nt">&lt;format</span> <span class="na">property=</span><span class="s">&quot;build.time&quot;</span> <span class="na">pattern=</span><span class="s">&quot;%Y-%m-%d %H:%I&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/tstamp&gt;</span>
     <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;twitter.status&quot;</span> <span class="na">value=</span><span class="s">&quot;Staging build completed at ${build.time}&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;phingcall</span> <span class="na">target=</span><span class="s">&quot;tweet&quot;</span> <span class="nt">/&gt;</span>
-</code></pre></div>
+    <span class="nt">&lt;phingcall</span> <span class="na">target=</span><span class="s">&quot;tweet&quot;</span> <span class="nt">/&gt;</span></code></pre></div>
 
 
 <p>This will post the message to twitter, replacing the</p>
 
-<div class="highlight"><pre><code class="php"><span class="x">${build.time}</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">${build.time}</span></code></pre></div>
 
 
 <p> token by the actual build and time.</p>

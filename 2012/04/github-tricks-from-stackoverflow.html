@@ -108,7 +108,7 @@
                 </div>
                 <!-- <span class="pdf">Download a <a href="/2012/04/github-tricks-from-stackoverflow.html.pdf" title="Download a PDF, printer-friendly copy of this article"><acronym title="Portable Document Format">PDF</acronym>, printer-friendly version of this article</a>.</span> -->
                 <span class="permalink">For referencing: <a href="/2012/04/github-tricks-from-stackoverflow.html" title="[Permalink] Git tips from stackoverflow">permalink to this article</a>.</span>
-                    <span class="date" title="Mon Apr 09 00:00:00 +0200 2012">
+                    <span class="date" title="2012-04-09 00:00:00 +0200">
                     <span class="published">Published&thinsp;&bull;</span>
                     <span class="day">09</span>
                     <span class="month"><abbr>Apr</abbr></span>
@@ -137,14 +137,12 @@ Most of them are operations that should be pretty easy to do, and seem pointless
 
 <p><a href="http://stackoverflow.com/a/8485503/210824">Git: Never Commit Changed Files (But still keep original revisioned.)</a></p>
 
-<div class="highlight"><pre><code class="bash">    git update-index --assume-unchanged &lt;file&gt;
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git update-index --assume-unchanged &lt;file&gt;</code></pre></div>
 
 
 <p>To make it commitable again run</p>
 
-<div class="highlight"><pre><code class="bash">    git update-index --no-assume-unchanged &lt;file&gt;
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git update-index --no-assume-unchanged &lt;file&gt;</code></pre></div>
 
 
 <h3>Commits no yet pushed</h3>
@@ -153,14 +151,12 @@ Most of them are operations that should be pretty easy to do, and seem pointless
 
 <p>If you want to see all commits on all branches that aren't pushed yet, you might be looking for something like this:</p>
 
-<div class="highlight"><pre><code class="bash">    git log --branches --not --remotes
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git log --branches --not --remotes</code></pre></div>
 
 
 <p>And if you only want to see the most recent commit on each branch, and the branch names, this:</p>
 
-<div class="highlight"><pre><code class="bash">    git log --branches --not --remotes --simplify-by-decoration --decorate --oneline
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git log --branches --not --remotes --simplify-by-decoration --decorate --oneline</code></pre></div>
 
 
 
