@@ -1,0 +1,12 @@
+---
+layout: post
+title: Using Vagrant to get new developers up to speed quickly
+tags: [php, vagrant, dev]
+excerpt: "We use Symfony 2 at work, which has quite a few dependencies and can be difficult to setup. We're going to use VVagrant to simplify this whole process"
+hn_like_button: true
+date: Sun Aug 03 21:17:07 +0200 2014
+---
+
+One of our project is based on Symfony 2 with quite a few external dependencies such as coffeescript, less, etc. As we are recruiting new developers, I want to get them up to speed as quickly as possible, so that they don't get frustrated with the time it takes to get the tooling set up.
+
+So my aim is this blog post is to describe how I went about it to help other people that might be in my situation. My general idea is to create a virtual machine with vagrant, and get it setup properly with a Puppet manifest so that each new dev just has to run vagrant up and they can get hacking right away.

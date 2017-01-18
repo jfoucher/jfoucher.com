@@ -1,0 +1,13 @@
+/***************
+SUSY GRID CONFIGURATION
+***************/
+body{
+  margin: 0;
+}
+@import "susy";
+
+$susy: (
+  columns: 12,
+  gutters: 1/3,
+  gutter-position: after,
+);

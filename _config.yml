@@ -1,0 +1,29 @@
+title: Geeky Nuggets
+description: Jonathan Foucher's blog <span class="amp">&amp;</span> web development notebook
+clean_desc: Jonathan Foucher's blog & web development notebook
+
+url: https://jfoucher.com
+baseurl: ""
+paginate_path: "blog/page:num/"
+permalink: /:year/:month/:title.html
+
+markdown: kramdown
+highlighter: rouge
+gems: [jekyll-paginate]
+paginate: 10
+
+navigation:
+ - title: Home
+   url: /index.html
+ - title: About
+   url: /about
+ - title: Contact
+   url: /contact
+
+social:
+   github: jfoucher
+   twitter: jfoucher
+   facebook: jfoucher
+   email: jfoucher@gmail.com
+
+google_analytics: "UA-8465441-2"
