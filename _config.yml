@@ -10,7 +10,7 @@ permalink: /:year/:month/:title.html
 markdown: kramdown
 highlighter: rouge
 gems: [jekyll-paginate]
-paginate: 10
+paginate: 6
 
 navigation:
  - title: Home

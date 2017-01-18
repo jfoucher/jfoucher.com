@@ -1,4 +1,3 @@
-
 ---
 layout: default
 title: Long Haul
@@ -15,7 +14,7 @@ title: Long Haul
     <h1 class="postTitle">{{ paginator.posts[0].title }}</h1>
     <p class="meta">{{ paginator.posts[0].date | date: '%B %d, %Y' }} | <span class="time">{{ paginator.posts[0].content | number_of_words | divided_by:180 }}</span> Minute Read</p>
 
-    {{ paginator.posts[0].content | markdownify }}
+    {{ paginator.posts[0].content }}
   </div>
 
   <h3 style="text-align: center; margin-top: 2em">Older posts</h3>
