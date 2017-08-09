@@ -25,4 +25,3 @@ So react-native is was then. Let me tell you, this thing is great ! It works per
 So yes. So far so good. No idea for March though. Maybe I'll just do a react-native app for the [budget tracker](https://budgt.eu)
 
 Any ideas ? [Contact me](/contact).
-
