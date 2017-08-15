@@ -8,6 +8,8 @@ hn_like_button: true
 
 I'm working on a project where I need some sort of simple landing page editor, where "blocks" are defined at the template level and they can be rearranged, text changed or added, and not much more. Most of the software I could find was either way too complex for my needs, gave the user the freedom to _completely_ destroy the template, or were otherwise pretty useless. 
 
+![Editor in action](/uploads/2017/08/leanr.jpg)
+
 If it was frustrating for me I imagine how it would feel for my users who need to do this quickly and efficiently. What I needed would't have drag and drop, nor 300 sliders for everything, neither would it give the user the ability to completely modify the template. (Users can provide custom HTML for their pages if they so choose). Anyway, all I _need_ was the ability to place some template blocks on a page, move them up and down, remove them, and change the text bits.
 
 > _"How hard can it be ?"_ <br><small>- me, at 3 AM on thursday night.</small>
