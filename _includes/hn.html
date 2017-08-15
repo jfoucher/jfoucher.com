@@ -1,0 +1,5 @@
+{% if page.hn_like_button %}
+<iframe scrolling="no" height="28px" width="115px" src="http://hnlike.com/upvote.php?link=http%3A%2F%2Fjfoucher.com{{ page.url|escape }}&amp;title={{ page.title|escape }}">
+    <a href="http://hnlike.com/upvote.php?link=http%3A%2F%2Fjfoucher.com{{ page.url|escape }}&amp;title={{ page.title|escape }}">upvote on HN</a>
+</iframe>
+{% endif %}
