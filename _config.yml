@@ -11,9 +11,13 @@ baseurl: ""
 paginate_path: "blog/page:num/"
 permalink: /:year/:month/:title.html
 
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
 markdown: kramdown
 highlighter: rouge
-gems: [jekyll-paginate, compass, normalize-scss]
+gems: [jekyll-paginate, compass, normalize-scss, rouge, kramdown]
 paginate: 6
 
 navigation:
