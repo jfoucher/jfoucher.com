@@ -1,15 +1,15 @@
-        <header id="header" class="center">
-            <div class="logo">
-                <a href="/" title="Return to homepage" tabindex="0" accesskey="H">
-                    {{site.title}}
-                </a>
-            </div>
-            <div class="siteDesc"><a href="/about.html" title="About Jonathan Foucher
-                &amp; contact details" tabindex="0" accesskey="A">Jonathan Foucher</a>&rsquo;s blog <span
-                class="amp">&amp;</span> web development
-                notebook.
-            </div>
-            {% include nav.html %}
+ <div class="header">
+     <div class="container">
+         <h1 class="logo"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList">
+                 {% for link in site.navigation %}{% assign current = nil %}{% if page.url contains link.url %}{% assign current = 'current' %}{% endif %}
+                 <li class="element {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
+                     <a href="{{ link.url | prepend: site.baseurl }}">{{ link.title }}</a>
+                 </li> 
+                 {% endfor %}
 
-            
-		</header> <!-- /#header.center -->
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->

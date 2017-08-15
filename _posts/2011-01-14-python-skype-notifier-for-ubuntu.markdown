@@ -1,7 +1,7 @@
 --- 
 layout: post
 title: Python skype notifier for Ubuntu
-excerpt: Learning python by building a semi-useful Skype instant message notifier
+excerpt: Learning python by building a semi-useful Skype instant message notifier.
 tags: []
 
 date: Fri Jan 14 13:21:52 +0100 2011

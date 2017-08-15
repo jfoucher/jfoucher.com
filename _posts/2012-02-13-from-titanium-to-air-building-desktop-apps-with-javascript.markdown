@@ -3,7 +3,7 @@ layout: post
 title: From Titanium to Adobe Air, or, Building Desktop Apps with Javascript
 date: 2012-02-13
 tags: javascript, titanium, adobe-air
-excerpt: My experience using Titanium to build a desktop app
+excerpt: My experience using Titanium to build a desktop app.
 ---
 
 [Vessenger](http://vessenger.com) is an app that allows closed groups such as
@@ -12,7 +12,7 @@ repository. People can be divided in groups so that they can share status
 updates or documents with just the required people. In some ways it is similar
 to yammer, but was to be based primarily on a desktop app.
 
-###We decide to use Titanium
+### We decide to use Titanium
 
 After some brainstorming with the company owner, we decided that we'd make the
 app available cross platform, and at least for Mac OSX and Windows. I
@@ -44,7 +44,7 @@ your colleagues. All the files live on [Vessenger](http://vessenger.com)'s
 servers, which makes it very easy to retrieve information at a later date, just
 by looking at your (infinite) chat or status history. 
 
-###Switching to Adobe Air
+### Switching to Adobe Air
 
 I then started working on the chat feature, which is where we noticed an issue
 with the repeated server polling we were doing: as well as being suboptimal on
@@ -72,7 +72,7 @@ between the desktop app and the node server. I am actually implementing this
 solution now for another project and I think it would be a perfect fit for
 [Vessenger](http://vessenger.com) as well.
 
-###Sort issues caused by Titanium
+### Sort issues caused by Titanium
 
 So by a combination of moving to Air and reducing the polling frequency for the
 things that did not need to be refreshed so often, I managed to eliminate the

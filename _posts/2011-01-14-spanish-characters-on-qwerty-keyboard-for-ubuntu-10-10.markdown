@@ -1,7 +1,7 @@
 --- 
 layout: post
 title: Spanish characters on Qwerty keyboard for Ubuntu 10.10
-excerpt: Set a configuration option to be able to easily type acendted character on Ubuntu 10.10
+excerpt: Set a configuration option to be able to easily type acendted character on Ubuntu 10.10.
 tags: []
 
 date: Fri Jan 14 22:06:17 +0100 2011

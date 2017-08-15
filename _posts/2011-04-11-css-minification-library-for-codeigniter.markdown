@@ -7,7 +7,7 @@ tags:
 - library
 - minify
 date: Mon Apr 11 14:10:51 +0200 2011
-excerpt: This library allows you to serve cached minimized css to your users without any action on your part
+excerpt: This library allows you to serve cached minimized css to your users without any action on your part.
 ---
 For my latest project, I wanted to be able to easily minify CSS stylesheets, using the simplest syntax possible, ideally using a simple tag in the header, like {% highlight php %}
 <?php echo $this->css->link(array('/assets/css/fonts.css','/assets/css/layout.css');?>{% endhighlight %}

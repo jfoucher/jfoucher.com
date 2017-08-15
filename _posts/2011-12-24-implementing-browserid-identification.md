@@ -2,7 +2,7 @@
 layout: post
 title: Implementing BrowserID identification on your website
 tags: [webdev, php]
-excerpt: BrowserID is an identification service from Mozilla that aims to remove the need for accounts at each website we visit. I explain how to implement it on your site
+excerpt: BrowserID is an identification service from Mozilla that aims to remove the need for accounts at each website we visit. I explain how to implement it on your site.
 date: Thu Dec 25 15:05:13 +0200 2011
 ---
 
@@ -13,13 +13,13 @@ For developpers, Mozilla set up a service that provides everything you need to l
 
 ###[Implementing BrowserID](https://github.com/mozilla/browserid/wiki/How-to-Use-BrowserID-on-Your-Site) on your site or app is easy
 
-####Include the following javascript snippet in your page
+#### Include the following javascript snippet in your page
 
 {% highlight javascript %}
     <script src="https://browserid.org/include.js" type="text/javascript"></script>
 {% endhighlight %}
 
-####Identify the user
+#### Identify the user
 
 When the user clicks on your "Login" button, a window pops up asking them to confirm that they want to login, or asking them to create a browserID account if they haven't done it yet. Once they decide that they want to login, they are redirected to your site, and the following function is called, with the assertion being passed to the callback if the login was successful
 {% highlight javascript %}
@@ -34,7 +34,7 @@ When the user clicks on your "Login" button, a window pops up asking them to con
 {% endhighlight %}
 If the assertion is there, the user authenticated successfully. now you must verify that the assertion really is authentic, and get the relevant data from it. You *could* [do it yourself](https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest), but if you don't have any special requirements, I recommend you just use the service provided by [http://browserid.org](http://browserid.org)
 
-####Verify the assertion
+#### Verify the assertion
 
 To do so, and once you have the `assertion`, you have to make a POST request to [http://browserid.org/verify](http://browserid.org/verify), with two parameters: the assertion and the audience, which is simply the hostname of your site. This has to be done from your server. For security reasons, it won't work if you do it as an ajax request from the user's browser. What I suggest is that you call a url on your server from the javascript callback which will be in charge of itself making the request to browserid.org. Do it as a POST request as that assertion is a *long* string. This an example implementation for the [Slim framework](http://www.slimframework.com/):
 {% highlight php %}
@@ -72,7 +72,7 @@ This call to the browserID API returns some json_encoded stuff, for example some
     }
 {% endhighlight %}
 
-####Login or register
+#### Login or register
 
 If you don't get anything, or the status is not okay, something failed. Otherwise, great, your user just asked to be logged in! (or registered)
 

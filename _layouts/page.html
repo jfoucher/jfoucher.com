@@ -1,31 +1,27 @@
----
-layout: base
----
-        {% include header-about.html %}
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
-		<div id="notebook" class="center clear">
-            <h2 class="post-title">
-                <a href="{{ page.url }}" title="Permanent link to {{ page.title | strip_html }}">
-                    {{ page.title }}
-                </a>
-            </h2>
-            <div class="meta">
-                <div class="hero">
+{% include head.html %}
 
-                    <p>
-                        {{page.excerpt}}
-                    </p>
-                </div>
+<body>
 
-                <span class="date" title="{{ page.date }}">
-                    <span class="published">First published&thinsp;&bull;</span>
-                    <span class="day">09</span>
-                    <span class="month"><abbr>Mar</abbr></span>
-                    <span class="year">2004</span>
-                </span>
-            </div> <!-- /.meta -->
-            <div class="page-content page">
+   {% include header.html %}
 
-                {{ content }}
-            </div> <!-- /.page-content -->
-        </div> <!-- /#notebook.center.clear -->
+   <div class="content">
+      <div class="container">
+         <div class="post">
+            <h1 class="pageTitle">{{ page.title }}</h1>
+            {{ content }}
+            </div>
+      </div>
+   </div><!-- end .content -->
+
+   {% include footer.html %}
+   {% include scripts.html %}
+
+</body>
+
+</html>

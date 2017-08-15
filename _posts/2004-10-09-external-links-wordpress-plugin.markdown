@@ -5,7 +5,7 @@ tags: []
 excerpt:
 date: Sat Oct 09 12:47:55 +0200 2004
 ---
-###External links:
+### External links:
 
 The little images that appear after an external link on this site used to be created by pure CSS, using the following rules:
 
@@ -22,7 +22,7 @@ The little images that appear after an external link on this site used to be cre
 
 But, as you may know, this does not work in Internet Explorer. So I decided to write a little plugin that would give a specific class attribute to all external links, so that they can be styled in a manner recognizable to IE.
 
-###Languages
+### Languages
 
 Additionally, as this is a bilingual blog, I like to show an language text after each link, like <a href="http://daniel.glazman.free.fr/weblog/archived/2002_09_15_glazblogarc.html#81664011" hreflang="en">this</a>. I used to do it in pure CSS, like so:
 
@@ -35,7 +35,7 @@ Additionally, as this is a bilingual blog, I like to show an language text after
 
 but you guessed it, it doesn't work in IE, so this little plugin takes care of that as well... All you need to do is add an hreflang="whatever" attribute to your links.
 
-###Installation:
+### Installation:
 
 * Download the [gzip file](http://jfoucher.com/source/external_links.gz)
 * Extract it
@@ -45,7 +45,7 @@ but you guessed it, it doesn't work in IE, so this little plugin takes care of t
 
 That's it ! Now you can define styles:
 
-###For example:
+### For example:
 
      /* External links style */
      a.external-link, a.external-link:visited

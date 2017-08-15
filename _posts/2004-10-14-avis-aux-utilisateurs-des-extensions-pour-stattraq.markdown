@@ -5,7 +5,7 @@ tags: []
 excerpt:
 date: Thu Oct 14 17:01:58 +0200 2004
 ---
-###Le Problème
+### Le Problème
 
 C'est que si vous utilisez une structure des permaliens où l'id du billet n'est pas présente, telle que celle-ci:
 {% highlight php %}
@@ -13,7 +13,7 @@ C'est que si vous utilisez une structure des permaliens où l'id du billet n'est
 {% endhighlight %}
 L'id du billet n'est pas ajouté à la table de Stat Traq, ce qui fait que mon plugin <a href="http://jfoucher.com/2004/10/popular-posts-wordpress-plugin">Populaires</a> ne comprend plus ce qu'il lui arrive. La solution est en fait très simple
 
-###La Solution (j'espère)
+### La Solution (j'espère)
 
 Dans le fichier stattraq.php, vous trouverez les lignes suivantes (25 et 26)
 {% highlight php %}

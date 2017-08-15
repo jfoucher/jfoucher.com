@@ -16,7 +16,7 @@ date: Fri Nov 20 10:00:29 +0100 2009
 * "pinging" someone just opens a new wave with that contact : I could have done that myself... Do something more, like, I don't know, send an email
 * can't search trough a list to add contacts that are on wave
 
-###And now (oh the irony) to the Wave invite giveaway.
+### And now (oh the irony) to the Wave invite giveaway.
 
 Very easy : leave a comment on this post with your real email address, and on Monday at 12 GMT I'll pick ten winners. (yes I have that many unused invites...)
 

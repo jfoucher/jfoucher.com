@@ -2,7 +2,7 @@
 layout: post
 title: Building a webGL and webworkers boat hydrostatics app
 tags: [javascript, webgl, webworker, yachtdesign]
-excerpt: "I had a need for a simple to do some calculations for a boat design I'm studying, so I built it from scratch with webGL and webworkers"
+excerpt: "I had a need for a simple program to do some calculations for a boat design I'm studying, so I built it from scratch with webGL and webworkers"
 hn_like_button: true
 date: Tue Dec 20 10:17:07 +0200 2016
 ---
@@ -17,6 +17,6 @@ So webworkers to the rescue. I had never really used them either, but they promi
 
 The calculations are accurate, I've had them checked in many cases against an old Hydromax version, which is an established solution in the field, and the results match within about a percentage point. The only difficulty I'm still struggling with is to properly draw the underwater stations and the waterline, but this is only a display bug and does not affect the results. What happens is that there are many edge cases that have to be accounted for, depending on the type and quality of the input file. I'm still working on that.
 
-If you like designing boats and currently do these kinds of calculations by hand or in a spreadsheet, or if your current software does not solve for trim, you will definitely want to [give this tool a try](https://hydro.marinetechs.com)
+If you like designing boats and currently do these kinds of calculations by hand or in a spreadsheet, or if your current software does not solve for trim, you will definitely want to [give this tool a try](https://hydro.marinetechs.com/?utm_source=jfoucher&utm_campaign=launch&utm_medium=blog)
 
 If you do, and you like it, or you hate it, or it doesn't work, or anything, your feedback would be invaluable. Contact me [by email](mailto:j_foucher@marinetechs.com) or through [this blog's contact form](http://jfoucher.com/about.html#contactForm).

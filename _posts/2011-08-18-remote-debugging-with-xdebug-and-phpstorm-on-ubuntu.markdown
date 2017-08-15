@@ -2,7 +2,7 @@
 layout: post
 title: Remote debugging with Xdebug and PhpStorm on Ubuntu
 tags: []
-excerpt: Phpstorm allows incoming connection from Xdebug to enable variable inspection, breakpoints and so on in your favorite IDE
+excerpt: Phpstorm allows incoming connection from Xdebug to enable variable inspection, breakpoints and so on in your favorite IDE.
 date: Thu Aug 18 01:09:13 +0200 2011
 ---
 Being able to debug your php application right from your IDE is something that you can't fully realise the power of, unless you've tried it. The advantages are immediately obvious: as soon as the connection from Xdebug is successful, you are blinded by variable inspection, code stepping, breakpoints, etc... Debugging heaven!

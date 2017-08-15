@@ -2,26 +2,26 @@
 layout: post
 title: A Phing task to update your Twitter status
 tags: []
-excerpt: Phing, a build tool for PHP, written in PHP, allows one to do practically anything when building your project. Today we write a custom task to update your twitter status upon a succcessfull build
+excerpt: Phing, a build tool for PHP, written in PHP, allows one to do practically anything when building your project. Today we write a custom task to update your twitter status upon a succcessfull build.
 date: Wed Jun 29 14:10:00 +0200 2011
 ---
-###Phing and Twitter
+### Phing and Twitter
 
 I recently starting working with <a title="PHP build and deployment tool" href="http://www.phing.info">phing</a> to automate the build and deployement process for the web apps I'm building. I use it to compile my LESS files to CSS and minimize then, to compress and concatenate the javascript files, to optimize images using <a href="http://www.smushit.com/">smushit</a>, etc...
 
 I like to be able to comunicate exactly what I'm doing, and thankfully Phing has a built in task to email a message to a list of recipients, which is good, but slightly old school. I wanted something that would be able to integrate readily with twitter, i.e. update my status when a build was completed. I saw <a href="http://codeinthehole.com/archives/14-Phing-task-to-update-Twitter-status.html">this post</a>, which unfortunately uses Basic Auth. As you doubtless know, <a href="http://dev.twitter.com/pages/basic_auth_shutdown">Twitter deprecated this form of authentication</a>, and now asks all users to authenticate using <a href="http://dev.twitter.com/pages/basic_to_oauth">OAuth</a>.
 
-###Download twitterOAuth library
+### Download twitterOAuth library
 
 That meant I had to roll my own phing task... However, thanks to great work by cleverer people, doing it was quite simple. Using <a href="http://abrah.am/">Abraham Williams'</a> <a href="https://github.com/abraham/twitteroauth">twitteroauth</a> library means that the coding I'd have to do was greatly reduced. Awesome, because <a href="http://www.codinghorror.com/blog/2005/08/how-to-be-lazy-dumb-and-successful.html">I aim to be lazy</a>.
 
 The first step is to <a href="https://github.com/abraham/twitteroauth/tarball/master">download the twitteroauth library</a> from github. Extract it to a temporary folder and copy the subfolder {% highlight bash %}twitteroauth{% endhighlight %} to the folder where your fing tasks are stored (on my system it is {% highlight bash %}/usr/share/php/phing/tasks/my/{% endhighlight %}. Please note you might have to create the {% highlight bash %}my/{% endhighlight %} folder within {% highlight bash %}/usr/share/php/phing/tasks/{% endhighlight %}. You will need root privileges for these steps.
 
-###Register application with Twitter
+### Register application with Twitter
 
 Secondly, you need to <a href="https://dev.twitter.com/apps/new">register an application with twitter</a>, as you will need a consumer key and consumer secret later on. Please <a href="https://dev.twitter.com/apps/new">do so now</a>, and come back once you have your app data available.
 
-###Create the custom phing task
+### Create the custom phing task
 
 Next up is creating the actual task PHP class. Create an empty file named TwitterUpdateTask.php {% highlight bash %}sudo touch /usr/share/php/phing/tasks/my/TwitterUpdateTask.php{% endhighlight %} and open it for editing with your favorite editor. We'll use gedit : {% highlight bash %}gksu gedit /usr/share/php/phing/tasks/my/TwitterUpdateTask.php{% endhighlight %}
 
@@ -61,7 +61,7 @@ The code for this file is as shown below:
     }
 
 
-###Get the OAuth token and secret
+### Get the OAuth token and secret
 
 Don't close this file, we still need to add the authentication data to it. You can already place your consumer key and consumer secret in the apropriate {% highlight php %}define(){% endhighlight %} calls (the first two lines), but if not, we'll do it now.
 
@@ -78,7 +78,7 @@ Copy this code to the corresponding spot in the TwitterUpdateTask.php file, over
 
 Please note though that I'm not making any claims as to how secure this is or whatever. I don't store any of your data anywhere, but if sending your application consumer token and secret worries you, find another way to get the Oauth tokens.
 
-###Create the build file
+### Create the build file
 
 First, we define the custom task:
 {% highlight xml %}<taskdef name="twitterupdate" classname="phing.tasks.my.TwitterUpdateTask" />{% endhighlight %}

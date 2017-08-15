@@ -2,7 +2,7 @@
 layout: post
 title: Installing and running APC cache with CodeIgniter
 tags: []
-excerpt: We take advantage of Codeigniter 2's cached mechanism to dramatically speed up our sites with APC
+excerpt: We take advantage of Codeigniter 2's cached mechanism to dramatically speed up our sites with APC.
 date: Sun Feb 13 23:33:33 +0100 2011
 ---
 Codeigniter 2 now includes an excellent cache driver, which makes it dead easy to use any one of the great available cache librairies such as <a href="http://php.net/apc">APC</a> o <a href="http://www.memcached.org/">memcached</a>. In this post I will focus on APC, it's installation on an <a href="/?p=193">Ubuntu 10.04 server</a>, and a few benchmarks to compare the various cache systems.  For my testing, I will use an Ubuntu Server installation, on a VirtualBox virtual machine with 256 Mb of RAM and a single processor. This enables me to test things until everything breaks, than just scrap that VM and start with a clean one. However, a description of this setup is a story for another day...

@@ -1,7 +1,7 @@
 --- 
 layout: post
 title: BlueIce Plugin
-excerpt: blueice used to be an anti-cms, but now it's dead
+excerpt: blueice used to be an anti-cms, but now it's dead.
 tags: [plugin, php, webdev]
 
 date: Mon Dec 14 17:59:32 +0100 2009

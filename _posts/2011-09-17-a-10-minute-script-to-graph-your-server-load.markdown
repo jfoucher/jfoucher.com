@@ -2,7 +2,7 @@
 layout: post
 title: A 10 minute script to graph your server load
 tags: [sysadmin, php]
-excerpt: I needed to monitor the load on my web server like, right <strong>now</strong>, so I wrote this script
+excerpt: I needed to monitor the load on my web server like, right <strong>now</strong>, so I wrote this script.
 date: Thu Sep 17 01:09:13 +0200 2011
 ---
 This is a quick and dirty PHP script that I whipped up in about 10 minutes, used to show the load averages on the server where it is uploaded.
