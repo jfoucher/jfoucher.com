@@ -79,6 +79,7 @@ MENU STYLING
 		  border-bottom: 2px solid lighten($background-color, 5%);
 
 		  a {
+			font-family: $sans-serif;
 		  	color: white;
 		  	text-decoration: none;
 		  	display: block;
@@ -104,6 +105,7 @@ MENU STYLING
 }
 
 .nav-toggle {
+  font-family: $sans-serif;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -458,34 +460,27 @@ PAGINATION STYLING
 POST LIST STYLING
 ***************/
 
-.posts {
+.posts, .projects {
 	li {
-		margin-bottom: 4rem;
+		margin-bottom: 2rem;
 		position: relative;
 
-		&:before {
-			content: "";
-			position: absolute;
-			bottom: -2rem;
-			left: 0;
-			background: darken(white, 10%);
-			height: 2px;
-			width: 60px;
-		}
-
 		p.meta {
-			text-align: center;
 			color: lighten(black, 50%);
 			font-family: $sans-serif;
 			font-weight: 300;
-			font-size: 0.9em;
+			font-size: 1em;
 		}
 
 		a {
 			text-decoration: none;
-
 			&:hover {
-				text-decoration: underline;
+				text-decoration: none;
+			}
+			img {
+				display: block;
+				margin: 1em auto;
+				height: 195px;
 			}
 		}
 
@@ -498,6 +493,30 @@ POST LIST STYLING
 
 		h3 {
 			margin: 0 0 .5em;
+		}
+	}
+}
+
+.posts {
+	li {
+		margin-bottom: 4rem;
+		&:before {
+			content: "";
+			position: absolute;
+			bottom: -2rem;
+			left: 0;
+			background: darken(white, 10%);
+			height: 2px;
+			width: 60px;
+		}
+		a {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		p.meta {
+			text-align: center;
+			font-size: 0.9em;
 		}
 	}
 }

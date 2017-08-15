@@ -43,6 +43,19 @@ HOMEPAGE STYLING
 		margin: 0 auto 1.5em;
 	}
 
+	.projects{
+		// @include span(12 of 12);
+		float: none;
+		margin: 0 auto 1.5em;
+		li {
+			@include span(6 of 12);
+			display: inline-block;
+			&:nth-child(2n){
+				margin-right: 0;
+			}
+		}
+	}
+
 	.pageTitle {
 		margin: 2rem auto 1em;
 	}
@@ -77,9 +90,11 @@ HEADER STYLING
 	nav {
 		float: left;
 		clear: left;
-
+		margin-left: -10px;
+		margin-left: calc(-5px - .25em);
 		ul {
 			margin: 0;
+			
 			li {
 				display: inline;
 				line-height: 3em;

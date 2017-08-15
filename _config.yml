@@ -4,7 +4,7 @@ clean_desc: Jonathan Foucher's blog & web development notebook
 
 sass:
     sass_dir: _sass
-    style: compressed
+    # style: compressed
 
 url: https://jfoucher.com
 baseurl: ""
@@ -22,16 +22,22 @@ paginate: 6
 
 navigation:
  - title: Home
-   url: /index.html
+   url: /
  - title: About
    url: /about
  - title: Contact
    url: /contact
+ - title: Projects
+   url: /projects
 
 social:
    github: jfoucher
    twitter: jfoucher
    facebook: jfoucher
    email: jfoucher@gmail.com
+
+collections:
+  projects:
+    permalink: /projects/:path
 
 google_analytics: "UA-8465441-2"

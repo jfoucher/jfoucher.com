@@ -1,0 +1,23 @@
+---
+layout: default
+title: My projects
+---
+
+<div class="home" id="home">
+
+  <ul class="noList projects">
+
+    {% for project in site.projects %}
+      <li>
+        <span class="date">{{ project.date | date: '%B %Y' }}</span>
+        <a href="{{ project.project_url }}" title="Visit project {{ project.name }}" target="_blank">
+          <h3>{{ project.title }}</h3>
+          <img src="{{ project.image }}" />
+          <p class="meta">{% if project.excerpt %}{{ project.excerpt | strip_html | strip_newlines | truncate: 500 }}{% else %}{{ project.content | strip_html | strip_newlines | truncate: 500 }}{% endif %}</p>
+        </a>
+      </li>
+
+    {% endfor %}
+  </ul>
+
+</div>
