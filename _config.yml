@@ -4,7 +4,7 @@ clean_desc: Jonathan Foucher's blog & web development notebook
 
 sass:
     sass_dir: _sass
-    # style: compressed
+    style: compressed
 
 url: https://jfoucher.com
 baseurl: ""
