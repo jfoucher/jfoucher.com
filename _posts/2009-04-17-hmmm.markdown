@@ -1,0 +1,8 @@
+--- 
+layout: post
+title: Hmmm...
+tags: []
+excerpt:
+date: Fri Apr 17 06:33:36 +0200 2009
+---
+I recently installed the latest Wordpress on another website I designed, about <a href="http://energies-vertes.org">renewable energy</a> and it's really powerful when I compare it to the ridiculous simplicity of this blog I'm using here... If anyone would like to try it, I'll gladly pass on the source code, though I'm sure I will be so ashamed of showing my poor coding skills to the world... Anyway, leave a comment if you want to take a look at it.

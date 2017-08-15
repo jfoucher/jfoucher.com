@@ -1,0 +1,43 @@
+---
+layout: default
+title: Geeky Nuggets
+---
+
+<div class="home" id="home">
+
+  <div class="post">
+    {% if paginator.posts[0].image %}
+    <div class="featuredImage">
+      <img src="{{ '/assets/img/' | prepend: site.baseurl | append: paginator.posts[0].image }}" alt="" />
+    </div>
+    {% endif %}
+    <h1 class="postTitle">{{ paginator.posts[0].title }}</h1>
+    <p class="meta">{{ paginator.posts[0].date | date: '%B %d, %Y' }} | <span class="time">{{ paginator.posts[0].content | number_of_words | divided_by:180 }}</span> Minutes Read</p>
+
+    {{ paginator.posts[0].content }}
+  </div>
+
+  <h3 style="text-align: center; margin-top: 2em">Older posts</h3>
+
+  <ul class="posts noList">
+
+    {% for post in paginator.posts offset:1 %}
+      <li>
+        <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
+        <h3><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+        <p class="meta">{{ paginator.posts[0].date | date: '%B %d, %Y' }} | <span class="time">{{ paginator.posts[0].content | number_of_words | divided_by:180 }}</span> Minutes Read</p>
+        <p class="description">{% if post.excerpt %}{{ post.excerpt | strip_html | strip_newlines | truncate: 500 }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 500 }}{% endif %}</p>
+      </li>
+
+    {% endfor %}
+  </ul>
+  <!-- Pagination links -->
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous button__outline">Newer Posts</a> 
+    {% endif %}
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="next button__outline">Even older Posts</a>
+    {% endif %}
+  </div>
+</div>
