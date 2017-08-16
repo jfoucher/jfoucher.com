@@ -5,6 +5,7 @@ tags: [javascript, project, web]
 excerpt: "This year I decided to try and develop one prject every month. Here's how January and February went"
 hn_like_button: true
 date: Wed Mar 01 10:17:07 +0200 2017
+hn_id: 13422101
 ---
 
 So at the start of January I discovered the [One Project per Month](https://github.com/1ppm/1ppmLog) project, and decided to give it a go. You can follow my progress [here](https://github.com/1ppm/1ppmLog/blob/master/HallOfFame.md#jfoucher) and I'll also try to post here somewhat regularly about my experiences.

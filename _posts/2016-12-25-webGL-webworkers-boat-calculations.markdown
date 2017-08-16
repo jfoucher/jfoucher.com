@@ -5,6 +5,7 @@ tags: [javascript, webgl, webworker, yachtdesign]
 excerpt: "I had a need for a simple program to do some calculations for a boat design I'm studying, so I built it from scratch with webGL and webworkers."
 hn_like_button: true
 date: Tue Dec 20 10:17:07 +0200 2016
+hn_id: 13219381
 ---
 
 I've recently felt the urge to start designing boats again, as I have had some ideas I wanted to explore, specifically for boats of the [Mini 650 class](http://classemini.org). The software I use has basic hydrostatics capabilities, but only for an upright boat. It cannot calculate the GZ curve, or get the righting moment at specific heel angles, which is a crucial data for the kind of craft I wanted to design.

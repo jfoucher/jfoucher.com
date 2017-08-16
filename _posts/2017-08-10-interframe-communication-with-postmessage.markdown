@@ -3,7 +3,7 @@ layout: post
 title: Communication between iframes with React and postMessage for an html template editor
 tags: [javascript, react, iframe, webdev]
 excerpt: "I decided to roll my own HTML template editor because most opensource ones, while good looking and well designed, are impossible to use."
-hn_like_button: true
+hn_id: 15022078
 ---
 
 I'm working on a project where I need some sort of simple landing page editor, where "blocks" are defined at the template level and they can be rearranged, text changed or added, and not much more. Most of the software I could find was either way too complex for my needs, gave the user the freedom to _completely_ destroy the template, or were otherwise pretty useless. 
