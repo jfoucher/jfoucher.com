@@ -6,8 +6,8 @@ title: My projects
 <div class="home" id="home">
 
   <ul class="noList projects">
-
-    {% for project in site.projects %}
+    {% assign projects = site.projects | sort: 'date' %}
+    {% for project in projects reversed %}
       <li>
         <span class="date">{{ project.date | date: '%B %Y' }}</span>
         <a href="{{ project.project_url }}" title="Visit project {{ project.name }}" target="_blank">
