@@ -2,25 +2,6 @@
 GLOBAL STYLES
 ***************/
 
-// A better box-sizing practice http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-body {
-	font-family: $serif;
-	line-height: 1.75;
-	font-size: 112.5%; // 18px base font size
-	color: $black;
-	overflow-x: hidden;
-
-	p , ul {
-		margin: 0 0 2rem;
-	}
-}
 
 // Text Selection Styling
 ::-moz-selection {
