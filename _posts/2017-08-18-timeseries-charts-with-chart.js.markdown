@@ -3,7 +3,7 @@ layout: post
 title: Timeseries charts with Chart.js
 tags: [javascript, react, charts, chart.js]
 excerpt: "This is more of a note to myself as I seem to always take ages to do time series charts with Chart.js and somehow can't remember how I did it last time."
-image: /uploads/2017/08/hn.png
+image: /uploads/2017/08/chart.png
 hn_id: 15044479
 ---
 
