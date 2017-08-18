@@ -15,9 +15,8 @@ layout: default
 </div>
 
 {% if page.hn_id %}
-<h4 id="comments" style="margin-top:4em">Comments from <a href="https://news.ycombinator.com/item?id={{page.hn_id}}">HN</a> <a href="https://news.ycombinator.com/item?id={{ page.hn_id }}" style="font-weight:normal; font-size: 0.8em;margin-left:20px">Discuss</a></h4>
+<h4 id="hnComments" style="margin-top:4em" data-hn-id="{{ page.hn_id }}">Comments from <a href="https://news.ycombinator.com/item?id={{page.hn_id}}">HN</a> <a href="https://news.ycombinator.com/item?id={{ page.hn_id }}" style="font-weight:normal; font-size: 0.8em;margin-left:20px">Discuss</a></h4>
 
-<script>hnId = {{ page.hn_id }} </script>
 <script src="{{ '/assets/js/hn.js' | prepend: site.baseurl }}"></script>
 {% endif %}
 
