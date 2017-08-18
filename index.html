@@ -25,7 +25,7 @@ title: Geeky Nuggets
       <li>
         <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
         <h3><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
-        <p class="meta">{{ paginator.posts[0].date | date: '%B %d, %Y' }} | <span class="time">{{ paginator.posts[0].content | number_of_words | divided_by:180 }}</span> Minutes Read</p>
+        <p class="meta">{{ post.date | date: '%B %d, %Y' }} | <span class="time">{{ post.content | number_of_words | divided_by:180 }}</span> Minutes Read</p>
         <p class="description">{% if post.excerpt %}{{ post.excerpt | strip_html | strip_newlines | truncate: 500 }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 500 }}{% endif %}</p>
       </li>
 
