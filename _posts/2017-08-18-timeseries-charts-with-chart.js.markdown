@@ -10,7 +10,7 @@ Somehow I always end up having to do timeseries charts. Chart.js is my tool of c
 
 So anyway, note to self : this is how you do timeseries graphs in chart.js
 
-```` js
+``` js
 
 const ctx = document.getElementById('chartCanvas').getContext('2d');
 const data = {
