@@ -3,6 +3,7 @@ layout: post
 title: Communication between iframes with React and postMessage for an html template editor
 tags: [javascript, react, iframe, webdev]
 excerpt: "I decided to roll my own HTML template editor because most opensource ones, while good looking and well designed, are impossible to use."
+image: /uploads/2017/08/leanr.jpg
 hn_id: 15022078
 ---
 

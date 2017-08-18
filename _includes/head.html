@@ -27,4 +27,14 @@
         </style>
 
     {% if site.google_analytics %} {% include google_analytics.html %} {% endif %}
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@jfoucher" />
+<meta name="twitter:title" content="{{ page.title }}" />
+<meta name="twitter:description" content='Read "{{ page.title }}" on Geeky Nuggets' />
+{% if page.image %}
+<meta name="twitter:image" content="{{ page.image | prepend: site.baseurl | prepend: site.url }}" />
+{% endif %}
+
 </head>
