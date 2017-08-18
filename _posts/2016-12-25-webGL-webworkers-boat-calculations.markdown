@@ -4,6 +4,7 @@ title: Building a webGL and webworkers boat hydrostatics app
 tags: [javascript, webgl, webworker, yachtdesign]
 excerpt: "I had a need for a simple program to do some calculations for a boat design I'm studying, so I built it from scratch with webGL and webworkers."
 hn_like_button: true
+image: /uploads/2017/08/hydro.jpg
 date: Tue Dec 20 10:17:07 +0200 2016
 hn_id: 13219381
 ---
