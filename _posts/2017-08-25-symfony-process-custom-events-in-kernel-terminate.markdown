@@ -151,4 +151,5 @@ I'm not saying the is the best or even the only method to achieve this, just the
 
 ### Profiler results
 
+{:.image}
 ![Profiler results](/uploads/2017/08/symfony-kernel.terminate.png)

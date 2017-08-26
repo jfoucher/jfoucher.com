@@ -199,6 +199,9 @@ POST STYLING
 		text-align: center;
 		margin-top: 2rem;
 		margin-bottom: 1rem;
+		a {
+			text-decoration: none;
+		}
 	}
 
 	blockquote {
@@ -254,11 +257,6 @@ POST STYLING
 		}
 	}
 
-	img {
-		margin-bottom: 2rem;
-		margin-left: -20%;
-		max-width: 140%;
-	}
 
 	.highlight {
 		clear: both;

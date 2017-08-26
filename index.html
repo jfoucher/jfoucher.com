@@ -7,11 +7,11 @@ title: Geeky Nuggets
 
   <div class="post">
     {% if paginator.posts[0].image %}
-    <div class="featuredImage">
-      <img src="{{ '/assets/img/' | prepend: site.baseurl | append: paginator.posts[0].image }}" alt="" />
-    </div>
+    <!-- <div class="featuredImage">
+      <img src="{{ paginator.posts[0].image | prepend: site.baseurl }}" alt="" />
+    </div> -->
     {% endif %}
-    <h1 class="postTitle">{{ paginator.posts[0].title }}</h1>
+    <h1 class="postTitle"><a href="{{ paginator.posts[0].url | prepend: site.baseurl }}">{{ paginator.posts[0].title }}</a></h1>
     <p class="meta">{{ paginator.posts[0].date | date: '%B %d, %Y' }} | <span class="time">{{ paginator.posts[0].content | number_of_words | divided_by:180 }}</span> Minutes Read</p>
 
     {{ paginator.posts[0].content }}
