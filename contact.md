@@ -7,9 +7,9 @@ title: Contact Jonathan Foucher
   <h1 class="pageTitle">Contact Me</h1>
   <div class="contactContent">
     <p class="intro">Contact me for any info, and I'll get back to you pretty soon !</p>
-    Email : [jfoucher@gmail.com](mailto:jfoucher@gmail.com)
+    Email : <a href="mailto:jfoucher@gmail.com">jfoucher@gmail.com</a>
   </div>
-  <form action="http://formspree.io/jfoucher@gmail.com" method="POST">
+  <form id="contactForm" action="https://formspree.io/jfoucher@gmail.com" method="POST">
     <label for="name">Name</label>    
     <input type="text" id="name" name="name" class="full-width"><br>
     <label for="email">Email Address</label>
