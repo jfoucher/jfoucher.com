@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Facebook Messenger bot
+title: Messenger bot
 name: AtoZ
 tags: [symfony, php, facebook, messenger, bot]
 excerpt: "A Facebook Messenger bot that lets you know as soon as any product of your choice is reduced on amazon"
