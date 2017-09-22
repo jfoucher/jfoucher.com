@@ -6,6 +6,9 @@
     {% if page.title == 'Contact Jonathan Foucher' %}
     <meta name="referrer" content="origin">
     {% endif %}
+    {% if page.redirect %}
+    <meta http-equiv="refresh" content="0;URL='{{ page.redirect }}'" /> 
+    {% endif %}
     <title>{{ page.title }}</title>
 
     <!-- Favicon -->
