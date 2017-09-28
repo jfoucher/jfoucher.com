@@ -2,7 +2,7 @@
 layout: post
 title: One project per month during 2017. Here are my first two for January and february
 tags: [javascript, project, web]
-excerpt: "This year I decided to try and develop one prject every month. Here's how January and February went"
+excerpt: "This year I decided to try and develop one project every month. Here's how January and February went"
 hn_like_button: true
 date: Wed Mar 01 10:17:07 +0200 2017
 image: /uploads/2017/08/budgt.jpg

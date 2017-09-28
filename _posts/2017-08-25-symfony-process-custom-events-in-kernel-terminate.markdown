@@ -21,7 +21,7 @@ For a primer about Symfony events, I recommend the [official Symfony documentati
 
 Custom events are trigerred from our own code, generally in the controller, and it goes something like this:
 
-```php?start_inline=1
+{% highlight php startinline=1 %}
 /** 
 * @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface 
 */
@@ -31,14 +31,14 @@ $dispatcher = $this->get('event_dispatcher');
 $event = new NewUserEvent($user, $request);
 //Dispatch the event
 $dispatcher->dispatch(AppEvents::NEW_USER, $event);
-```
+{% endhighlight %}
 
 ### The event subscriber
 
 Then we have an EventSubscriber that will listen to our custom events, in my case it's called `ApiSubscriber` and is located in `src/EventSubscriber`. In this case it listens to two different events: 
 `AppEvents::NEW_USER` and `AppEvents::DELETE_USER`.
 
-```php?start_inline=1
+{% highlight php startinline=1 %}
 class ApiSubscriber implements EventSubscriberInterface {
 
     protected $container;
@@ -58,7 +58,7 @@ class ApiSubscriber implements EventSubscriberInterface {
     //...
 }
 
-```
+{% endhighlight %}
 
 ### Configure the service
 
@@ -66,14 +66,14 @@ You will notice that I inject the container as it makes it easy to get everythin
 
 Don't forget to configure the event subscriber in `app/config/services.yml` like so:
 
-``` yml
+{% highlight yaml %}
 services:
     api.subscriber:
         class: AppBundle\EventSubscriber\ApiSubscriber
         arguments: ["@service_container"]
         tags:
             - { name: kernel.event_subscriber }
-```
+{% endhighlight %}
 
 Now our event subscriber is ready for action whenever we trigger the event from our controllers.
 
@@ -84,7 +84,7 @@ The event handling function is where the magic happens. Say when a new user is c
 
 Here it is, I'll explain later
 
-```php?start_inline=1
+{% highlight php startinline=1 %}
 public function newUser(NewUserEvent $newUserEvent)
 {
     // Get the request from our custom event
@@ -104,7 +104,7 @@ public function newUser(NewUserEvent $newUserEvent)
         // Do things on the API
     // });
 }
-```
+{% endhighlight %}
 
 So, from this code it is clear what happens. We first get the request from our custom event, then we set custom attributes on the request (simply because we need to retrieve them later from our static function) and finally we add a new listener (our static function, could also be an anonymous function) to the kernel.terminate event.
 
@@ -114,7 +114,7 @@ The final piece of the puzzle is our `createThingOnApi` static function that wil
 
 Here it is:
 
-```php?start_inline=1
+{% highlight php startinline=1 %}
 public static function createThingOnApi(PostResponseEvent $event)
 {
     $attrs = $event->getRequest()->attributes;
@@ -139,7 +139,7 @@ public static function createThingOnApi(PostResponseEvent $event)
 
     curl_exec($ch);
 }
-```
+{% endhighlight %}
 
 This basically retrives our data from the request attributes, and then make some sort of curl request to an external API.
 

@@ -26,7 +26,7 @@ Secondly, you need to <a href="https://dev.twitter.com/apps/new">register an app
 Next up is creating the actual task PHP class. Create an empty file named TwitterUpdateTask.php {% highlight bash %}sudo touch /usr/share/php/phing/tasks/my/TwitterUpdateTask.php{% endhighlight %} and open it for editing with your favorite editor. We'll use gedit : {% highlight bash %}gksu gedit /usr/share/php/phing/tasks/my/TwitterUpdateTask.php{% endhighlight %}
 
 The code for this file is as shown below:
-
+{% highlight php %}
     <?php
     require_once ("phing/Task.php");
     require_once ("phing/tasks/my/twitteroauth/twitteroauth.php");
@@ -59,7 +59,7 @@ The code for this file is as shown below:
             }
         }
     }
-
+{% endhighlight %}
 
 ### Get the OAuth token and secret
 

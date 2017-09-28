@@ -9,7 +9,7 @@ hn_id: 15022078
 
 I'm working on a project where I need some sort of simple landing page editor, where "blocks" are defined at the template level and they can be rearranged, text changed or added, and not much more. Most of the software I could find was either way too complex for my needs, gave the user the freedom to _completely_ destroy the template, or were otherwise pretty useless. 
 
-{:.image}
+{: .image}
 ![Editor in action](/uploads/2017/08/leanr.jpg)
 
 If it was frustrating for me I imagine how it would feel for my users who need to do this quickly and efficiently. What I needed would't have drag and drop, nor 300 sliders for everything, neither would it give the user the ability to completely modify the template. (Users can provide custom HTML for their pages if they so choose). Anyway, all I _need_ was the ability to place some template blocks on a page, move them up and down, remove them, and change the text bits.
@@ -25,8 +25,8 @@ I used an iframe to hold the displayed template, as that allows complete style (
  Oh I forgot to say, I want to store somewhat structured data about the edits, not just the raw HTML, to enable easier further edits if necessary. [mobiledoc](https://github.com/bustle/mobiledoc-kit) seemed promising. I spent about an hour investigating it (my internet was slow that day, I swear!) before I realised it's basically markdown. I thought adapting it to my use case, but it felt futile (as in: too much work). So what was I on about ? ah yes, iframes ! Mmmm who doesn't love a  good iframe? You don't? Good, 'cause me neither. Anyway, inter-frame communication is like inter-process communication (or so says my buddy that does printer drivers for HP -- Yeah, I'll curse him on your behalf if you have an HP printer): you have to pass messages around, in our case with [`window.postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage). It works, it's great!
 
  Anyway, here's how it works: I like to think of it as communication between say a frontend and an API, mostly because of the asynchronous nature of the communication. So basically, the parent page get ready to receive messages from the iframe by listening to the "message" event, like so:
-    
- ``` js
+
+```js
     window.addEventListener('message', this.handleFrameTasks.bind(this))
 ```
 
@@ -34,14 +34,14 @@ I used an iframe to hold the displayed template, as that allows complete style (
 
  And then on the iframe side I have something like this:
 
-``` js
+{% highlight js %}
     // Send message to react
     var data = {
         action: 'deleteBlock',
         blockId: blockId,
     };
     top.postMessage(data, '*');
-```
+{% endhighlight %}
 
 In fact at the start I was `JSON.stringify()`ing the data I sent, as I remember it being necessary a few years ago, but that's not required anymore.
 
@@ -51,5 +51,5 @@ Did I mention that the iframe content is generated dynamically and injected in t
 
 Until then, keep coding !
 
-PS Oh about that ["One project per month challenge"]({% post_url 2016-03-01-one-project-per-month-first-budget-tracking %})? This one is bigger than I expected, so it will (has already been) longer than a month. It will be great, I hope. Everything you need for an early stage startup. [Contact me](/contact.html) if you'd like some more info.
+PS Oh about that [One project per month challenge]({% post_url 2016-03-01-one-project-per-month-first-budget-tracking %})? This one is bigger than I expected, so it will (has already been) longer than a month. It will be great, I hope. Everything you need for an early stage startup. [Contact me](/contact.html) if you'd like some more info.
 
