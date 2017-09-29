@@ -21,4 +21,4 @@ Get my [GPG key](http://jfoucher.com/jfoucher-6px.eu.asc) to contact me by email
 
 ### About this blog
 
-This blog is hosted on [github](http://github.com). It's a static website, generated with [Jekyll](http://jekyllrb.com/).
+This blog is hosted on [github](http://github.com). It's a static website, generated with [Stati](https://stati.jfoucher.com/).
