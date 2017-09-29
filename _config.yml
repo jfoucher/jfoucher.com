@@ -24,11 +24,11 @@ navigation:
  - title: Home
    url: /
  - title: About
-   url: /about
+   url: /about.html
  - title: Contact
-   url: /contact
+   url: /contact.html
  - title: Projects
-   url: /projects
+   url: /projects.html
 
 social:
    github: jfoucher
