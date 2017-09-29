@@ -32,3 +32,5 @@ The second plugin is a related posts plugin. For each post it calculates the lev
 So basically that's it, a fun project that I will probably continue to use and improve. If you'd like to give it a try, you can [get the latest release from github](https://github.com/jfoucher/stati/releases/latest) and, most importantly, [open an issue](https://github.com/jfoucher/stati/issues/new) if you run into a snag!
 
 PS. I just remembered I have a [history]({% post_url 2005-03-08-changes-coming-soon %}) of [doing this kind of thing]({% post_url 2005-03-09-new-blog %})
+
+UPDATE : Just got some [documentation](https://stati.jfoucher.com) online
