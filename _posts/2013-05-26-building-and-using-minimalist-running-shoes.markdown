@@ -4,6 +4,7 @@ title: How I built running shoes for my whole family in one sunday afternoon (Hu
 tags: [sport, running, shoes]
 excerpt: "I never run unless forced to, but today I decided to build modern/traditional running shoes for my whole family and go for a run. Boy am I sore."
 hn_like_button: true
+image: /uploads/2013/05/huarache-running-sandal-kid.jpg
 date: Sun May 26 21:17:07 +0200 2013
 ---
 
@@ -21,12 +22,14 @@ Trace your foot on paper and locate the holes as indicated in one of these guide
 
 Now the real work begins. We will need to hack at that tire, and it truly is tiresome work. I had some tin snips on hand which I thought would be perfect for  the job. They are in fact totally useless. I did the job with a hacksaw to cut through the metal ring where the tire meets the wheel, and then one of my trusty [Opinels](https://en.wikipedia.org/wiki/Opinel) to cut through the reinforced rubber outwall. If the knife is kept sharp, this is actually fairly easy work.
 
+{:.image}
 !["Cutting the tire"](http://jfoucher.com/uploads/2013/05/cutting-tire.jpg)
 
 I cut some rough pieces from the outerwall, one from each side of the tire to match the curvature of the outerwall to the natural curve of each foot.
 
 You then trace the outline of your paper pattern on the pieces you just cut, enabling you to have perfect tire soles for your huarache sandals.
 
+{:.image}
 !["Matching sole to template"](http://jfoucher.com/uploads/2013/05/cutting-soles.jpg)
 
 I then used a small drill bit, around 5mm to drill the holes.
@@ -37,10 +40,12 @@ The are many lacing systems that can be used, the one I used seemed simple enoug
 
 To pull the string through the holes, I used a piece of bent wire as a threader, and pliers to pull on it if need be. A [figure of 8 knot](http://en.wikipedia.org/wiki/Figure-eight_knot) locks the string in the toe hole. the string then goes throught the outer hole, around the heel, through the inner whole, and ties around the front part of the lace
 
+{:.image}
 !["Threading the cord"](http://jfoucher.com/uploads/2013/05/threading-cord.jpg)
 
 Here is the result: my son's sandals. He complained that they were not very comfortable though, so I changed the cord (which was too thin) and used a thicker braided one I had around, which is much more comfortable.
 
+{:.image}
 !["Huarache running sandal complete"](http://jfoucher.com/uploads/2013/05/huarache-running-sandal-kid.jpg)
 
 Once everyone had their sandals ready, I decided to go for a short run to try them out
