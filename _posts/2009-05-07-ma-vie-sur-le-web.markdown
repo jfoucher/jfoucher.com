@@ -11,4 +11,4 @@ Grâce aux <a title="Mes pipes sur Yahoo" href="http://pipes.yahoo.com/pipes/per
 - <a title="Les énergies renouvelables, le solaire photovoltaique, fabrication d'éoliennes" href="http://energies-vertes.org">Les Energies Vertes</a>
 - <a title="Mes photos sur flickr.com" href="http://www.flickr.com/photos/jfoucher/">Flickr</a>
 - <a title="Voir mon profile Twitter" href="http://twitter.com/energiesvertes">Twitter</a>
-- et <a title="Mes favoris sur del.icio.us" href="http://delicious.com/jfoucher">del.icio.us</a><
+- et <a title="Mes favoris sur del.icio.us" href="http://delicious.com/jfoucher">del.icio.us</a>

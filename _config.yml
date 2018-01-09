@@ -2,6 +2,9 @@ title: Geeky Nuggets
 description: Jonathan Foucher's blog <span class="amp">&amp;</span> web development notebook
 clean_desc: Jonathan Foucher's blog & web development notebook
 
+include:
+    - .gitlab-ci.yml
+
 sass:
     sass_dir: _sass
     style: compressed
@@ -19,6 +22,8 @@ markdown: kramdown
 highlighter: rouge
 gems: [jekyll-paginate, compass, normalize-scss, rouge, kramdown]
 paginate: 6
+
+plugins: [jekyll-seo-tag]
 
 navigation:
  - title: Home

@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{% if page.excerpt %}{{page.excerpt}}{% else %}{{ site.clean_desc }}{% endif %}">
+    <meta name="description" content="{% if page.excerpt %}{{page.excerpt | strip_html}}{% else %}{{ site.clean_desc }}{% endif %}">
     <meta name="generator" content="Stati (https://stati.jfoucher.com)" />
     {% if page.title == 'Contact Jonathan Foucher' %}
     <meta name="referrer" content="origin">
