@@ -5,6 +5,7 @@ tags: ['symfony', 'php', 'email', 'smtp']
 excerpt: Do you know Mailtrap.io? Well this is the same, but without sending (possibly) confidential data to a third party
 image: /uploads/2019/02/mailocal.png
 hn_id: 19270738
+date: Thu Feb 28 12:32:07 +0200 2019
 ---
 
 ### Testing emails
