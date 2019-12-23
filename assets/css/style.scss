@@ -27,3 +27,38 @@
 
 // Import media queries add more as you desire
 @media only screen and (min-width: 800px) { @import "800up";}
+
+a.video {
+    .img {
+        position: relative;
+    }
+
+    .img:before {
+        position: absolute;
+        top: calc(50% - 25px);
+        left: calc(50% - 25px);
+        width: 50px;
+        height: 50px;
+        border-style: solid;
+        content:'';
+        display:block;
+        box-sizing: border-box;
+        border-width: 25px 0 25px 50px;
+        border-color: transparent transparent transparent rgba(255,255,255,0.8);
+    }
+
+    .img:after {
+        position: absolute;
+        top: calc(50% - 40px);
+        left: calc(50% - 45px);
+        width: 80px;
+        height: 80px;
+        border-style: solid;
+        content:'';
+        display:block;
+        box-sizing: border-box;
+        border-width: 4px;
+        border-color: rgba(255,255,255,0.8);
+        border-radius: 40px;
+    }
+}

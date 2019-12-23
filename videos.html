@@ -1,0 +1,26 @@
+---
+layout: default
+title: Vidéos
+---
+
+<div class="home" id="home">
+
+
+  <ul class="noList projects">
+    {% assign videos = site.videos | sort: 'date' %}
+    {% for video in videos reversed %}
+      <li>
+        <span class="date">{{ video.date | date: '%B %Y' }}</span>
+        <a class="video" href="{{ video.url }}" title="Voir la vidéo {{ video.name }}">
+          <h3>{{ video.title }}</h3>
+          <div class="img">
+            <img src="{{ video.image }}" />
+          </div>
+          <p class="meta">{% if video.excerpt %}{{ video.excerpt | strip_html | strip_newlines | truncate: 500 }}{% else %}{{ video.content | strip_html | strip_newlines | truncate: 500 }}{% endif %}</p>
+        </a>
+      </li>
+
+    {% endfor %}
+  </ul>
+
+</div>

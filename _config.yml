@@ -34,6 +34,8 @@ navigation:
    url: /contact.html
  - title: Projects
    url: /projects.html
+ - title: Videos
+   url: /videos.html
 
 social:
    github: jfoucher
@@ -44,5 +46,8 @@ social:
 collections:
   projects:
     permalink: /projects/:path
+  videos:
+    permalink: /videos/:path.html
+    output: true
 
 google_analytics: "UA-8465441-2"
