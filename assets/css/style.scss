@@ -47,6 +47,14 @@ a.video {
         border-color: transparent transparent transparent rgba(255,255,255,0.8);
     }
 
+    .img:hover:after {
+        border-color: white;
+    }
+
+    .img:hover:before {
+        border-color: transparent transparent transparent white;
+    }
+
     .img:after {
         position: absolute;
         top: calc(50% - 40px);

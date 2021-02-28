@@ -14,10 +14,20 @@
       <div class="container">
          <div class="post">
             <h1 class="pageTitle">{{ page.title }}</h1>
-            <p style="text-align: center;">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ page.youtube_id }}" frameborder="0" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe>
+            <p style="text-align:center">
+            <video width="640" height="360" controls style="margin: 0 auto">
+              <source src="{{page.video}}.mp4" type="video/mp4">
+             <track label="Français" kind="subtitles" srclang="fr" src="{{page.video}}.vtt" default>
+              Your browser does not support the video tag.
+            </video>
             </p>
             {{ content }}
+            <p>
+                <a href="https://www.youtube.com/watch?v={{ page.youtube_id }}" target="_blank">Voir sur Youtube</a>
+            </p>
+            <p style="font-size: 0.8em;color: #999">
+                Les liens ci-dessus peuvent être des liens d'affiliation qui me permettent de recevoir quelques centimes quand vous achetez les produits vers lesquels ils envoient (sans surcoût pour vous). Si vous les utilisez je vous remercie grandement car, je l'avoue, cela me motive encore plus à faire des vidéos ! Et peut-être qu'un jour tous ces centimes additionnés me permettront de m'acheter une caméra un peu moins pourrie !
+            </p>
             </div>
       </div>
    </div><!-- end .content -->
