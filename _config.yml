@@ -5,9 +5,7 @@ clean_desc: Jonathan Foucher's blog & web development notebook
 include:
     - .gitlab-ci.yml
 
-sass:
-    sass_dir: _sass
-    style: compressed
+
 
 url: https://jfoucher.com
 baseurl: ""
@@ -20,10 +18,11 @@ kramdown:
 
 markdown: kramdown
 highlighter: rouge
-gems: [jekyll-paginate, compass, normalize-scss, rouge, kramdown]
+gems: [jekyll-paginate, normalize-scss, rouge, kramdown]
+
 paginate: 6
 
-plugins: [jekyll-seo-tag]
+plugins: [jekyll-seo-tag, jekyll-paginate]
 
 navigation:
  - title: Home
